@@ -1,12 +1,5 @@
-from classifiers import svm
-from classifiers import tree
-from classifiers import adaboost
-from classifiers import randomforest
-from classifiers import bagging
 from data import importdata
-
-from sklearn.utils import shuffle
-from numpy import array_str
+from runclassifiers import svm
 
 rettreeall = []
 retbaggingall = []
@@ -32,7 +25,7 @@ for num in range(0, 2):
     #german.data, german.target = shuffle(german.data, german.target, random_state=13)
     german.shuffle2()
     #print(german)
-    retsvclinear = svm.runsvc('linear',german.data,german.target,10)
+    retsvclinear = svm.runsvc('linear', german.data, german.target, 10)
     print("SVML czas: %f, wynik: %s" % (retsvclinear[1], retsvclinear[0]))
     retsvclinearall.append(reduce(lambda x, y: x + y, retsvclinear[0]) / len(retsvclinear[0]))
 

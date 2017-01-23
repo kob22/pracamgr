@@ -1,7 +1,8 @@
+from __future__ import division
 import numpy as np
 from sklearn import datasets
 from sklearn.utils import shuffle
-
+from texttable import Texttable
 
 
 """
@@ -44,11 +45,59 @@ class Bunch(dict):
 
 def importfile(file):
     np.set_printoptions(threshold=np.nan)
-    with open(file, 'r') as f:
-        datafile = np.loadtxt(f)
 
+    datafile = np.genfromtxt(file, delimiter=",", dtype="i8,i8,S1")
 
     data = datafile[:,:-1]
     target = datafile[:,-1]
 
     return Bunch(data=data, target = target)
+
+
+def load_german():
+    datafile = np.loadtxt("files/german.data", dtype='uint8')
+
+    data = datafile[:, :-1]
+    target = datafile[:, -1]
+    return Bunch(data=data, target=target)
+
+
+def load_haberman():
+    datafile = np.loadtxt("files/haberman.data", delimiter=",", dtype='uint8')
+
+    data = datafile[:, :-1]
+    target = datafile[:, -1]
+
+    return Bunch(data=data, target=target)
+
+
+def load_transfusion():
+    datafile = np.loadtxt("files/transfusion.data", delimiter=",", dtype='uint16')
+    data = datafile[:, :-1]
+    target = datafile[:, -1]
+
+    return Bunch(data=data, target=target)
+
+
+def load_ionosphere():
+    datafile = np.loadtxt("files/ionosphere.data", delimiter=",", dtype='float')
+    data = datafile[:, :-1]
+    temp = datafile[:, -1]
+    target = temp.astype("uint8")
+
+    return Bunch(data=data, target=target)
+
+
+def print_info(target):
+    total_n_el = target.size
+    print("Liczba elementow: %s" % total_n_el)
+    groups, counts = np.unique(target, return_counts=True)
+    percent_total = []
+    for quantity in counts:
+        percent_total.append(quantity / total_n_el)
+
+    rows = [(group, quantity, percent) for group, quantity, percent in zip(groups, counts, percent_total)]
+    cols_name = ['Klasa', 'Liczba wystapien', 'Procent calosci']
+    table = Texttable()
+    table.add_rows([cols_name, rows[0], rows[1]])
+    print(table.draw())

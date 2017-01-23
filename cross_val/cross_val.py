@@ -1,14 +1,15 @@
 from sklearn.externals.joblib import Parallel, delayed
 from sklearn.utils import indexable
 from sklearn.base import is_classifier, clone
-from sklearn.cross_validation import check_cv, _check_is_partition, _num_samples, _index_param_value, _safe_split
+from sklearn.model_selection._validation import check_cv, _check_is_permutation, _fit_and_predict, _num_samples
 
 import numpy as np
 import scipy.sparse as sp
 
-def cross_val_predi2ct(estimator, X, y=None, cv=None, n_jobs=1, verbose=0, fit_params=None, pre_dispatch='2*n_jobs'):
 
-
+def cross_val_pred2ict(estimator, X, y=None, groups=None, cv=None, n_jobs=1,
+                       verbose=0, fit_params=None, pre_dispatch='2*n_jobs',
+                       method='predict'):
     """Generate cross-validated estimates for each input data point
 
     Read more in the :ref:`User Guide <cross_validation>`.
@@ -25,18 +26,21 @@ def cross_val_predi2ct(estimator, X, y=None, cv=None, n_jobs=1, verbose=0, fit_p
         The target variable to try to predict in the case of
         supervised learning.
 
+    groups : array-like, with shape (n_samples,), optional
+        Group labels for the samples used while splitting the dataset into
+        train/test set.
+
     cv : int, cross-validation generator or an iterable, optional
         Determines the cross-validation splitting strategy.
         Possible inputs for cv are:
+          - None, to use the default 3-fold cross validation,
+          - integer, to specify the number of folds in a `(Stratified)KFold`,
+          - An object to be used as a cross-validation generator.
+          - An iterable yielding train, test splits.
 
-        - None, to use the default 3-fold cross-validation,
-        - integer, to specify the number of folds.
-        - An object to be used as a cross-validation generator.
-        - An iterable yielding train/test splits.
-
-        For integer/None inputs, if ``y`` is binary or multiclass,
-        :class:`StratifiedKFold` used. If the estimator is a classifier
-        or if ``y`` is neither binary nor multiclass, :class:`KFold` is used.
+        For integer/None inputs, if the estimator is a classifier and ``y`` is
+        either binary or multiclass, :class:`StratifiedKFold` is used. In all
+        other cases, :class:`KFold` is used.
 
         Refer :ref:`User Guide <cross_validation>` for the various
         cross-validation strategies that can be used here.
@@ -68,91 +72,61 @@ def cross_val_predi2ct(estimator, X, y=None, cv=None, n_jobs=1, verbose=0, fit_p
             - A string, giving an expression as a function of n_jobs,
               as in '2*n_jobs'
 
+    method : string, optional, default: 'predict'
+        Invokes the passed method name of the passed estimator.
+
     Returns
     -------
-    preds : ndarray
-        This is the result of calling 'predict'
-    """
-    X, y = indexable(X, y)
+    predictions : ndarray
+        This is the result of calling ``method``
 
-    cv = check_cv(cv, X, y, classifier=is_classifier(estimator))
+    Examples
+    --------
+    >>> from sklearn import datasets, linear_model
+    >>> from sklearn.model_selection import cross_val_predict
+    >>> diabetes = datasets.load_diabetes()
+    >>> X = diabetes.data[:150]
+    >>> y = diabetes.target[:150]
+    >>> lasso = linear_model.Lasso()
+    >>> y_pred = cross_val_predict(lasso, X, y)
+    """
+    X, y, groups = indexable(X, y, groups)
+
+    cv = check_cv(cv, y, classifier=is_classifier(estimator))
+    cv_iter = list(cv.split(X, y, groups))
+
+    # Ensure the estimator has implemented the passed decision function
+    if not callable(getattr(estimator, method)):
+        raise AttributeError('{} not implemented in estimator'
+                             .format(method))
+
     # We clone the estimator to make sure that all the folds are
     # independent, and that it is pickle-able.
     parallel = Parallel(n_jobs=n_jobs, verbose=verbose,
                         pre_dispatch=pre_dispatch)
-    preds_blocks = parallel(delayed(_fit_and_predict)(clone(estimator), X, y,
-                                                      train, test, verbose,
-                                                      fit_params)
-                            for train, test in cv)
+    prediction_blocks = parallel(delayed(_fit_and_predict)(
+        clone(estimator), X, y, train, test, verbose, fit_params, method)
+                                 for train, test in cv_iter)
+    # Concatenate the predictions
+    predictions = [pred_block_i for pred_block_i, _ in prediction_blocks]
+    test_target = [indices_i
+                   for _, indices_i in prediction_blocks]
+    test_indices = np.concatenate(test_target)
 
-    preds = [p for p, _ in preds_blocks]
-    #print(preds)
-    locsun = [loc for _, loc in preds_blocks]
-    locs = np.concatenate(locsun)
+    preds = predictions
 
-    if not _check_is_partition(locs, _num_samples(X)):
+    if not _check_is_permutation(test_indices, _num_samples(X)):
         raise ValueError('cross_val_predict only works for partitions')
-    inv_locs = np.empty(len(locs), dtype=int)
-    inv_locs[locs] = np.arange(len(locs))
+
+    inv_test_indices = np.empty(len(test_indices), dtype=int)
+
+    inv_test_indices[test_indices] = np.arange(len(test_indices))
 
     # Check for sparse predictions
-    if sp.issparse(preds[0]):
-        preds = sp.vstack(preds, format=preds[0].format)
-    #else:
-        #preds = np.concatenate(preds)
-
-    testtarget = [(y[tt]) for tt in locsun ]
-    return preds, testtarget
-
-
-def _fit_and_predict(estimator, X, y, train, test, verbose, fit_params):
-    """Fit estimator and predict values for a given dataset split.
-
-    Read more in the :ref:`User Guide <cross_validation>`.
-
-    Parameters
-    ----------
-    estimator : estimator object implementing 'fit' and 'predict'
-        The object to use to fit the data.
-
-    X : array-like of shape at least 2D
-        The data to fit.
-
-    y : array-like, optional, default: None
-        The target variable to try to predict in the case of
-        supervised learning.
-
-    train : array-like, shape (n_train_samples,)
-        Indices of training samples.
-
-    test : array-like, shape (n_test_samples,)
-        Indices of test samples.
-
-    verbose : integer
-        The verbosity level.
-
-    fit_params : dict or None
-        Parameters that will be passed to ``estimator.fit``.
-
-    Returns
-    -------
-    preds : sequence
-        Result of calling 'estimator.predict'
-
-    test : array-like
-        This is the value of the test parameter
-    """
-    # Adjust length of sample weights
-    fit_params = fit_params if fit_params is not None else {}
-    fit_params = dict([(k, _index_param_value(X, v, train))
-                      for k, v in fit_params.items()])
-
-    X_train, y_train = _safe_split(estimator, X, y, train)
-    X_test, _ = _safe_split(estimator, X, y, test, train)
-
-    if y_train is None:
-        estimator.fit(X_train, **fit_params)
+    if sp.issparse(predictions[0]):
+        predictions = sp.vstack(predictions, format=predictions[0].format)
     else:
-        estimator.fit(X_train, y_train, **fit_params)
-    preds = estimator.predict(X_test)
-    return preds, test
+        predictions = np.concatenate(predictions)
+    target = [(y[tt]) for tt in test_target]
+
+    return preds, target

@@ -4,38 +4,55 @@ from sklearn.utils.multiclass  import unique_labels
 from sklearn.metrics.classification import _check_targets
 from scipy.sparse import coo_matrix
 import numpy as np
+import warnings
+from texttable import Texttable
+
 
 def avarage_score(scores):
-    e = float(sum(scores)) / len(scores)
+    if len(scores) > 0:
+        e = float(sum(scores)) / len(scores)
 
-    suma = 0
-    for score in scores:
-        suma += (score - e) ** 2
+        suma = 0
+        for score in scores:
+            suma += (score - e) ** 2
 
-    s = math.sqrt(suma/(len(scores)-1))
-    return round(e,3),round(s,3)
+        s = math.sqrt(suma / (len(scores) - 1))
+        return round(e, 3), round(s, 3)
+    else:
+        warnings.warn("No values", stacklevel=2)
+        return 0
 
 def avg(scores):
-    e = float(sum(scores)) / len(scores)
+    if len(scores) > 0:
+        e = float(sum(scores)) / len(scores)
 
-    return e
-
+        return e
+    else:
+        warnings.warn("No values", stacklevel=2)
+    return 0
 
 
 def accuracy(matrixs):
     avg_acc = []
     sum_tptn = 0
     sum_all = 0
+
     for matrix in matrixs:
         tptn = matrix[0,0]+matrix[1,1]
         all = sum(y for y in (sum(x for x in matrix)))
 
         sum_tptn += tptn
         sum_all += all
+        if all != 0:
+            avg_acc.append((float(tptn) / all))
+        else:
+            warnings.warn("Warning, Accuracy 0 - no samples", stacklevel=2)
 
-        avg_acc.append((float(tptn)/all))
-
-    return avg(avg_acc), float(sum_tptn)/sum_all
+    if sum_all != 0:
+        return avg(avg_acc), float(sum_tptn) / sum_all
+    else:
+        warnings.warn("Warning, Accuracy 0 - no samples", stacklevel=2)
+    return avg(avg_acc), 0
 
 def precision(matrixs):
     avg_ppv = []
@@ -49,10 +66,38 @@ def precision(matrixs):
         sum_tp += tp
         sum_tpfp += tpfp
 
-        avg_ppv.append(float(tp)/tpfp)
-    print(avg_ppv)
-    return avg(avg_ppv), float(sum_tp)/sum_tpfp
+        if tpfp != 0:
+            avg_ppv.append(float(tp) / tpfp)
+        else:
+            warnings.warn("Warning, Precision = 0 - no predicted samples", stacklevel=2)
+            avg_ppv.append(0)
 
+    if sum_tpfp != 0:
+        return np.mean(avg_ppv), np.std(avg_ppv), float(sum_tp) / sum_tpfp
+    else:
+        warnings.warn("Warning, Precision = 0 - no predicted samples", stacklevel=2)
+        return np.mean(avg_ppv), np.std(avg_ppv), 0
+
+
+def precisions(matrixs):
+    avg_ppv = []
+    sum_tp = 0
+    sum_tpfp = 0
+
+    for matrix in matrixs:
+        tp = matrix[0, 0]
+        tpfp = matrix[0, 0] + matrix[1, 0]
+
+        sum_tp += tp
+        sum_tpfp += tpfp
+
+        if tpfp != 0:
+            avg_ppv.append(float(tp) / tpfp)
+        else:
+            warnings.warn("Warning, Precision = 0 - no predicted samples", stacklevel=2)
+            avg_ppv.append(0)
+
+    return avg_ppv
 
 def sensitivity(matrixs):
     avg_tpr = []
@@ -65,27 +110,69 @@ def sensitivity(matrixs):
 
         sum_tp += tp
         sum_tpfn += tpfn
+        if tpfn != 0:
+            avg_tpr.append(float(tp) / tpfn)
+        else:
+            warnings.warn("Warning, Sensitivity = 0 - no predicted samples", stacklevel=2)
+            avg_tpr.append(0)
 
-        avg_tpr.append(float(tp)/tpfn)
-    print(avg_tpr)
-    return avg(avg_tpr), float(sum_tp)/sum_tpfn
+    if sum_tpfn != 0:
+        return avg(avg_tpr), float(sum_tp) / sum_tpfn
+    else:
+        warnings.warn("Warning, Sensitivity = 0 - no predicted samples", stacklevel=2)
+        return avg(avg_tpr), float(sum_tp) / sum_tpfn
+
+
+def sensitivities(matrixs):
+    avg_tpr = []
+
+    for matrix in matrixs:
+        tp = matrix[0, 0]
+        tpfn = matrix[0, 0] + matrix[0, 1]
+
+        if tpfn != 0:
+            avg_tpr.append(float(tp) / tpfn)
+        else:
+            warnings.warn("Warning, Sensitivity = 0 - no predicted samples", stacklevel=2)
+            avg_tpr.append(0)
+
+    return avg_tpr
+
+
+def f1prre(precisions, recalls):
+    guard = 0
+    if 0 in precisions:
+        warnings.warn("At least one fold has Precision = 0, F1 can be calculated wrong", stacklevel=2)
+        guard += 1
+    if 0 in recalls:
+        warnings.warn("At least one fold has Recall = 0, F1 can be calculated wrong", stacklevel=2)
+        guard += 1
+
+    if guard == 2:
+        return 0
+    else:
+        avgprecision = avg(precisions)
+        avgrecall = avg(recalls)
+        return 2 * (avgprecision * avgrecall) / float(avgprecision + avgrecall)
+
 
 def f1tpfp(matrixs):
-    avg_ppv = []
+
     sum_tp = 0
     sum_fp = 0
     sum_fn = 0
+
     for matrix in matrixs:
         sum_tp += matrix[0,0]
         sum_fp += matrix[1,0]
         sum_fn += matrix[0,1]
 
-
+    if sum_tp == 0:
+        warnings.warn("Warning, F1 = 0 - no predicted samples", stacklevel=2)
+        return 0
     return float(2*sum_tp)/(2*sum_tp+sum_fp+sum_fn)
 
-def f1prre(pre,rec):
 
-    return 2*(pre*rec)/float(pre+rec)
 
 
 def f1avg(matrixs):
@@ -99,8 +186,10 @@ def f1avg(matrixs):
 
 
         avg_f1.append(float(2*tp)/(2*tp+fp+fn))
-    print("f1")
-    print(avg_f1)
+    if 0 in avg_f1:
+        warnings.warn("At least one fold has F1 = 0, F1 can be calculated wrong", stacklevel=2)
+
+    # print(avg_f1)
     return avg(avg_f1)
 
 def confusion_matrix(y_true, y_pred, labels=None):
@@ -182,3 +271,71 @@ def confusion_matrix(y_true, y_pred, labels=None):
                     shape=(n_labels, n_labels)
                     ).toarray()
     return CM
+
+
+def print_matrix(matrixes):
+    tp = 0
+    fn = 0
+    fp = 0
+    tn = 0
+
+    for matrix in matrixes:
+        tp += matrix[0][0]
+        fn += matrix[0][1]
+        fp += matrix[1][0]
+        tn += matrix[1][1]
+        print("---\n|%d %d|\n|%d %d|\n" % (matrix[0][0], matrix[0][1], matrix[1][0], matrix[1][1]))
+
+    print("Suma ")
+    print("---\n|%d %d|\n|%d %d|\n" % (tp, fn, fp, tn))
+
+
+def print_complete_matrix(matrixes, groups):
+    tp = 0
+    fn = 0
+    fp = 0
+    tn = 0
+
+    for matrix in matrixes:
+        tp += matrix[0][0]
+        fn += matrix[0][1]
+        fp += matrix[1][0]
+        tn += matrix[1][1]
+    table = Texttable()
+    table.add_rows([groups, [tp, fn], [fp, tn]])
+    print(table.draw())
+
+
+def print_scores(predict, target):
+    matrices1 = []
+    matrices2 = []
+
+    if len(predict) != len(target):
+        raise ValueError('length score and target are different!')
+    for pr, tar in zip(predict, target):
+        matrices1.append(confusion_matrix(tar, pr))
+    allgroups = []
+    for fold in target:
+        allgroups.extend(np.unique(fold))
+
+    groups = np.unique(allgroups)
+
+    print_complete_matrix(matrices1, groups)
+    print("Accuracy: %r" % str(accuracy(matrices1)))
+
+    cols_name = ['', 'Precision', 'Recall', 'F1tpfp', 'F1prre', 'F1AVG']
+
+    firstparams = [groups[0], precision(matrices1)[0], sensitivity(matrices1)[0], f1tpfp(matrices1),
+                   f1prre(precisions(matrices1), sensitivities(matrices1)), f1avg(matrices1)]
+
+    for matrix in matrices1:
+        matrices2.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
+
+    secondparams = [groups[1], precision(matrices2)[0], sensitivity(matrices2)[0], f1tpfp(matrices2),
+                    f1prre(precisions(matrices2), sensitivities(matrices2)), f1avg(matrices2)]
+
+    table = Texttable()
+    table.add_rows([cols_name, firstparams, secondparams])
+    print(table.draw())
+    # poprawic warningi w precision itd
+    #sprawdzi f1, gdy precision jest 0

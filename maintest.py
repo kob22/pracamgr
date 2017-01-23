@@ -1,24 +1,34 @@
-from classifiers import svm
-from classifiers import tree
-from classifiers import adaboost
-from classifiers import randomforest
-from classifiers import bagging
 from data import importdata
-from sklearn.datasets import load_iris
-from sklearn.utils import shuffle
-from numpy import array_str
 #from sklearn import tree
-from sklearn.metrics import confusion_matrix
-#german = importdata.importfile("files/german.data-numeric")
-german = importdata.importfile("files/bupa.data")
+from runclassifiers import runmy, runmycv, tree
 
+#german = importdata.importfile("files/german.data-numeric")
+# german = importdata.importfile("files/bupa.data")
+# german = importdata.importfile("files/haberman.data")
+# german = importdata.importfile("files/ionosphere.data")
+# german = importdata.importfile("files/transfusion.data")
+dataset = ['load_german', 'load_haberman', 'load_transfusion', 'load_ionosphere']
+for data in dataset:
+    print("-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------")
+    db = getattr(importdata, data)()
+    importdata.print_info(db.target)
+    tree.runtree(db.data, db.target)
+
+db = importdata.load_transfusion()
+importdata.print_info(db.target)
 #clf = tree.DecisionTreeClassifier()
 #a = clf.fit(german.data,german.target).predict(german.data)
-print(german.data)
-print(german.target)
 #print (confusion_matrix(german.target, a))
-tree.runtree(german.data,german.target)
+
+# german.shuffle2()
+#tree.runtree(german.data,german.target)
 #svm.runsvcn(german.data,german.target)
 #randomforest.runforest(german.data,german.target)
-#bagging.runbagging(german.data,german.target)
+#bagging.runbaggingtree(german.data,german.target)
 #adaboost.runada(german.data,german.target)
+# majorityvoting.runvoting(german.data, german.target)
+# runmy.runsmy(db.data,db.target)
+# runmycv.runsmycv(db.data, db.target)
+# runstackingcv.runstacking(german.data, german.target)
+
+#moze portal ?
