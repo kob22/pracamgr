@@ -1,4 +1,3 @@
-from classifiers.stacking import StackingClassifier
 from simplefunctions import *
 from cross_val.cross_val import cross_val_pred2ict
 from sklearn.model_selection import StratifiedKFold

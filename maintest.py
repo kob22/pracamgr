@@ -1,21 +1,33 @@
 from data import importdata
+import numpy as np
 #from sklearn import tree
-from runclassifiers import runmy, runmycv, tree
+from runclassifiers import runmy, runmycv, tree, majorityvoting, bagging, svm
 
 #german = importdata.importfile("files/german.data-numeric")
 # german = importdata.importfile("files/bupa.data")
 # german = importdata.importfile("files/haberman.data")
 # german = importdata.importfile("files/ionosphere.data")
 # german = importdata.importfile("files/transfusion.data")
-dataset = ['load_german', 'load_haberman', 'load_transfusion', 'load_ionosphere']
+
+# dataset = ['load_german', 'load_haberman', 'load_transfusion', 'load_ionosphere', 'load_balance_scale', 'load_bupa', 'load_car', 'load_cmc', 'load_ecoli',
+# 'load_glass', 'load_new_thyroid', 'load_seeds' , 'load_solar_flare', 'load_vehicle', 'load_vertebal', 'load_yeastME1', 'load_yeastME2', 'load_yeastME3',
+# 'load_abalone0_4', 'load_abalone16_29', 'load_abalone0_4_16_29']
+# datasetmissing = ['load_hear_cleveland', 'load_hepatitis', 'load_breast_cancer', 'load_postoperative']
+dataset = ['load_horse_colic']
 for data in dataset:
     print("-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------")
     db = getattr(importdata, data)()
-    importdata.print_info(db.target)
-    tree.runtree(db.data, db.target)
+    print(db.target)
+    print(np.bincount(db.target))
+    for line in db.data:
+        print(line)
+        # svm.runsvcn(db.data,db.target)
+        # importdata.print_info(db.target)
+        # majorityvoting.runvoting(db.data, db.target)
+        # runmycv.runsmycv(db.data, db.target)
+        # tree.runtree(db.data,db.target)
+        #bagging.runbaggingtree(db.data,db.target)
 
-db = importdata.load_transfusion()
-importdata.print_info(db.target)
 #clf = tree.DecisionTreeClassifier()
 #a = clf.fit(german.data,german.target).predict(german.data)
 #print (confusion_matrix(german.target, a))
