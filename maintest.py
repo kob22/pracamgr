@@ -13,12 +13,12 @@ from runclassifiers import runmy, runmycv, tree, majorityvoting, bagging, svm
 # 'load_glass', 'load_new_thyroid', 'load_seeds' , 'load_solar_flare', 'load_vehicle', 'load_vertebal', 'load_yeastME1', 'load_yeastME2', 'load_yeastME3',
 # 'load_abalone0_4', 'load_abalone16_29', 'load_abalone0_4_16_29']
 # datasetmissing = ['load_hear_cleveland', 'load_hepatitis', 'load_breast_cancer', 'load_postoperative']
-dataset = ['load_horse_colic']
+dataset = [['load_breast_cancer', 'median'], ['load_hepatitis', 'median'], ['load_hear_cleveland', 'median'],
+           ['load_postoperative', 'median'], ['load_horse_colic', 'median']]
 for data in dataset:
     print("-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------")
-    db = getattr(importdata, data)()
-    print(db.target)
-    print(np.bincount(db.target))
+    db = getattr(importdata, data[0])(data[1])
+
     for line in db.data:
         print(line)
         # svm.runsvcn(db.data,db.target)

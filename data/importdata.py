@@ -4,6 +4,7 @@ from sklearn import datasets
 from sklearn.utils import shuffle
 from texttable import Texttable
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import Imputer
 
 """
 Base IO code for all datasets
@@ -343,7 +344,7 @@ def load_abalone0_4_16_29():
 
 # missing
 
-def load_breast_cancer():
+def load_breast_cancer(imput_strategy='median'):
     datafile = np.genfromtxt("files/missing/breast-cancer.data", missing_values='?', delimiter=',', dtype='|S20')
 
     maps = [
@@ -374,19 +375,25 @@ def load_breast_cancer():
         datatemp.append(templine[:-1])
         target.append(templine[-1])
 
-    return Bunch(data=datatemp, target=np.asarray(target, dtype='uint8'))
+    imp = Imputer(missing_values='NaN', strategy=imput_strategy, axis=0)
+    imp = imp.fit(datatemp)
+    imputed_data = imp.transform(datatemp)
+    return Bunch(data=imputed_data, target=np.asarray(target, dtype='uint8'))
 
 
-def load_hepatitis():
+def load_hepatitis(imput_strategy='median'):
     datafile = np.genfromtxt("files/missing/hepatitis.data", missing_values='?', delimiter=',', dtype='float')
 
     data = datafile[:, 1:]
     target = datafile[:, 0]
 
-    return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
+    imp = Imputer(missing_values='NaN', strategy=imput_strategy, axis=0)
+    imp = imp.fit(data)
+    imputed_data = imp.transform(data)
+    return Bunch(data=imputed_data, target=np.asarray(target, dtype='uint8'))
 
 
-def load_hear_cleveland():
+def load_hear_cleveland(imput_strategy='median'):
     datafile = np.genfromtxt("files/missing/heart-cleveland.data", missing_values='?', delimiter=',', dtype='float')
 
     data = datafile[:, :-1]
@@ -397,10 +404,14 @@ def load_hear_cleveland():
             target.append(0)
         elif item == 3:
             target.append(1)
-    return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
+
+    imp = Imputer(missing_values='NaN', strategy=imput_strategy, axis=0)
+    imp = imp.fit(data)
+    imputed_data = imp.transform(data)
+    return Bunch(data=imputed_data, target=np.asarray(target, dtype='uint8'))
 
 
-def load_postoperative():
+def load_postoperative(imput_strategy='median'):
     datafile = np.genfromtxt("files/missing/postoperative.data", missing_values='?', delimiter=',',
                              dtype='|S4,|S4,|S10,|S4,|S10,|S10,|S10,i4,|S2')
 
@@ -434,11 +445,13 @@ def load_postoperative():
         else:
             target.append(1)
         data.append(datatemp)
+        imp = Imputer(missing_values='NaN', strategy=imput_strategy, axis=0)
+        imp = imp.fit(data)
+        imputed_data = imp.transform(data)
+    return Bunch(data=imputed_data, target=np.asarray(target, dtype='uint8'))
 
-    return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
 
-
-def load_horse_colic():
+def load_horse_colic(imput_strategy='median'):
     cols = [x for x in range(24)]
     cols.remove(2)
 
@@ -447,7 +460,10 @@ def load_horse_colic():
     data = datafile[:, :-1]
     target = datafile[:, -1]
 
-    return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
+    imp = Imputer(missing_values='NaN', strategy=imput_strategy, axis=0)
+    imp = imp.fit(data)
+    imputed_data = imp.transform(data)
+    return Bunch(data=imputed_data, target=np.asarray(target, dtype='uint8'))
 
 def print_info(target):
     total_n_el = target.size
