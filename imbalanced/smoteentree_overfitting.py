@@ -14,7 +14,7 @@ def runtree(data, target):
     lb.fit(target)
     target1 = lb.transform(target)
     sm = SMOTEENN()
-    X_train, X_test, y_train, y_test = train_test_split(data, target1, test_size=0.40, random_state=5, stratify=target1)
+    X_train, X_test, y_train, y_test = train_test_split(data, target1, test_size=0.10, random_state=5, stratify=target1)
     print(y_test.size)
     print(np.bincount(y_test))
     X_resampled, y_resampled = sm.fit_sample(X_train, y_train)

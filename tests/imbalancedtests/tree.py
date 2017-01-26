@@ -1,5 +1,5 @@
 from data import importdata
-from imbalanced.smoteentree_overfitting import runtree
+from imbalanced import smoteentree_overfitting, smotentree
 
 # dataset = ['load_breast_cancer','load_german', 'load_car', 'load_cmc']
 dataset = ['load_german', 'load_haberman', 'load_transfusion', 'load_ionosphere', 'load_balance_scale', 'load_bupa',
@@ -11,5 +11,5 @@ for data in dataset:
     print("-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------")
     db = getattr(importdata, data)()
     importdata.print_info(db.target)
-
-    runtree(db.data, db.target)
+    smoteentree_overfitting.runtree(db.data, db.target)
+    smotentree.runtree(db.data, db.target)

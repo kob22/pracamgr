@@ -20,6 +20,7 @@ dataset = ['load_german', 'load_haberman', 'load_transfusion', 'load_ionosphere'
 # dataset = ['load_breast_cancer','load_german', 'load_car', 'load_cmc']
 for data in dataset:
     print("-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------")
+    print(data)
     db = getattr(importdata, data)()
     importdata.print_info(db.target)
 

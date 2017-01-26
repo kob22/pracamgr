@@ -1,0 +1,14 @@
+\select@language {polish}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Wst\IeC {\k e}p teoretyczny}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Klasyfikacja danych}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Przegl\IeC {\k a}d algorytm\IeC {\'o}w klasyfikacji danych}{5}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Drzewo decyzyjne}{5}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Naiwny klasyfikator bayesowski}{5}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Klasyfikator k najbli\IeC {\.z}szych s\IeC {\k a}siad\IeC {\'o}w (kNN)}{5}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Las losowy}{5}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Bagging}{5}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Boosting}{5}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}Stacking}{5}{subsection.2.2.7}
+\contentsline {section}{\numberline {2.3}Ocena poprawno\IeC {\'s}ci klasyfikacji}{5}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Miary jako\IeC {\'s}ci klasyfikacji danych}{5}{subsection.2.3.1}

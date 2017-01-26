@@ -6,6 +6,7 @@ from texttable import Texttable
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import Imputer
 import os
+from sklearn import preprocessing
 """
 Base IO code for all datasets
 """
@@ -62,7 +63,11 @@ def load_german():
 
     data = datafile[:, :-1]
     target = datafile[:, -1]
-    return Bunch(data=data, target=target)
+    lb = preprocessing.LabelEncoder()
+    lb.fit(target)
+    target1 = lb.transform(target)
+
+    return Bunch(data=data, target=target1)
 
 
 def load_haberman():
@@ -70,8 +75,11 @@ def load_haberman():
 
     data = datafile[:, :-1]
     target = datafile[:, -1]
+    lb = preprocessing.LabelEncoder()
+    lb.fit(target)
+    target1 = lb.transform(target)
 
-    return Bunch(data=data, target=target)
+    return Bunch(data=data, target=target1)
 
 
 def load_transfusion():
@@ -79,7 +87,10 @@ def load_transfusion():
     data = datafile[:, :-1]
     target = datafile[:, -1]
 
-    return Bunch(data=data, target=target)
+    lb = preprocessing.LabelEncoder()
+    lb.fit(target)
+    target1 = lb.transform(target)
+    return Bunch(data=data, target=target1)
 
 
 def load_ionosphere():
@@ -113,7 +124,10 @@ def load_bupa():
 
     data = datafile[:, :-1]
     target = datafile[:, -1]
-    return Bunch(data=data, target=target)
+    lb = preprocessing.LabelEncoder()
+    lb.fit(target)
+    target1 = lb.transform(target)
+    return Bunch(data=data, target=target1)
 
 
 def load_car():
@@ -401,7 +415,10 @@ def load_hepatitis(imput_strategy='median'):
     imp = Imputer(missing_values='NaN', strategy=imput_strategy, axis=0)
     imp = imp.fit(data)
     imputed_data = imp.transform(data)
-    return Bunch(data=imputed_data, target=np.asarray(target, dtype='uint8'))
+    lb = preprocessing.LabelEncoder()
+    lb.fit(target)
+    target1 = lb.transform(target)
+    return Bunch(data=imputed_data, target=np.asarray(target1, dtype='uint8'))
 
 
 def load_hear_cleveland(imput_strategy='median'):
@@ -475,7 +492,10 @@ def load_horse_colic(imput_strategy='median'):
     imp = Imputer(missing_values='NaN', strategy=imput_strategy, axis=0)
     imp = imp.fit(data)
     imputed_data = imp.transform(data)
-    return Bunch(data=imputed_data, target=np.asarray(target, dtype='uint8'))
+    lb = preprocessing.LabelEncoder()
+    lb.fit(target)
+    target1 = lb.transform(target)
+    return Bunch(data=imputed_data, target=np.asarray(target1, dtype='uint8'))
 
 def print_info(target):
     total_n_el = target.size

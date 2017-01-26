@@ -1,0 +1,88 @@
+
+\chapter{Wstęp teoretyczny}
+\section{Klasyfikacja danych}
+\todo{inline} może coś pisać o uczeniu maszynowym i że klasyfikacja jest nadzorowana?
+Klasyfikacja jest to proces przyporządkowania danych do jednej z predefiniowanych klas na podstawie atrybutów tych danych. Algorytm klasyfikacji na podstawie analizy danych trenujących, zawierających atrybuty oraz klasę, tworzy model klasyfikacyjny. Stworzony model klasyfikacyjny wykorzystywany jest do predykcji klasy (kategorii) nowych danych bez określonej klasy. Celem algorytmu budującego model, jest  odnalezienie wzorców, w jaki sposób atrybuty obiektu wpływają na przynależność do danej klasy, starając się o to, aby wiedza na temat analizowanych danych była możliwie ogólna oraz niezależna od próby.
+
+Klasyfikacja danych jest procesem dwuetapowym:
+\begin{itemize}
+	\item budowa modelu – proces ten polega na analizie obiektów z przyporządkowaną klasą oraz na budowie modelu opisującego predefiniowany zbiór klas danych,
+	\item właściwa klasyfikacja – otrzymany model stosuje się do przydzielania klasy nowym obiektom.
+\end{itemize}
+Budowa modelu jest także procesem dwu-etapowym. Dzieli się ona na:
+\begin{itemize}
+	\item uczenie – klasyfikator budowany jest w oparciu o dane treningowe,
+	\item ocena jakości klasyfikacji – jakoś klasyfikacji badana jest w oparciu o dane testowe.
+\end{itemize}
+W zależności od liczebności klas w zbiorze danych, możemy wyróżnić:
+\begin{itemize}
+	\item klasyfikację binarną – klasyfikator decyduje o przypisaniu obiektu do jednej z dwóch klas (np. czy człowiek jest zdrowy lub nie)
+	\item klasyfikację wieloklasową – obiektowi przypisuje się jedną z wielu predefiniowanych klas.
+\end{itemize}
+Do reprezentacji danych uczących, testowych oraz do klasyfikacji najczęściej stosuje się system informacyjny.
+\begin{table}[h]
+\begin{center}
+	\resizebox{\textwidth}{!}{%
+	\begin{tabular}{|c|c|c|c|c|c|l|}
+		
+		\hline
+		{\bf Zachmurzenie} & {\bf Temp.} & {\bf Temp. wody} & {\bf Opady} & {\bf Wiatr} & {\bf Pływać} & {\bf h(x)}\\
+		\hline 
+		słonecznie & 32 & 25 & brak & słaby & tak & tak \\
+		\hline 
+		słonecznie & 31 & 26 & brak & umiarkowany & tak & nie \\
+		\hline
+		pochmurnie & 22 & 15 & brak & b. mocny & nie & nie \\
+		\hline
+		pochmurnie & 20 & 18 & brak & słaby & tak & tak \\
+		\hline
+		całkowite zachmurzenie & 12 & 6 & brak & umiarkowany & nie & nie \\
+		\hline
+		całkowite zachmurzenie & 10 & 8 & duże & słaby & nie & nie \\
+		\hline
+		pochmurnie & 21 & 10 & brak & mocny & nie & tak \\
+		\hline
+		słonecznie & 25 & 17 & brak & umiarkowany & tak & nie \\
+		\hline
+		pochmurnie & 23 & 17 & przelotne & umiarkowany & nie & tak \\
+		\hline
+	\end{tabular}}
+	\caption{Przykład danych treningowych składających się z 5 atrybutów oraz klasy decyzyjnej. W ostatniej kolumnie znajduje się wynik klasyfikacji. W pięciu przypadkach, klasyfikator poprawnie wskazał klasę.}
+	\label{system_informacyjny}
+\end{center}
+\end{table}
+\section{Przegląd algorytmów klasyfikacji danych}
+\subsection{Drzewo decyzyjne}
+
+\subsection{Naiwny klasyfikator bayesowski}
+
+\subsection{Klasyfikator k najbliższych sąsiadów (kNN)}
+
+\subsection{Las losowy}
+
+\subsection{Bagging}
+
+\subsection{Boosting}
+
+\subsection{Stacking}
+
+\section{Ocena poprawności klasyfikacji}
+
+\subsection{Miary jakości klasyfikacji danych}
+Jakość klasyfikacji można ocenić na podstawie kilku współczynników. Do ich obliczenia wykorzystuje się macierz pomyłek. Tworzona jest ona w oparciu o wynik klasyfikacji. Dla klasyfikacji binarnej macierz składa się z dwóch kolumn oraz dwóch wierszy. W wierszach znajdują się poprawne klasy decyzyjne, natomiast w kolumnach przewidziane przez klasyfikator. Zaklasyfikowane obiekty, umieszcza się w odpowiedniej grupie.
+\begin{table}[h]
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{ccc|c|c|c}
+
+			&& \multicolumn{3}{ c }{Klasa predykowana} \\
+			\cline{4-5}
+			& \multicolumn{2}{ c| }{} & pozytywna & negatywna\\ \cline{3-5}
+			\multicolumn{2}{ c| }{\multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Klasa\\rzeczywista\end{tabular}}} &pozytywna & prawdziwie pozytywna (TP) & fałszywie negatywna (FN)\\	\cline{3-5}
+			\multicolumn{2}{ c| }{}&negatywna & fałszywie pozytywna (FP) & prawdziwie negatywna (TN)\\
+			\cline{3-5}
+			\end{tabular}}
+		\caption{Macierz pomyłek}
+		\label{macierz_pomylek}
+		\end{center}
+\end{table}
