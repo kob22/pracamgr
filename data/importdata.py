@@ -5,7 +5,7 @@ from sklearn.utils import shuffle
 from texttable import Texttable
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import Imputer
-
+import os
 """
 Base IO code for all datasets
 """
@@ -44,6 +44,8 @@ class Bunch(dict):
         self['data'], self['target'] = shuffle(self['data'], self['target'], random_state=random_state)
 
 
+path = os.path.dirname(os.path.abspath(__file__))
+
 def importfile(file):
     np.set_printoptions(threshold=np.nan)
 
@@ -56,7 +58,7 @@ def importfile(file):
 
 
 def load_german():
-    datafile = np.loadtxt("files/german.data", dtype='uint8')
+    datafile = np.loadtxt(os.path.join(path, "files/german.data"), dtype='uint8')
 
     data = datafile[:, :-1]
     target = datafile[:, -1]
@@ -64,7 +66,7 @@ def load_german():
 
 
 def load_haberman():
-    datafile = np.loadtxt("files/haberman.data", delimiter=",", dtype='uint8')
+    datafile = np.loadtxt(os.path.join(path, "files/haberman.data"), delimiter=",", dtype='uint8')
 
     data = datafile[:, :-1]
     target = datafile[:, -1]
@@ -73,7 +75,7 @@ def load_haberman():
 
 
 def load_transfusion():
-    datafile = np.loadtxt("files/transfusion.data", delimiter=",", dtype='uint16')
+    datafile = np.loadtxt(os.path.join(path, "files/transfusion.data"), delimiter=",", dtype='uint16')
     data = datafile[:, :-1]
     target = datafile[:, -1]
 
@@ -81,8 +83,9 @@ def load_transfusion():
 
 
 def load_ionosphere():
-    data = np.loadtxt("files/ionosphere.data", delimiter=",", usecols=[x for x in range(34)], dtype='float')
-    filetarget = np.loadtxt("files/ionosphere.data", delimiter=",", usecols=[34], dtype='|S1')
+    data = np.loadtxt(os.path.join(path, "files/ionosphere.data"), delimiter=",", usecols=[x for x in range(34)],
+                      dtype='float')
+    filetarget = np.loadtxt(os.path.join(path, "files/ionosphere.data"), delimiter=",", usecols=[34], dtype='|S1')
     target = []
     for line in filetarget:
         if line == 'b':
@@ -93,8 +96,9 @@ def load_ionosphere():
 
 
 def load_balance_scale():
-    data = np.loadtxt("files/balance-scale.data", delimiter=",", usecols=[x for x in range(1, 5)], dtype='uint16')
-    filetarget = np.loadtxt("files/balance-scale.data", delimiter=",", usecols=[0], dtype='|S1')
+    data = np.loadtxt(os.path.join(path, "files/balance-scale.data"), delimiter=",", usecols=[x for x in range(1, 5)],
+                      dtype='uint16')
+    filetarget = np.loadtxt(os.path.join(path, "files/balance-scale.data"), delimiter=",", usecols=[0], dtype='|S1')
     target = []
     for line in filetarget:
         if line == 'R' or line == 'L':
@@ -105,7 +109,7 @@ def load_balance_scale():
 
 
 def load_bupa():
-    datafile = np.loadtxt("files/bupa.data", dtype='float')
+    datafile = np.loadtxt(os.path.join(path, "files/bupa.data"), dtype='float')
 
     data = datafile[:, :-1]
     target = datafile[:, -1]
@@ -113,7 +117,7 @@ def load_bupa():
 
 
 def load_car():
-    datafile = np.loadtxt("files/car.data", delimiter=",", dtype='|S5')
+    datafile = np.loadtxt(os.path.join(path, "files/car.data"), delimiter=",", dtype='|S5')
     mapa = {'vhigh': 4, 'high': 3, 'med': 2, 'low': 1, '5more': 5, 'more': 5, 'small': 1, 'big': 3,
             '2': 2, '3': 3, '4': 4, 'unacc': 0, 'acc': 0, 'good': 0, 'vgood': 1}
     data = []
@@ -126,7 +130,7 @@ def load_car():
 
 
 def load_cmc():
-    datafile = np.loadtxt("files/cmc.data", delimiter=",", dtype='uint8')
+    datafile = np.loadtxt(os.path.join(path, "files/cmc.data"), delimiter=",", dtype='uint8')
 
     data = datafile[:, :-1]
     targettemp = datafile[:, -1]
@@ -141,8 +145,8 @@ def load_cmc():
 
 
 def load_ecoli():
-    data = np.loadtxt("files/ecoli.data", usecols=[x for x in range(1, 8)], dtype='float')
-    filetarget = np.loadtxt("files/ecoli.data", usecols=[8], dtype='|S3')
+    data = np.loadtxt(os.path.join(path, "files/ecoli.data"), usecols=[x for x in range(1, 8)], dtype='float')
+    filetarget = np.loadtxt(os.path.join(path, "files/ecoli.data"), usecols=[8], dtype='|S3')
     target = []
     classes = ['cp', 'im', 'pp', 'om', 'omL', 'imL', 'imS']
     for line in filetarget:
@@ -154,8 +158,9 @@ def load_ecoli():
 
 
 def load_glass():
-    data = np.loadtxt("files/glass.data", delimiter=",", usecols=[x for x in range(1, 10)], dtype='float')
-    filetarget = np.loadtxt("files/glass.data", delimiter=",", usecols=[10], dtype='uint8')
+    data = np.loadtxt(os.path.join(path, "files/glass.data"), delimiter=",", usecols=[x for x in range(1, 10)],
+                      dtype='float')
+    filetarget = np.loadtxt(os.path.join(path, "files/glass.data"), delimiter=",", usecols=[10], dtype='uint8')
     target = []
     for line in filetarget:
         if line in (1, 2) or line in range(4, 8):
@@ -166,7 +171,7 @@ def load_glass():
 
 
 def load_new_thyroid():
-    datafile = np.loadtxt("files/new-thyroid.data", delimiter=",", dtype='float')
+    datafile = np.loadtxt(os.path.join(path, "files/new-thyroid.data"), delimiter=",", dtype='float')
     data = datafile[:, 1:]
     targettemp = datafile[:, 0]
     target = []
@@ -180,7 +185,7 @@ def load_new_thyroid():
 
 
 def load_seeds():
-    datafile = np.loadtxt("files/seeds.data", dtype='float')
+    datafile = np.loadtxt(os.path.join(path, "files/seeds.data"), dtype='float')
     data = datafile[:, :-1]
     targettemp = datafile[:, -1]
     target = []
@@ -194,9 +199,9 @@ def load_seeds():
 
 
 def load_solar_flare():
-    data1 = np.loadtxt("files/solar-flare.data", usecols=[1, 2], dtype='|S1')
-    data2 = np.loadtxt("files/solar-flare.data", usecols=[x for x in range(3, 11)], dtype='uint8')
-    targettemp = np.loadtxt("files/solar-flare.data", usecols=[0], dtype='|S1')
+    data1 = np.loadtxt(os.path.join(path, "files/solar-flare.data"), usecols=[1, 2], dtype='|S1')
+    data2 = np.loadtxt(os.path.join(path, "files/solar-flare.data"), usecols=[x for x in range(3, 11)], dtype='uint8')
+    targettemp = np.loadtxt(os.path.join(path, "files/solar-flare.data"), usecols=[0], dtype='|S1')
     target = []
     datatemp = []
     classes = ['A', 'B', 'C', 'D', 'E', 'H']
@@ -213,8 +218,8 @@ def load_solar_flare():
 
 
 def load_vehicle():
-    data = np.loadtxt("files/vehicle.data", usecols=[x for x in range(18)], dtype='uint8')
-    targettemp = np.loadtxt("files/vehicle.data", usecols=[18], dtype='|S4')
+    data = np.loadtxt(os.path.join(path, "files/vehicle.data"), usecols=[x for x in range(18)], dtype='uint8')
+    targettemp = np.loadtxt(os.path.join(path, "files/vehicle.data"), usecols=[18], dtype='|S4')
     target = []
     classes = ['opel', 'saab', 'bus']
 
@@ -227,8 +232,9 @@ def load_vehicle():
 
 
 def load_vertebal():
-    data = np.loadtxt("files/vertebal.data", delimiter=',', usecols=[x for x in range(6)], dtype='float')
-    targettemp = np.loadtxt("files/vertebal.data", delimiter=',', usecols=[6], dtype='|S8')
+    data = np.loadtxt(os.path.join(path, "files/vertebal.data"), delimiter=',', usecols=[x for x in range(6)],
+                      dtype='float')
+    targettemp = np.loadtxt(os.path.join(path, "files/vertebal.data"), delimiter=',', usecols=[6], dtype='|S8')
     target = []
 
     for line in targettemp:
@@ -240,8 +246,8 @@ def load_vertebal():
 
 
 def load_yeastME3():
-    data = np.loadtxt("files/yeast.data", usecols=[x for x in range(1, 9)], dtype='float')
-    targettemp = np.loadtxt("files/yeast.data", usecols=[9], dtype='|S3')
+    data = np.loadtxt(os.path.join(path, "files/yeast.data"), usecols=[x for x in range(1, 9)], dtype='float')
+    targettemp = np.loadtxt(os.path.join(path, "files/yeast.data"), usecols=[9], dtype='|S3')
     target = []
     classes = ['CYT', 'ERL', 'EXC', 'ME1', 'ME2', 'MIT', 'NUC', 'POX', 'VAC']
     for line in targettemp:
@@ -253,8 +259,8 @@ def load_yeastME3():
 
 
 def load_yeastME2():
-    data = np.loadtxt("files/yeast.data", usecols=[x for x in range(1, 9)], dtype='float')
-    targettemp = np.loadtxt("files/yeast.data", usecols=[9], dtype='|S3')
+    data = np.loadtxt(os.path.join(path, "files/yeast.data"), usecols=[x for x in range(1, 9)], dtype='float')
+    targettemp = np.loadtxt(os.path.join(path, "files/yeast.data"), usecols=[9], dtype='|S3')
     target = []
     classes = ['CYT', 'ERL', 'EXC', 'ME1', 'ME3', 'MIT', 'NUC', 'POX', 'VAC']
     for line in targettemp:
@@ -266,8 +272,8 @@ def load_yeastME2():
 
 
 def load_yeastME1():
-    data = np.loadtxt("files/yeast.data", usecols=[x for x in range(1, 9)], dtype='float')
-    targettemp = np.loadtxt("files/yeast.data", usecols=[9], dtype='|S3')
+    data = np.loadtxt(os.path.join(path, "files/yeast.data"), usecols=[x for x in range(1, 9)], dtype='float')
+    targettemp = np.loadtxt(os.path.join(path, "files/yeast.data"), usecols=[9], dtype='|S3')
     target = []
     classes = ['CYT', 'ERL', 'EXC', 'ME2', 'ME3', 'MIT', 'NUC', 'POX', 'VAC']
     for line in targettemp:
@@ -279,8 +285,9 @@ def load_yeastME1():
 
 
 def load_abalone0_4():
-    data1 = np.loadtxt("files/abalone.data", delimiter=',', usecols=[0], dtype='|S1')
-    data2 = np.loadtxt("files/abalone.data", delimiter=',', usecols=[x for x in range(1, 9)], dtype='float')
+    data1 = np.loadtxt(os.path.join(path, "files/abalone.data"), delimiter=',', usecols=[0], dtype='|S1')
+    data2 = np.loadtxt(os.path.join(path, "files/abalone.data"), delimiter=',', usecols=[x for x in range(1, 9)],
+                       dtype='float')
 
     data1temp = []
     mapa = {'I': 0, 'M': 1, 'F': 2}
@@ -300,8 +307,9 @@ def load_abalone0_4():
 
 
 def load_abalone16_29():
-    data1 = np.loadtxt("files/abalone.data", delimiter=',', usecols=[0], dtype='|S1')
-    data2 = np.loadtxt("files/abalone.data", delimiter=',', usecols=[x for x in range(1, 9)], dtype='float')
+    data1 = np.loadtxt(os.path.join(path, "files/abalone.data"), delimiter=',', usecols=[0], dtype='|S1')
+    data2 = np.loadtxt(os.path.join(path, "files/abalone.data"), delimiter=',', usecols=[x for x in range(1, 9)],
+                       dtype='float')
 
     data1temp = []
     mapa = {'I': 0, 'M': 1, 'F': 2}
@@ -321,8 +329,9 @@ def load_abalone16_29():
 
 
 def load_abalone0_4_16_29():
-    data1 = np.loadtxt("files/abalone.data", delimiter=',', usecols=[0], dtype='|S1')
-    data2 = np.loadtxt("files/abalone.data", delimiter=',', usecols=[x for x in range(1, 9)], dtype='float')
+    data1 = np.loadtxt(os.path.join(path, "files/abalone.data"), delimiter=',', usecols=[0], dtype='|S1')
+    data2 = np.loadtxt(os.path.join(path, "files/abalone.data"), delimiter=',', usecols=[x for x in range(1, 9)],
+                       dtype='float')
 
     data1temp = []
     mapa = {'I': 0, 'M': 1, 'F': 2}
@@ -345,7 +354,8 @@ def load_abalone0_4_16_29():
 # missing
 
 def load_breast_cancer(imput_strategy='median'):
-    datafile = np.genfromtxt("files/missing/breast-cancer.data", missing_values='?', delimiter=',', dtype='|S20')
+    datafile = np.genfromtxt(os.path.join(path, "files/missing/breast-cancer.data"), missing_values='?', delimiter=',',
+                             dtype='|S20')
 
     maps = [
         {'10-19': 15, '20-29': 25, '30-39': 35, '40-49': 45, '50-59': 55, '60-69': 65, '70-79': 75, '80-89': 85,
@@ -382,7 +392,8 @@ def load_breast_cancer(imput_strategy='median'):
 
 
 def load_hepatitis(imput_strategy='median'):
-    datafile = np.genfromtxt("files/missing/hepatitis.data", missing_values='?', delimiter=',', dtype='float')
+    datafile = np.genfromtxt(os.path.join(path, "files/missing/hepatitis.data"), missing_values='?', delimiter=',',
+                             dtype='float')
 
     data = datafile[:, 1:]
     target = datafile[:, 0]
@@ -394,7 +405,8 @@ def load_hepatitis(imput_strategy='median'):
 
 
 def load_hear_cleveland(imput_strategy='median'):
-    datafile = np.genfromtxt("files/missing/heart-cleveland.data", missing_values='?', delimiter=',', dtype='float')
+    datafile = np.genfromtxt(os.path.join(path, "files/missing/heart-cleveland.data"), missing_values='?',
+                             delimiter=',', dtype='float')
 
     data = datafile[:, :-1]
     targettemp = datafile[:, -1]
@@ -412,7 +424,7 @@ def load_hear_cleveland(imput_strategy='median'):
 
 
 def load_postoperative(imput_strategy='median'):
-    datafile = np.genfromtxt("files/missing/postoperative.data", missing_values='?', delimiter=',',
+    datafile = np.genfromtxt(os.path.join(path, "files/missing/postoperative.data"), missing_values='?', delimiter=',',
                              dtype='|S4,|S4,|S10,|S4,|S10,|S10,|S10,i4,|S2')
 
     maps = [
@@ -455,7 +467,7 @@ def load_horse_colic(imput_strategy='median'):
     cols = [x for x in range(24)]
     cols.remove(2)
 
-    datafile = np.genfromtxt("files/missing/horse-colic.data", missing_values='?', usecols=cols)
+    datafile = np.genfromtxt(os.path.join(path, "files/missing/horse-colic.data"), missing_values='?', usecols=cols)
 
     data = datafile[:, :-1]
     target = datafile[:, -1]

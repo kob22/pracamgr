@@ -7,7 +7,6 @@ import numpy as np
 import warnings
 from texttable import Texttable
 
-
 def avarage_score(scores):
     if len(scores) > 0:
         e = float(sum(scores)) / len(scores)
@@ -54,8 +53,93 @@ def accuracy(matrixs):
         warnings.warn("Warning, Accuracy 0 - no samples", stacklevel=2)
     return avg(avg_acc), 0
 
-def precision(matrixs):
-    avg_ppv = []
+
+def tpr(matrixs):
+    sum_tp = 0
+    sum_tpfn = 0
+
+    for matrix in matrixs:
+        tp = matrix[0, 0]
+        tpfn = matrix[0, 0] + matrix[0, 1]
+
+        sum_tp += tp
+        sum_tpfn += tpfn
+
+    if sum_tpfn != 0:
+        return float(sum_tp) / sum_tpfn
+    else:
+        warnings.warn("Warning, TPR = 0 - no predicted samples", stacklevel=2)
+        return 0
+
+
+def tnr(matrixs):
+    sum_tn = 0
+    sum_tnfp = 0
+
+    for matrix in matrixs:
+        tn = matrix[1, 1]
+        tnfp = matrix[1, 1] + matrix[1, 0]
+
+        sum_tn += tn
+        sum_tnfp += tnfp
+
+    if sum_tnfp != 0:
+        return float(sum_tn) / sum_tnfp
+    else:
+        warnings.warn("Warning, TNR = 0 - no predicted samples", stacklevel=2)
+        return 0
+
+
+def specificity_tn_fp(matrixs):
+    sum_tn = 0
+    sum_tnfp = 0
+
+    for matrix in matrixs:
+        tn = matrix[1, 1]
+        tnfp = matrix[1, 1] + matrix[1, 0]
+
+        sum_tn += tn
+        sum_tnfp += tnfp
+
+    if sum_tnfp != 0:
+        return float(sum_tn) / sum_tnfp
+    else:
+        warnings.warn("Warning, Specifity = 0 - no predicted samples", stacklevel=2)
+        return 0
+
+
+def specificity_avg(matrixs):
+    avg_specifity = []
+
+    for matrix in matrixs:
+        tp = matrix[1, 1]
+        tnfp = matrix[1, 1] + matrix[1, 0]
+
+    if tnfp != 0:
+        avg_specifity.append(float(tp) / tnfp)
+    else:
+        warnings.warn("Warning, Specifity = 0 - no predicted samples", stacklevel=2)
+        avg_specifity.append(0)
+    return np.mean(avg_specifity), np.std(avg_specifity)
+
+
+def specificities(matrixs):
+    avg_specifity = []
+
+    for matrix in matrixs:
+        tp = matrix[1, 1]
+        tnfp = matrix[1, 1] + matrix[1, 0]
+
+    if tnfp != 0:
+        avg_specifity.append(float(tp) / tnfp)
+    else:
+        warnings.warn("Warning, Specifity = 0 - no predicted samples", stacklevel=2)
+        return 0
+    return avg_specifity
+
+
+# liczy precyzje z tp i fp
+def precision_tp_fp(matrixs):
     sum_tp = 0
     sum_tpfp = 0
 
@@ -66,30 +150,39 @@ def precision(matrixs):
         sum_tp += tp
         sum_tpfp += tpfp
 
+    if sum_tpfp != 0:
+        return float(sum_tp) / sum_tpfp
+    else:
+        warnings.warn("Warning, Precision = 0 - no predicted samples", stacklevel=2)
+        return 0
+
+
+# liczy precyzje z kross walidacji, zwraca srednia precyja + odchylenie
+def precision_avg(matrixs):
+    avg_ppv = []
+
+    for matrix in matrixs:
+        tp = matrix[0, 0]
+        tpfp = matrix[0, 0] + matrix[1, 0]
+
         if tpfp != 0:
             avg_ppv.append(float(tp) / tpfp)
         else:
             warnings.warn("Warning, Precision = 0 - no predicted samples", stacklevel=2)
             avg_ppv.append(0)
 
-    if sum_tpfp != 0:
-        return np.mean(avg_ppv), np.std(avg_ppv), float(sum_tp) / sum_tpfp
-    else:
-        warnings.warn("Warning, Precision = 0 - no predicted samples", stacklevel=2)
-        return np.mean(avg_ppv), np.std(avg_ppv), 0
+    return np.mean(avg_ppv), np.std(avg_ppv)
 
 
+#liczy precyzje z kross walidacji, zwraca tablice precyzji
 def precisions(matrixs):
     avg_ppv = []
-    sum_tp = 0
-    sum_tpfp = 0
+
 
     for matrix in matrixs:
         tp = matrix[0, 0]
         tpfp = matrix[0, 0] + matrix[1, 0]
 
-        sum_tp += tp
-        sum_tpfp += tpfp
 
         if tpfp != 0:
             avg_ppv.append(float(tp) / tpfp)
@@ -99,8 +192,9 @@ def precisions(matrixs):
 
     return avg_ppv
 
-def sensitivity(matrixs):
-    avg_tpr = []
+
+# liczy czulosc z tp fp
+def sensitivity_tp_fp(matrixs):
     sum_tp = 0
     sum_tpfn = 0
 
@@ -110,19 +204,32 @@ def sensitivity(matrixs):
 
         sum_tp += tp
         sum_tpfn += tpfn
+
+    if sum_tpfn != 0:
+        return float(sum_tp) / sum_tpfn
+    else:
+        warnings.warn("Warning, Sensitivity = 0 - no predicted samples", stacklevel=2)
+        return float(sum_tp) / sum_tpfn
+
+
+# liczy srednia czulosc z kross walidacji
+def sensitivity_avg(matrixs):
+    avg_tpr = []
+
+    for matrix in matrixs:
+        tp = matrix[0, 0]
+        tpfn = matrix[0, 0] + matrix[0,1]
+
         if tpfn != 0:
             avg_tpr.append(float(tp) / tpfn)
         else:
             warnings.warn("Warning, Sensitivity = 0 - no predicted samples", stacklevel=2)
             avg_tpr.append(0)
 
-    if sum_tpfn != 0:
-        return avg(avg_tpr), float(sum_tp) / sum_tpfn
-    else:
-        warnings.warn("Warning, Sensitivity = 0 - no predicted samples", stacklevel=2)
-        return avg(avg_tpr), float(sum_tp) / sum_tpfn
+    return np.mean(avg_tpr), np.std(avg_tpr)
 
 
+#liczy czulosc, zwraca tablie czulosci z kross walidacji
 def sensitivities(matrixs):
     avg_tpr = []
 
@@ -191,6 +298,11 @@ def f1avg(matrixs):
 
     # print(avg_f1)
     return avg(avg_f1)
+
+
+def g_mean(sensitivity, specificity):
+    return math.sqrt((sensitivity * specificity))
+
 
 def confusion_matrix(y_true, y_pred, labels=None):
     """Compute confusion matrix to evaluate the accuracy of a classification
@@ -272,7 +384,6 @@ def confusion_matrix(y_true, y_pred, labels=None):
                     ).toarray()
     return CM
 
-
 def print_matrix(matrixes):
     tp = 0
     fn = 0
@@ -306,6 +417,7 @@ def print_complete_matrix(matrixes, groups):
     print(table.draw())
 
 
+
 def print_scores(predict, target):
     matrices1 = []
     matrices2 = []
@@ -322,17 +434,23 @@ def print_scores(predict, target):
 
     print_complete_matrix(matrices1, groups)
     print("Accuracy: %r" % str(accuracy(matrices1)))
-
-    cols_name = ['', 'Precision', 'Recall', 'F1tpfp', 'F1prre', 'F1AVG']
-
-    firstparams = [groups[0], precision(matrices1)[0], sensitivity(matrices1)[0], f1tpfp(matrices1),
-                   f1prre(precisions(matrices1), sensitivities(matrices1)), f1avg(matrices1)]
+    cols_name = ['', 'Precision', 'Sensitivity', 'Specificity', 'F1tpfp', 'F1prre', 'F1AVG', 'G-mean']
+    prec = precision_tp_fp(matrices1)
+    sens = sensitivity_tp_fp(matrices1)
+    spec = specificity_tn_fp(matrices1)
+    firstparams = [groups[0], prec, sens, spec, f1tpfp(matrices1),
+                   f1prre(precisions(matrices1), sensitivities(matrices1)),
+                   f1avg(matrices1), g_mean(sens,spec)]
 
     for matrix in matrices1:
         matrices2.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
 
-    secondparams = [groups[1], precision(matrices2)[0], sensitivity(matrices2)[0], f1tpfp(matrices2),
-                    f1prre(precisions(matrices2), sensitivities(matrices2)), f1avg(matrices2)]
+    prec = precision_tp_fp(matrices2)
+    sens = sensitivity_tp_fp(matrices2)
+    spec = specificity_tn_fp(matrices2)
+
+    secondparams = [groups[1], prec, sens, spec, f1tpfp(matrices2),
+                    f1prre(precisions(matrices2), sensitivities(matrices2)), f1avg(matrices2), g_mean(sens,spec)]
 
     table = Texttable()
     table.add_rows([cols_name, firstparams, secondparams])

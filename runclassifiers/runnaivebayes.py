@@ -1,24 +1,21 @@
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import GaussianNB
 from simplefunctions import *
 from cross_val.cross_val import cross_val_pred2ict
 from sklearn.model_selection import StratifiedKFold
 
 
-def runforest(data, target):
+def runNB(data, target):
     folds = [10]
-    estimators = [100]
-    print("------------ RANDOM FOREST  ------------")
+    depths = [10]
+    print("------------ NB ------------")
 
     for fold in folds:
-
         print('fold = %d ' % fold)
-        for estimator in estimators:
-            print('estimators = %d ' % estimator)
-            clf = RandomForestClassifier(n_estimators=estimator)
-
+        for depth in depths:
+            print('depth = %d ' % depth)
+            clf = GaussianNB()
             skf = StratifiedKFold(n_splits=fold, random_state=5)
 
             testpredict, testtarget = cross_val_pred2ict(clf, data, target, cv=skf.get_n_splits(data, target),
                                                          n_jobs=-1)
-
             print_scores(testpredict, testtarget)

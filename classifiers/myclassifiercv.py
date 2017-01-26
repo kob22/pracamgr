@@ -7,7 +7,7 @@ from sklearn.base import clone
 from sklearn.externals import six
 from sklearn.externals.joblib import Parallel, delayed
 from sklearn.utils.validation import has_fit_parameter, check_is_fitted
-from simplefunctions import print_scores, confusion_matrix, f1tpfp, precision
+from simplefunctions import print_scores, confusion_matrix, f1tpfp
 from sklearn.model_selection import StratifiedKFold
 from cross_val.cross_val import cross_val_pred2ict
 

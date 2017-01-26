@@ -8,7 +8,7 @@ from simplefunctions import *
 def runbaggingtree(data, target):
     folds = [3]
     depths = [5]
-    estimators = [100, 1000, 10000]
+    estimators = [50]
     for fold in folds:
 
         print('fold = %d ' % fold)
@@ -20,7 +20,7 @@ def runbaggingtree(data, target):
                 print('estimators = %d ' % estimator)
 
                 skf = StratifiedKFold(n_splits=fold, random_state=5)
-                bagging = BaggingClassifier(tree.DecisionTreeClassifier(max_depth=depth), n_estimators=estimator)
+                bagging = BaggingClassifier(tree.DecisionTreeClassifier(), n_estimators=estimator)
                 testpredict, testtarget = cross_val_pred2ict(bagging, data, target, cv=skf, n_jobs=-1)
 
                 print_scores(testpredict, testtarget)
