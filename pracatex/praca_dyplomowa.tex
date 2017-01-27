@@ -4,12 +4,24 @@
 % 2017
 %--------------------------------
 
-\documentclass[a4paper,12pt,twoside,openany]{report}
 
-    \input{pakiety.tex}
-    \input{ustawienia.tex}
+\documentclass[a4paper,12pt,twoside,openany]{report}
+%
+% Wzorzec pracy dyplomowej
+% J. Starzynski (jstar@iem.pw.edu.pl) na podstawie pracy dyplomowej
+% mgr. inż. Błażeja Wincenciaka
+% Wersja 0.1 - 8 października 2016
+%
+
+\input{pakiety.tex}
+\input{ustawienia.tex}
     
 
+
+
+
+%%%%%%%%%%%%%%% Strona Tytułowa %%%%%%%%%%%%%%%%%
+% To trzeba wypelnic swoimi danymi
 \title{Meta-metody służące do poprawy jakości klasyfikacji}
 
 % autor
@@ -17,14 +29,42 @@
 \nrindeksu{272170}
 
 \opiekun{dr inż. Łukasz Skonieczny}
-\konsultant{brak}  
 \rok{2017}
+\terminwykonania{XX lutego 2017} % data na oświadczeniu o samodzielności
+
+
+
+
+% To sa domyslne wartosci
+% - mozna je zmienic, jesli praca jest pisana gdzie indziej niz w ZETiIS
+% - mozna je wyrzucic jesli praca jest pisana w ZETiIS
+\miasto{Warszawa}
+\uczelnia{POLITECHNIKA WARSZAWSKA}
+\wydzial{Wydział Elektroniki i Technik Informacyjnych}
+\instytut{Instytut Informatyki}
+% \zaklad{ZAKŁAD ELEKTROTECHNIKI TEORETYCZNEJ\linebreak[1] I~INFORMATYKI STOSOWANEJ}
+\kierunekstudiow{INFORMATYKA}
+\specjalnosc{Inżynieria Systemów Informatycznych}
+
 \pracamagisterska
+%%% koniec od P.W
+
+\opinie{%
+	\input{opiniaopiekuna.tex}
+	\newpage
+	\input{recenzja.tex}
+}
+
+\streszczenia{
+	\input{streszczenie.tex}
+}
 \begin{document}
 \maketitle
 
 \input{wstep.tex}
 \input{cel_pracy.tex}
 \input{klasyfikacja.tex}
+
+\input{bibliografia.tex}
 
 \end{document}

@@ -1,13 +1,21 @@
 \BOOKMARK [0][-]{chapter.1}{Wstep}{}% 1
 \BOOKMARK [0][-]{chapter.2}{Wstep teoretyczny}{}% 2
 \BOOKMARK [1][-]{section.2.1}{Klasyfikacja danych}{chapter.2}% 3
-\BOOKMARK [1][-]{section.2.2}{Przeglad algorytm\363w klasyfikacji danych}{chapter.2}% 4
-\BOOKMARK [2][-]{subsection.2.2.1}{Drzewo decyzyjne}{section.2.2}% 5
-\BOOKMARK [2][-]{subsection.2.2.2}{Naiwny klasyfikator bayesowski}{section.2.2}% 6
-\BOOKMARK [2][-]{subsection.2.2.3}{Klasyfikator k najblizszych sasiad\363w \(kNN\)}{section.2.2}% 7
-\BOOKMARK [2][-]{subsection.2.2.4}{Las losowy}{section.2.2}% 8
-\BOOKMARK [2][-]{subsection.2.2.5}{Bagging}{section.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.2.6}{Boosting}{section.2.2}% 10
-\BOOKMARK [2][-]{subsection.2.2.7}{Stacking}{section.2.2}% 11
-\BOOKMARK [1][-]{section.2.3}{Ocena poprawnosci klasyfikacji}{chapter.2}% 12
-\BOOKMARK [2][-]{subsection.2.3.1}{Miary jakosci klasyfikacji danych}{section.2.3}% 13
+\BOOKMARK [1][-]{section.2.2}{Dane}{chapter.2}% 4
+\BOOKMARK [2][-]{subsection.2.2.1}{Dane niezr\363wnowazone}{section.2.2}% 5
+\BOOKMARK [2][-]{subsection.2.2.2}{Wstepne przetwarzanie danych}{section.2.2}% 6
+\BOOKMARK [2][-]{subsection.2.2.3}{Brakujace wartosci atrybut\363w}{section.2.2}% 7
+\BOOKMARK [2][-]{subsection.2.2.4}{Usuniecie niekompletnych obserwacji}{section.2.2}% 8
+\BOOKMARK [2][-]{subsection.2.2.5}{Imputacja danych}{section.2.2}% 9
+\BOOKMARK [1][-]{section.2.3}{Przeglad algorytm\363w klasyfikacji danych}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.3.1}{Drzewo decyzyjne}{section.2.3}% 11
+\BOOKMARK [2][-]{subsection.2.3.2}{Naiwny klasyfikator bayesowski}{section.2.3}% 12
+\BOOKMARK [2][-]{subsection.2.3.3}{Klasyfikator k najblizszych sasiad\363w \(kNN\)}{section.2.3}% 13
+\BOOKMARK [2][-]{subsection.2.3.4}{Las losowy}{section.2.3}% 14
+\BOOKMARK [2][-]{subsection.2.3.5}{Bagging}{section.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.3.6}{Boosting}{section.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.3.7}{Stacking}{section.2.3}% 17
+\BOOKMARK [1][-]{section.2.4}{Ocena poprawnosci klasyfikacji}{chapter.2}% 18
+\BOOKMARK [2][-]{subsection.2.4.1}{Miary jakosci klasyfikacji danych}{section.2.4}% 19
+\BOOKMARK [2][-]{subsection.2.4.2}{Metody pomiaru jakosci klasyfikacji danych}{section.2.4}% 20
+\BOOKMARK [0][-]{chapter*.16}{Bibliografia}{}% 21
