@@ -16,7 +16,7 @@ dataset = ['load_german', 'load_haberman', 'load_transfusion', 'load_ionosphere'
            'load_abalone0_4', 'load_abalone16_29', 'load_abalone0_4_16_29']
 # datasetmissing = ['load_hear_cleveland', 'load_hepatitis', 'load_breast_cancer', 'load_postoperative']
 # dataset = [['load_breast_cancer', 'median'], ['load_hepatitis', 'median'], ['load_hear_cleveland', 'median'],
-#           ['load_postoperative', 'median'], ['load_horse_colic', 'median']]
+# ['load_postoperative', 'median'], ['load_horse_colic', 'median']]
 # dataset = ['load_breast_cancer','load_german', 'load_car', 'load_cmc']
 for data in dataset:
     print("-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------")
@@ -31,7 +31,7 @@ for data in dataset:
         # runmycv.runsmycv(db.data, db.target)
     # runnaivebayes.runNB(db.data,db.target)
 
-    tree.runtree(db.data, db.target)
+    #tree.runtree(db.data, db.target)
     # bagging.runbaggingtree(db.data,db.target)
     #randomforest.runforest(db.data,db.target)
 

@@ -2,7 +2,6 @@
 \chapter{Wstęp teoretyczny}
 \section{Klasyfikacja danych}
 \todo{inline} może coś pisać o uczeniu maszynowym i że klasyfikacja jest nadzorowana?
-\todo{inline} brakujace dane
 
 Klasyfikacja jest to proces przyporządkowania danych do jednej z predefiniowanych klas na podstawie atrybutów tych danych. Algorytm klasyfikacji na podstawie analizy danych trenujących, zawierających atrybuty oraz klasę, tworzy model klasyfikacyjny. Stworzony model klasyfikacyjny wykorzystywany jest do predykcji klasy (kategorii) nowych danych bez określonej klasy. Celem algorytmu budującego model, jest  odnalezienie wzorców, w jaki sposób atrybuty obiektu wpływają na przynależność do danej klasy, starając się o to, aby wiedza na temat analizowanych danych była możliwie ogólna oraz niezależna od próby.
 
@@ -52,21 +51,28 @@ Do reprezentacji danych uczących, testowych oraz do klasyfikacji najczęściej 
 	\label{system_informacyjny}
 \end{center}
 \end{table}
-\section{Dane}
-\subsection {Dane niezrównoważone}
-zrobić przykład danych niezrównoważonych
-\subsection{Wstępne przetwarzanie danych}
-\subsection{Brakujące wartości atrybutów}
-Często zdarza się, że bazy danych nie są kompletne, że brakuje kilku wartości różnych atrybutów. Brakujące wartości mogą być wynikiem błędu człowieka, aplikacji, programu pomiarowego, nie podania danych lub z innego powodu. Zazwyczaj brakujące dane oznaczone są pustymi polami,? lub w inny opisany sposób. Istnieje kilka sposobów na rozwiązanie tego problemu.
-\subsection{Usunięcie niekompletnych obserwacji}
-Najprostszym sposobem jest usunięcie wierszy lub kolumn, w których brakuje wartości. Przed usunięciem, należy przeanalizować dane, sprawdzić, które usunięcie będzie najbardziej korzystne (usunie najmniej danych). Może bowiem zdarzyć się, że zamiast usuwać dużą ilość przykładów (wiersze), bardziej opłaca usunąć się atrybut (kolumnę), który ma dużo pustych komórek. Opisana metoda niesie ze sobą niepożądane konsekwencje. Usuwając, niektóre obserwacje lub atrybuty, pozbywa się części informacji. Skutkiem tego zabiegu model predykcyjny może działać słabiej. Następstwem stosowania tego sposobu jest także, w przyszłości brak możliwości predykcji niekompletnych przykładów.
-\subsection{Imputacja danych}
-Innym pomysłem na rozwiązanie tego problemu jest imputacja danych. Brakujące dane można obliczyć lub wyznaczyć różnymi technikami na podstawie wartości pozostałych obserwacji. Jeżeli atrybut zawiera wartości ciągłe, brakujące elementy można zastąpić wartością średnią lub medianą całej kolumny. W przypadku wartości dyskretnych można uzupełnić je wartością występującą najczęściej. Stosując takie rozwiązanie można wprowadzić szum do danych. Dającym lepsze rezultaty rozwiązaniem, może być zastosowanie klasyfikatora lub regresji w celu imputacji danych.
-
-
-\section{Przegląd algorytmów klasyfikacji danych}
+\section{Wybrane algorytmy klasyfikacji danych}
 \subsection{Drzewo decyzyjne}
-
+Drzewo decyzyjne jest bardzo często wykorzystywane jako klasyfikator danych. Celem jest stworzenie modelu, który na podstawie danych wejściowych przewidzi poprawnie klasę. Drzewo jest acyklicznym spójnym grafem skierowanym. Korzeń (węzeł na poziomie 0) zawiera w sobie cały zbiór uczący. W każdym węźle przeprowadza się test na wartościach atrybutu, który dzieli zbiór nad podzbiory. Z węzła wychodzi tyle gałęzi ile jest możliwych wyników testu z tego węzła. Pod każdym węzłem znajduje się kryterium podziału dokonywanego w danym węźle, które jest jednakowe dla wszystkich elementów zbioru. Ostatnim elementem drzewa decyzyjnego są liście, które zawierają etykiety, czyli przydział klasowy elementów z tego podzbioru. Drzewo buduje się w sposób rekurencyjny od korzenia do liścia z wykorzystaniem metody "dziel i zwyciężaj".\\
+\subsubsection{Proces budowy drzewa}
+\begin{enumerate}
+	\item Stwórz korzeń zawierający cały zbiór uczący.
+	\item Jeśli wszystkie przykłady należą do tej samej klasy decyzyjnej, to węzeł staje się liściem z etykietą klasy.
+	\item Jeżeli nie, oblicz kryterium podziału wykorzystując np. entropię, które najlepiej dzieli zbiór treningowy.
+	\item Dla każdego testu stwórz gałąź i podziel odpowiednio podzbiory do nowych węzłów.
+	\item Wywołaj rekurencyjne algorytm dla nowych węzłów.
+	\item Algorytm kończy się dla kryterium stopu.
+\end{enumerate}
+Stosuje się różne kryterium stopu:
+\begin{itemize}
+	\item wszystkie przykłady należą do tej samej klasy,
+	\item brak możliwości dalszego podziału,
+	\item zbiór pusty,
+	\item osiągnięto zakładany cel, np.: maksymalna głębokość drzewa, maksymalna czystość klas w liściu, minimalny przyrost informacji po podziale.
+\end{itemize}
+Jako kryterium podziału można stosować np. wskaźnik Giniego lub entropię. Często zdarza się, że zbudowane drzewa są zbyt duże i tworzy się nadmierne dopasowanie do danych. Wtedy powinno ograniczyć się wysokość drzewa.
+Istnieje kilka algorytmów drzew decyzyjnych takich jak: ID3, C4.5, CART, CHAID. 
+\todo{wstawic obrazek drzewa decyzyjnego} 
 \subsection{Naiwny klasyfikator bayesowski}
 
 \subsection{Klasyfikator k najbliższych sąsiadów (kNN)}
@@ -78,6 +84,42 @@ Innym pomysłem na rozwiązanie tego problemu jest imputacja danych. Brakujące 
 \subsection{Boosting}
 
 \subsection{Stacking}
+\section{Klasyfikacja danych niezrównoważonych}
+Większość istniejących algorytmów klasyfikacji, nastawiona jest na poprawną klasyfikację zbiorów o zrównoważonej liczebności wszystkich klas. Niestety w rzeczywistych problemach, bardzo często zdarza się, że zbiory są mocno niezbilansowane.
+\subsubsection{Dane niezrównoważone}
+\todo{dodac odnosnik do one vs all}
+Dane są niezrównoważone jeśli klasy decyzyjne nie są przybliżeniu tak samo liczebne. Najmniejsza klasa, nazywana jest klasą mniejszościową (ang. \textit{minority class}), natomiast klasa dominująca, lub pozostałe połączone klasy (można połączyć pozostałe klasy w jedną, doprowadzając do klasyfikacji binarnej, one vs all), nazywana jest klasą większościową (ang. \textit{majority class}). W praktyce klasa mniejszościowa, zazwyczaj liczy około 10-20\% wszystkich przykładów. Często zdarzają się jednak takie problemy, gdzie to zróżnicowanie jest większe np.:
+\begin{itemize}
+	\item około 2\% transakcji kartami kredytowymi w GOCARDLESS to oszustwa \cite{gocardless}.
+
+\end{itemize}
+\todo{dodac przyklady danych mniejszosciowych}
+W przytoczonych przykładach ważniejsza jest klasa mniejszościowa i wykrycie jej stanowi priorytet. Niezrównoważenie klas w zbiorze danych stanowi problem w fazie uczenia i znacząco obniża jakość klasyfikacji. Ze względu na częstość występowania klasy dominującej, klasyfikator preferuje tą klasę, dążąc do optymalizacji i obniżenia błędu error rate (\ref{error_rate}) nie biorąc pod uwagę rozłożenia klas w zbiorze. Klasyfikator może osiągnąć wysoką skuteczność klasyfikacji np. 95\% przy niskiej lub zerowej wykrywalności klasy mniejszościowej. 
+Należy oczekiwać od klasyfikatora wysokiej skuteczności wykrywania klasy mniejszościowej, nawet kosztem pogorszenia rozpoznawania klasy większościowej.
+Poddając analizie sąsiedztwa przykłady z klasy zdominowanej, można wyróżnić przykłady bezpieczne i niebezpieczne w klasyfikacji:
+\begin{itemize}
+	\item safe - przykład bezpieczny, w jego sąsiedztwie zdecydowana większość obserwacji jest z tej samej klasy,
+	\item borderline - graniczny, przykład niebezpieczny, w jego sąsiedztwie ilość przykładów z obu klas jest podobna
+	\item outlier - poboczny, przykład niebezpieczny, w jego sąsiedztwie większość obserwacji jest z klasy przeciwnej, dominującej,
+	\item rare - rzadki, przykład niebezpieczny, w jego sąsiedztwie występują tylko przykłady z klasy przeciwnej, większościowej.
+\end{itemize}
+\todo{dodac obrazek danyych safe border itd.}
+\todo{podac wykresy przykłady danych niezrównoważonych}
+
+\todo{opisac metody klasyfikacji danych mniejszosciowych, preprocessing, algorytmy}
+\section{Dane}
+
+Dane niezrównoważone (ang. \textit{imbalanced data}) są to dane, które zawierają niezrównoważone liczebnie klasy. 
+\subsection{Wstępne przetwarzanie danych}
+\subsection{Brakujące wartości atrybutów}
+Często zdarza się, że bazy danych nie są kompletne, że brakuje kilku wartości różnych atrybutów. Brakujące wartości mogą być wynikiem błędu człowieka, aplikacji, programu pomiarowego, nie podania danych lub z innego powodu. Zazwyczaj brakujące dane oznaczone są pustymi polami,? lub w inny opisany sposób. Istnieje kilka sposobów na rozwiązanie tego problemu.
+\subsection{Usunięcie niekompletnych obserwacji}
+Najprostszym sposobem jest usunięcie wierszy lub kolumn, w których brakuje wartości. Przed usunięciem, należy przeanalizować dane, sprawdzić, które usunięcie będzie najbardziej korzystne (usunie najmniej danych). Może bowiem zdarzyć się, że zamiast usuwać dużą ilość przykładów (wiersze), bardziej opłaca usunąć się atrybut (kolumnę), który ma dużo pustych komórek. Opisana metoda niesie ze sobą niepożądane konsekwencje. Usuwając, niektóre obserwacje lub atrybuty, pozbywa się części informacji. Skutkiem tego zabiegu model predykcyjny może działać słabiej. Następstwem stosowania tego sposobu jest także, w przyszłości brak możliwości predykcji niekompletnych przykładów.
+\subsection{Imputacja danych}
+Innym pomysłem na rozwiązanie tego problemu jest imputacja danych. Brakujące dane można obliczyć lub wyznaczyć różnymi technikami na podstawie wartości pozostałych obserwacji. Jeżeli atrybut zawiera wartości ciągłe, brakujące elementy można zastąpić wartością średnią lub medianą całej kolumny. W przypadku wartości dyskretnych można uzupełnić je wartością występującą najczęściej. Stosując takie rozwiązanie można wprowadzić szum do danych. Dającym lepsze rezultaty rozwiązaniem, może być zastosowanie klasyfikatora lub regresji w celu imputacji danych.
+
+
+
 
 \section{Ocena poprawności klasyfikacji}
 
@@ -110,7 +152,7 @@ Ocenę jakości klasyfikacji przeprowadza się w oparciu o współczynniki wylic
 Podstawowym kryterium służącym do oceny klasyfikacji jest dokładność (ang. \textit{accuracy}), jest to stosunek wszystkich poprawnie sklasyfikowany przykładów klasy pozytywnej oraz negatywnej do wszystkich przykładów. Miara ta określa dokładność z jaką klasyfikator podaje poprawny wynik.
 \[accuracy = \frac{TP + TN}{TP + FN + FP + TN}\]
 Można wyróżnić także błąd klasyfikatora, obliczany na podstawie dokładności.
-\[Error\ rate = 1 - accuracy\]
+\[Error\ rate = 1 - accuracy\label{error_rate}\]
 Trzecim wskaźnikiem oceny klasyfikacji jest TPR (ang. \textit{true positive rate}), często określany jako czułość (ang. \textit{sensitivity} lub \textit{recall}). Jest to stosunek obiektów poprawnie sklasyfikowanych jako pozytywne z wszystkimi pozytywnymi przykładami. Wskaźnik ten pokazuje poprawność klasyfikowania obserwacji pozytywnych. W medycynie, wykorzystując te miarę można określać skuteczność wykrywania osób chorych.
 \[TPR = \frac{TP}{TP + FN}\]
 Kolejną miarą oceniającą klasyfikację jest TNR (ang. \textit{true negative rate}), nazywana także specyficznością (ang. \textit{specificity.}). Wskazuje ona efektywność klasyfikowania przykładów negatywnych. Jest to stosunek poprawnie przydzielonych przykładów negatywnych do wszystkich negatywnych obserwacji. Z jej pomocą, można ocenić celność klasyfikacji osób zdrowych.
@@ -118,7 +160,8 @@ Kolejną miarą oceniającą klasyfikację jest TNR (ang. \textit{true negative 
 Istotnym wskaźnikiem jest także precyzja (ang. \textit{precision}). Określa ona jaka część przykładów uznanych za pozytywne przez klasyfikator została poprawnie oznaczona. Precyzja wyrażana jest jako stosunek prawdziwie pozytywnych przypadków do wszystkich przykładów uznanych za pozytywne. W medycynie, pokazuje procentowo ile osób uznanych za chorych, jest rzeczywiście chora.
 \[precision = \frac{TP}{TP + FP}\]\\
 \todo{inline} wstawic przykład klasyfikacji dn o wysokiej skuteczności (np 95), ale o niskim wykrywaniu małej klasy
-Większość istniejących algorytmów klasyfikacji, jest nastawiona na poprawną klasyfikację danych klasy większościowej. Zakładają równomierny rozkład liczebności klas. Jednak przykłady z klasy mniejszościowej są często ważniejsze i ich poprawne wykrywanie stanowi priorytet. Niezrównoważenie klas w zbiorze danych stanowi problem w fazie uczenia i znacząco obniża jakość klasyfikacji. Ze względu na częstość występowania klasy dominującej, klasyfikator osiąga wysoką skuteczność przy niskiej lub zerowej wykrywalności klasy mniejszościowej. Dodatkowo klasyfikację może utrudniać szum, przykłady brzegowe oraz klasy nakładające się na siebie. Należy oczekiwać od klasyfikatora wysokiej skuteczności wykrywania klasy mniejszościowej, nawet kosztem pogorszenia rozpoznawania klasy większościowej. Opisane powyżej wskaźniki, takie jak dokładność i błąd nie zapewniają poprawnej oceny rozpoznawania klasy mniejszościowej. Klasyfikator może osiągnąć wysokość skuteczność klasyfikacji np. 95\% przy prawie zerowej lub zerowej wykrywalności klasy mniejszościowej.
+\todo{wycieta o klasyfikacji}
+Wskaźnik dokładności oraz error rate nie sprawdzają się w przypadku, gdy dane są niezrównoważone. Klasyfikator może osiągnąć wysoką dokładność np. 90\% przy niskiej wykrywalności klasy mniejszościowej.
 Dlatego oceniając klasyfikator pracujący na niezrównoważonych danych, należy obliczyć osobno współczynniki precyzji, czułości oraz specyficzności dla każdej kategorii danych. Jak wspomniano wcześniej, bardzo często polepszenie jakości klasyfikacji klasy mniejszościowej połączona jest z pogorszeniem rozpoznawalności klasy większościowej. Mając współczynnik czułości oraz specyficzności ciężko zdecydować, który klasyfikator jest lepszy. Kubat i Matwin zaproponowali połączenie obu tych współczynników, w postaci średniej geometrycznej czułości oraz specyficzności \cite{KubatMatwin}. 
 \[G-mean = \sqrt{precision*recall}\]
 Klasyfikator z wyższym G-mean, zapewnia lepszą rozpoznawalność obu klas, jednocześnie zachowując, aby dokładność w rozpoznawaniu obu klas była zbilansowana. Współczynnik ten jest niezależny od rozkładu klas w danych \cite{Garcia}.
@@ -157,4 +200,8 @@ Zbiór danych jest losowo dzielony na k równych podzbiorów. Następnie każdy 
 \end{figure}
 
 \subsubsection{Równomierny sprawdzian krzyżowy k-krotny (ang. \textit{Stratified k-fold cross-validation})}
-Jest to specjalny przypadek sprawdzianu krzyżowego k-krotnego. Podzbiory tworzone są z zachowaniem proporcji wszystkich klas. Każdy podzbiór powinien zawierać w przybliżeniu podobny procent obserwacji z każdej kategorii. 
+Jest to specjalny przypadek sprawdzianu krzyżowego k-krotnego. Podzbiory tworzone są z zachowaniem proporcji wszystkich klas. Każdy podzbiór powinien zawierać w przybliżeniu podobny procent obserwacji z każdej kategorii.
+
+
+\todo{napisac o tym, że niektóre zbiory są multiklasowe, natomiast dane sprowadzone są do 2 klas} 
+\todo{napisac o podejsci one vs all}
