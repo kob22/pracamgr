@@ -100,9 +100,9 @@ def load_ionosphere():
     target = []
     for line in filetarget:
         if line == 'b':
-            target.append(0)
-        elif line == 'g':
             target.append(1)
+        elif line == 'g':
+            target.append(0)
     return Bunch(data=data, target=np.asarray(target))
 
 
@@ -314,9 +314,9 @@ def load_abalone0_4():
     target = []
     for item in targettemp:
         if item in range(1, 5):
-            target.append(0)
-        elif item in range(5, 30):
             target.append(1)
+        elif item in range(5, 30):
+            target.append(0)
     return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
 
 
@@ -336,9 +336,9 @@ def load_abalone16_29():
     target = []
     for item in targettemp:
         if item in range(16, 30):
-            target.append(0)
-        elif item in range(1, 16):
             target.append(1)
+        elif item in range(1, 16):
+            target.append(0)
     return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
 
 
@@ -358,9 +358,9 @@ def load_abalone0_4_16_29():
     target = []
     for item in targettemp:
         if item in range(16, 30) or item in range(1, 5):
-            target.append(0)
-        elif item in range(4, 16):
             target.append(1)
+        elif item in range(4, 16):
+            target.append(0)
 
     return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
 
@@ -421,7 +421,7 @@ def load_hepatitis(imput_strategy='median'):
     return Bunch(data=imputed_data, target=np.asarray(target1, dtype='uint8'))
 
 
-def load_hear_cleveland(imput_strategy='median'):
+def load_heart_cleveland(imput_strategy='median'):
     datafile = np.genfromtxt(os.path.join(path, "files/missing/heart-cleveland.data"), missing_values='?',
                              delimiter=',', dtype='float')
 
@@ -510,3 +510,21 @@ def print_info(target):
     table = Texttable()
     table.add_rows([cols_name, rows[0], rows[1]])
     print(table.draw())
+
+
+def print_latex(data, target):
+    total_n_el = target.size
+    print("Liczba elementow: %s" % total_n_el)
+    groups, counts = np.unique(target, return_counts=True)
+    percent_total = []
+    for quantity in counts:
+        percent_total.append(quantity / total_n_el)
+
+    rows = [(group, quantity, percent) for group, quantity, percent in zip(groups, counts, percent_total)]
+    cols_name = ['Klasa', 'Liczba wystapien', 'Procent calosci']
+    table = Texttable()
+    table.add_rows([cols_name, rows[0], rows[1]])
+    print(table.draw())
+
+    return total_n_el, len(data[0]), '%d/%d' % (counts[0], counts[1]), float(
+        "{0:.2f}".format(percent_total[1] * 100)), float("{0:.2f}".format(counts[0] / counts[1]))

@@ -417,40 +417,70 @@ def print_complete_matrix(matrixes, groups):
     print(table.draw())
 
 
-
-def print_scores(predict, target):
+def print_to_latex(predict, target):
+    matrices0 = []
     matrices1 = []
-    matrices2 = []
 
     if len(predict) != len(target):
         raise ValueError('length score and target are different!')
     for pr, tar in zip(predict, target):
-        matrices1.append(confusion_matrix(tar, pr))
+        matrices0.append(confusion_matrix(tar, pr))
+
+    acc = accuracy(matrices0)
+    tprate = tpr(matrices0)
+    tnrate = tnr(matrices0)
+
+    prec0 = precision_tp_fp(matrices0)
+    sens0 = sensitivity_tp_fp(matrices0)
+    spec0 = specificity_tn_fp(matrices0)
+    g0 = g_mean(sens0, spec0)
+    for matrix in matrices0:
+        matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
+
+    prec1 = precision_tp_fp(matrices1)
+    sens1 = sensitivity_tp_fp(matrices1)
+    spec1 = specificity_tn_fp(matrices1)
+    g1 = g_mean(sens1, spec1)
+    f1 = f1tpfp(matrices1)
+    return float("{0:.2f}".format(acc[1])), float("{0:.2f}".format(tnrate)), float("{0:.2f}".format(g0)), float(
+        "{0:.2f}".format(f1))
+
+
+
+
+def print_scores(predict, target):
+    matrices0 = []
+    matrices1 = []
+
+    if len(predict) != len(target):
+        raise ValueError('length score and target are different!')
+    for pr, tar in zip(predict, target):
+        matrices0.append(confusion_matrix(tar, pr))
     allgroups = []
     for fold in target:
         allgroups.extend(np.unique(fold))
 
     groups = np.unique(allgroups)
 
-    print_complete_matrix(matrices1, groups)
-    print("Accuracy: %r" % str(accuracy(matrices1)))
+    print_complete_matrix(matrices0, groups)
+    print("Accuracy: %r" % str(accuracy(matrices0)))
     cols_name = ['', 'Precision', 'Sensitivity', 'Specificity', 'F1tpfp', 'F1prre', 'F1AVG', 'G-mean']
+    prec = precision_tp_fp(matrices0)
+    sens = sensitivity_tp_fp(matrices0)
+    spec = specificity_tn_fp(matrices0)
+    firstparams = [groups[0], prec, sens, spec, f1tpfp(matrices0),
+                   f1prre(precisions(matrices0), sensitivities(matrices0)),
+                   f1avg(matrices0), g_mean(sens, spec)]
+
+    for matrix in matrices0:
+        matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
+
     prec = precision_tp_fp(matrices1)
     sens = sensitivity_tp_fp(matrices1)
     spec = specificity_tn_fp(matrices1)
-    firstparams = [groups[0], prec, sens, spec, f1tpfp(matrices1),
-                   f1prre(precisions(matrices1), sensitivities(matrices1)),
-                   f1avg(matrices1), g_mean(sens,spec)]
 
-    for matrix in matrices1:
-        matrices2.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
-
-    prec = precision_tp_fp(matrices2)
-    sens = sensitivity_tp_fp(matrices2)
-    spec = specificity_tn_fp(matrices2)
-
-    secondparams = [groups[1], prec, sens, spec, f1tpfp(matrices2),
-                    f1prre(precisions(matrices2), sensitivities(matrices2)), f1avg(matrices2), g_mean(sens,spec)]
+    secondparams = [groups[1], prec, sens, spec, f1tpfp(matrices1),
+                    f1prre(precisions(matrices1), sensitivities(matrices1)), f1avg(matrices1), g_mean(sens, spec)]
 
     table = Texttable()
     table.add_rows([cols_name, firstparams, secondparams])

@@ -13,13 +13,19 @@
 \BOOKMARK [2][-]{subsection.2.3.2}{Boosting}{section.2.3}% 13
 \BOOKMARK [2][-]{subsection.2.3.3}{Stacking}{section.2.3}% 14
 \BOOKMARK [1][-]{section.2.4}{Klasyfikacja danych niezr\363wnowazonych}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.5}{Dane}{chapter.2}% 16
-\BOOKMARK [1][-]{section.2.6}{Wstepne przetwarzanie danych}{chapter.2}% 17
-\BOOKMARK [2][-]{subsection.2.6.1}{Brakujace wartosci atrybut\363w}{section.2.6}% 18
-\BOOKMARK [2][-]{subsection.2.6.2}{Transformacja danych}{section.2.6}% 19
-\BOOKMARK [1][-]{section.2.7}{Ocena poprawnosci klasyfikacji}{chapter.2}% 20
-\BOOKMARK [2][-]{subsection.2.7.1}{Miary jakosci klasyfikacji danych}{section.2.7}% 21
-\BOOKMARK [2][-]{subsection.2.7.2}{Metody pomiaru jakosci klasyfikacji danych}{section.2.7}% 22
-\BOOKMARK [1][-]{section.2.8}{Sprawdzian krzyzowy, a obliczanie miar}{chapter.2}% 23
-\BOOKMARK [1][-]{section.2.9}{Sprawdzian krzyzowy, a oversampling}{chapter.2}% 24
-\BOOKMARK [0][-]{chapter*.34}{Bibliografia}{}% 25
+\BOOKMARK [1][-]{section.2.5}{Wstepne przetwarzanie danych}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.5.1}{Brakujace wartosci atrybut\363w}{section.2.5}% 17
+\BOOKMARK [2][-]{subsection.2.5.2}{Transformacja danych}{section.2.5}% 18
+\BOOKMARK [1][-]{section.2.6}{Ocena poprawnosci klasyfikacji}{chapter.2}% 19
+\BOOKMARK [2][-]{subsection.2.6.1}{Miary jakosci klasyfikacji danych}{section.2.6}% 20
+\BOOKMARK [2][-]{subsection.2.6.2}{Metody pomiaru jakosci klasyfikacji danych}{section.2.6}% 21
+\BOOKMARK [1][-]{section.2.7}{Sprawdzian krzyzowy, a obliczanie miar}{chapter.2}% 22
+\BOOKMARK [1][-]{section.2.8}{Sprawdzian krzyzowy, a oversampling}{chapter.2}% 23
+\BOOKMARK [1][-]{section.2.9}{!!preprocessing danych niezr\363wnowazonych}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.9.1}{Metody undersampling}{section.2.9}% 25
+\BOOKMARK [2][-]{subsection.2.9.2}{Metody oversampling}{section.2.9}% 26
+\BOOKMARK [0][-]{chapter.3}{Przeprowadzone badania}{}% 27
+\BOOKMARK [1][-]{section.3.1}{Opis platformy i w jaki spos\363b zrealizowano badania}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.2}{Opis danych uzytych w badaniach}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.3}{Por\363wnanie klasyfikator\363w}{chapter.3}% 30
+\BOOKMARK [0][-]{chapter*.36}{Bibliografia}{}% 31

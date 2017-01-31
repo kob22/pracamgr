@@ -154,7 +154,7 @@ Metoda stacking (kontaminacja modeli) to połączenie kilku lub kilkunastu klasy
 Większość istniejących algorytmów klasyfikacji, nastawiona jest na poprawną klasyfikację zbiorów o zrównoważonej liczebności wszystkich klas. Niestety w rzeczywistych problemach, bardzo często zdarza się, że zbiory są mocno niezbilansowane.
 \subsubsection{Dane niezrównoważone}
 \todo{dodac odnosnik do one vs all}
-Dane są niezrównoważone jeśli klasy decyzyjne nie są przybliżeniu tak samo liczebne. Najmniejsza klasa, nazywana jest klasą mniejszościową (ang. \textit{minority class}), natomiast klasa dominująca, lub pozostałe połączone klasy (można połączyć pozostałe klasy w jedną, doprowadzając do klasyfikacji binarnej, one vs all), nazywana jest klasą większościową (ang. \textit{majority class}). W praktyce klasa mniejszościowa, zazwyczaj liczy około 10-20\% wszystkich przykładów. Często zdarzają się jednak takie problemy, gdzie to zróżnicowanie jest większe np.:
+Dane są niezrównoważone (ang. \textit{imbalanced data} jeśli klasy decyzyjne nie są przybliżeniu tak samo liczebne. Najmniejsza klasa, nazywana jest klasą mniejszościową (ang. \textit{minority class}), natomiast klasa dominująca, lub pozostałe połączone klasy (można połączyć pozostałe klasy w jedną, doprowadzając do klasyfikacji binarnej, one vs all), nazywana jest klasą większościową (ang. \textit{majority class}). W praktyce klasa mniejszościowa, zazwyczaj liczy około 10-20\% wszystkich przykładów. Często zdarzają się jednak takie problemy, gdzie to zróżnicowanie jest większe np.:
 \begin{itemize}
 	\item około 2\% transakcji kartami kredytowymi w GOCARDLESS to oszustwa \cite{gocardless}.
 
@@ -172,10 +172,7 @@ Poddając analizie sąsiedztwa przykłady z klasy zdominowanej, można wyróżni
 \todo{dodac obrazek danyych safe border itd.}
 \todo{podac wykresy przykłady danych niezrównoważonych}
 
-\todo{opisac metody klasyfikacji danych mniejszosciowych, preprocessing, algorytmy}
-\section{Dane}
-
-Dane niezrównoważone (ang. \textit{imbalanced data}) są to dane, które zawierają niezrównoważone liczebnie klasy. 
+ 
 \section{Wstępne przetwarzanie danych}
 \subsection{Brakujące wartości atrybutów}
 Często zdarza się, że bazy danych nie są kompletne, że brakuje kilku wartości różnych atrybutów. Brakujące wartości mogą być wynikiem błędu człowieka, aplikacji, programu pomiarowego, nie podania danych lub z innego powodu. Zazwyczaj brakujące dane oznaczone są pustymi polami,? lub w inny opisany sposób. Istnieje kilka sposobów na rozwiązanie tego problemu.
@@ -294,3 +291,16 @@ W większości publikacji naukowych dotyczących klasyfikacji, jakość mierzona
 
 \todo{napisac o tym, że niektóre zbiory są multiklasowe, natomiast dane sprowadzone są do 2 klas} 
 \todo{napisac o podejsci one vs all}
+\todo{opisac metody klasyfikacji danych mniejszosciowych, preprocessing, algorytmy}
+\todo{wspomnieć o 2 podejścia -> preprecesing oraz algorytmy (algorytmamie się nie zajmuje)}
+\section{!!preprocessing danych niezrównoważonych}
+W celu zrównoważenia rozkładu danych niezbilansowanych wprowadzono różne metody usuwania przykładów klasy dominującej lub tworzenia sztucznych obserwacji klasy mniejszościowej. Poniżej zostaną omówione metody, które zostały użyte podczas badań.
+\subsection{Metody undersampling}
+Jest to cała rodzina różnych metod, które usuwają przykłady z klasy większościowej. \textbf{Losowe usuwanie} (ang. \textit{random undersampling}), jak sama nazwa wskazuje losowo usuwa przykłady z klasy dominującej. Rozwiązanie to ma niestety wadę. Jeśli usunie się zbyt dużo przykładów danego przypadku, można pozbawić klasyfikator bardzo ważnej informacji. \par
+Lepszym rozwiązaniem jest świadome usuwanie przykładów spełniających określone kryteria. Taką metodą jest \textbf{undersampling z "Tomek links"}. Parę punktów Tomek link, definiuje się jako dwa punkty należące do różnych klas, z odległością równą $d(E_i,E_j)$, jeśli nie istnieje inny punkt $E_l$, taki, że $d(E_i,E_l) < d(E_i,E_j)$ lub $d(E_j,E_l) < d(E_i,E_j)$. Punkty tworzące Tomek link to szum lub punkt graniczny. Po znalezieniu takich punktów, usuwa się przykład z klasy dominującej. Usunięcie takiej obserwacji, powoduje rozszerzenie granicy klasy mniejszościowej. \par
+\todo{opisac reszte te ktore wykorzystam}
+
+\subsection{Metody oversampling}
+
+
+

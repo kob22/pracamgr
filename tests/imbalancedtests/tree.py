@@ -12,4 +12,4 @@ for data in dataset:
     db = getattr(importdata, data)()
     importdata.print_info(db.target)
     smoteentree_overfitting.runtree(db.data, db.target)
-    smotentree.runtree(db.data, db.target)
+    # smotentree.runtree(db.data, db.target)
