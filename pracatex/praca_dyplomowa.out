@@ -14,11 +14,12 @@
 \BOOKMARK [2][-]{subsection.2.3.3}{Stacking}{section.2.3}% 14
 \BOOKMARK [1][-]{section.2.4}{Klasyfikacja danych niezr\363wnowazonych}{chapter.2}% 15
 \BOOKMARK [1][-]{section.2.5}{Dane}{chapter.2}% 16
-\BOOKMARK [2][-]{subsection.2.5.1}{Wstepne przetwarzanie danych}{section.2.5}% 17
-\BOOKMARK [2][-]{subsection.2.5.2}{Brakujace wartosci atrybut\363w}{section.2.5}% 18
-\BOOKMARK [2][-]{subsection.2.5.3}{Usuniecie niekompletnych obserwacji}{section.2.5}% 19
-\BOOKMARK [2][-]{subsection.2.5.4}{Imputacja danych}{section.2.5}% 20
-\BOOKMARK [1][-]{section.2.6}{Ocena poprawnosci klasyfikacji}{chapter.2}% 21
-\BOOKMARK [2][-]{subsection.2.6.1}{Miary jakosci klasyfikacji danych}{section.2.6}% 22
-\BOOKMARK [2][-]{subsection.2.6.2}{Metody pomiaru jakosci klasyfikacji danych}{section.2.6}% 23
-\BOOKMARK [0][-]{chapter*.29}{Bibliografia}{}% 24
+\BOOKMARK [1][-]{section.2.6}{Wstepne przetwarzanie danych}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.6.1}{Brakujace wartosci atrybut\363w}{section.2.6}% 18
+\BOOKMARK [2][-]{subsection.2.6.2}{Transformacja danych}{section.2.6}% 19
+\BOOKMARK [1][-]{section.2.7}{Ocena poprawnosci klasyfikacji}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.7.1}{Miary jakosci klasyfikacji danych}{section.2.7}% 21
+\BOOKMARK [2][-]{subsection.2.7.2}{Metody pomiaru jakosci klasyfikacji danych}{section.2.7}% 22
+\BOOKMARK [1][-]{section.2.8}{Sprawdzian krzyzowy, a obliczanie miar}{chapter.2}% 23
+\BOOKMARK [1][-]{section.2.9}{Sprawdzian krzyzowy, a oversampling}{chapter.2}% 24
+\BOOKMARK [0][-]{chapter*.34}{Bibliografia}{}% 25

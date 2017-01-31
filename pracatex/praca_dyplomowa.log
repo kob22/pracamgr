@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.24)  30 JAN 2017 21:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.24)  31 JAN 2017 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1078,7 +1078,7 @@ LaTeX Font Info:    Try loading font information for T1+phv on input line 62.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-<PWHead.png, id=103, 2015.53pt x 320.19624pt>
+<PWHead.png, id=107, 2015.53pt x 320.19624pt>
 File: PWHead.png Graphic file (type png)
  <use PWHead.png>
 Package pdftex.def Info: PWHead.png used on input line 62.
@@ -1088,7 +1088,7 @@ Overfull \hbox (31.10086pt too wide) in paragraph at lines 62--62
 [] 
  []
 
-<mgrhead.png, id=104, 1392.20125pt x 303.1325pt>
+<mgrhead.png, id=108, 1392.20125pt x 303.1325pt>
 File: mgrhead.png Graphic file (type png)
  <use mgrhead.png>
 Package pdftex.def Info: mgrhead.png used on input line 62.
@@ -1182,64 +1182,61 @@ LaTeX Warning: Marginpar on page 12 moved.
 
 LaTeX Warning: Marginpar on page 12 moved.
 
-[12]
-Overfull \hbox (1.47086pt too wide) in paragraph at lines 217--219
+[12] [13]
+Overfull \hbox (1.47086pt too wide) in paragraph at lines 224--226
 \T1/cmr/m/n/12 Podstawowym kry-te-rium sªu-»¡-cym do oceny kla-sy-fi-ka-cji jes
 t do-kªad-no±¢ (ang.
  []
 
-[13]
-
-LaTeX Warning: Marginpar on page 14 moved.
-
 [14]
-Overfull \hbox (3.91196pt too wide) in paragraph at lines 232--236
+
+LaTeX Warning: Marginpar on page 15 moved.
+
+[15]
+Overfull \hbox (3.91196pt too wide) in paragraph at lines 241--245
 \T1/cmr/m/n/12 po-mocy F-measure. Jest to ±red-nia har-mo-niczna pre-cy-zji ora
 z czu-ªo-±ci. Wspóª-
  []
 
+<./images/roc.png, id=279, 505.89pt x 361.35pt>
+File: ./images/roc.png Graphic file (type png)
+ <use ./images/roc.png>
+Package pdftex.def Info: ./images/roc.png used on input line 258.
+(pdftex.def)             Requested size: 234.00238pt x 167.14381pt.
+ [16]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 266.
 
-LaTeX Warning: Marginpar on page 15 moved.
-
-
-LaTeX Warning: Marginpar on page 15 moved.
-
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 247.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [15]
-Overfull \hbox (33.25613pt too wide) in paragraph at lines 253--253
+) [17 <./images/roc.png>]
+Overfull \hbox (33.25613pt too wide) in paragraph at lines 272--272
 [][]\T1/cmr/bx/n/12 Sprawdzian krzy-»owy z p przy-kªa-dami (ang. \T1/cmr/bx/it/
 12 leave-p-out cross-validation\T1/cmr/bx/n/12 ) 
  []
 
 
-Overfull \hbox (8.23586pt too wide) in paragraph at lines 255--255
+Overfull \hbox (8.23586pt too wide) in paragraph at lines 274--274
 [][]\T1/cmr/bx/n/12 Sprawdzian krzy-»owy mi-nus je-den ele-ment (ang. \T1/cmr/b
 x/it/12 leave-one-out cross-
  []
 
-
-Underfull \vbox (badness 2443) has occurred while \output is active []
-
- [16]
-<./images/crossvalidation.jpg, id=286, 433.62pt x 185.69376pt>
+[18] <./images/crossvalidation.jpg, id=310, 433.62pt x 185.69376pt>
 File: ./images/crossvalidation.jpg Graphic file (type jpg)
 
 <use ./images/crossvalidation.jpg>
-Package pdftex.def Info: ./images/crossvalidation.jpg used on input line 263.
-(pdftex.def)             Requested size: 390.0pt x 167.02083pt.
- [17 <./images/crossvalidation.jpg>])
+Package pdftex.def Info: ./images/crossvalidation.jpg used on input line 282.
+(pdftex.def)             Requested size: 234.00238pt x 100.21078pt.
+)
 
-LaTeX Warning: Marginpar on page 18 moved.
+LaTeX Warning: Marginpar on page 19 moved.
 
-(./bibliografia.tex [18]
+(./bibliografia.tex [19 <./images/crossvalidation.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 []\T1/cmr/m/n/12 N. Hoc-kham: Ma-chine le-ar-ning with im-ba-lan-ced data sets
  []
 
-) [19
+) [20
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 70.
@@ -1248,14 +1245,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 70.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 70.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 70.
 Package rerunfilecheck Info: File `praca_dyplomowa.out' has not changed.
-(rerunfilecheck)             Checksum: BED86C0B6D4850544CA033771B0D82E4;1736.
+(rerunfilecheck)             Checksum: 69E1AF64C716A809A15A1011A9F4F7F3;1811.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 70.
  ) 
 Here is how much of TeX's memory you used:
- 18390 strings out of 494918
- 335198 string characters out of 6180101
- 424028 words of memory out of 5000000
- 21165 multiletter control sequences out of 15000+600000
+ 18405 strings out of 494918
+ 335380 string characters out of 6180101
+ 427032 words of memory out of 5000000
+ 21171 multiletter control sequences out of 15000+600000
  25659 words of font info for 49 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  64i,18n,76p,1109b,730s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1278,10 +1275,10 @@ ve/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /pl/plsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
 b>
-Output written on praca_dyplomowa.pdf (25 pages, 468307 bytes).
+Output written on praca_dyplomowa.pdf (26 pages, 515265 bytes).
 PDF statistics:
- 717 PDF objects out of 1000 (max. 8388607)
- 346 compressed objects within 4 object streams
- 96 named destinations out of 1000 (max. 500000)
- 220 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 748 PDF objects out of 1000 (max. 8388607)
+ 364 compressed objects within 4 object streams
+ 104 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -176,17 +176,24 @@ Poddając analizie sąsiedztwa przykłady z klasy zdominowanej, można wyróżni
 \section{Dane}
 
 Dane niezrównoważone (ang. \textit{imbalanced data}) są to dane, które zawierają niezrównoważone liczebnie klasy. 
-\subsection{Wstępne przetwarzanie danych}
+\section{Wstępne przetwarzanie danych}
 \subsection{Brakujące wartości atrybutów}
 Często zdarza się, że bazy danych nie są kompletne, że brakuje kilku wartości różnych atrybutów. Brakujące wartości mogą być wynikiem błędu człowieka, aplikacji, programu pomiarowego, nie podania danych lub z innego powodu. Zazwyczaj brakujące dane oznaczone są pustymi polami,? lub w inny opisany sposób. Istnieje kilka sposobów na rozwiązanie tego problemu.
-\subsection{Usunięcie niekompletnych obserwacji}
+\subsubsection{Usunięcie niekompletnych obserwacji}
 Najprostszym sposobem jest usunięcie wierszy lub kolumn, w których brakuje wartości. Przed usunięciem, należy przeanalizować dane, sprawdzić, które usunięcie będzie najbardziej korzystne (usunie najmniej danych). Może bowiem zdarzyć się, że zamiast usuwać dużą ilość przykładów (wiersze), bardziej opłaca usunąć się atrybut (kolumnę), który ma dużo pustych komórek. Opisana metoda niesie ze sobą niepożądane konsekwencje. Usuwając, niektóre obserwacje lub atrybuty, pozbywa się części informacji. Skutkiem tego zabiegu model predykcyjny może działać słabiej. Następstwem stosowania tego sposobu jest także, w przyszłości brak możliwości predykcji niekompletnych przykładów.
-\subsection{Imputacja danych}
+\subsubsection{Imputacja danych}
 Innym pomysłem na rozwiązanie tego problemu jest imputacja danych. Brakujące dane można obliczyć lub wyznaczyć różnymi technikami na podstawie wartości pozostałych obserwacji. Jeżeli atrybut zawiera wartości ciągłe, brakujące elementy można zastąpić wartością średnią lub medianą całej kolumny. W przypadku wartości dyskretnych można uzupełnić je wartością występującą najczęściej. Stosując takie rozwiązanie można wprowadzić szum do danych. Dającym lepsze rezultaty rozwiązaniem, może być zastosowanie klasyfikatora lub regresji w celu imputacji danych.
-
-
-
-
+\subsection{Transformacja danych}
+Drzewo decyzyjne lub las losowy, są jednymi z nielicznych algorytmów klasyfikacji, które nie wymagają skalowania danych. Atrybuty mogą mieć różne skale, jednostki i przedziały zmienności. Może to powodować dominacją niektórych atrybutów nad innymi (np. w klasyfikatorze k-NN, podczas mierzenia odległości euklidesowej), a w konsekwencji do zafałszowania klasyfikacji. Rozwiązać ten problem można na kilka sposobów.
+\subsubsection{Skalowanie}
+Skalowanie polega na proporcjonalnym przekształceniu wartości atrybutów do nowego przedziału. Zazwyczaj jest to przedział [0,1]. Do przekształcenia wykorzystuje się następujący wzór:
+\[x_i=p_{start}+(p_{stop}-p_{start})\frac{x_i-x_{min}}{x_{max}-x_{min}}\]
+gdzie $x_i$ to nowa wartość atrybutu, $x_{max}$ i $x_{min}$ to wartość maksymalna i minimalna atrybutu, a $p_{start}$ i $p_{stop}$ to granice przedziału docelowego.
+\subsubsection{Standaryzacja}
+Lepszym rozwiązaniem może być standaryzacja, z tego względu, że wiele algorytmów rozpoczyna klasyfikację od wag równych 0 lub bliskich 0. Wykorzystując standaryzację, dane są podobne do standardowego rozkładu normalnego, a średnie wartości atrybutów ustawiane są w zerze, co pozwala na łatwiejsze uczenie się wag. Zastosowanie standaryzacji czyni klasyfikator bardziej odpornym na przykłady poboczne (tzw. outliers) w przeciwieństwie do skalowania. Standaryzację wyraża się wzorem:
+\[x_i^{STD} = \frac{x_i - \mu(x)}{\sigma(x)}\]
+gdzie $x_i^{STD}$ to nowa wartość atrybutu, $x_i$ to wartość początkowa, $\mu(x)$ to wartość średnia, a $\sigma(x)$ to odchylenie standardowe.
+\todo{trzeba napisac jescze o kodowaniu, (kobieta, mezczyzna) + o binaryzacji calosci projektu}
 \section{Ocena poprawności klasyfikacji}
 
 \subsection{Miary jakości klasyfikacji danych}
@@ -223,6 +230,8 @@ Trzecim wskaźnikiem oceny klasyfikacji jest TPR (ang. \textit{true positive rat
 \[TPR = \frac{TP}{TP + FN}\]
 Kolejną miarą oceniającą klasyfikację jest TNR (ang. \textit{true negative rate}), nazywana także specyficznością (ang. \textit{specificity.}). Wskazuje ona efektywność klasyfikowania przykładów negatywnych. Jest to stosunek poprawnie przydzielonych przykładów negatywnych do wszystkich negatywnych obserwacji. Z jej pomocą, można ocenić celność klasyfikacji osób zdrowych.
 \[TNR = \frac{TN}{TN + FP}\]
+Wyróżnia się także współczynnik FPR (ang. \textit{false positive rate}), jest to iloraz przykładów fałszywie pozytywnych i sumy przykładów prawdziwie negatywnych i fałszywie negatywnych.
+\[FPR = \frac{FP}{TN + FP}\]
 Istotnym wskaźnikiem jest także precyzja (ang. \textit{precision}). Określa ona jaka część przykładów uznanych za pozytywne przez klasyfikator została poprawnie oznaczona. Precyzja wyrażana jest jako stosunek prawdziwie pozytywnych przypadków do wszystkich przykładów uznanych za pozytywne. W medycynie, pokazuje procentowo ile osób uznanych za chorych, jest rzeczywiście chora.
 \[precision = \frac{TP}{TP + FP}\]\\
 \todo{inline} wstawic przykład klasyfikacji dn o wysokiej skuteczności (np 95), ale o niskim wykrywaniu małej klasy
@@ -236,10 +245,20 @@ Ocenę klasyfikacji danych niezrównoważonych możemy dokonać także przy pomo
 \[F-measure= \frac{(1+\beta)^2*precision*recall}{\beta^2*precision+recall}\]
 Zazwyczaj $\beta$ = 1, wtedy:
 \[F-measure= 2*\frac{precision*recall}{precision+recall}\]
+Podstawiając wzory pod precision oraz recall można otrzymać uproszczoną wersje miary $F_1$:
+\[F_1-measure= \frac{2*TP}{2*TP+FP+FN}\]
 
 \todo{inline} napisac o roznych F i o tym jak wyniki wyglada, pokazać test
 
-\todo{inline} napisc o roc
+\subsubsection{Krzywa ROC}
+Dla klasyfikatorów, które mogą zwracać prawdopodobieństwo klas, można zbudować wykres wartości TPR oraz FPR, które tworzą tzw. krzywą ROC (ang. \textit{receiver operator characteristic}). Wykorzystując tą krzywą można porównać modele. Klasyfikator jest lepszy od drugiego, jeżeli jego krzywa jest powyżej drugiej krzywej. Jeżeli krzywa ROC, przebiega poniżej przekątnej, to klasyfikator ma gorszą skuteczność niż losowe zgadywanie. Na wykresie \ref{fig:krzywa_roc} przedstawiono porównanie naiwnego klasyfikatora bayesowskiego oraz regresji logistycznej, która osiągnęła zdecydowanie lepszy wynik w klasyfikacji. Na wykresie zaznaczono krzywą ROC idealnego klasyfikatora, przechodzi ona przez punkty (1,0) oraz (1,1).\\
+W celu porównania klasyfikatorów, można obliczyć pole powierzchni poniżej krzywej ROC, jest to tzw. AUC (ang. \textit{area under curve}). Idealny klasyfikator osiąga wartość AUC = 1, natomiast losowe zgadywanie AUC = 0.5. Im wartość AUC jest wyższa, tym model jest skuteczniejszy.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth]{./images/roc.png}
+	\caption{Przykład krzywej ROC, dla naiwnego klasyfikatora bayesowskiego oraz dla regresji logistycznej dla danych "abalone0\_4\_16\_29}
+	\label{fig:krzywa_roc}
+\end{figure}
 
 \todo{inline} napisac gdzies o nadmiernym dopasowaniu -> walidacja krzyżowa
 \subsection{Metody pomiaru jakości klasyfikacji danych}
@@ -260,13 +279,17 @@ Jest to specjalny przypadek sprawdzaniu krzyżowego z p przykładami, dla p = 1.
 Zbiór danych jest losowo dzielony na k równych podzbiorów. Następnie każdy z podzbiorów w kolejnych k iteracjach staje się kolejno zbiorem testowym, pozostałe zbiory tworzą zbiór uczący, na podstawie, którego buduje się model. Klasyfikacja i testowanie wykonywane są k-krotnie. Otrzymane wyniki łączy się i uśrednia w celu uzyskania jednego wyniku. Zaletą tej metody jest mały błąd estymacji oraz niższa wariancja błędu niż w przypadku metody minus jednego elementu. Zwykle stosuje się k=3..10, dla których koszt czasowy jest umiarkowany.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\linewidth]{./images/crossvalidation.jpg}
+	\includegraphics[width=0.6\textwidth]{./images/crossvalidation.jpg}
 	\caption{Przykład sprawdzianu krzyżowego k-krotnego, k=4.}
 	\label{fig:sprawdziankrzyzowy}
 \end{figure}
 
 \subsubsection{Równomierny sprawdzian krzyżowy k-krotny (ang. \textit{Stratified k-fold cross-validation})}
 Jest to specjalny przypadek sprawdzianu krzyżowego k-krotnego. Podzbiory tworzone są z zachowaniem proporcji wszystkich klas. Każdy podzbiór powinien zawierać w przybliżeniu podobny procent obserwacji z każdej kategorii.
+
+\section{Sprawdzian krzyżowy, a obliczanie miar}
+W większości publikacji naukowych dotyczących klasyfikacji, jakość mierzona jest przedstawionymi wcześniej współczynnikami. 
+\section{Sprawdzian krzyżowy, a oversampling}
 
 
 \todo{napisac o tym, że niektóre zbiory są multiklasowe, natomiast dane sprowadzone są do 2 klas} 
