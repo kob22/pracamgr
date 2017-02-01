@@ -42,4 +42,4 @@
 \contentsline {section}{\numberline {3.1}Opis platformy i w jaki spos\IeC {\'o}b zrealizowano badania}{22}{section.3.1}
 \contentsline {section}{\numberline {3.2}Opis danych u\IeC {\.z}ytych w badaniach}{22}{section.3.2}
 \contentsline {section}{\numberline {3.3}Por\IeC {\'o}wnanie klasyfikator\IeC {\'o}w}{23}{section.3.3}
-\contentsline {chapter}{Bibliografia}{27}{chapter*.36}
+\contentsline {chapter}{Bibliografia}{27}{chapter*.37}

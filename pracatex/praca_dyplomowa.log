@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.24)  31 JAN 2017 23:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.24)  1 FEB 2017 09:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1277,14 +1277,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 71.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 71.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 71.
 Package rerunfilecheck Info: File `praca_dyplomowa.out' has not changed.
-(rerunfilecheck)             Checksum: 7C7B64AD1C83B465A1E5B8552465EA3C;2312.
+(rerunfilecheck)             Checksum: 30A1ACA6DE3BB77F780DABBA356FBBC4;2312.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 71.
  ) 
 Here is how much of TeX's memory you used:
- 18451 strings out of 494918
- 336059 string characters out of 6180101
- 487851 words of memory out of 5000000
- 21195 multiletter control sequences out of 15000+600000
+ 18460 strings out of 494918
+ 336263 string characters out of 6180101
+ 491996 words of memory out of 5000000
+ 21203 multiletter control sequences out of 15000+600000
  25659 words of font info for 49 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  64i,18n,76p,1109b,730s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1307,10 +1307,10 @@ ve/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /pl/plsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
 b>
-Output written on praca_dyplomowa.pdf (33 pages, 519251 bytes).
+Output written on praca_dyplomowa.pdf (33 pages, 519831 bytes).
 PDF statistics:
- 830 PDF objects out of 1000 (max. 8388607)
- 426 compressed objects within 5 object streams
- 123 named destinations out of 1000 (max. 500000)
+ 831 PDF objects out of 1000 (max. 8388607)
+ 427 compressed objects within 5 object streams
+ 124 named destinations out of 1000 (max. 500000)
  281 words of extra memory for PDF output out of 10000 (max. 10000000)
 
