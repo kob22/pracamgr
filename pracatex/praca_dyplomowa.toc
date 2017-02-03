@@ -1,45 +1,51 @@
 \select@language {polish}
-\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{1}{chapter.1}
-\contentsline {chapter}{\numberline {2}Wst\IeC {\k e}p teoretyczny}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Klasyfikacja danych}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}Wybrane algorytmy klasyfikacji danych}{4}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Drzewo decyzyjne}{4}{subsection.2.2.1}
-\contentsline {subsubsection}{Proces budowy drzewa}{4}{section*.4}
-\contentsline {subsection}{\numberline {2.2.2}Naiwny klasyfikator bayesowski}{5}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Klasyfikator k najbli\IeC {\.z}szych s\IeC {\k a}siad\IeC {\'o}w (kNN)}{6}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Las losowy}{6}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Maszyna wektor\IeC {\'o}w no\IeC {\'s}nych}{7}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}Zesp\IeC {\'o}\IeC {\l } klasyfikator\IeC {\'o}w}{8}{subsection.2.2.6}
-\contentsline {section}{\numberline {2.3}Meta-metody}{8}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Bagging}{8}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Boosting}{9}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Stacking}{10}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}Klasyfikacja danych niezr\IeC {\'o}wnowa\IeC {\.z}onych}{11}{section.2.4}
-\contentsline {subsubsection}{Dane niezr\IeC {\'o}wnowa\IeC {\.z}one}{11}{section*.9}
-\contentsline {section}{\numberline {2.5}Wst\IeC {\k e}pne przetwarzanie danych}{12}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Brakuj\IeC {\k a}ce warto\IeC {\'s}ci atrybut\IeC {\'o}w}{12}{subsection.2.5.1}
-\contentsline {subsubsection}{Usuni\IeC {\k e}cie niekompletnych obserwacji}{12}{section*.14}
-\contentsline {subsubsection}{Imputacja danych}{12}{section*.15}
-\contentsline {subsection}{\numberline {2.5.2}Transformacja danych}{13}{subsection.2.5.2}
-\contentsline {subsubsection}{Skalowanie}{13}{section*.16}
-\contentsline {subsubsection}{Standaryzacja}{13}{section*.17}
-\contentsline {section}{\numberline {2.6}Ocena poprawno\IeC {\'s}ci klasyfikacji}{13}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}Miary jako\IeC {\'s}ci klasyfikacji danych}{13}{subsection.2.6.1}
-\contentsline {subsubsection}{Krzywa ROC}{16}{section*.22}
-\contentsline {subsection}{\numberline {2.6.2}Metody pomiaru jako\IeC {\'s}ci klasyfikacji danych}{17}{subsection.2.6.2}
-\contentsline {subsubsection}{Metoda z jednym zbiorem}{17}{section*.25}
-\contentsline {subsubsection}{Metoda z wydzielonym zbiorem testowym (ang. \textit {the holdout method})}{18}{section*.26}
-\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy z p przyk\IeC {\l }adami (ang. \textit {leave-p-out cross-validation})}{18}{section*.27}
-\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy minus jeden element (ang. \textit {leave-one-out cross-validation})}{18}{section*.28}
-\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy k-krotny (ang. \textit {k-fold cross-validation})}{19}{section*.29}
-\contentsline {subsubsection}{R\IeC {\'o}wnomierny sprawdzian krzy\IeC {\.z}owy k-krotny (ang. \textit {Stratified k-fold cross-validation})}{19}{section*.30}
-\contentsline {section}{\numberline {2.7}Sprawdzian krzy\IeC {\.z}owy, a obliczanie miar}{19}{section.2.7}
-\contentsline {section}{\numberline {2.8}Sprawdzian krzy\IeC {\.z}owy, a oversampling}{19}{section.2.8}
-\contentsline {section}{\numberline {2.9}!!preprocessing danych niezr\IeC {\'o}wnowa\IeC {\.z}onych}{20}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}Metody undersampling}{20}{subsection.2.9.1}
-\contentsline {subsection}{\numberline {2.9.2}Metody oversampling}{20}{subsection.2.9.2}
-\contentsline {chapter}{\numberline {3}Przeprowadzone badania}{21}{chapter.3}
-\contentsline {section}{\numberline {3.1}Opis platformy i w jaki spos\IeC {\'o}b zrealizowano badania}{22}{section.3.1}
-\contentsline {section}{\numberline {3.2}Opis danych u\IeC {\.z}ytych w badaniach}{22}{section.3.2}
-\contentsline {section}{\numberline {3.3}Por\IeC {\'o}wnanie klasyfikator\IeC {\'o}w}{23}{section.3.3}
-\contentsline {chapter}{Bibliografia}{27}{chapter*.37}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p teoretyczny}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Klasyfikacja danych}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}Wybrane algorytmy klasyfikacji danych}{4}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Drzewo decyzyjne}{4}{subsection.1.2.1}
+\contentsline {subsubsection}{Proces budowy drzewa}{4}{section*.8}
+\contentsline {subsection}{\numberline {1.2.2}Naiwny klasyfikator bayesowski}{5}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}Klasyfikator k najbli\IeC {\.z}szych s\IeC {\k a}siad\IeC {\'o}w (kNN)}{6}{subsection.1.2.3}
+\contentsline {subsection}{\numberline {1.2.4}Las losowy}{6}{subsection.1.2.4}
+\contentsline {subsection}{\numberline {1.2.5}Maszyna wektor\IeC {\'o}w no\IeC {\'s}nych}{7}{subsection.1.2.5}
+\contentsline {subsection}{\numberline {1.2.6}Zesp\IeC {\'o}\IeC {\l } klasyfikator\IeC {\'o}w}{8}{subsection.1.2.6}
+\contentsline {section}{\numberline {1.3}Meta-metody}{8}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Bagging}{8}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Boosting}{9}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Stacking}{10}{subsection.1.3.3}
+\contentsline {section}{\numberline {1.4}Wst\IeC {\k e}pne przetwarzanie danych}{11}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Brakuj\IeC {\k a}ce warto\IeC {\'s}ci atrybut\IeC {\'o}w}{11}{subsection.1.4.1}
+\contentsline {subsubsection}{Usuni\IeC {\k e}cie niekompletnych obserwacji}{11}{section*.13}
+\contentsline {subsubsection}{Imputacja danych}{11}{section*.14}
+\contentsline {subsection}{\numberline {1.4.2}Transformacja danych}{12}{subsection.1.4.2}
+\contentsline {subsubsection}{Skalowanie}{12}{section*.15}
+\contentsline {subsubsection}{Standaryzacja}{12}{section*.16}
+\contentsline {subsection}{\numberline {1.4.3}Dane kategoryczne}{12}{subsection.1.4.3}
+\contentsline {subsubsection}{Mapowanie danych kategorycznych}{13}{section*.17}
+\contentsline {subsubsection}{Dane nominalne}{13}{section*.18}
+\contentsline {subsection}{\numberline {1.4.4}Redukcja ilo\IeC {\'s}ci atrybut\IeC {\'o}w}{14}{subsection.1.4.4}
+\contentsline {subsubsection}{Sekwencyjna selekcja post\IeC {\k e}puj\IeC {\k a}ca oraz sekwencyjna selekcja wsteczna}{14}{section*.19}
+\contentsline {section}{\numberline {1.5}Ocena poprawno\IeC {\'s}ci klasyfikacji}{15}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Miary jako\IeC {\'s}ci klasyfikacji danych}{15}{subsection.1.5.1}
+\contentsline {subsubsection}{Krzywa ROC}{18}{section*.22}
+\contentsline {subsection}{\numberline {1.5.2}Nadmierne dopasowanie i wariancja klasyfikatora}{18}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}Metody pomiaru jako\IeC {\'s}ci klasyfikacji danych}{20}{subsection.1.5.3}
+\contentsline {subsubsection}{Metoda z jednym zbiorem}{20}{section*.28}
+\contentsline {subsubsection}{Metoda z wydzielonym zbiorem testowym (ang. \textit {the holdout method})}{21}{section*.29}
+\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy z p przyk\IeC {\l }adami (ang. \textit {leave-p-out cross-validation})}{21}{section*.30}
+\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy minus jeden element (ang. \textit {leave-one-out cross-validation})}{21}{section*.31}
+\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy k-krotny (ang. \textit {k-fold cross-validation})}{21}{section*.32}
+\contentsline {subsubsection}{R\IeC {\'o}wnomierny sprawdzian krzy\IeC {\.z}owy k-krotny (ang. \textit {Stratified k-fold cross-validation})}{22}{section*.33}
+\contentsline {chapter}{\numberline {2}Klasyfikacja danych niezr\IeC {\'o}wnowa\IeC {\.z}onych}{23}{chapter.2}
+\contentsline {section}{\numberline {2.1}Dane niezr\IeC {\'o}wnowa\IeC {\.z}one}{23}{section.2.1}
+\contentsline {section}{\numberline {2.2}!!preprocessing danych niezr\IeC {\'o}wnowa\IeC {\.z}onych}{24}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Metody undersampling}{24}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Metody oversampling}{25}{subsection.2.2.2}
+\contentsline {chapter}{\numberline {3}Przeprowadzone badania}{26}{chapter.3}
+\contentsline {section}{\numberline {3.1}Opis platformy i w jaki spos\IeC {\'o}b zrealizowano badania}{26}{section.3.1}
+\contentsline {section}{\numberline {3.2}Spos\IeC {\'o}b mierzenia w sprawdzianie krzy\IeC {\.z}owym}{26}{section.3.2}
+\contentsline {section}{\numberline {3.3}Sprawdzian krzy\IeC {\.z}owy, a obliczanie miar}{26}{section.3.3}
+\contentsline {section}{\numberline {3.4}Sprawdzian krzy\IeC {\.z}owy, a oversampling}{27}{section.3.4}
+\contentsline {section}{\numberline {3.5}Opis danych u\IeC {\.z}ytych w badaniach}{27}{section.3.5}
+\contentsline {section}{\numberline {3.6}Por\IeC {\'o}wnanie klasyfikator\IeC {\'o}w}{27}{section.3.6}
+\contentsline {chapter}{Bibliografia}{32}{chapter*.44}

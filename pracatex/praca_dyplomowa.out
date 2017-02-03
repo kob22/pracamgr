@@ -1,31 +1,35 @@
-\BOOKMARK [0][-]{chapter.1}{Wstep}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Wstep teoretyczny}{}% 2
-\BOOKMARK [1][-]{section.2.1}{Klasyfikacja danych}{chapter.2}% 3
-\BOOKMARK [1][-]{section.2.2}{Wybrane algorytmy klasyfikacji danych}{chapter.2}% 4
-\BOOKMARK [2][-]{subsection.2.2.1}{Drzewo decyzyjne}{section.2.2}% 5
-\BOOKMARK [2][-]{subsection.2.2.2}{Naiwny klasyfikator bayesowski}{section.2.2}% 6
-\BOOKMARK [2][-]{subsection.2.2.3}{Klasyfikator k najblizszych sasiad\363w \(kNN\)}{section.2.2}% 7
-\BOOKMARK [2][-]{subsection.2.2.4}{Las losowy}{section.2.2}% 8
-\BOOKMARK [2][-]{subsection.2.2.5}{Maszyna wektor\363w nosnych}{section.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.2.6}{Zesp\363\233 klasyfikator\363w}{section.2.2}% 10
-\BOOKMARK [1][-]{section.2.3}{Meta-metody}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.3.1}{Bagging}{section.2.3}% 12
-\BOOKMARK [2][-]{subsection.2.3.2}{Boosting}{section.2.3}% 13
-\BOOKMARK [2][-]{subsection.2.3.3}{Stacking}{section.2.3}% 14
-\BOOKMARK [1][-]{section.2.4}{Klasyfikacja danych niezr\363wnowazonych}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.5}{Wstepne przetwarzanie danych}{chapter.2}% 16
-\BOOKMARK [2][-]{subsection.2.5.1}{Brakujace wartosci atrybut\363w}{section.2.5}% 17
-\BOOKMARK [2][-]{subsection.2.5.2}{Transformacja danych}{section.2.5}% 18
-\BOOKMARK [1][-]{section.2.6}{Ocena poprawnosci klasyfikacji}{chapter.2}% 19
-\BOOKMARK [2][-]{subsection.2.6.1}{Miary jakosci klasyfikacji danych}{section.2.6}% 20
-\BOOKMARK [2][-]{subsection.2.6.2}{Metody pomiaru jakosci klasyfikacji danych}{section.2.6}% 21
-\BOOKMARK [1][-]{section.2.7}{Sprawdzian krzyzowy, a obliczanie miar}{chapter.2}% 22
-\BOOKMARK [1][-]{section.2.8}{Sprawdzian krzyzowy, a oversampling}{chapter.2}% 23
-\BOOKMARK [1][-]{section.2.9}{!!preprocessing danych niezr\363wnowazonych}{chapter.2}% 24
-\BOOKMARK [2][-]{subsection.2.9.1}{Metody undersampling}{section.2.9}% 25
-\BOOKMARK [2][-]{subsection.2.9.2}{Metody oversampling}{section.2.9}% 26
-\BOOKMARK [0][-]{chapter.3}{Przeprowadzone badania}{}% 27
-\BOOKMARK [1][-]{section.3.1}{Opis platformy i w jaki spos\363b zrealizowano badania}{chapter.3}% 28
-\BOOKMARK [1][-]{section.3.2}{Opis danych uzytych w badaniach}{chapter.3}% 29
-\BOOKMARK [1][-]{section.3.3}{Por\363wnanie klasyfikator\363w}{chapter.3}% 30
-\BOOKMARK [0][-]{chapter*.37}{Bibliografia}{}% 31
+\BOOKMARK [0][-]{chapter.1}{Wstep teoretyczny}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Klasyfikacja danych}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Wybrane algorytmy klasyfikacji danych}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Drzewo decyzyjne}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Naiwny klasyfikator bayesowski}{section.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.2.3}{Klasyfikator k najblizszych sasiad\363w \(kNN\)}{section.1.2}% 6
+\BOOKMARK [2][-]{subsection.1.2.4}{Las losowy}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.5}{Maszyna wektor\363w nosnych}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.6}{Zesp\363\233 klasyfikator\363w}{section.1.2}% 9
+\BOOKMARK [1][-]{section.1.3}{Meta-metody}{chapter.1}% 10
+\BOOKMARK [2][-]{subsection.1.3.1}{Bagging}{section.1.3}% 11
+\BOOKMARK [2][-]{subsection.1.3.2}{Boosting}{section.1.3}% 12
+\BOOKMARK [2][-]{subsection.1.3.3}{Stacking}{section.1.3}% 13
+\BOOKMARK [1][-]{section.1.4}{Wstepne przetwarzanie danych}{chapter.1}% 14
+\BOOKMARK [2][-]{subsection.1.4.1}{Brakujace wartosci atrybut\363w}{section.1.4}% 15
+\BOOKMARK [2][-]{subsection.1.4.2}{Transformacja danych}{section.1.4}% 16
+\BOOKMARK [2][-]{subsection.1.4.3}{Dane kategoryczne}{section.1.4}% 17
+\BOOKMARK [2][-]{subsection.1.4.4}{Redukcja ilosci atrybut\363w}{section.1.4}% 18
+\BOOKMARK [1][-]{section.1.5}{Ocena poprawnosci klasyfikacji}{chapter.1}% 19
+\BOOKMARK [2][-]{subsection.1.5.1}{Miary jakosci klasyfikacji danych}{section.1.5}% 20
+\BOOKMARK [2][-]{subsection.1.5.2}{Nadmierne dopasowanie i wariancja klasyfikatora}{section.1.5}% 21
+\BOOKMARK [2][-]{subsection.1.5.3}{Metody pomiaru jakosci klasyfikacji danych}{section.1.5}% 22
+\BOOKMARK [0][-]{chapter.2}{Klasyfikacja danych niezr\363wnowazonych}{}% 23
+\BOOKMARK [1][-]{section.2.1}{Dane niezr\363wnowazone}{chapter.2}% 24
+\BOOKMARK [1][-]{section.2.2}{!!preprocessing danych niezr\363wnowazonych}{chapter.2}% 25
+\BOOKMARK [2][-]{subsection.2.2.1}{Metody undersampling}{section.2.2}% 26
+\BOOKMARK [2][-]{subsection.2.2.2}{Metody oversampling}{section.2.2}% 27
+\BOOKMARK [0][-]{chapter.3}{Przeprowadzone badania}{}% 28
+\BOOKMARK [1][-]{section.3.1}{Opis platformy i w jaki spos\363b zrealizowano badania}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.2}{Spos\363b mierzenia w sprawdzianie krzyzowym}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.3}{Sprawdzian krzyzowy, a obliczanie miar}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.4}{Sprawdzian krzyzowy, a oversampling}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.5}{Opis danych uzytych w badaniach}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.6}{Por\363wnanie klasyfikator\363w}{chapter.3}% 34
+\BOOKMARK [0][-]{chapter*.44}{Bibliografia}{}% 35

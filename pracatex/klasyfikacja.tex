@@ -2,6 +2,8 @@
 \chapter{Wstęp teoretyczny}
 \section{Klasyfikacja danych}
 \todo{może coś pisać o uczeniu maszynowym i że klasyfikacja moze byc nadzorowana i nie?} 
+\todo{zbadac rysunki i tabele, czasami pokazuja się zbyt daleko od ich własciwiego położenia}
+\todo{właściwa numeracja stron, lewy prawy, rozdziały od nieparzystych}
 
 Klasyfikacja jest to proces przyporządkowania danych do jednej z predefiniowanych klas na podstawie atrybutów tych danych. Algorytm klasyfikacji na podstawie analizy danych trenujących, zawierających atrybuty oraz klasę, tworzy model klasyfikacyjny. Stworzony model klasyfikacyjny wykorzystywany jest do predykcji klasy (kategorii) nowych danych bez określonej klasy. Celem algorytmu budującego model, jest  odnalezienie wzorców, w jaki sposób atrybuty obiektu wpływają na przynależność do danej klasy, starając się o to, aby wiedza na temat analizowanych danych była możliwie ogólna oraz niezależna od próby.
 
@@ -51,6 +53,8 @@ Do reprezentacji danych uczących, testowych oraz do klasyfikacji najczęściej 
 	\label{system_informacyjny}
 \end{center}
 \end{table}
+
+\todo{napisac o budowie modelu oraz o klasyfikacji przy wszystkich klasyfikatorach}
 \section{Wybrane algorytmy klasyfikacji danych}
 \subsection{Drzewo decyzyjne}
 Drzewo decyzyjne jest bardzo często wykorzystywane jako klasyfikator danych. Celem jest stworzenie modelu, który na podstawie danych wejściowych przewidzi poprawnie klasę. Drzewo jest acyklicznym spójnym grafem skierowanym. Korzeń (węzeł na poziomie 0) zawiera w sobie cały zbiór uczący. W każdym węźle przeprowadza się test na wartościach atrybutu, który dzieli zbiór nad podzbiory. Z węzła wychodzi tyle gałęzi ile jest możliwych wyników testu z tego węzła. Pod każdym węzłem znajduje się kryterium podziału dokonywanego w danym węźle, które jest jednakowe dla wszystkich elementów zbioru. Ostatnim elementem drzewa decyzyjnego są liście, które zawierają etykiety, czyli przydział klasowy elementów z tego podzbioru. Drzewo buduje się w sposób rekurencyjny od korzenia do liścia z wykorzystaniem metody "dziel i zwyciężaj".\\
@@ -150,29 +154,6 @@ W 2008 roku Phillip Long (Google) oraz Rocco A. Serveido (Uniwersytet Columbia),
 Istnieje dużo algorytmów korzystających z metody boosting. Najpopularniejsze z nich to AdaBoost, LPBoost, TotalBoost, BrownBoost, MadaBoost, LogitBoost.
 \subsection{Stacking}
 Metoda stacking (kontaminacja modeli) to połączenie kilku lub kilkunastu klasyfikatorów o różnych algorytmach. W pierwszym etapie, klasyfikatory trenowane są na tych samych danych. Następnie zbiór treningowy klasyfikowany jest przez te modele, a przewidziane klasy tworzą nowy zbiór uczący dla meta-klasyfikatora. Zbiór treningowy można utworzyć także, z połączenia danych wejściowych z predykowanymi klasami. Zamiast klas, jako dodatkowe wejście, można użyć prawdopodobieństwa danej klasy, o ile wszystkie klasyfikatory wspierają tą funkcję. Meta-klasyfikatorem może być każdy algorytm. Bardzo często do tego celu stosuje się jednowarstwową regresję logistyczną lub sieć neuronową. 
-\section{Klasyfikacja danych niezrównoważonych}
-Większość istniejących algorytmów klasyfikacji, nastawiona jest na poprawną klasyfikację zbiorów o zrównoważonej liczebności wszystkich klas. Niestety w rzeczywistych problemach, bardzo często zdarza się, że zbiory są mocno niezbilansowane.
-\subsubsection{Dane niezrównoważone}
-\todo{dodac odnosnik do one vs all}
-Dane są niezrównoważone (ang. \textit{imbalanced data} jeśli klasy decyzyjne nie są przybliżeniu tak samo liczebne. Najmniejsza klasa, nazywana jest klasą mniejszościową (ang. \textit{minority class}), natomiast klasa dominująca, lub pozostałe połączone klasy (można połączyć pozostałe klasy w jedną, doprowadzając do klasyfikacji binarnej, one vs all), nazywana jest klasą większościową (ang. \textit{majority class}). W praktyce klasa mniejszościowa, zazwyczaj liczy około 10-20\% wszystkich przykładów. Często zdarzają się jednak takie problemy, gdzie to zróżnicowanie jest większe np.:
-\begin{itemize}
-	\item około 2\% transakcji kartami kredytowymi w GOCARDLESS to oszustwa \cite{gocardless}.
-
-\end{itemize}
-\todo{dodac przyklady danych mniejszosciowych}
-W przytoczonych przykładach ważniejsza jest klasa mniejszościowa i wykrycie jej stanowi priorytet. Niezrównoważenie klas w zbiorze danych stanowi problem w fazie uczenia i znacząco obniża jakość klasyfikacji. Ze względu na częstość występowania klasy dominującej, klasyfikator preferuje tą klasę, dążąc do optymalizacji i obniżenia błędu error rate (\ref{error_rate}) nie biorąc pod uwagę rozłożenia klas w zbiorze. Klasyfikator może osiągnąć wysoką skuteczność klasyfikacji np. 95\% przy niskiej lub zerowej wykrywalności klasy mniejszościowej. 
-Należy oczekiwać od klasyfikatora wysokiej skuteczności wykrywania klasy mniejszościowej, nawet kosztem pogorszenia rozpoznawania klasy większościowej.
-Poddając analizie sąsiedztwa przykłady z klasy zdominowanej, można wyróżnić przykłady bezpieczne i niebezpieczne w klasyfikacji:
-\begin{itemize}
-	\item safe - przykład bezpieczny, w jego sąsiedztwie zdecydowana większość obserwacji jest z tej samej klasy,
-	\item borderline - graniczny, przykład niebezpieczny, w jego sąsiedztwie ilość przykładów z obu klas jest podobna
-	\item outlier - poboczny, przykład niebezpieczny, w jego sąsiedztwie większość obserwacji jest z klasy przeciwnej, dominującej,
-	\item rare - rzadki, przykład niebezpieczny, w jego sąsiedztwie występują tylko przykłady z klasy przeciwnej, większościowej.
-\end{itemize}
-\todo{dodac obrazek danyych safe border itd.}
-\todo{podac wykresy przykłady danych niezrównoważonych}
-
- 
 \section{Wstępne przetwarzanie danych}
 \subsection{Brakujące wartości atrybutów}
 Często zdarza się, że bazy danych nie są kompletne, że brakuje kilku wartości różnych atrybutów. Brakujące wartości mogą być wynikiem błędu człowieka, aplikacji, programu pomiarowego, nie podania danych lub z innego powodu. Zazwyczaj brakujące dane oznaczone są pustymi polami,? lub w inny opisany sposób. Istnieje kilka sposobów na rozwiązanie tego problemu.
@@ -190,10 +171,76 @@ gdzie $x_i$ to nowa wartość atrybutu, $x_{max}$ i $x_{min}$ to wartość maksy
 Lepszym rozwiązaniem może być standaryzacja, z tego względu, że wiele algorytmów rozpoczyna klasyfikację od wag równych 0 lub bliskich 0. Wykorzystując standaryzację, dane są podobne do standardowego rozkładu normalnego, a średnie wartości atrybutów ustawiane są w zerze, co pozwala na łatwiejsze uczenie się wag. Zastosowanie standaryzacji czyni klasyfikator bardziej odpornym na przykłady poboczne (tzw. outliers) w przeciwieństwie do skalowania. Standaryzację wyraża się wzorem:
 \[x_i^{STD} = \frac{x_i - \mu(x)}{\sigma(x)}\]
 gdzie $x_i^{STD}$ to nowa wartość atrybutu, $x_i$ to wartość początkowa, $\mu(x)$ to wartość średnia, a $\sigma(x)$ to odchylenie standardowe.
-\todo{trzeba napisac jescze o kodowaniu, (kobieta, mezczyzna) + o binaryzacji calosci projektu}
-\section{Ocena poprawności klasyfikacji}
+\subsection{Dane kategoryczne}
+Bardzo często zdarza się, że bazy danych zawierają oprócz danych numerycznych, także dane kategoryczne, zapisane w postaci łańcucha znaków. Wyróżnia się dane kategoryczne nominalne i porządkowe. Dane kategoryczne nominalne zawierają cechy wzajemnie się wykluczające. Przykładem może być płeć człowieka, kolor skóry, oczu, kolor koszulki. Takich danych nie można posortować ani też porównać. Natomiast dane kategoryczne porządkowe zawierają informacje jednoznaczne identyfikujące, które można uporządkować (np. rozmiar koszulki).
+\subsubsection{Mapowanie danych kategorycznych}
+Aby mieć pewność, że algorytm klasyfikacji odpowiednio zinterpretuje dane kategoryczne, należy je przekonwertować do wartości numerycznych. W poniższym przykładzie (\ref{danekategoryczne}) kategoria płeć, kraj są przykładem danych kategorycznych nominalnych, a wzrost jest atrybutem porządkowym. Należy pamiętać, aby w przypadku danych porządkowych, odpowiednio odwzorować zależności.\\
+W procesie zmieniania wystarczy wykonać odpowiednie mapowanie.
+Atrybut płeć:
+\begin{itemize}
+	\item mężczyzna -> 0
+	\item kobieta ->1
+\end{itemize}
+Atrybut kraj:
+\begin{itemize}
+	\item Polska -> 0
+	\item Niemcy ->1
+\end{itemize}
+Atrybut wzrost:
+\begin{itemize}
+	\item niski -> 0
+	\item średni -> 1
+	\item wysoki -> 2
+\end{itemize}
+Atrybut klasa:
+\begin{itemize}
+	\item klasa1 -> 0
+	\item klasa2 -> 1
+\end{itemize}
+\begin{table}[h]
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{cccccc}	
+				{\bf ID} & {\bf Płeć } & {\bf Kraj} & {\bf Wzrost } & {\bf Wiek} & {\bf Klasa } \\
+				\hline 
+				1 & Mężczyzna & Polska & Niski & 25 & klasa 1 \\
+				2 & Mężczyzna & Polska & Wysoki & 52 & klasa 2 \\
+				3 & Kobieta & Polska & Średni & 19 & klasa 2 \\
+				4 & Kobieta & Niemcy & Niski & 37 & klasa 1 \\
+			\end{tabular}}
+			\caption{Przykład z kategorycznymi danymi.}
+			\label{danekategoryczne}
+		\end{center}
+\end{table}
+\subsubsection{Dane nominalne}
+Dane kategoryczne nominalne nie mogą zostać w takiej postaci. Dane te nie posiadają określonego porządku, ani nie można ich porównać. Zostawiając je w takiej formie algorytm mógłby porównać kobietę z mężczyzną. Wynik klasyfikacji mógłby być prawidłowy, ale niekoniecznie najlepszy. \par
+Dla takich danych, należy stworzyć dodatkowe atrybuty o wartościach binarnych. W przypadku atrybutu płeć, należy stworzyć dwie kolumny "mężczyzna" i "kobieta". Poniżej w tabeli \ref{danekategoryczne2} przedstawiono poprawnie zakodowane dane.
+\begin{table}[h]
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{cccccccc}	
+				{\bf ID} & {\bf M } & {\bf K } & {\bf Pol} & {\bf Nie} & {\bf Wzrost } & {\bf Wiek} & {\bf Klasa } \\
+				\hline 
+				1 & 1 & 0& 1 & 0 & 0 & 25 & 0 \\
+				2 & 1 & 0& 1 & 0 & 2 & 52 & 1 \\
+				3 & 0 & 1& 1 & 0 & 1 & 19 & 1 \\
+				4 & 0 & 1& 0 & 1 & 0 & 37 & 0 \\
+			\end{tabular}}
+			\caption{Przykład z kategorycznymi danymi po odpowiednim kodowaniu.}
+			\label{danekategoryczne2}
+		\end{center}
+	\end{table}
+\subsection{Redukcja ilości atrybutów}
+Jednym ze sposobów uniknięcia nadmiernego dopasowania klasyfikatora do danych lub zmniejszenia jego złożoności jest redukcja atrybutów. Zdarza się, że niektóre atrybuty mają znikomy wpływ na kategorię przykładu, a mogą stanowić szum klasyfikacyjny. Atrybuty mniej ważne usuwa się, a zostawia się tylko te z największą ilością informacji, mających największy wpływ na klasyfikację. Usunięcie bezużytecznych atrybutów może zwiększyć skuteczność klasyfikacji. Kolejną możliwością jest redukcja wymiarów, czyli poszukiwanie wzorców danych, tak aby kilka atrybutów zgrupować w jeden. Poniżej przedstawiono kilka różnych algorytmów.
+\subsubsection{Sekwencyjna selekcja postępująca oraz sekwencyjna selekcja wsteczna}
+Sekwencyjna selekcja postępująca (ang. \textit{sequential forward selection} (SFS)), algorytm zaczyna działanie od pustego zbioru atrybutów. W kolejnych iteracjach dodaje atrybut, który maksymalizuje wybraną funkcję (najczęściej jest to dokładność klasyfikacji). Innymi słowy mówiąc, dodaje te atrybuty, które najbardziej podnoszą jakość klasyfikacji. Algorytm działa do momentu osiągnięcia zakładanej ilości atrybutów lub do pogorszenia skuteczności klasyfikacji. Algorytm ten posiada wadę, gdyż raz dodana cecha nie może już zostać usunięta. Może zdarzyć się taka sytuacja, że dodany już atrybut powoduje obniżenie jakości po dodaniu nowego atrybutu. Rozwiązaniem tego problemu jest algorytm SFFS (ang. \textit{sequential floating forward selection}), który po dodaniu nowej cechy usuwa inny atrybut jeśli zwiększy to wartość funkcji. \\
+Sekwencyjna selekcja wsteczna (ang. \textit{sequential backward selection} (SBS)), algorytm usuwa kolejne atrybuty powodujące najmniejszy spadek w jakości klasyfikatora (mające najmniejszy wpływ) do momentu osiągnięcia pożądanej ilości atrybutów. Istnieje także rozszerzenie tego algorytmu w postaci SFBS (ang. \textit{sequential floating backward selection})). W tym algorytmie, po usunięciu atrybutu, w kolejnym kroku sprawdza się, czy usunięte wcześniej już atrybuty, po ponownym dodaniu nie podniosą wartości wybranej funkcji. \\
+Przedstawione algorytmy są algorytmami zachłannymi i bardzo czasochłonnymi. W pesymistycznym przypadku, klasyfikator może być budowany $\frac{p(p+1)}{2}$ razy.
+\subsubsection{Analiza głównych składowych}
+Analiza głównych składowych PCA (ang. \textit{principal component analysis}) jest to nienadzorowana liniowa transformacja, używana między innymi do redukcji wymiarów danych. Bardzo często stosuje się ją w statystyce oraz analizie danych. PCA identyfikuje wzorce w danych pomiędzy atrybutami. Algorytm szuka maksymalnych kierunków wariancji wielowymiarowych danych i następnie rzutuje je w nowej podprzestrzeni z mniejszą lub taką samą ilością atrybutów. 
 
-\subsection{Miary jakości klasyfikacji danych}
+\section{Ocena poprawności klasyfikacji}
+\subsection{Miary jakości klasyfikacji danych} \label{miary}
 Jakość klasyfikacji można ocenić na podstawie kilku współczynników. Do ich obliczenia wykorzystuje się macierz pomyłek (tabela \ref{macierz_pomylek}). Tworzona jest ona w oparciu o wynik klasyfikacji. Dla klasyfikacji binarnej macierz składa się z dwóch kolumn oraz dwóch wierszy. W wierszach znajdują się poprawne klasy decyzyjne, natomiast w kolumnach przewidziane przez klasyfikator. Zaklasyfikowane obiekty, umieszcza się w odpowiedniej grupie.
 \begin{table}[h]
 	\begin{center}
@@ -231,8 +278,8 @@ Wyróżnia się także współczynnik FPR (ang. \textit{false positive rate}), j
 \[FPR = \frac{FP}{TN + FP}\]
 Istotnym wskaźnikiem jest także precyzja (ang. \textit{precision}). Określa ona jaka część przykładów uznanych za pozytywne przez klasyfikator została poprawnie oznaczona. Precyzja wyrażana jest jako stosunek prawdziwie pozytywnych przypadków do wszystkich przykładów uznanych za pozytywne. W medycynie, pokazuje procentowo ile osób uznanych za chorych, jest rzeczywiście chora.
 \[precision = \frac{TP}{TP + FP}\]\\
-\todo{inline} wstawic przykład klasyfikacji dn o wysokiej skuteczności (np 95), ale o niskim wykrywaniu małej klasy
-\todo{wycieta o klasyfikacji}
+\todo{wstawic przykład klasyfikacji dn o wysokiej skuteczności (np 95), ale o niskim wykrywaniu małej klasy} 
+\todo{opis mierzenia w przypadku danych niezrównoważonych, o tych danych jest kolejny rozdział, czy ok?}
 Wskaźnik dokładności oraz error rate nie sprawdzają się w przypadku, gdy dane są niezrównoważone. Klasyfikator może osiągnąć wysoką dokładność np. 90\% przy niskiej wykrywalności klasy mniejszościowej.
 Dlatego oceniając klasyfikator pracujący na niezrównoważonych danych, należy obliczyć osobno współczynniki precyzji, czułości oraz specyficzności dla każdej kategorii danych. Jak wspomniano wcześniej, bardzo często polepszenie jakości klasyfikacji klasy mniejszościowej połączona jest z pogorszeniem rozpoznawalności klasy większościowej. Mając współczynnik czułości oraz specyficzności ciężko zdecydować, który klasyfikator jest lepszy. Kubat i Matwin zaproponowali połączenie obu tych współczynników, w postaci średniej geometrycznej czułości oraz specyficzności \cite{KubatMatwin}. 
 \[G-mean = \sqrt{precision*recall}\]
@@ -245,8 +292,6 @@ Zazwyczaj $\beta$ = 1, wtedy:
 Podstawiając wzory pod precision oraz recall można otrzymać uproszczoną wersje miary $F_1$:
 \[F_1-measure= \frac{2*TP}{2*TP+FP+FN}\]
 
-\todo{inline} napisac o roznych F i o tym jak wyniki wyglada, pokazać test
-
 \subsubsection{Krzywa ROC}
 Dla klasyfikatorów, które mogą zwracać prawdopodobieństwo klas, można zbudować wykres wartości TPR oraz FPR, które tworzą tzw. krzywą ROC (ang. \textit{receiver operator characteristic}). Wykorzystując tą krzywą można porównać modele. Klasyfikator jest lepszy od drugiego, jeżeli jego krzywa jest powyżej drugiej krzywej. Jeżeli krzywa ROC, przebiega poniżej przekątnej, to klasyfikator ma gorszą skuteczność niż losowe zgadywanie. Na wykresie \ref{fig:krzywa_roc} przedstawiono porównanie naiwnego klasyfikatora bayesowskiego oraz regresji logistycznej, która osiągnęła zdecydowanie lepszy wynik w klasyfikacji. Na wykresie zaznaczono krzywą ROC idealnego klasyfikatora, przechodzi ona przez punkty (1,0) oraz (1,1).\\
 W celu porównania klasyfikatorów, można obliczyć pole powierzchni poniżej krzywej ROC, jest to tzw. AUC (ang. \textit{area under curve}). Idealny klasyfikator osiąga wartość AUC = 1, natomiast losowe zgadywanie AUC = 0.5. Im wartość AUC jest wyższa, tym model jest skuteczniejszy.
@@ -257,20 +302,43 @@ W celu porównania klasyfikatorów, można obliczyć pole powierzchni poniżej k
 	\label{fig:krzywa_roc}
 \end{figure}
 
-\todo{inline} napisac gdzies o nadmiernym dopasowaniu -> walidacja krzyżowa
-\subsection{Metody pomiaru jakości klasyfikacji danych}
-W celu oceny klasyfikatora powinno wykorzystywać się dwa zbiory, treningowy oraz testowy. Najpierw należy zbudować model w oparciu o dane testowe, a następnie wykonać klasyfikację testową w oparciu o zbiór testowy. W celu poprawnej oceny klasyfikacji zbioru testowego konieczna jest znajomość odpowiedniej przynależności jego składników do klas oraz zestawienie jej z przyporządkowaniem składników do klas, które zostały zasugerowane przez klasyfikator. Następnie buduje się macierz pomyłek w o parciu o sklasyfikowane przypadki. Kolejnym krokiem jest obliczenie opisanych wyżej współczynników w oparciu o tą macierz. Istnieją różne schematy postępowania, służące do oceny zbudowanego modelu.
-\todo{inline} może cos napisac jeszcze o celu \url{https://en.wikipedia.org/wiki/Cross-validation_(statistics)} 
+\subsection{Nadmierne dopasowanie i wariancja klasyfikatora}
+\todo{napisac gdzies o nadmiernym dopasowaniu -> walidacja krzyżowa}
+\todo{cos o wariancji}
+ 
+Jeżeli model uzyskuje zdecydowanie lepsze wyniki na danych treningowych niż na danych testowych, świadczy to o nadmiernym dopasowaniu (ang. \textit{overfitting}) klasyfikatora do danych uczących. Nadmierne dopasowanie występuje wtedy, gdy model zamiast dobrze generalizować prawdziwe dane, dopasowuje się za bardzo do danych treningowych. Powodem tego zjawiska jest zazwyczaj zbyt duża ilość parametrów (zbyt duża złożoność) modelu w stosunku do rozmiaru danych uczących. Klasyfikator może mieć wysoką skuteczność dla danych treningowych, jednak dla nowych danych będzie generował gorsze wyniki. Rozwiązaniem tego problemu może być:
+\begin{itemize}
+	\item zebranie większej ilości danych uczących
+	\item wprowadzanie kary (np. regularyzacja L1 lub L2) za zbyt dużą złożoność modelu
+	\item wybranie prostszego algorytmu z mniejszą ilością parametrów
+	\item zmniejszenie wymiaru danych (usunięcie niektórych atrybutów)
+\end{itemize}
+\todo{wstawic obrazek niedopasowania}
+Klasyfikator z nadmiernym dopasowaniem posiada wysoką wariancję. Wariancja mierzy zmienność przewidywań modelu dla określonego zbioru testowego, w przypadku użycia różnych zbiorów uczących (lub podzbiorów). Wysoka wariancja świadczy o dużej zmienności przewidywań klas w przypadku zmiany danych treningowych i jest to niepożądane zjawisko. Mała wariancja to mało zmian, w miarę stabilne przewidywanie klas dla tych samych próbek. Model z wysoką wariancją wrażliwy jest na losowość i szum danych. \par
+Klasyfikator może być także niedouczony, niedopasowany dostatecznie (ang. \textit{undefitting}), co oznacza, że model nie jest zbyt skomplikowany, aby znaleźć odpowiednie wzorce danych. W wyniku czego, osiąga słabe wyniki. Miarą towarzyszącą niedopasowaniu jest obciążenie (ang. \textit{bias}). Klasyfikator testuje się na próbce danych, wielokrotnie budując model na tym samym zbiorze danych uczących i mierzy się jak przewidywania klas różnią się od właściwych. Wysokie obciążenie, oznacza niedotrenowanie oraz małą skuteczność klasyfikacji. Niskie obciążenie oznacza bardzo dobre przewidywania klas. Obciążenie to błąd systematyczny. \par
+\todo{wstawic obrazek bias i wariancja}
+Idealny klasyfikator odnajduje wzorce w danych treningowych oraz dobrze je generalizuje, tak aby skutecznie klasyfikował nie widziane wcześniej próbki. Celem w klasyfikacji nadzorowanej, jest zbudowanie klasyfikatora z małym obciążeniem oraz niską wariancją. Niestety, zazwyczaj nie można osiągnąć obu celi. Modele parametryczne i liniowe częstą mają niskie obciążenie, a wysoką wariancję. Natomiast modele nieparametryczne i nieliniowe zazwyczaj mają duże obciążenie, ale niską wariancję. Obciążenie i wariancja są ze sobą połączone, zmniejszając jeden błąd, zwiększa się drugi. Tą zależność nazywa się przetargiem obciążenia i wariancji (ang. \textit{bias-variance trade-off}). Zmieniając parametry klasyfikatorów, można wpływać na balans pomiędzy tymi błędami:
+\begin{itemize}
+	\item w algorytmie kNN, który często ma małe obciążenie i wysoką wariancję, zwiększając liczbę sąsiadów $k$, można zmniejszyć wariancję, ale równocześnie zwiększyć błąd obciążenia,
+	\item w klasyfikatorze SVM, zwiększając karę, parametr C można zwiększyć obciążenie, a zmniejszyć wariancję.
+\end{itemize}
+Aby wychwycić nadmierne dopasowanie lub niedotrenowanie należy zbiór danych podzielić na zbiór uczący oraz na zbiór testowy. W ten sposób można sprawdzić z jaką skutecznością klasyfikator będzie pracował na nowych danych. Istnieją różne metody pomiarowe, które zostały opisane w podrozdziale \ref{testowanieklasyfikatora}
+\subsection{Metody pomiaru jakości klasyfikacji danych} \label {testowanieklasyfikatora}
+W celu prawidłowej oceny możliwości klasyfikatora należy zbiór danych podzielić na zbiór uczący oraz na zbiór testowy. Należy pamiętać, że zwiększając zbiór testowy, zmniejsza się zbiór uczący i tym samym mniej informacji jest stosowanych do tworzenia modelu. Może to prowadzić do zaniżenia ogólnej oceny klasyfikatora. Jednocześnie mały zbiór testowy, może być niewystarczający do prawidłowej oceny, która może być obarczona dużym błędem. Proces oceny należy rozpocząć od budowy modelu w oparciu o dane treningowe, a następnie wykonać klasyfikację testową wykorzystując do tego zbiór testowy. Następnie buduje się macierz pomyłek w o parciu o sklasyfikowane przypadki. Kolejnym krokiem jest obliczenie opisanych wcześniej współczynników (zob. podrozdział \ref*{miary}) w oparciu o tą macierz. Istnieją różne schematy postępowania, służące do oceny zbudowanego modelu.
+\todo{napisac cos jeszcze o celu CV)}
+
 \subsubsection{Metoda z jednym zbiorem}
 Do budowy klasyfikatora wykorzystywany jest cały zbiór dostępnych danych. W procesie testowania, bierze udział także cały zbiór danych. Metoda ta, nie jest zbyt wartościowa i prowadzi do zawyżenia jakości klasyfikatora. W przypadku nowych danych, taki model osiągnie gorsze wyniki niż wskazywałyby na to obliczone współczynniki.
+
 \subsubsection{Metoda z wydzielonym zbiorem testowym (ang. \textit{the holdout method})}
 W tej metodzie, zbiór danych dzielony jest w sposób losowy na dwie części. Użytkownik dobiera rozmiar zbioru uczącego (np. 80\%) oraz zbioru testowego (np. 20\%). Wadą jest, że nie wiadomo ile obiektów danej klasy znajdzie się w zbiorze testowym oraz, że zostaje zmniejszony zbiór uczący . Może to doprowadzić do sytuacji nadmiernego dopasowania (zawyżonych wyników) lub do niedoszacowania klasyfikatora. Ważne jest, aby nie używać ciągle tego samego zbioru testowego do wyboru modeli, ale dokonywać losowania przed każdą oceną.\\
 Ulepszeniem tej metody, może być równy rozkład klas w obu zbiorach, tak aby zostały zachowane proporcje z oryginalnego zbioru.
+
 \subsubsection{Sprawdzian krzyżowy z p przykładami (ang. \textit{leave-p-out cross-validation})}
 Sprawdzian krzyżowy z p przykładami wykorzystuje p obserwacji jako zbiór testowy, pozostałe elementy tworzą zbiór uczący. Cały proces jest powtarzany do momentu stworzenia i przetestowania wszystkich możliwych kombinacji p przykładów ze zbioru n. Ten rodzaj metody wymaga uczenia i testowania klasyfikatora $\binom{n}{p}$ razy, gdzie n to liczebność całego zbioru danych. W przypadku dużego zbioru danych oraz p>1, obliczenia mogą zająć bardzo dużo czasu, a nawet ze względu na duża ilość kombinacji, obliczenie ich może być niemożliwe.
+
 \subsubsection{Sprawdzian krzyżowy minus jeden element (ang. \textit{leave-one-out cross-validation})}
 Jest to specjalny przypadek sprawdzaniu krzyżowego z p przykładami, dla p = 1. W tej metodzie zbiór testowy tworzy jeden element, pozostałe tworzą zbiór uczący. Testowania klasyfikatora trwa do momentu użycia wszystkich obserwacji jako zbioru testowego. W przeciwieństwie do poprzedniej metody, ta jest wolna od czasochłonnych obliczeń, gdyż $\binom{n}{1}$=n, gdzie n to liczba wszystkich obserwacji. Zazwyczaj ta metoda wykorzystywana jest tylko do małych zbiorów danych.
-
 
 \subsubsection{Sprawdzian krzyżowy k-krotny (ang. \textit{k-fold cross-validation})}
 Zbiór danych jest losowo dzielony na k równych podzbiorów. Następnie każdy z podzbiorów w kolejnych k iteracjach staje się kolejno zbiorem testowym, pozostałe zbiory tworzą zbiór uczący, na podstawie, którego buduje się model. Klasyfikacja i testowanie wykonywane są k-krotnie. Otrzymane wyniki łączy się i uśrednia w celu uzyskania jednego wyniku. Zaletą tej metody jest mały błąd estymacji oraz niższa wariancja błędu niż w przypadku metody minus jednego elementu. Zwykle stosuje się k=3..10, dla których koszt czasowy jest umiarkowany.
@@ -284,23 +352,13 @@ Zbiór danych jest losowo dzielony na k równych podzbiorów. Następnie każdy 
 \subsubsection{Równomierny sprawdzian krzyżowy k-krotny (ang. \textit{Stratified k-fold cross-validation})}
 Jest to specjalny przypadek sprawdzianu krzyżowego k-krotnego. Podzbiory tworzone są z zachowaniem proporcji wszystkich klas. Każdy podzbiór powinien zawierać w przybliżeniu podobny procent obserwacji z każdej kategorii.
 
-\section{Sprawdzian krzyżowy, a obliczanie miar}
-W większości publikacji naukowych dotyczących klasyfikacji, jakość mierzona jest przedstawionymi wcześniej współczynnikami. 
-\section{Sprawdzian krzyżowy, a oversampling}
+
 
 
 \todo{napisac o tym, że niektóre zbiory są multiklasowe, natomiast dane sprowadzone są do 2 klas} 
 \todo{napisac o podejsci one vs all}
-\todo{opisac metody klasyfikacji danych mniejszosciowych, preprocessing, algorytmy}
-\todo{wspomnieć o 2 podejścia -> preprecesing oraz algorytmy (algorytmamie się nie zajmuje)}
-\section{!!preprocessing danych niezrównoważonych}
-W celu zrównoważenia rozkładu danych niezbilansowanych wprowadzono różne metody usuwania przykładów klasy dominującej lub tworzenia sztucznych obserwacji klasy mniejszościowej. Poniżej zostaną omówione metody, które zostały użyte podczas badań.
-\subsection{Metody undersampling}
-Jest to cała rodzina różnych metod, które usuwają przykłady z klasy większościowej. \textbf{Losowe usuwanie} (ang. \textit{random undersampling}), jak sama nazwa wskazuje losowo usuwa przykłady z klasy dominującej. Rozwiązanie to ma niestety wadę. Jeśli usunie się zbyt dużo przykładów danego przypadku, można pozbawić klasyfikator bardzo ważnej informacji. \par
-Lepszym rozwiązaniem jest świadome usuwanie przykładów spełniających określone kryteria. Taką metodą jest \textbf{undersampling z "Tomek links"}. Parę punktów Tomek link, definiuje się jako dwa punkty należące do różnych klas, z odległością równą $d(E_i,E_j)$, jeśli nie istnieje inny punkt $E_l$, taki, że $d(E_i,E_l) < d(E_i,E_j)$ lub $d(E_j,E_l) < d(E_i,E_j)$. Punkty tworzące Tomek link to szum lub punkt graniczny. Po znalezieniu takich punktów, usuwa się przykład z klasy dominującej. Usunięcie takiej obserwacji, powoduje rozszerzenie granicy klasy mniejszościowej. \par
-\todo{opisac reszte te ktore wykorzystam}
 
-\subsection{Metody oversampling}
+
 
 
 

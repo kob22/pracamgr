@@ -8,7 +8,11 @@ from sklearn.metrics import roc_auc_score
 
 
 ## zostawic to, pokaze sie jako blad takiego postepowania
-
+################################### PAMIETAC O SKALOWANIU $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+################################### PAMIETAC O SKALOWANIU $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+################################### PAMIETAC O SKALOWANIU $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+################################### PAMIETAC O SKALOWANIU $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+################################### PAMIETAC O SKALOWANIU $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 def runtree(data, target):
     lb = preprocessing.LabelEncoder()
     lb.fit(target)
