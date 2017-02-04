@@ -342,7 +342,7 @@ def load_abalone16_29():
     return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
 
 
-def load_abalone0_4_16_29():
+def load_abalone041629():
     data1 = np.loadtxt(os.path.join(path, "files/abalone.data"), delimiter=',', usecols=[0], dtype='|S1')
     data2 = np.loadtxt(os.path.join(path, "files/abalone.data"), delimiter=',', usecols=[x for x in range(1, 9)],
                        dtype='float')

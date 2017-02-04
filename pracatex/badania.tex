@@ -11,64 +11,47 @@ W większości publikacji naukowych dotyczących klasyfikacji, jakość mierzona
 \section{Sprawdzian krzyżowy, a oversampling}
 
 \section{Opis danych użytych w badaniach}
-
-\begin{tabular}{|c|c|c|c|c|c|}%
-	\hline%
-	Nazwa danych&L. el.&L. atrybutow&Rozklad klas&\% calosci kl. mn.&IR\\%
-	\hline%
-	abalone0\_4&4177&8&4103/74&1.77&55.45\\%
-	\hline%
-	abalone0\_4\_16\_29&4177&8&3842/335&8.02&11.47\\%
-	\hline%
-	abalone16\_29&4177&8&3916/261&6.25&15.0\\%
-	\hline%
-	balance\_scale&625&4&576/49&7.84&11.76\\%
-	\hline%
-	breast\_cancer&286&9&201/85&29.72&2.36\\%
-	\hline%
-	bupa&341&6&200/141&41.35&1.42\\%
-	\hline%
-	car&1728&6&1663/65&3.76&25.58\\%
-	\hline%
-	cmc&1473&9&1140/333&22.61&3.42\\%
-	\hline%
-	ecoli&336&7&301/35&10.42&8.6\\%
-	\hline%
-	german&1000&24&700/300&30.0&2.33\\%
-	\hline%
-	glass&214&9&197/17&7.94&11.59\\%
-	\hline%
-	haberman&306&3&225/81&26.47&2.78\\%
-	\hline%
-	heart\_cleveland&303&13&268/35&11.55&7.66\\%
-	\hline%
-	hepatitis&155&19&123/32&20.65&3.84\\%
-	\hline%
-	horse\_colic&368&22&232/136&36.96&1.71\\%
-	\hline%
-	ionosphere&351&34&225/126&35.9&1.79\\%
-	\hline%
-	new\_thyroid&215&5&185/30&13.95&6.17\\%
-	\hline%
-	postoperative&90&8&66/24&26.67&2.75\\%
-	\hline%
-	seeds&210&7&140/70&33.33&2.0\\%
-	\hline%
-	solar\_flare&1066&10&1023/43&4.03&23.79\\%
-	\hline%
-	transfusion&748&4&569/179&23.93&3.18\\%
-	\hline%
-	vehicle&846&18&647/199&23.52&3.25\\%
-	\hline%
-	vertebal&310&6&210/100&32.26&2.1\\%
-	\hline%
-	yeastME1&1484&8&1440/44&2.96&32.73\\%
-	\hline%
-	yeastME2&1484&8&1433/51&3.44&28.1\\%
-	\hline%
-	yeastME3&1484&8&1321/163&10.98&8.1\\%
-	\hline%
-\end{tabular}%
+Do przeprowadzenia badań użyto 26 różnych prawdziwych zbiorów danych (tabela \ref{danebadania}) pochodzących z repozytorium serwisu "The UCI Machine Learning Repository" \cite{uci}. Dane wybrano ze względu na różnorodność typów danych, ilości rekordów, atrybutów oraz zróżnicowanie rozkładu klas. Większość z danych była używana w publikacjach podobnych tematycznie\cite{hyper}\cite{StefImbalanced}. \par
+Wszystkie dane zostały zapisane w skrypcie, w folderze $praca/data/files$, a opis szczegółowy danych znajduje się w folderze $praca/data/files/data\_descrytpion$. Do importu danych służą funkcje z pliku $praca/data/import\_data.py$. Do ogólne importu danych z pliku, służy funkcja $importfile$, zaś wczytywanie danych użytych w projekcie odbywa się poprzez funkcje zaczynające się od $load\_$. Import danych z pliku odbywa się z wykorzystaniem funkcji z pakietu $numpy$ $genfromtext$ oraz $load\_txt$. Atrybuty posiadające dane kategoryczne zapisane w postaci łańcuchów znaków zostały zamienione na dane numeryczne. Cechy nominalne zostały zakodowane metodą $one hot encoding$. Dla danych zawierających więcej niż dwie klasy, klasa z najmniejszą liczebnością została wybrana jako klasa mniejszościowa, pozostałe klasy utworzyły klasę większościową. We wszystkich zbiorach danych, kategorie reprezentowane są w systemie binarnym. 5 zbiorów danych posiadało brakujące wartości. Zostały one zastąpione wartościami środkowymi zbioru (medianą).
+\begin{table}[h]
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{|c|c|c|c|c|c|}%
+				\hline%
+				Nazwa danych&L. el.&Atrybuty&Rozklad klas&\% kl. mn.&IR\\%
+				\hline%
+				abalone0\_4&4177&8&4103/74&1.77&55.45\\%
+				abalone041629&4177&8&3842/335&8.02&11.47\\%
+				abalone16\_29&4177&8&3916/261&6.25&15.0\\%
+				balance\_scale&625&4&576/49&7.84&11.76\\%
+				breast\_cancer&286&9&201/85&29.72&2.36\\%
+				bupa&341&6&200/141&41.35&1.42\\%
+				car&1728&6&1663/65&3.76&25.58\\%
+				cmc&1473&9&1140/333&22.61&3.42\\%
+				ecoli&336&7&301/35&10.42&8.6\\%
+				german&1000&24&700/300&30.0&2.33\\%
+				glass&214&9&197/17&7.94&11.59\\%
+				haberman&306&3&225/81&26.47&2.78\\%
+				heart\_cleveland&303&13&268/35&11.55&7.66\\%
+				hepatitis&155&19&123/32&20.65&3.84\\%
+				horse\_colic&368&22&232/136&36.96&1.71\\%
+				ionosphere&351&34&225/126&35.9&1.79\\%
+				new\_thyroid&215&5&185/30&13.95&6.17\\%
+				postoperative&90&8&66/24&26.67&2.75\\%
+				seeds&210&7&140/70&33.33&2.0\\%
+				solar\_flare&1066&10&1023/43&4.03&23.79\\%
+				transfusion&748&4&569/179&23.93&3.18\\%
+				vehicle&846&18&647/199&23.52&3.25\\%
+				vertebal&310&6&210/100&32.26&2.1\\%
+				yeastME1&1484&8&1440/44&2.96&32.73\\%
+				yeastME2&1484&8&1433/51&3.44&28.1\\%
+				yeastME3&1484&8&1321/163&10.98&8.1\\%
+				\hline%
+			\end{tabular}}
+			\caption{Dane użyte w badaniach wraz z charakterystyką.}
+			\label{danebadania}
+		\end{center}
+	\end{table}
 
 \section{Porównanie klasyfikatorów}
 \todo{przetestsowa wszystkie klasyfkatory, z metodami pre i bez}

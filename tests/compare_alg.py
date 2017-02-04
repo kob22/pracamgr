@@ -16,11 +16,11 @@ from pylatex import Tabular, Document, Section
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
-dataset = ['abalone0_4', 'abalone0_4_16_29', 'abalone16_29', 'balance_scale', 'breast_cancer', 'bupa', 'car', 'cmc',
-           'ecoli', 'german', 'glass', 'haberman', 'heart_cleveland', 'hepatitis', 'horse_colic', 'ionosphere',
-           'new_thyroid', 'postoperative', 'seeds', 'solar_flare', 'transfusion', 'vehicle', 'vertebal', 'yeastME1',
+dataset = ['abalone0_4', 'abalone0_4_16_29', 'abalone16_29', 'balance_scale', 'breast_cancer',, 'car', 'cmc',
+          'ecoli', 'glass', 'haberman', 'heart_cleveland', 'hepatitis',
+          'new_thyroid', 'postoperative', 'solar_flare', 'transfusion', 'vehicle', 'yeastME1',
            'yeastME2', 'yeastME3']
-
+'bupa', 'german', 'horse_colic', 'ionosphere', 'seeds', 'vertebal',
 fold = 10
 
 random_state = 5

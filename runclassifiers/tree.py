@@ -25,6 +25,7 @@ def runtree(data, target):
 
             testpredict, testtarget = cross_val_pred2ict(clf, data, target, cv=skf.get_n_splits(data, target),
                                                          n_jobs=-1)
+            print_scores(testpredict, testtarget)
             clf.fit(X_train, y_train)
             print_scores([clf.predict(X_test)], [y_test])
             testpredict = cross_val_predict(clf, data, target, cv=skf.get_n_splits(data, target),

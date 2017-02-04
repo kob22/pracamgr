@@ -25,17 +25,18 @@
 \contentsline {subsubsection}{Dane nominalne}{13}{section*.18}
 \contentsline {subsection}{\numberline {1.4.4}Redukcja ilo\IeC {\'s}ci atrybut\IeC {\'o}w}{14}{subsection.1.4.4}
 \contentsline {subsubsection}{Sekwencyjna selekcja post\IeC {\k e}puj\IeC {\k a}ca oraz sekwencyjna selekcja wsteczna}{14}{section*.19}
+\contentsline {subsubsection}{Analiza g\IeC {\l }\IeC {\'o}wnych sk\IeC {\l }adowych}{15}{section*.20}
 \contentsline {section}{\numberline {1.5}Ocena poprawno\IeC {\'s}ci klasyfikacji}{15}{section.1.5}
 \contentsline {subsection}{\numberline {1.5.1}Miary jako\IeC {\'s}ci klasyfikacji danych}{15}{subsection.1.5.1}
-\contentsline {subsubsection}{Krzywa ROC}{18}{section*.22}
+\contentsline {subsubsection}{Krzywa ROC}{18}{section*.23}
 \contentsline {subsection}{\numberline {1.5.2}Nadmierne dopasowanie i wariancja klasyfikatora}{18}{subsection.1.5.2}
 \contentsline {subsection}{\numberline {1.5.3}Metody pomiaru jako\IeC {\'s}ci klasyfikacji danych}{20}{subsection.1.5.3}
-\contentsline {subsubsection}{Metoda z jednym zbiorem}{20}{section*.28}
-\contentsline {subsubsection}{Metoda z wydzielonym zbiorem testowym (ang. \textit {the holdout method})}{21}{section*.29}
-\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy z p przyk\IeC {\l }adami (ang. \textit {leave-p-out cross-validation})}{21}{section*.30}
-\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy minus jeden element (ang. \textit {leave-one-out cross-validation})}{21}{section*.31}
-\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy k-krotny (ang. \textit {k-fold cross-validation})}{21}{section*.32}
-\contentsline {subsubsection}{R\IeC {\'o}wnomierny sprawdzian krzy\IeC {\.z}owy k-krotny (ang. \textit {Stratified k-fold cross-validation})}{22}{section*.33}
+\contentsline {subsubsection}{Metoda z jednym zbiorem}{21}{section*.29}
+\contentsline {subsubsection}{Metoda z wydzielonym zbiorem testowym (ang. \textit {the holdout method})}{21}{section*.30}
+\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy z p przyk\IeC {\l }adami (ang. \textit {leave-p-out cross-validation})}{21}{section*.31}
+\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy minus jeden element (ang. \textit {leave-one-out cross-validation})}{21}{section*.32}
+\contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy k-krotny (ang. \textit {k-fold cross-validation})}{22}{section*.33}
+\contentsline {subsubsection}{R\IeC {\'o}wnomierny sprawdzian krzy\IeC {\.z}owy k-krotny (ang. \textit {Stratified k-fold cross-validation})}{22}{section*.34}
 \contentsline {chapter}{\numberline {2}Klasyfikacja danych niezr\IeC {\'o}wnowa\IeC {\.z}onych}{23}{chapter.2}
 \contentsline {section}{\numberline {2.1}Dane niezr\IeC {\'o}wnowa\IeC {\.z}one}{23}{section.2.1}
 \contentsline {section}{\numberline {2.2}!!preprocessing danych niezr\IeC {\'o}wnowa\IeC {\.z}onych}{24}{section.2.2}
@@ -45,7 +46,7 @@
 \contentsline {section}{\numberline {3.1}Opis platformy i w jaki spos\IeC {\'o}b zrealizowano badania}{26}{section.3.1}
 \contentsline {section}{\numberline {3.2}Spos\IeC {\'o}b mierzenia w sprawdzianie krzy\IeC {\.z}owym}{26}{section.3.2}
 \contentsline {section}{\numberline {3.3}Sprawdzian krzy\IeC {\.z}owy, a obliczanie miar}{26}{section.3.3}
-\contentsline {section}{\numberline {3.4}Sprawdzian krzy\IeC {\.z}owy, a oversampling}{27}{section.3.4}
-\contentsline {section}{\numberline {3.5}Opis danych u\IeC {\.z}ytych w badaniach}{27}{section.3.5}
+\contentsline {section}{\numberline {3.4}Sprawdzian krzy\IeC {\.z}owy, a oversampling}{26}{section.3.4}
+\contentsline {section}{\numberline {3.5}Opis danych u\IeC {\.z}ytych w badaniach}{26}{section.3.5}
 \contentsline {section}{\numberline {3.6}Por\IeC {\'o}wnanie klasyfikator\IeC {\'o}w}{27}{section.3.6}
-\contentsline {chapter}{Bibliografia}{32}{chapter*.44}
+\contentsline {chapter}{Bibliografia}{33}{chapter*.45}

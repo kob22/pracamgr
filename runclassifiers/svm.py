@@ -26,7 +26,14 @@ def runsvcn(data, target):
 
             svc = svm.SVC(C=1, kernel=kernel)
             svc.set_params()
-            testpredict, testtarget = cross_val_pred2ict(svc, datastdsc, target, cv=skf.get_n_splits(datastdsc, target),
+            testpredict, testtarget = cross_val_pred2ict(svc, data, target, cv=10,
+                                                         n_jobs=-1)
+            print_scores(testpredict, testtarget)
+
+            testpredict, testtarget = cross_val_pred2ict(svc, datamms, target, cv=10,
+                                                         n_jobs=-1)
+            print_scores(testpredict, testtarget)
+            testpredict, testtarget = cross_val_pred2ict(svc, datastdsc, target, cv=10,
                                                          n_jobs=-1)
             print_scores(testpredict, testtarget)
 
