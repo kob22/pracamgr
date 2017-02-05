@@ -112,14 +112,14 @@ def specificity_avg(matrixs):
     avg_specifity = []
 
     for matrix in matrixs:
-        tp = matrix[1, 1]
+        tn = matrix[1, 1]
         tnfp = matrix[1, 1] + matrix[1, 0]
 
-    if tnfp != 0:
-        avg_specifity.append(float(tp) / tnfp)
-    else:
-        warnings.warn("Warning, Specifity = 0 - no predicted samples", stacklevel=2)
-        avg_specifity.append(0)
+        if tnfp != 0:
+            avg_specifity.append(float(tn) / tnfp)
+        else:
+            warnings.warn("Warning, Specifity = 0 - no predicted samples", stacklevel=2)
+            avg_specifity.append(0)
     return np.mean(avg_specifity), np.std(avg_specifity)
 
 
@@ -130,11 +130,11 @@ def specificities(matrixs):
         tp = matrix[1, 1]
         tnfp = matrix[1, 1] + matrix[1, 0]
 
-    if tnfp != 0:
-        avg_specifity.append(float(tp) / tnfp)
-    else:
-        warnings.warn("Warning, Specifity = 0 - no predicted samples", stacklevel=2)
-        return 0
+        if tnfp != 0:
+            avg_specifity.append(float(tp) / tnfp)
+        else:
+            warnings.warn("Warning, Specifity = 0 - no predicted samples", stacklevel=2)
+            avg_specifity.append(0)
     return avg_specifity
 
 
@@ -194,7 +194,7 @@ def precisions(matrixs):
 
 
 # liczy czulosc z tp fp
-def sensitivity_tp_fp(matrixs):
+def sensitivity_tp_fn(matrixs):
     sum_tp = 0
     sum_tpfn = 0
 
@@ -247,6 +247,7 @@ def sensitivities(matrixs):
 
 
 def f1prre(precisions, recalls):
+
     guard = 0
     if 0 in precisions:
         warnings.warn("At least one fold has Precision = 0, F1 can be calculated wrong", stacklevel=2)
@@ -255,11 +256,11 @@ def f1prre(precisions, recalls):
         warnings.warn("At least one fold has Recall = 0, F1 can be calculated wrong", stacklevel=2)
         guard += 1
 
-    if guard == 2:
+    avgprecision = avg(precisions)
+    avgrecall = avg(recalls)
+    if (avgprecision + avgrecall) == 0:
         return 0
     else:
-        avgprecision = avg(precisions)
-        avgrecall = avg(recalls)
         return 2 * (avgprecision * avgrecall) / float(avgprecision + avgrecall)
 
 
@@ -285,24 +286,38 @@ def f1tpfp(matrixs):
 def f1avg(matrixs):
     avg_f1 = []
 
-
     for matrix in matrixs:
         tp = matrix[0,0]
         fp = matrix[1,0]
         fn = matrix[0,1]
 
+        if tp + fp + fn > 0:
+            avg_f1.append(float(2 * tp) / (2 * tp + fp + fn))
+        else:
+            avg_f1.append(0)
 
-        avg_f1.append(float(2*tp)/(2*tp+fp+fn))
     if 0 in avg_f1:
         warnings.warn("At least one fold has F1 = 0, F1 can be calculated wrong", stacklevel=2)
 
-    # print(avg_f1)
     return avg(avg_f1)
 
 
 def g_mean(sensitivity, specificity):
     return math.sqrt((sensitivity * specificity))
 
+
+def g_meanavg(matrixs):
+    avg_g = []
+
+    for matrix in matrixs:
+        sens = sensitivity_tp_fn([matrix])
+        spec = specificity_tn_fp([matrix])
+
+        avg_g.append(g_mean(sens, spec))
+    if 0 in avg_g:
+        warnings.warn("At least one fold has G = 0, G can be calculated wrong", stacklevel=2)
+
+    return avg(avg_g)
 
 def confusion_matrix(y_true, y_pred, labels=None):
     """Compute confusion matrix to evaluate the accuracy of a classification
@@ -431,14 +446,14 @@ def print_to_latex(predict, target):
     tnrate = tnr(matrices0)
 
     prec0 = precision_tp_fp(matrices0)
-    sens0 = sensitivity_tp_fp(matrices0)
+    sens0 = sensitivity_tp_fn(matrices0)
     spec0 = specificity_tn_fp(matrices0)
     g0 = g_mean(sens0, spec0)
     for matrix in matrices0:
         matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
 
     prec1 = precision_tp_fp(matrices1)
-    sens1 = sensitivity_tp_fp(matrices1)
+    sens1 = sensitivity_tp_fn(matrices1)
     spec1 = specificity_tn_fp(matrices1)
     g1 = g_mean(sens1, spec1)
     f1 = f1tpfp(matrices1)
@@ -460,14 +475,14 @@ def print_to_latex_sespf1g(predict, target):
     tnrate = tnr(matrices0)
 
     prec0 = precision_tp_fp(matrices0)
-    sens0 = sensitivity_tp_fp(matrices0)
+    sens0 = sensitivity_tp_fn(matrices0)
     spec0 = specificity_tn_fp(matrices0)
     g0 = g_mean(sens0, spec0)
     for matrix in matrices0:
         matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
 
     prec1 = precision_tp_fp(matrices1)
-    sens1 = sensitivity_tp_fp(matrices1)
+    sens1 = sensitivity_tp_fn(matrices1)
     spec1 = specificity_tn_fp(matrices1)
     g1 = g_mean(sens1, spec1)
     f1 = f1tpfp(matrices1)
@@ -492,7 +507,7 @@ def print_scores(predict, target):
     print("Accuracy: %r" % str(accuracy(matrices0)))
     cols_name = ['', 'Precision', 'Sensitivity', 'Specificity', 'F1tpfp', 'F1prre', 'F1AVG', 'G-mean']
     prec = precision_tp_fp(matrices0)
-    sens = sensitivity_tp_fp(matrices0)
+    sens = sensitivity_tp_fn(matrices0)
     spec = specificity_tn_fp(matrices0)
     firstparams = [groups[0], prec, sens, spec, f1tpfp(matrices0),
                    f1prre(precisions(matrices0), sensitivities(matrices0)),
@@ -502,7 +517,7 @@ def print_scores(predict, target):
         matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
 
     prec = precision_tp_fp(matrices1)
-    sens = sensitivity_tp_fp(matrices1)
+    sens = sensitivity_tp_fn(matrices1)
     spec = specificity_tn_fp(matrices1)
 
     secondparams = [groups[1], prec, sens, spec, f1tpfp(matrices1),
@@ -513,3 +528,34 @@ def print_scores(predict, target):
     print(table.draw())
     # poprawic warningi w precision itd
     #sprawdzi f1, gdy precision jest 0
+
+
+def f1_calculate(predict, target):
+    matrices0 = []
+    matrices1 = []
+
+    if len(predict) != len(target):
+        raise ValueError('length score and target are different!')
+    for pr, tar in zip(predict, target):
+        matrices0.append(confusion_matrix(tar, pr))
+
+    for matrix in matrices0:
+        matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
+
+    return f1tpfp(matrices1), f1prre(precisions(matrices1), sensitivities(matrices1)), f1avg(matrices1)
+
+
+def g_calculate(predict, target):
+    matrices0 = []
+
+    if len(predict) != len(target):
+        raise ValueError('length score and target are different!')
+    for pr, tar in zip(predict, target):
+        matrices0.append(confusion_matrix(tar, pr))
+
+    sens = sensitivity_tp_fn(matrices0)
+    spec = specificity_tn_fp(matrices0)
+    sens1 = sensitivity_avg(matrices0)[0]
+    spec1 = specificity_avg(matrices0)[0]
+
+    return g_mean(sens, spec), g_mean(sens1, spec1), g_meanavg(matrices0)

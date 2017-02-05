@@ -84,7 +84,7 @@ def cross_val_oversampling_wrong(data, target):
     sm = SMOTEENN()
 
     # podzial danych na uczace i testowe, 10% to dane testowe
-    X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.10, random_state=5, stratify=target)
+    X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.20, random_state=5, stratify=target)
 
     X_resampled, y_resampled = sm.fit_sample(X_train, y_train)
     stdsc = StandardScaler()
@@ -230,7 +230,11 @@ def cross_val_oversampling_correct(data, target):
 
 
 doc = Document("test_cv_oversampling")
-dataset = ['abalone0_4', 'abalone041629']
+dataset = ['abalone0_4', 'abalone041629', 'abalone16_29', 'balance_scale', 'breast_cancer', 'bupa', 'car', 'cmc',
+           'ecoli', 'german', 'glass', 'haberman', 'heart_cleveland', 'hepatitis', 'horse_colic', 'ionosphere',
+           'new_thyroid', 'postoperative', 'seeds', 'solar_flare', 'transfusion', 'vehicle', 'vertebal', 'yeastME1',
+           'yeastME2', 'yeastME3']
+
 
 print("Dane bez oversamplingu")
 names = ['Decision Tree', 'Naive Bayes', 'kNN', 'SVM']
