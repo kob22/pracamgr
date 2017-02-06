@@ -291,7 +291,7 @@ def f1avg(matrixs):
         fp = matrix[1,0]
         fn = matrix[0,1]
 
-        if tp + fp + fn > 0:
+        if (tp + fp + fn) > 0:
             avg_f1.append(float(2 * tp) / (2 * tp + fp + fn))
         else:
             avg_f1.append(0)
@@ -559,3 +559,42 @@ def g_calculate(predict, target):
     spec1 = specificity_avg(matrices0)[0]
 
     return g_mean(sens, spec), g_mean(sens1, spec1), g_meanavg(matrices0)
+
+
+def specif_calc(predict, target):
+    matrices0 = []
+    matrices1 = []
+    if len(predict) != len(target):
+        raise ValueError('length score and target are different!')
+    for pr, tar in zip(predict, target):
+        matrices0.append(confusion_matrix(tar, pr))
+
+    for matrix in matrices0:
+        matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
+    return [specificity_tn_fp(matrices1), specificity_avg(matrices1)[0]]
+
+
+def sensivity_calc(predict, target):
+    matrices0 = []
+    matrices1 = []
+    if len(predict) != len(target):
+        raise ValueError('length score and target are different!')
+    for pr, tar in zip(predict, target):
+        matrices0.append(confusion_matrix(tar, pr))
+
+    for matrix in matrices0:
+        matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
+    return [sensitivity_tp_fn(matrices1), sensitivity_avg(matrices1)[0]]
+
+
+def precion_calc(predict, target):
+    matrices0 = []
+    matrices1 = []
+    if len(predict) != len(target):
+        raise ValueError('length score and target are different!')
+    for pr, tar in zip(predict, target):
+        matrices0.append(confusion_matrix(tar, pr))
+
+    for matrix in matrices0:
+        matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
+    return [precision_tp_fp(matrices1), precision_avg(matrices1)[0]]

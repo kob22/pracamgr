@@ -21,7 +21,7 @@ data_, target_ = shuffle(data__, target__)
 mask = target_ == 1
 
 # liczba testow g
-max_iter = 100
+max_iter = 1
 clf = tree.DecisionTreeClassifier()
 folds = [StratifiedKFold(n_splits=10, random_state=5), KFold(n_splits=10, random_state=5)]
 name_folds = ['Stratified K-fold, k=10', 'Unstratified K-fold, k=10']
@@ -39,7 +39,7 @@ for fold, name in zip(folds, name_folds):
     # badanie zaleznosci miary g w stosunku do ilosci przykladow kl. mniejszosciowej
     for miniority in np.arange(1, 11, 1):
 
-        max_items = miniority * 10 - 5
+        max_items = miniority * 10
 
         # wybor 1000 obserwacji
         idx_maj = np.where(~mask)[0][:1000 - max_items]

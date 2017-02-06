@@ -21,7 +21,7 @@ data_, target_ = shuffle(data__, target__)
 mask = target_ == 1
 
 # liczba testow f1
-max_iter = 100
+max_iter = 1000
 clf = tree.DecisionTreeClassifier()
 folds = [StratifiedKFold(n_splits=10, random_state=5), KFold(n_splits=10, random_state=5)]
 name_folds = ['Stratified K-fold, k=10', 'Unstratified K-fold, k=10']

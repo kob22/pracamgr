@@ -271,9 +271,9 @@ Podstawowym kryterium służącym do oceny klasyfikacji jest dokładność (ang.
 Można wyróżnić także błąd klasyfikatora, obliczany na podstawie dokładności.
 \[Error\ rate = 1 - accuracy\label{error_rate}\]
 Trzecim wskaźnikiem oceny klasyfikacji jest TPR (ang. \textit{true positive rate}), często określany jako czułość (ang. \textit{sensitivity} lub \textit{recall}). Jest to stosunek obiektów poprawnie sklasyfikowanych jako pozytywne z wszystkimi pozytywnymi przykładami. Wskaźnik ten pokazuje poprawność klasyfikowania obserwacji pozytywnych. W medycynie, wykorzystując te miarę można określać skuteczność wykrywania osób chorych.
-\[TPR = \frac{TP}{TP + FN}\]
+\[Sensitivity,\ Recall,\ TPR = \frac{TP}{TP + FN}\]
 Kolejną miarą oceniającą klasyfikację jest TNR (ang. \textit{true negative rate}), nazywana także specyficznością (ang. \textit{specificity.}). Wskazuje ona efektywność klasyfikowania przykładów negatywnych. Jest to stosunek poprawnie przydzielonych przykładów negatywnych do wszystkich negatywnych obserwacji. Z jej pomocą, można ocenić celność klasyfikacji osób zdrowych.
-\[TNR = \frac{TN}{TN + FP}\]
+\[Specificity,\ TNR = \frac{TN}{TN + FP}\]
 Wyróżnia się także współczynnik FPR (ang. \textit{false positive rate}), jest to iloraz przykładów fałszywie pozytywnych i sumy przykładów prawdziwie negatywnych i fałszywie negatywnych.
 \[FPR = \frac{FP}{TN + FP}\]
 Istotnym wskaźnikiem jest także precyzja (ang. \textit{precision}). Określa ona jaka część przykładów uznanych za pozytywne przez klasyfikator została poprawnie oznaczona. Precyzja wyrażana jest jako stosunek prawdziwie pozytywnych przypadków do wszystkich przykładów uznanych za pozytywne. W medycynie, pokazuje procentowo ile osób uznanych za chorych, jest rzeczywiście chora.

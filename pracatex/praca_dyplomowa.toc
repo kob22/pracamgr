@@ -43,10 +43,26 @@
 \contentsline {subsection}{\numberline {2.2.1}Metody undersampling}{24}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Metody oversampling}{25}{subsection.2.2.2}
 \contentsline {chapter}{\numberline {3}Przeprowadzone badania}{26}{chapter.3}
-\contentsline {section}{\numberline {3.1}Opis platformy i w jaki spos\IeC {\'o}b zrealizowano badania}{26}{section.3.1}
-\contentsline {section}{\numberline {3.2}Spos\IeC {\'o}b mierzenia w sprawdzianie krzy\IeC {\.z}owym}{26}{section.3.2}
-\contentsline {section}{\numberline {3.3}Sprawdzian krzy\IeC {\.z}owy, a obliczanie miar}{26}{section.3.3}
-\contentsline {section}{\numberline {3.4}Sprawdzian krzy\IeC {\.z}owy, a oversampling}{26}{section.3.4}
-\contentsline {section}{\numberline {3.5}Opis danych u\IeC {\.z}ytych w badaniach}{26}{section.3.5}
-\contentsline {section}{\numberline {3.6}Por\IeC {\'o}wnanie klasyfikator\IeC {\'o}w}{27}{section.3.6}
-\contentsline {chapter}{Bibliografia}{33}{chapter*.45}
+\contentsline {section}{\numberline {3.1}Projekt klasyfikatora}{26}{section.3.1}
+\contentsline {section}{\numberline {3.2}Opis platformy i w jaki spos\IeC {\'o}b zrealizowano badania}{26}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}J\IeC {\k e}zyk python}{26}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Biblioteka scikit-learn}{27}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Biblioteka imbalanced-learn}{27}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Pozosta\IeC {\l }e u\IeC {\.z}yte biblioteki}{27}{subsection.3.2.4}
+\contentsline {subsubsection}{Mlxtend}{27}{section*.43}
+\contentsline {subsubsection}{Numpy}{27}{section*.44}
+\contentsline {subsubsection}{Maptolib}{27}{section*.45}
+\contentsline {subsubsection}{Texttable}{27}{section*.46}
+\contentsline {subsubsection}{Pylatex}{28}{section*.47}
+\contentsline {subsection}{\numberline {3.2.5}opisac co zaimplementowane?}{28}{subsection.3.2.5}
+\contentsline {section}{\numberline {3.3}Opis danych u\IeC {\.z}ytych w badaniach}{28}{section.3.3}
+\contentsline {section}{\numberline {3.4}Spos\IeC {\'o}b mierzenia w sprawdzianie krzy\IeC {\.z}owym}{29}{section.3.4}
+\contentsline {section}{\numberline {3.5}Ocena klasyfikatora w sprawdzianie krzy\IeC {\.z}owym k-krotnym.}{29}{section.3.5}
+\contentsline {subsubsection}{Dok\IeC {\l }adno\IeC {\'s}\IeC {\'c} oraz b\IeC {\l }\IeC {\k a}d klasyfikatora}{30}{section*.50}
+\contentsline {subsubsection}{Czu\IeC {\l }o\IeC {\'s}\IeC {\'c}, specyficzno\IeC {\'s}\IeC {\'c}, FPR oraz precyzja}{30}{section*.51}
+\contentsline {subsubsection}{Miara $F_1$}{30}{section*.52}
+\contentsline {subsubsection}{Miara G-mean}{31}{section*.53}
+\contentsline {subsubsection}{Krzywa ROC i miara AUC}{31}{section*.54}
+\contentsline {section}{\numberline {3.6}Sprawdzian krzy\IeC {\.z}owy, a oversampling}{31}{section.3.6}
+\contentsline {section}{\numberline {3.7}Por\IeC {\'o}wnanie klasyfikator\IeC {\'o}w}{31}{section.3.7}
+\contentsline {chapter}{Bibliografia}{37}{chapter*.56}

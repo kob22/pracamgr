@@ -26,10 +26,16 @@
 \BOOKMARK [2][-]{subsection.2.2.1}{Metody undersampling}{section.2.2}% 26
 \BOOKMARK [2][-]{subsection.2.2.2}{Metody oversampling}{section.2.2}% 27
 \BOOKMARK [0][-]{chapter.3}{Przeprowadzone badania}{}% 28
-\BOOKMARK [1][-]{section.3.1}{Opis platformy i w jaki spos\363b zrealizowano badania}{chapter.3}% 29
-\BOOKMARK [1][-]{section.3.2}{Spos\363b mierzenia w sprawdzianie krzyzowym}{chapter.3}% 30
-\BOOKMARK [1][-]{section.3.3}{Sprawdzian krzyzowy, a obliczanie miar}{chapter.3}% 31
-\BOOKMARK [1][-]{section.3.4}{Sprawdzian krzyzowy, a oversampling}{chapter.3}% 32
-\BOOKMARK [1][-]{section.3.5}{Opis danych uzytych w badaniach}{chapter.3}% 33
-\BOOKMARK [1][-]{section.3.6}{Por\363wnanie klasyfikator\363w}{chapter.3}% 34
-\BOOKMARK [0][-]{chapter*.45}{Bibliografia}{}% 35
+\BOOKMARK [1][-]{section.3.1}{Projekt klasyfikatora}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.2}{Opis platformy i w jaki spos\363b zrealizowano badania}{chapter.3}% 30
+\BOOKMARK [2][-]{subsection.3.2.1}{Jezyk python}{section.3.2}% 31
+\BOOKMARK [2][-]{subsection.3.2.2}{Biblioteka scikit-learn}{section.3.2}% 32
+\BOOKMARK [2][-]{subsection.3.2.3}{Biblioteka imbalanced-learn}{section.3.2}% 33
+\BOOKMARK [2][-]{subsection.3.2.4}{Pozosta\233e uzyte biblioteki}{section.3.2}% 34
+\BOOKMARK [2][-]{subsection.3.2.5}{opisac co zaimplementowane?}{section.3.2}% 35
+\BOOKMARK [1][-]{section.3.3}{Opis danych uzytych w badaniach}{chapter.3}% 36
+\BOOKMARK [1][-]{section.3.4}{Spos\363b mierzenia w sprawdzianie krzyzowym}{chapter.3}% 37
+\BOOKMARK [1][-]{section.3.5}{Ocena klasyfikatora w sprawdzianie krzyzowym k-krotnym.}{chapter.3}% 38
+\BOOKMARK [1][-]{section.3.6}{Sprawdzian krzyzowy, a oversampling}{chapter.3}% 39
+\BOOKMARK [1][-]{section.3.7}{Por\363wnanie klasyfikator\363w}{chapter.3}% 40
+\BOOKMARK [0][-]{chapter*.56}{Bibliografia}{}% 41

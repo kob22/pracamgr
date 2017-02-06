@@ -1,14 +1,35 @@
 
+
+
 \chapter{Przeprowadzone badania}
+\section{Projekt klasyfikatora}
 
 \section{Opis platformy i w jaki sposób zrealizowano badania}
 
-\todo{inline} napisac o roznych F i o tym jak wyniki wyglada, pokazać test
+\subsection{Język python}
+Wszystkie badania i testy zostały napisane z wykorzystaniem języka python. Jest to język programowania interpretowany, wysokiego poziomu z dużą ilością dostępnych bibliotek. Python\cite{python} posiada dynamiczne zarządzanie typami oraz automatyczne zarządzanie pamięcią. Wspiera kilka paradygmatów programowania, takich ja: obiektowy, imperatywny, funkcyjny i proceduralny. Został zaprojektowany z myślą o czytelności kodu oraz składnią pozwalającą napisać program z mniejszą ilością kodu niż w językach C++ lub Java. Implementacje języka python dostępna jest na wiele systemów operacyjnych. Często wykorzystywany jest jako język skryptowy. Python jest projektem typu Open Source. \par
+W pracy wykorzystano język python w wersji 2.7.11. Język ten wybrano ze względu na łatwość pisania w nim kodu, szybką możliwość nauki oraz na szeroki wachlarz dostępnych bibliotek. Ważnym argumentem w wyborze były gotowe biblioteki z klasyfikatorami oraz do pracy z klasyfikacją danych. Dostępność bibliotek do wizualizacji dla tego języka, pozwoliła na przedstawienie wyników testów w formie graficznej. Napisane testy, można w łatwy sposób rozbudować, zmodyfikować lub dodać nowe elementy.    
 
-\section{Sposób mierzenia w sprawdzianie krzyżowym}
-\section{Sprawdzian krzyżowy, a obliczanie miar}
-W większości publikacji naukowych dotyczących klasyfikacji, jakość mierzona jest przedstawionymi wcześniej współczynnikami. 
-\section{Sprawdzian krzyżowy, a oversampling}
+\subsection{Biblioteka scikit-learn}
+Scikit-learn\cite{scikit} to proste i wydajne narzędzie do analizy i eksploracji danych. Jest to biblioteka uczenia maszynowego dla języka python. Rozpowszechnianie oparta jest na licencji BSD. W Scikt-learn zaimplementowane są (lub napisany jest kod obsługujący) różne algorytmy klasyfikacji, regresji, analizy skupień takie jak: maszyna wektorów nośnych, algorytmy najbliższego sąsiada, naiwny Bayes, drzewa decyzyjne, sieć neuronowa, zespoły klasyfikatorów. Z wykorzystaniem tej biblioteki można przygotować oraz przetworzyć odpowiednio dane. Możliwe jest także, ocenianie i wizualizacja wyników. \par
+W testach użyto biblioteki scikit-learn w wersji 0.18.1. Wykorzystano z niej algorytmy klasyfikacji oraz wstępnego przetwarzania danych.
+\subsection{Biblioteka imbalanced-learn}
+Biblioteka imbalanced-learn\cite{imlearn} zawiera zestaw narzędzi do wstępnego przetwarzania danych niezrównoważonych. Posiada ona zaimplementowane różne metody under- oraz over-sampling do równoważenia zbiorów danych. W pracy wykorzystano te metody z biblioteki w wersji 0.2.1. 
+\subsection{Pozostałe użyte biblioteki}
+\subsubsection{Mlxtend}
+Mlxtend (machine learning extensions)\cite{mlxtend} jest to biblioteka zawierająca różne narzędzia do pracy z danymi. W badaniach wykorzystano z niej algorytm Stacking.
+\subsubsection{Numpy}
+Numpy to pakiet umożliwiający obliczenia naukowe. Szczególnym elementem jest możliwość wykonywania obliczeń na tablicach N-wymiarowych. 
+\subsubsection{Maptolib}
+Maptolib to biblioteka pythona, która tworzy różnego rodzaju wykresy 2D oraz interaktywne na różnych platformach.
+\subsubsection{Texttable}
+Texttable to prosty moduł napisany w języku python, służący do produkcji prostych tabel ASCII. Został wykorzystany do prezentacji wyników w konsoli.
+\subsubsection{Pylatex}
+Pylatex to biblioteka pythona, służąca do tworzenia i kompilacji plików LaTeX. W pracy została wykorzystana do zapisu wyników w badań w plikach .tex oraz .pdf.
+\subsection{opisac co zaimplementowane?}
+\todo{ze wlasna krosswalidacja, ze wlasne miary, klasyfikator. itd}
+
+\todo{inline} napisac o roznych F i o tym jak wyniki wyglada, pokazać test
 
 \section{Opis danych użytych w badaniach}
 Do przeprowadzenia badań użyto 26 różnych prawdziwych zbiorów danych (tabela \ref{danebadania}) pochodzących z repozytorium serwisu "The UCI Machine Learning Repository" \cite{uci}. Dane wybrano ze względu na różnorodność typów danych, ilości rekordów, atrybutów oraz zróżnicowanie rozkładu klas. Większość z danych była używana w publikacjach podobnych tematycznie\cite{hyper}\cite{StefImbalanced}. \par
@@ -52,6 +73,46 @@ Wszystkie dane zostały zapisane w skrypcie, w folderze $praca/data/files$, a op
 			\label{danebadania}
 		\end{center}
 	\end{table}
+
+\section{Sposób mierzenia w sprawdzianie krzyżowym}
+\section{Ocena klasyfikatora w sprawdzianie krzyżowym k-krotnym.}
+W większości publikacji naukowych dotyczących klasyfikacji, ocena klasyfikatora mierzona jest z wykorzystaniem sprawdzianu krzyżowego (zwykle k=10) oraz przedstawionych wcześniej miar. Jednakże, w tych publikacjach nie został opisany sposób obliczania współczynników w czasie sprawdzianu krzyżowego. Wykorzystanie różnych sposobów, prowadzi do różnych wyników. Niektóre metody są mniej lub bardziej obciążone błędem. Różnice w wynikach, wynikające z przyjętej metody obliczeniowej, są szczególnie widoczne w sprawdzianie krzyżowym z losowym rozkładem danych oraz w klasyfikacji danych niezrównoważonych. Są dwie główne możliwości obliczania współczynników:
+\begin{itemize}
+	\item obliczanie wartości współczynników dla każdej k-iteracji (klasyfikatora), a następnie obliczenie średniej z tych iteracji
+	\item stworzenie jednej wspólnej macierzy pomyłek dla każdej k-iteracji, a następnie obliczenie wskaźników.
+\end{itemize}
+W przypadku drugiego sposobu, poszczególne elementy macierzy pomyłek będą wynosić odpowiednio:
+\[TP := \sum_{i=1}^{k} TP^{(i)}\]
+\[FP := \sum_{i=1}^{k} FP^{(i)}\]
+\[TN := \sum_{i=1}^{k} TN^{(i)}\]
+\[FN := \sum_{i=1}^{k} FN^{(i)}\]
+\subsubsection{Dokładność oraz błąd klasyfikatora}
+Dokładność klasyfikacji oraz błąd klasyfikatora, korzystając ze metody pierwszej, będzie wynosić:
+\[accuracy_{avg} := \frac{1}{k} \sum_{i=1}^{k} accuracy^{(i)}\]
+a błąd klasyfikatora:
+\[error\ rate_{avg} = 1 - accuracy_{avg}\]
+Obliczając drugim sposobem, korzysta się z podstawowego wzoru z wykorzystaniem wspólnej macierzy pomyłek. \par
+W przypadku dokładności oraz błędu klasyfikatora, niezależnie od przyjętej metodyki otrzymane wartości będą takie same, nieobciążone błędem.
+\subsubsection{Czułość, specyficzność, FPR oraz precyzja}
+\[Sensitivity_{avg},\ Recall_{avg},\ TPR_{avg} := \sum_{i=1}^{k} TPR_{avg}^{(i)}\]
+\[Specificity_{avg},\ TNR_{avg} := \sum_{i=1}^{k} TNR_{avg}^{(i)}\]
+\[FPR_{avg} := \sum_{i=1}^{k} FPR_{avg}^{(i)}\]
+\[Precision_{avg} := \sum_{i=1}^{k} Precision_{avg}^{(i)}\]
+\subsubsection{Miara $F_1$}
+
+\[F_{tp, fp, fn} = \frac{2*TP}{2*TP+FP+FN} \]
+\[Pre_{avg} := \frac{1}{k} \sum_{i=1}^{k} Pre^{(i)}\]
+\[Re_{avg} := \frac{1}{k} \sum_{i=1}^{k} Re^{(i)}\]
+\[F_{pre, re} = 2 * \frac{Pre_{avg}*Re_{avg}}{Pre_{avg}+Re_{avg}} \]
+
+\[F_{avg} := \frac{1}{k} \sum_{i=1}^{k} F_1^{(i)}\]
+
+\subsubsection{Miara G-mean}
+\[G-mean_{tp, fp, fn} = \sqrt{\frac{TP}{TP + FN}*\frac{TN}{TN + FP}} \]
+\[G-mean_{Se, Sp} = \sqrt{Sensitivity_{avg}*Specificity_{avg}} \]
+\[G-mean_{avg} := \frac{1}{k} \sum_{i=1}^{k} G-mean^{(i)} \]
+\subsubsection{Krzywa ROC i miara AUC}
+\section{Sprawdzian krzyżowy, a oversampling}
 
 \section{Porównanie klasyfikatorów}
 \todo{przetestsowa wszystkie klasyfkatory, z metodami pre i bez}

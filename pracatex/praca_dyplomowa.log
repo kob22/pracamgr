@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.24)  4 FEB 2017 18:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.24)  7 FEB 2017 00:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1078,7 +1078,7 @@ LaTeX Font Info:    Try loading font information for T1+phv on input line 62.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-<PWHead.png, id=147, 2015.53pt x 320.19624pt>
+<PWHead.png, id=171, 2015.53pt x 320.19624pt>
 File: PWHead.png Graphic file (type png)
  <use PWHead.png>
 Package pdftex.def Info: PWHead.png used on input line 62.
@@ -1088,7 +1088,7 @@ Overfull \hbox (31.10086pt too wide) in paragraph at lines 62--62
 [] 
  []
 
-<mgrhead.png, id=149, 1392.20125pt x 303.1325pt>
+<mgrhead.png, id=173, 1392.20125pt x 303.1325pt>
 File: mgrhead.png Graphic file (type png)
  <use mgrhead.png>
 Package pdftex.def Info: mgrhead.png used on input line 62.
@@ -1216,7 +1216,7 @@ Overfull \hbox (3.91196pt too wide) in paragraph at lines 285--289
 z czu-ªo-±ci. Wspóª-
  []
 
-[17] <./images/roc.png, id=345, 505.89pt x 361.35pt>
+[17] <./images/roc.png, id=375, 505.89pt x 361.35pt>
 File: ./images/roc.png Graphic file (type png)
  <use ./images/roc.png>
 Package pdftex.def Info: ./images/roc.png used on input line 300.
@@ -1240,7 +1240,7 @@ Overfull \hbox (8.23586pt too wide) in paragraph at lines 340--340
 x/it/12 leave-one-out cross-
  []
 
-[21] <./images/crossvalidation.jpg, id=377, 433.62pt x 185.69376pt>
+[21] <./images/crossvalidation.jpg, id=407, 433.62pt x 185.69376pt>
 File: ./images/crossvalidation.jpg Graphic file (type jpg)
 
 <use ./images/crossvalidation.jpg>
@@ -1261,14 +1261,34 @@ LaTeX Warning: Marginpar on page 24 moved.
 ) (./badania.tex [24] [25]
 Rozdzia\l  3.
 
-Overfull \hbox (50.39412pt too wide) in paragraph at lines 15--55
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26
+
+]
+[27]
+
+LaTeX Warning: Marginpar on page 28 moved.
+
+
+Overfull \hbox (50.39412pt too wide) in paragraph at lines 36--76
 \T1/cmr/m/n/12 a opis szcze-gó-ªowy da-nych znaj-duje si¦ w fol-de-rze $\OML/pl
 m/m/it/12 praca=data=files=data[]descrytpion$\T1/cmr/m/n/12 .
  []
 
-[26
 
-]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 5064) has occurred while \output is active []
+
+ [28]
+Overfull \hbox (0.82709pt too wide) in paragraph at lines 81--82
+[]\T1/cmr/m/n/12 obliczanie war-to-±ci wspóª-czyn-ni-ków dla ka»-dej k-iteracji
+ (kla-sy-fi-ka-tora),
+ []
+
+[29] [30]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1281,15 +1301,17 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (./bibliografia.tex [27] [28] [29] [30] [31] [32]
+) (./bibliografia.tex [31] [32] [33] [34] [35] [36]
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 []\T1/cmr/m/n/12 N. Hoc-kham: Ma-chine le-ar-ning with im-ba-lan-ced data sets
  []
 
-) [33
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+[]\T1/cmr/m/n/12 S. Ra-schka. Mlxtend (ma-chine le-ar-ning exten-sions),
+ []
+
+) [37
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 72.
@@ -1298,14 +1320,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 72.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 72.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 72.
 Package rerunfilecheck Info: File `praca_dyplomowa.out' has not changed.
-(rerunfilecheck)             Checksum: 29333793CDAE45894ABDE14D712A87ED;2675.
+(rerunfilecheck)             Checksum: 4B90B54EFF92E7875D2DA41870AC1359;3148.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 72.
  ) 
 Here is how much of TeX's memory you used:
- 18520 strings out of 494918
- 337035 string characters out of 6180101
- 490636 words of memory out of 5000000
- 21238 multiletter control sequences out of 15000+600000
+ 18563 strings out of 494918
+ 337651 string characters out of 6180101
+ 490895 words of memory out of 5000000
+ 21256 multiletter control sequences out of 15000+600000
  26876 words of font info for 50 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  64i,18n,76p,1148b,730s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1327,10 +1349,10 @@ share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/pl/plsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helveti
 c/uhvr8a.pfb>
-Output written on praca_dyplomowa.pdf (39 pages, 531636 bytes).
+Output written on praca_dyplomowa.pdf (43 pages, 546671 bytes).
 PDF statistics:
- 882 PDF objects out of 1000 (max. 8388607)
- 489 compressed objects within 5 object streams
- 148 named destinations out of 1000 (max. 500000)
- 313 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 965 PDF objects out of 1000 (max. 8388607)
+ 555 compressed objects within 6 object streams
+ 173 named destinations out of 1000 (max. 500000)
+ 361 words of extra memory for PDF output out of 10000 (max. 10000000)
 
