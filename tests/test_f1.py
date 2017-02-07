@@ -21,7 +21,7 @@ data_, target_ = shuffle(data__, target__)
 mask = target_ == 1
 
 # liczba testow f1
-max_iter = 1000
+max_iter = 10
 clf = tree.DecisionTreeClassifier()
 folds = [StratifiedKFold(n_splits=10, random_state=5), KFold(n_splits=10, random_state=5)]
 name_folds = ['Stratified K-fold, k=10', 'Unstratified K-fold, k=10']
@@ -94,7 +94,7 @@ for fold, name in zip(folds, name_folds):
 
     # wyswietlanie wykresow
     fig1 = plt.figure(facecolor='white')
-    plt.plot([x for x in range(1, 11)], stdtpfp, 's-', lw=2, label="F1 TP FP")
+    plt.plot([x for x in range(1, 11)], stdtpfp, 's-', lw=2, label="F1 TP FP FN")
     plt.plot([x for x in range(1, 11)], stdprere, 'p-', lw=2, label="F1 PR RE")
     plt.plot([x for x in range(1, 11)], stdavg, '*-', lw=2, label="F1 AVG")
     plt.ylabel('Odchylenie standardowe')
@@ -106,8 +106,8 @@ for fold, name in zip(folds, name_folds):
     fig1.show()
 
     fig2 = plt.figure(facecolor='white')
-    plt.plot([x for x in range(1, 11)], ftpfpall, 's-', lw=2, label="F1 TP FP")
-    plt.plot([x for x in range(1, 11)], fprereall, 'p-', lw=2, label="F1 PR RE")
+    plt.plot([x for x in range(1, 11)], ftpfpall, 's-', lw=2, label="F1 TP FP FN")
+    plt.plot([x for x in range(1, 11)], fprereall, 'p-', lw=2, label="F1 PRE RE")
     plt.plot([x for x in range(1, 11)], favgall, '*-', lw=2, label="F1 AVG")
     plt.ylabel('Miara F1')
     plt.xlabel('Procent klasy mniejszosciowej')

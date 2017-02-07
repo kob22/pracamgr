@@ -77,13 +77,11 @@ for id, (fold, name) in enumerate(zip(folds, name_folds)):
 
             # print(predictions)
 
-            print(sensivity_calc(predictions, targets))
 
             sens.extend(sensivity_calc(predictions, targets))
             spec.extend(specif_calc(predictions, targets))
             prec.extend(precion_calc(predictions, targets))
 
-        print(avgsens)
 
         stdsens.extend([np.std(sens[::2]), np.std(sens[1::2])])
         stdspec.extend([np.std(spec[::2]), np.std(spec[1::2])])
@@ -92,13 +90,6 @@ for id, (fold, name) in enumerate(zip(folds, name_folds)):
         avgsens.extend([np.mean(sens[::2]), np.mean(sens[1::2])])
         avgspec.extend([np.mean(spec[::2]), np.mean(spec[1::2])])
         avgprec.extend([np.mean(prec[::2]), np.mean(prec[1::2])])
-        print('----')
-        print(sens)
-        print(sens[::2])
-        print(sens[1::2])
-        print([np.std(sens[::2]), np.std(sens[1::2])])
-        print([np.mean(sens[::2]), np.mean(sens[1::2])])
-        print(avgsens)
         print('----------------------------------')
         print('%s%% klasy mniejszosciowej' % miniority)
         print('')

@@ -1,4 +1,5 @@
-\
+\todo{usunac pojedyncze znaki na koncu zdania, wykonac skrypt}
+\todo{poprawic znaki cytatu, nie dodaje spacji po}
 \chapter{Wstęp teoretyczny}
 \section{Klasyfikacja danych}
 \todo{może coś pisać o uczeniu maszynowym i że klasyfikacja moze byc nadzorowana i nie?} 
@@ -23,7 +24,7 @@ W zależności od liczebności klas w zbiorze danych można wyróżnić:
 	\item klasyfikację wieloklasową – obiektowi przypisuje się jedną z wielu predefiniowanych klas.
 \end{itemize}
 Do reprezentacji danych uczących, testowych oraz do klasyfikacji najczęściej stosuje się system informacyjny.
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 	\resizebox{\textwidth}{!}{%
 	\begin{tabular}{|c|c|c|c|c|c|l|}	
@@ -208,7 +209,7 @@ Atrybut klasa:
 	\item klasa1 -> 0
 	\item klasa2 -> 1
 \end{itemize}
-\begin{table}[h]
+\begin{table}[H]
 	\begin{center}
 		\resizebox{\textwidth}{!}{%
 			\begin{tabular}{cccccc}	
@@ -226,7 +227,7 @@ Atrybut klasa:
 \subsubsection{Dane nominalne}
 Dane kategoryczne nominalne nie mogą zostać w takiej postaci. Dane te nie posiadają określonego porządku, ani nie można ich porównać. Zostawiając je w takiej formie algorytm mógłby porównać kobietę z mężczyzną. Wynik klasyfikacji mógłby być prawidłowy, ale niekoniecznie najlepszy. \par
 Dla takich danych, należy stworzyć dodatkowe atrybuty o wartościach binarnych (nazwa tej metody w języku angielskim to \textit{one hot encdoing}). W przypadku atrybutu płeć, należy stworzyć dwie kolumny "mężczyzna" i "kobieta". Poniżej w tabeli \ref{danekategoryczne2} przedstawiono poprawnie zakodowane dane.
-\begin{table}[h]
+\begin{table}[H]
 	\begin{center}
 		\resizebox{\textwidth}{!}{%
 			\begin{tabular}{cccccccc}	
@@ -253,7 +254,7 @@ Analiza głównych składowych PCA (ang. \textit{principal component analysis}) 
 \section{Ocena poprawności klasyfikacji}
 \subsection{Miary jakości klasyfikacji danych} \label{miary}
 Jakość klasyfikacji można ocenić na podstawie kilku współczynników. Do ich obliczenia wykorzystuje się macierz pomyłek (tabela \ref{macierz_pomylek}). Tworzona jest ona w oparciu o wynik klasyfikacji. Dla klasyfikacji binarnej macierz składa się z dwóch kolumn oraz dwóch wierszy. W wierszach znajdują się poprawne klasy decyzyjne, natomiast w kolumnach przewidziane przez klasyfikator. Zaklasyfikowane obiekty, umieszcza się w odpowiedniej grupie.
-\begin{table}[h]
+\begin{table}[H]
 	\begin{center}
 		\resizebox{\textwidth}{!}{%
 			\begin{tabular}{ccc|c|c|c}

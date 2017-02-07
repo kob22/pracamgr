@@ -34,7 +34,7 @@ Pylatex to biblioteka pythona, służąca do tworzenia i kompilacji plików LaTe
 \section{Opis danych użytych w badaniach}
 Do przeprowadzenia badań użyto 26 różnych prawdziwych zbiorów danych (tabela \ref{danebadania}) pochodzących z repozytorium serwisu "The UCI Machine Learning Repository" \cite{uci}. Dane wybrano ze względu na różnorodność typów danych, ilości rekordów, atrybutów oraz zróżnicowanie rozkładu klas. Większość z danych była używana w publikacjach podobnych tematycznie\cite{hyper}\cite{StefImbalanced}. \par
 Wszystkie dane zostały zapisane w skrypcie, w folderze $praca/data/files$, a opis szczegółowy danych znajduje się w folderze $praca/data/files/data\_descrytpion$. Do importu danych służą funkcje z pliku $praca/data/import\_data.py$. Do ogólnego importu danych z pliku, służy funkcja $importfile$, zaś wczytywanie danych użytych w projekcie odbywa się poprzez funkcje zaczynające się od $load\_$. Import danych z pliku odbywa się z wykorzystaniem funkcji z pakietu $numpy$ $genfromtext$ oraz $load\_txt$. Atrybuty posiadające dane kategoryczne zapisane w postaci łańcuchów znaków zostały zamienione na dane numeryczne. Cechy nominalne zostały zakodowane metodą $one hot encoding$. Dla danych zawierających więcej niż dwie klasy, klasa z najmniejszą liczebnością została wybrana jako klasa mniejszościowa, pozostałe klasy utworzyły klasę większościową. We wszystkich zbiorach danych, kategorie reprezentowane są w systemie binarnym. 5 zbiorów danych posiadało brakujące wartości. Zostały one zastąpione wartościami środkowymi zbioru (medianą).
-\begin{table}[h]
+\begin{table}[H]
 	\begin{center}
 		\resizebox{\textwidth}{!}{%
 			\begin{tabular}{|c|c|c|c|c|c|}%
@@ -86,32 +86,92 @@ W przypadku drugiego sposobu, poszczególne elementy macierzy pomyłek będą wy
 \[FP := \sum_{i=1}^{k} FP^{(i)}\]
 \[TN := \sum_{i=1}^{k} TN^{(i)}\]
 \[FN := \sum_{i=1}^{k} FN^{(i)}\]
+\subsection{Test sposobów oceny klasyfikatora}
+W celu wyboru najlepszego sposobu oceny klasyfikatora, z najmniejszym błędem oraz wariancją wykonano pięć porównujących testów dla różnych metod obliczania miar. Wszystkie testy miały takie same założenia oraz sposób wykonania. Testy wykonano na wygenerowanych losowo danych dla różnej ilości przykładów pozytywnych (od 1\% do 10\%). Jakość klasyfikacji była oceniana dla równomiernego sprawdzianu krzyżowego oraz dla losowego. Symulacje odbyły się one w następujący sposób:
+
+\begin{enumerate}
+	\item Wygeneruj zbiór 1500 losowych próbek z 2 atrybutami, 2 klasami o rozkładzie 4:1
+	\item Wykonaj niezrównoważenie zbioru z ratio 0.1
+	\item Wybierz m=[1..10]*10 przykładów klasy mniejszościowej oraz 1000-m przykładów klasy dominującej
+	\begin{enumerate}
+		\item  Wykonaj N iteracji:
+		\begin{enumerate}
+			\item Wymieszaj dane
+			\item Wykonaj sprawdzian krzyżowy k-krotny, k=10
+			\item Oblicz współczynniki dla obu metod
+		\end{enumerate}
+		\item Oblicz odchylenie standardowe oraz średnie wartości współczynników
+	\end{enumerate}
+	\item Przedstaw wyniki odchylenia standardowego oraz średnie wartości współczynników dla różnego rozkładu klas.
+\end{enumerate}
+Wykonanie testu N-krotnie (najlepiej n>100000) pozwala na obliczenie "prawdziwych" wartości miar oceny klasyfikacji. Powtórzenie sprawdzianu krzyżowego wielokrotnie pozwala na ocenę błędu oraz wariancji miar dla każdej metodyki. Przeprowadzenie testu dla danych zawierających tylko 1\% obserwacji klasy mniejszościowej (przypadek ekstremalny, w zbiorze danych znajduje się wtedy tylko 10 takich przykładów) oznacza, że w niektórych iteracjach sprawdzianu krzyżowego nie będzie przykładów poprawnie sklasyfikowanych z tej klasy. Brak dobrze sklasyfikowanych przykładów klasy mniejszościowej może mieć także miejsce w losowym sprawdzianie krzyżowym. Wynika to z braku równomiernego rozkładu obu klas. 
 \subsubsection{Dokładność oraz błąd klasyfikatora}
-Dokładność klasyfikacji oraz błąd klasyfikatora, korzystając ze metody pierwszej, będzie wynosić:
+Dokładność klasyfikacji oraz błąd klasyfikatora, korzystając z metody pierwszej, będzie wynosić:
 \[accuracy_{avg} := \frac{1}{k} \sum_{i=1}^{k} accuracy^{(i)}\]
 a błąd klasyfikatora:
 \[error\ rate_{avg} = 1 - accuracy_{avg}\]
 Obliczając drugim sposobem, korzysta się z podstawowego wzoru z wykorzystaniem wspólnej macierzy pomyłek. \par
 W przypadku dokładności oraz błędu klasyfikatora, niezależnie od przyjętej metodyki otrzymane wartości będą takie same, nieobciążone błędem.
 \subsubsection{Czułość, specyficzność, FPR oraz precyzja}
+Czułość, specyficzność, FPR oraz precyzja w metodzie pierwszej obliczą się wg. wzorów:
 \[Sensitivity_{avg},\ Recall_{avg},\ TPR_{avg} := \sum_{i=1}^{k} TPR_{avg}^{(i)}\]
 \[Specificity_{avg},\ TNR_{avg} := \sum_{i=1}^{k} TNR_{avg}^{(i)}\]
 \[FPR_{avg} := \sum_{i=1}^{k} FPR_{avg}^{(i)}\]
 \[Precision_{avg} := \sum_{i=1}^{k} Precision_{avg}^{(i)}\]
+W drugim sposobie korzysta się z wspólnej macierzy pomyłek oraz z podstawowych wzorów. \par
+Testy wyżej wymienionych współczynników, zostały przeprowadzone z wykorzystaniem skryptu $test\_wsk.py$. Zauważono, że w przypadku równomiernego sprawdzianu krzyżowego, różnica w wynikach jest bardzo mała, poniżej 0.5\%. Obie metody obarczone sa małym błędem i wariancją. Natomiast w przypadku sprawdzianu krzyżowego z rozkładem losowym, metoda druga okazała się lepsza. Obliczona czułość oraz precyzja sposobem drugim, uzyskały wyniki z mniejszym błędem, bliższe wartości "prawdziwej". Natomiast specyficzność w obu metodach wyszła taka sama, ze względu na dużą ilość przykładów z tej klasy. Zostało sprawdzone, że w momencie odwrócenia liczebności klas, specyficzność posiada taką samą charakterystykę jak czułość. Różnice w wynikach obu sposobów, zmniejszają się wraz ze wzrostem przykładów klasy większościowej. Zazwyczaj przy 10\% zawartości danych klasy zdominowanej w zbiorze, wyniki są takie same.
+\todo{wstawic wykres i opisac}
 \subsubsection{Miara $F_1$}
-
-\[F_{tp, fp, fn} = \frac{2*TP}{2*TP+FP+FN} \]
+W niniejszej pracy oraz w dużej ilości publikacjach miara F-measure obliczana jest dla $\beta=1$, dlatego testy przeprowadzono tylko dla tej wartości. Miarę F, można obliczyć na trzy różne sposoby. Pierwszy polega na obliczeniu F dla każdego k klasyfikatora, a następnie uśrednienie wyników:
+\[F_{avg} := \frac{1}{k} \sum_{i=1}^{k} F_1^{(i)}\]
+Drugi sposób, to obliczenie średniej czułości i precyzji, a następnie miary F z podstawowego wzoru:
 \[Pre_{avg} := \frac{1}{k} \sum_{i=1}^{k} Pre^{(i)}\]
 \[Re_{avg} := \frac{1}{k} \sum_{i=1}^{k} Re^{(i)}\]
 \[F_{pre, re} = 2 * \frac{Pre_{avg}*Re_{avg}}{Pre_{avg}+Re_{avg}} \]
-
-\[F_{avg} := \frac{1}{k} \sum_{i=1}^{k} F_1^{(i)}\]
-
+Ostatnio sposób, to obliczenie współczynnika F ze wspólnej, końcowej macierzy pomyłek:
+\[F_{tp, fp, fn} = \frac{2*TP}{2*TP+FP+FN} \]
+Do powyższych wzorów można dodać jeszcze sposób odrzucający oceny klasyfikatorów, dla których precyzja lub czułość są niezdefiniowane. Ta metoda została odrzucona ze względu na zawyżanie końcowej oceny. \par 
+Skrypt testujący powyższe trzy sposoby znajduje się w pliku $test\_f1.py$. Analizując otrzymane wyniki, zauważono, że najbardziej powtarzalne wyniki otrzymano korzystając z wzoru $F_{tp, fp, fn}$. W przypadku obu sprawdzianów krzyżowych, metoda ta generowała najmniejszy błąd. Zauważono, że niezależnie od ilości danych niezrównoważonych, otrzymane wyniki tą metodą różniły się nieznacznie, w przeciwieństwie do pozostałych sposobów. Podobnie jak w przypadku poprzednich miar, wraz ze wzrostem ilości danych niezrównoważonych, uzyskiwane wyniki były prawie takie same, niezależnie od sposobu obliczania.
 \subsubsection{Miara G-mean}
-\[G-mean_{tp, fp, fn} = \sqrt{\frac{TP}{TP + FN}*\frac{TN}{TN + FP}} \]
-\[G-mean_{Se, Sp} = \sqrt{Sensitivity_{avg}*Specificity_{avg}} \]
+Miara G-mean również może być obliczona na trzy różne sposoby. Pierwszy z nich to średnia z wszystkich klasyfikatorów:
 \[G-mean_{avg} := \frac{1}{k} \sum_{i=1}^{k} G-mean^{(i)} \]
+W drugim sposobie należy najpierw obliczyć średnią wartość czułości oraz specyficzności, a końcowy wynik G-mean oblicza się z głównego wzoru:
+\[G-mean_{Se, Sp} = \sqrt{Sensitivity_{avg}*Specificity_{avg}} \]
+W ostatniej metodzie obliczania G-mean, za czułość oraz specyficzność, wstawia się właściwie wzory, a wartość oblicza się na podstawie zsumowanej macierzy pomyłek.
+\[G-mean_{tp, fp, fn} = \sqrt{\frac{TP}{TP + FN}*\frac{TN}{TN + FP}} \]
+Skrypt testujący powyższe wzory znajduje się w pliku $test\_g\_mean.py$. Analizując wyniki równomiernego sprawdzianu krzyżowego, zaobserwowano, że  wyniki $G-mean_{tp, fp, fn}$ oraz $G-mean_{Se, Sp}$ pokrywają się. Natomiast w zwykłym sprawdzianie krzyżowym, pomiarem najmniej obarczonym błędem był $G-mean_{tp, fp, fn}$. Z wykorzystaniem tego wzoru, dla różnej zawartości klasy mniejszościowej w zbiorze danych otrzymano wyniki różniące się jedynie o kilka procent pomiędzy sobą, podczas gdy wyniki pozostałych metod różniły się aż o 15\%-30\%
+
 \subsubsection{Krzywa ROC i miara AUC}
+Wartość AUC w sprawdzianie krzyżowym można skonstruować na dwa sposoby. W pierwszej metodzie, konstruuje się krzywą ROC oraz oblicza się AUC dla każdego k klasyfikatora. Następnie oblicza się $AUC_{AVG}$ poprzez obliczenie średniej:
+\[AUC_{AVG} := \frac{1}{k} \sum_{i=1}^{k} AUC^{(i)} \]
+W przypadku sprawdzianu krzyżowego z losowym rozkładem klas, może okazać się, że nie sklasyfikowano żadnego przykładu pozytywnego. Wtedy skonstruowanie krzywej ROC oraz obliczenie AUC będzie niemożliwe. W takich przypadkach podczas obliczania $AUC_{AVG}$ można pominąć taki wynik. \par
+Drugim sposobem jest połączenie prawdopodobieństwa przykładów testowych z każdej iteracji. Z połączonych obserwacji, konstruuje się jedną krzywą ROC i oblicza AUC. Korzystając z tego sposobu, zakłada się, że klasyfikator ma dobrze skalibrowane określanie prawdopodobieństwa. Test obu metod zostały przeprowadzone z użyciem skryptu $test_roc.py$.
+\subsubsection{Podsumowanie}
+Analizując przeprowadzone testy, najlepsze wyniki osiągnęły miary obliczone metodami opartymi na zsumowanej macierzy pomyłek oraz na łączeniu wyników testów z każdej iteracji sprawdzianu krzyżowego. Obliczone w ten sposób współczynniki miały najbardziej stabilne wyniki, najmniejszy błąd oraz wariancję. Poniżej przedstawiono tabelę (\ref{przykladoblwsp}) z obliczonymi współczynnikami na różne sposoby. W dalszej części pracy, wszystkie miary w sprawdzianie krzyżowym, będą obliczane nad podstawie wspólnej macierzy pomyłek.
+\begin{table}[H]
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{cccccccccccc}%
+				\textbf{k-fold} & \textbf{Pos} & \textbf{Neg} & \textbf{TP} & \textbf{FP} & \textbf{FN} & \textbf{TN} & \textbf{Se} & \textbf{Sp} & \textbf{Pre} & \textbf{G-Mean} & $\mathbf{F_{1}}$\\
+				\hline
+				1 & 3 & 97 & 2 & 0 & 1 & 97 &  0,67 & 1,00 & 1,00 & 0,82 & 0,80\\
+				2 & 3 & 97 & 0 & 0 & 3 & 97 &  0,00 & 1,00 & 0,00 & 0,00 & 0,00\\
+				3 & 3 & 97 & 3 & 4 & 1 & 93 &  0,75 & 0,96 & 0,43 & 0,85 & 0,55\\
+
+				  &   &    &   &   &   & \textbf{AVG}      & \textbf{0,47} & \textbf{0,99} & \textbf{0,48} & \textbf{0,55} & \textbf{0,45} \\
+				  &   &    &   &   &   & \textbf{tp,fp,tn} & \textbf{0,50} & \textbf{0,99} & \textbf{0,56} & \textbf{0,70} & \textbf{0,53} \\
+				  &   &    &   &   &   &  &  &  &  \multicolumn{3}{ c }{$\mathbf{G_{Se, Sp} =0,68}$ $\mathbf{F_{Pre, Re} =0,47}$}  \\
+				
+
+			\end{tabular}}%
+			\caption{Przykład obliczonych miar dla równomiernego sprawdzianu krzyżowego. Dla k=2, gdzie nie było pozytywnie sklasyfikowanych przykładów, wartości sensitivity, precision, $F_1$ zostały ustawione na 0, aby uniknąć dzielenia przez zero. W wierszu oznaczonym jako "tp,fp,tn", wskaźniki zostały obliczone na podstawie wspólnej macierzy pomyłek.}
+			\label{przykladoblwsp}
+	\end{center}
+\end{table}
+
+
+
+
 \section{Sprawdzian krzyżowy, a oversampling}
 
 \section{Porównanie klasyfikatorów}
