@@ -13,7 +13,7 @@ dataset = ['abalone0_4', 'abalone041629', 'abalone16_29', 'balance_scale', 'brea
            'ecoli', 'german', 'glass', 'haberman', 'heart_cleveland', 'hepatitis', 'horse_colic', 'ionosphere',
            'new_thyroid', 'postoperative', 'seeds', 'solar_flare', 'transfusion', 'vehicle', 'vertebal', 'yeastME1',
            'yeastME2', 'yeastME3']
-datasetmissing = ['postoperative']
+# dataset = ['postoperative','balance_scale']
 # dataset = [['load_breast_cancer', 'median'], ['load_hepatitis', 'median'], ['load_hear_cleveland', 'median'],
 # ['load_postoperative', 'median'], ['load_horse_colic', 'median']]
 # dataset = ['load_breast_cancer','load_german', 'load_car', 'load_cmc']
@@ -27,10 +27,10 @@ for data in dataset:
     # importdata.print_info(db.target)
         # majorityvoting.runvoting(db.data, db.target)
         # runmycv.runsmycv(db.data, db.target)
-    runnaivebayes.runNB(db.data, db.target)
+    #runnaivebayes.runNB(db.data, db.target)
 
     #tree.runtree(db.data, db.target)
-    # bagging.runbaggingtree(db.data,db.target)
+    bagging.runbaggingtree(db.data, db.target)
     #randomforest.runforest(db.data,db.target)
 
 #clf = tree.DecisionTreeClassifier()

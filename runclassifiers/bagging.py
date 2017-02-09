@@ -3,7 +3,8 @@ from sklearn import tree
 from cross_val.cross_val import cross_val_pred2ict
 from sklearn.model_selection import StratifiedKFold
 from simplefunctions import *
-
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import GaussianNB
 
 def runbaggingtree(data, target):
     folds = [3]
@@ -20,7 +21,7 @@ def runbaggingtree(data, target):
                 print('estimators = %d ' % estimator)
 
                 skf = StratifiedKFold(n_splits=fold, random_state=5)
-                bagging = BaggingClassifier(tree.DecisionTreeClassifier(), n_estimators=estimator)
-                testpredict, testtarget = cross_val_pred2ict(bagging, data, target, cv=skf, n_jobs=-1)
+                bagging = BaggingClassifier(KNeighborsClassifier(), n_estimators=estimator)
+                testpredict, testtarget = cross_val_pred2ict(bagging, data, target, cv=10, n_jobs=-1)
 
                 print_scores(testpredict, testtarget)

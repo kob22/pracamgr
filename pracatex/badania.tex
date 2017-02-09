@@ -171,8 +171,99 @@ Analizując przeprowadzone testy, najlepsze wyniki osiągnęły miary obliczone 
 
 
 
+\todo{dac odnosnik do rozdzialu}
+\section{Balansowanie niezrównoważonych zbiorów z sprawdzianem krzyżowym}
+Balansowanie niezrównoważonych zbiorów danych wykonuje się w celu poprawy klasyfikacji klasy mniejszościowej. Istnieją różne techniki balansowania zbiorów(opisanych w rozdziale ), są to między innymi: usuwanie przykładów z klasy większościowej oraz dodawanie nowych obserwacji z klasy mniejszościowej. Oceniając klasyfikator z wykorzystaniem sprawdzianu krzyżowego, bilansowanie zbiorów można wykonać przed sprawdzianem krzyżowym oraz w trakcie trwania sprawdzianu, każdorazowo po stworzeniu zbioru uczącego. W przypadku generowania nowych obserwacji (oversampling), metoda pierwsza może prowadzić do nadmiernego dopasowania. Sprawdzian krzyżowy k-krotny, dzieli główny zbiór danych na $k$ części i buduje klasyfikator w oparciu $k-1$ części. Następnie testuje go w oparciu o część nr. $k$. Może wystąpić taka sytuacja, że ocena klasyfikatora będzie odbywała się w oparciu o sztuczne przykłady, które były wygenerowane na podstawie danych tworzących zbiór uczący. Taka sytuacja wypacza cel wykonywania sprawdzianu krzyżowego, który polega na wykonywaniu uczenia i testowania na różnych danych. Wykonanie bilansowania przed sprawdzianem krzyżowym może prowadzić do nadmiernego dopasowania klasyfikatora oraz do zawyżenia oceny. Celem testu było sprawdzenie, z wykorzystaniem, której metody można otrzymać bardziej wiarygodne wyniki. Aby sprawdzić obie metody, każdy początkowy zbiór danych został podzielony na zbiór testowy (zawierający 80\% wszystkich przykładów) oraz na zbiór walidacyjny (20\%). Wykonano zbilansowany podział danych, tj. każdy zbiór zawierał proporcjonalnie takie same ilości obu klas. Zbiór walidacyjny został wydzielony w celu poddania dodatkowej ocenie każdego $k$ klasyfikatora. Mając dodatkowy zbiór z danymi nieznanymi model, można sprawdzić w jakim stopniu poprawnie generalizuje dane uczące oraz porównać otrzymane wyniki z wynikami sprawdzianu krzyżowego. Dla pierwszego sposobu, w kolejnym etapie, wygenerowano nowe sztuczne próbki klasy mniejszościowej z wykorzystaniem metody oversampling SMOTE, a następnie poddano ocenie klasyfikator z wykorzystaniem sprawdzianu krzyżowego oraz dodatkowego zbioru walidacyjnego w każdej iteracji. Natomiast w drugim sposobie, dodatkowe sztuczne próbki generowane były dopiero w momencie utworzenia $k$ zbioru uczącego. Dodatkowa walidacja odbywała się tak samo jak w pierwszym sposobie. Badanie wykonano na prawdziwych danych (opisanych w tej pracy), z wykorzystaniem klasyfikatorów: drzewo decyzyjne, kNN, naiwny klasyfikator Bayesa oraz SVM. Przedstawiony niżej test znajduje się w pliku $cross\_val\_oversampling.py$. Ze względu na dużą objętość wyników, w pracy przedstawiono tylko dane dla drzewa decyzyjnego. \par
+Analizując otrzymane wyniki (tabela \ref{CVoversampling1} i \ref{CVoversampling2}) zauważono bardzo dobre wyniki klasyfikatora dla danych poddanych oversamplingowi przed sprawdzianem krzyżowym. Niestety, badając klasyfikator nieznanym dla niego zbiorem walidacyjnym otrzymane rezultaty były zdecydowanie gorsze. Porównując otrzymane wyniki z sprawdzianu krzyżowego oraz z nieznanego klasyfikatorowi zbioru walidacyjnyjego, spostrzeżono znaczne zawyżanie wyników (dla miary G-mean, wyniki jest średnio wyższy o 0.20 oraz tak samo w stosunku do miary G-mean z metody drugiej). Świadczy to o nadmiernym dopasowaniu klasyfikatora do danych i o zawyżaniu wyników jakości klasyfikacji przez tą metodę. W drugiej metodzie, wyniki pomiarów pomiędzy sprawdzianem krzyżowym oraz zbiorem walidacyjnym nie różnią się tak bardzo. Dla miary G-mean w większości baz, otrzymany wyniki z sprawdzianu krzyżowego jest nieznacznie niższy od wyniku z zbioru walidacyjnego. \par
+Wnioskiem wynikającym z powyższego badania jest konieczność stosowania oversamplingu danych w trakcie sprawdzianu krzyżowego, tak aby zbiór testowy nie zawierał sztucznie wygenerowanych próbek. Ocena klasyfikacji tą metodą, daje najbardziej wiarygodne wyniki.
+\begin{table}[H]
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}%
+				\hline%
+				&\multicolumn{4}{|c|}{Decision Tree}&\multicolumn{4}{|c|}{Decision Tree TEST}&\\%
+				\cline{2%
+					-%
+					10}%
+				& Sp & F1 & G & AUC & Sp &F1 & $G_t$&AUC& $G - G_t$\\%
+				\hline%
+				abalone0\_4&0.99&0.99&0.99&0.99&0.79&0.58&0.88&0.88&0.11\\%
+				abalone041629&0.92&0.91&0.9&0.9&0.5&0.34&0.66&0.69&0.24\\%
+				abalone16\_29&0.93&0.92&0.92&0.92&0.51&0.34&0.68&0.71&0.24\\%
+				balance\_scale&0.92&0.9&0.9&0.9&0.04&0.04&0.19&0.47&0.71\\%
+				breast\_cancer&0.74&0.74&0.74&0.75&0.47&0.45&0.59&0.61&0.15\\%
+				bupa&0.69&0.66&0.65&0.65&0.57&0.55&0.6&0.6&0.05\\%
+				car&1.0&1.0&1.0&1.0&0.9&0.95&0.95&0.95&0.05\\%
+				cmc&0.8&0.81&0.81&0.81&0.39&0.37&0.55&0.6&0.26\\%
+				ecoli&0.93&0.93&0.92&0.93&0.81&0.62&0.86&0.86&0.06\\%
+				german&0.74&0.75&0.75&0.75&0.44&0.44&0.58&0.59&0.17\\%
+				glass&0.96&0.93&0.93&0.93&0.56&0.5&0.73&0.75&0.2\\%
+				haberman&0.72&0.73&0.74&0.74&0.35&0.35&0.52&0.56&0.22\\%
+				heart\_cleveland&0.88&0.87&0.86&0.86&0.24&0.29&0.47&0.59&0.39\\%
+				hepatitis&0.92&0.86&0.84&0.85&0.39&0.33&0.54&0.57&0.3\\%
+				horse\_colic&0.84&0.82&0.82&0.82&0.65&0.66&0.73&0.73&0.09\\%
+				ionosphere&0.88&0.88&0.88&0.88&0.87&0.81&0.86&0.86&0.02\\%
+				new\_thyroid&0.96&0.96&0.96&0.96&1.0&0.95&0.99&0.99&{-}0.03\\%
+				postoperative&0.68&0.7&0.71&0.71&0.33&0.34&0.51&0.56&0.2\\%
+				seeds&0.97&0.96&0.96&0.96&0.62&0.7&0.76&0.77&0.2\\%
+				solar\_flare&0.96&0.96&0.96&0.97&0.13&0.19&0.36&0.63&0.6\\%
+				transfusion&0.76&0.75&0.75&0.77&0.4&0.35&0.54&0.58&0.21\\%
+				vehicle&0.89&0.92&0.92&0.92&0.72&0.76&0.83&0.83&0.09\\%
+				vertebal&0.89&0.86&0.85&0.85&0.73&0.66&0.75&0.75&0.1\\%
+				yeastME1&0.99&0.99&0.99&0.99&0.72&0.68&0.84&0.85&0.15\\%
+				yeastME2&0.98&0.96&0.96&0.96&0.69&0.42&0.81&0.82&0.15\\%
+				yeastME3&0.96&0.96&0.96&0.96&0.66&0.65&0.79&0.81&0.17\\%
+				\hline%
+			\end{tabular}}%
+			\caption{Otrzymane wyniki sprawdzianu krzyżowego (metoda pierwsza) drzewa decyzyjnego z oversampling SMOTE. Dane w kolumnach "Decision Tree TEST" to wyniki otrzymane na podstawie zbioru walidacyjnego. Ostatnia kolumna zawiera różnicę  miar G ze sprawdzianu krzyżowego i zbioru walidacyjnego $G-G_T$ (im bliżej zera tym lepiej)}
+			\label{CVoversampling1}
+		\end{center}
+\end{table}
 
-\section{Sprawdzian krzyżowy, a oversampling}
+
+\begin{table}[H]
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}%
+			\hline%
+			&\multicolumn{4}{|c|}{Decision Tree}&\multicolumn{4}{|c|}{Decision Tree TEST}&\\%
+			\cline{2%
+				-%
+				10}%
+				& Sp & F1 & G & AUC & Sp &F1 & $G_t$&AUC& $G - G_t$\\%
+			\hline%
+			abalone0\_4&0.68&0.54&0.82&0.83&0.77&0.58&0.87&0.88&{-}0.05\\%
+			abalone041629&0.42&0.31&0.61&0.65&0.45&0.32&0.63&0.67&{-}0.02\\%
+			abalone16\_29&0.39&0.27&0.59&0.64&0.52&0.34&0.68&0.71&{-}0.09\\%
+			balance\_scale&0.03&0.02&0.15&0.47&0.04&0.03&0.19&0.46&{-}0.04\\%
+			breast\_cancer&0.41&0.4&0.55&0.57&0.41&0.4&0.55&0.57&0.0\\%
+			bupa&0.54&0.54&0.6&0.6&0.55&0.56&0.62&0.62&{-}0.02\\%
+			car&0.98&0.98&0.99&0.99&0.91&0.95&0.95&0.95&0.04\\%
+			cmc&0.38&0.36&0.55&0.59&0.39&0.37&0.56&0.61&{-}0.01\\%
+			ecoli&0.54&0.53&0.71&0.74&0.62&0.58&0.76&0.78&{-}0.05\\%
+			german&0.55&0.54&0.66&0.67&0.5&0.49&0.62&0.63&0.04\\%
+			glass&0.14&0.16&0.37&0.54&0.56&0.56&0.73&0.76&{-}0.36\\%
+			haberman&0.49&0.42&0.58&0.59&0.4&0.36&0.53&0.55&0.05\\%
+			heart\_cleveland&0.43&0.35&0.61&0.65&0.24&0.29&0.48&0.59&0.13\\%
+			hepatitis&0.5&0.52&0.67&0.69&0.72&0.58&0.77&0.77&{-}0.1\\%
+			horse\_colic&0.78&0.77&0.82&0.82&0.65&0.66&0.73&0.73&0.09\\%
+			ionosphere&0.82&0.81&0.85&0.85&0.85&0.81&0.85&0.85&0.0\\%
+			new\_thyroid&0.88&0.86&0.92&0.92&0.94&0.87&0.95&0.95&{-}0.03\\%
+			postoperative&0.32&0.27&0.44&0.48&0.33&0.3&0.47&0.48&{-}0.03\\%
+			seeds&0.95&0.91&0.94&0.94&0.62&0.68&0.75&0.76&0.19\\%
+			solar\_flare&0.21&0.2&0.45&0.62&0.13&0.18&0.36&0.63&0.09\\%
+			transfusion&0.36&0.34&0.52&0.58&0.39&0.35&0.54&0.57&{-}0.02\\%
+			vehicle&0.82&0.82&0.88&0.88&0.76&0.79&0.85&0.85&0.03\\%
+			vertebal&0.66&0.68&0.75&0.76&0.63&0.63&0.72&0.73&0.03\\%
+			yeastME1&0.63&0.59&0.79&0.81&0.72&0.69&0.84&0.86&{-}0.05\\%
+			yeastME2&0.29&0.2&0.53&0.62&0.41&0.3&0.63&0.68&{-}0.1\\%
+			yeastME3&0.81&0.77&0.88&0.89&0.68&0.68&0.81&0.82&0.07\\%
+			\hline%
+		\end{tabular}}%
+			\caption{Otrzymane wyniki sprawdzianu krzyżowego (metoda druga) drzewa decyzyjnego z oversampling SMOTE. Dane w kolumnach "Decision Tree TEST" to wyniki otrzymane na podstawie zbioru walidacyjnego. Ostatnia kolumna zawiera różnicę  miar G ze sprawdzianu krzyżowego i zbioru walidacyjnego $G-G_T$ (im bliżej zera tym lepiej)}
+			\label{CVoversampling2}
+	\end{center}
+\end{table}
 
 \section{Porównanie klasyfikatorów}
 \todo{przetestsowa wszystkie klasyfkatory, z metodami pre i bez}

@@ -29,16 +29,6 @@ for fold, name in zip(folds, name_folds):
     fig1 = plt.figure(facecolor='white')
     print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
     print(name)
-    stdtpfp = []
-    stdprere = []
-    stdavg = []
-    ftpfpall = []
-    fprereall = []
-    favgall = []
-
-    miniority = 15
-
-    max_items = miniority * 10
 
     skf = fold
     predictions = []
