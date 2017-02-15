@@ -339,7 +339,10 @@ def cross_val_oversampling_correct(data, target):
 
 
 # dane
-dataset = ['abalone0_4']
+dataset = ['abalone0_4', 'abalone041629', 'abalone16_29', 'balance_scale', 'breast_cancer', 'bupa', 'car', 'cmc',
+           'ecoli', 'german', 'glass', 'haberman', 'heart_cleveland', 'hepatitis', 'horse_colic', 'ionosphere',
+           'new_thyroid', 'postoperative', 'seeds', 'solar_flare', 'transfusion', 'vehicle', 'vertebal', 'yeastME1',
+           'yeastME2', 'yeastME3']
 
 doc = Document("test_CV_oversampling")
 

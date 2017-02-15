@@ -319,6 +319,14 @@ def g_meanavg(matrixs):
 
     return avg(avg_g)
 
+
+def g_meantpfp(matrixs):
+    sens1 = sensitivity_tp_fn(matrixs)
+    spec1 = specificity_tn_fp(matrixs)
+    g1 = g_mean(sens1, spec1)
+
+    return g1
+
 def confusion_matrix(y_true, y_pred, labels=None):
     """Compute confusion matrix to evaluate the accuracy of a classification
 
@@ -461,7 +469,7 @@ def print_to_latex(predict, target):
         "{0:.2f}".format(f1))
 
 
-def print_to_latex_sespf1g(predict, target):
+def print_to_latex_accsespf1g(predict, target):
     matrices0 = []
     matrices1 = []
 
@@ -486,7 +494,8 @@ def print_to_latex_sespf1g(predict, target):
     spec1 = specificity_tn_fp(matrices1)
     g1 = g_mean(sens1, spec1)
     f1 = f1tpfp(matrices1)
-    return float("{0:.2f}".format(sens0)), float("{0:.2f}".format(spec0)), float("{0:.2f}".format(f1)), float(
+    return float("{0:.2f}".format(acc[1])), float("{0:.2f}".format(sens0)), float("{0:.2f}".format(spec0)), float(
+        "{0:.2f}".format(f1)), float(
         "{0:.2f}".format(g0))
 
 def print_scores(predict, target):

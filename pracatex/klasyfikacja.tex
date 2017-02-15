@@ -75,7 +75,12 @@ Stosuje się różne kryterium stopu:
 	\item zbiór pusty,
 	\item osiągnięto zakładany cel, np.: maksymalna głębokość drzewa, maksymalna czystość klas w liściu, minimalny przyrost informacji po podziale.
 \end{itemize}
-
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.95\textwidth]{./images/drzewo.jpg}
+	\caption{Przykład sprawdzianu krzyżowego k-krotnego, k=4.}
+	\label{fig:drzewodec}
+\end{figure}
 Jako kryterium podziału można stosować np. wskaźnik Giniego lub entropię. Często zdarza się, że zbudowane drzewa są zbyt duże i tworzy się nadmierne dopasowanie do danych. Wówczas należy ograniczyć wysokość drzewa.
 Istnieje kilka algorytmów drzew decyzyjnych takich jak: ID3, C4.5, CART, CHAID. 
 \todo{wstawic obrazek drzewa decyzyjnego} 
@@ -182,7 +187,7 @@ gdzie:
 	\item $x_i$ to wartość początkowa,
 	\item $\mu(x)$ to wartość średnia,
 	\item $\sigma(x)$ to odchylenie standardowe.
-\end{itemize} ,  , a .
+\end{itemize}
 \subsection{Dane kategoryczne}
 Bardzo często zdarza się, że bazy danych zawierają oprócz danych numerycznych, także dane kategoryczne, zapisane w postaci łańcucha znaków. Wyróżnia się dane kategoryczne nominalne i porządkowe. Dane kategoryczne nominalne zawierają cechy wzajemnie się wykluczające. Przykładem może być płeć człowieka, kolor skóry, oczu, kolor koszulki. Takich danych nie można posortować ani też porównać. Natomiast dane kategoryczne porządkowe zawierają informacje jednoznaczne identyfikujące, które można uporządkować (np. rozmiar koszulki).
 \subsubsection{Mapowanie danych kategorycznych}
@@ -291,8 +296,8 @@ Wyróżnia się także współczynnik FPR (ang. \textit{false positive rate}), j
 Istotnym wskaźnikiem jest także precyzja (ang. \textit{precision}). Określa ona jaka część przykładów uznanych za pozytywne przez klasyfikator została poprawnie oznaczona. Precyzja wyrażana jest jako stosunek prawdziwie pozytywnych przypadków do wszystkich przykładów uznanych za pozytywne. W medycynie, pokazuje procentowo ile osób uznanych za chorych, jest rzeczywiście chora.
 \[precision = \frac{TP}{TP + FP}\]\\
 \todo{wstawic przykład klasyfikacji dn o wysokiej skuteczności (np 95), ale o niskim wykrywaniu małej klasy} 
-\todo{opis mierzenia w przypadku danych niezrównoważonych, o tych danych jest kolejny rozdział, czy ok?}
 Wskaźnik dokładności oraz error rate nie sprawdzają się w przypadku, gdy dane są niezrównoważone. Klasyfikator może osiągnąć wysoką dokładność np. 90\% przy niskiej wykrywalności klasy mniejszościowej.
+\todo{opis mierzenia w przypadku danych niezrównoważonych, o tych danych jest kolejny rozdział, czy ok?}
 Dlatego oceniając klasyfikator pracujący na niezrównoważonych danych, należy obliczyć osobno współczynniki precyzji, czułości oraz specyficzności dla każdej kategorii danych. Jak wspomniano wcześniej, bardzo często polepszenie jakości klasyfikacji klasy mniejszościowej połączona jest z pogorszeniem rozpoznawalności klasy większościowej. Mając współczynnik czułości oraz specyficzności ciężko zdecydować, który klasyfikator jest lepszy. Kubat i Matwin zaproponowali połączenie obu tych współczynników, w postaci średniej geometrycznej czułości oraz specyficzności \cite{KubatMatwin}. 
 \[G-mean = \sqrt{precision*recall}\]
 Klasyfikator z wyższym G-mean, zapewnia lepszą rozpoznawalność obu klas, jednocześnie zachowując, aby dokładność w rozpoznawaniu obu klas była zbilansowana. Współczynnik ten jest niezależny od rozkładu klas w danych \cite{Garcia}.
@@ -315,9 +320,6 @@ W celu porównania klasyfikatorów, można obliczyć pole powierzchni poniżej k
 \end{figure}
 
 \subsection{Nadmierne dopasowanie i wariancja klasyfikatora}
-\todo{napisac gdzies o nadmiernym dopasowaniu -> walidacja krzyżowa}
-\todo{cos o wariancji}
- 
 Jeżeli model uzyskuje zdecydowanie lepsze wyniki na danych treningowych niż na danych testowych, świadczy to o nadmiernym dopasowaniu (ang. \textit{overfitting}) klasyfikatora do danych uczących. Nadmierne dopasowanie występuje wtedy, gdy model zamiast dobrze generalizować prawdziwe dane, dopasowuje się za bardzo do danych treningowych. Powodem tego zjawiska jest zazwyczaj zbyt duża ilość parametrów (zbyt duża złożoność) modelu w stosunku do rozmiaru danych uczących. Klasyfikator może mieć wysoką skuteczność dla danych treningowych, jednak dla nowych danych będzie generował gorsze wyniki. Rozwiązaniem tego problemu może być:
 \begin{itemize}
 	\item zebranie większej ilości danych uczących
@@ -334,10 +336,10 @@ Idealny klasyfikator odnajduje wzorce w danych treningowych oraz dobrze je gener
 	\item w algorytmie kNN, który często ma małe obciążenie i wysoką wariancję, zwiększając liczbę sąsiadów $k$, można zmniejszyć wariancję, ale równocześnie zwiększyć błąd obciążenia,
 	\item w klasyfikatorze SVM, zwiększając karę, parametr C można zwiększyć obciążenie, a zmniejszyć wariancję.
 \end{itemize}
-Aby wychwycić nadmierne dopasowanie lub niedotrenowanie należy zbiór danych podzielić na zbiór uczący oraz na zbiór testowy. W ten sposób można sprawdzić z jaką skutecznością klasyfikator będzie pracował na nowych danych. Istnieją różne metody pomiarowe, które zostały opisane w podrozdziale \ref{testowanieklasyfikatora}
+Aby wychwycić nadmierne dopasowanie lub niedotrenowanie należy zbiór danych podzielić na zbiór uczący oraz na zbiór testowy. W ten sposób można sprawdzić z jaką skutecznością klasyfikator będzie pracował na nowych danych. Istnieją różne metody pomiarowe, które zostały opisane w podrozdziale \ref{testowanieklasyfikatora}.
+
 \subsection{Metody pomiaru jakości klasyfikacji danych} \label {testowanieklasyfikatora}
-W celu prawidłowej oceny możliwości klasyfikatora należy zbiór danych podzielić na zbiór uczący oraz na zbiór testowy. Należy pamiętać, że zwiększając zbiór testowy, zmniejsza się zbiór uczący i tym samym mniej informacji jest stosowanych do tworzenia modelu. Może to prowadzić do zaniżenia ogólnej oceny klasyfikatora. Jednocześnie mały zbiór testowy, może być niewystarczający do prawidłowej oceny, która może być obarczona dużym błędem. Proces oceny należy rozpocząć od budowy modelu w oparciu o dane treningowe, a następnie wykonać klasyfikację testową wykorzystując do tego zbiór testowy. Następnie buduje się macierz pomyłek w o parciu o sklasyfikowane przypadki. Kolejnym krokiem jest obliczenie opisanych wcześniej współczynników (zob. podrozdział \ref*{miary}) w oparciu o tą macierz. Istnieją różne schematy postępowania, służące do oceny zbudowanego modelu.
-\todo{napisac cos jeszcze o celu CV)}
+W celu prawidłowej oceny możliwości klasyfikatora należy zbiór danych podzielić na zbiór uczący oraz na zbiór testowy. Taki podział stosuje się po to, aby sprawdzić czy zbudowany model działa dobrze dla danych, które nie były wykorzystane do jego budowy (nadmierne dopasowanie). Zwiększając zbiór testowy, zmniejsza się zbiór uczący i tym samym mniej informacji jest stosowanych do tworzenia modelu. Może to prowadzić do zaniżenia ogólnej oceny klasyfikatora. Jednocześnie mały zbiór testowy, może być niewystarczający do prawidłowej oceny, która może być obarczona dużym błędem. Proces oceny należy rozpocząć od budowy modelu w oparciu o dane treningowe, a następnie wykonać klasyfikację testową wykorzystując do tego zbiór testowy. Następnie buduje się macierz pomyłek w o parciu o sklasyfikowane przypadki. Kolejnym krokiem jest obliczenie opisanych wcześniej współczynników (zob. podrozdział \ref*{miary}) w oparciu o tą macierz. Istnieją różne schematy postępowania, służące do oceny zbudowanego modelu.
 
 \subsubsection{Metoda z jednym zbiorem}
 Do budowy klasyfikatora wykorzystywany jest cały zbiór dostępnych danych. W procesie testowania, bierze udział także cały zbiór danych. Metoda ta, nie jest zbyt wartościowa i prowadzi do zawyżenia jakości klasyfikatora. W przypadku nowych danych, taki model osiągnie gorsze wyniki niż wskazywałyby na to obliczone współczynniki.
@@ -353,7 +355,7 @@ Sprawdzian krzyżowy z p przykładami wykorzystuje p obserwacji jako zbiór test
 Jest to specjalny przypadek sprawdzianu krzyżowego z p przykładami, dla p = 1. W tej metodzie zbiór testowy tworzy jeden element, pozostałe tworzą zbiór uczący. Testowanie klasyfikatora trwa do momentu użycia wszystkich obserwacji jako zbioru testowego. W przeciwieństwie do poprzedniej metody, ta jest wolna od czasochłonnych obliczeń, gdyż $\binom{n}{1}$=n, gdzie n to liczba wszystkich obserwacji. Zazwyczaj ta metoda wykorzystywana jest tylko do małych zbiorów danych.
 
 \subsubsection{Sprawdzian krzyżowy k-krotny (ang. \textit{k-fold cross-validation})}
-Zbiór danych jest losowo dzielony na k równych podzbiorów. Następnie każdy z podzbiorów w kolejnych k iteracjach staje się kolejno zbiorem testowym, pozostałe zbiory tworzą zbiór uczący, na podstawie, którego buduje się model. Klasyfikacja i testowanie wykonywane są k-krotnie. Otrzymane wyniki łączy się i uśrednia w celu uzyskania jednego wyniku. Zaletą tej metody jest mały błąd estymacji oraz niższa wariancja błędu niż w przypadku metody minus jednego elementu. Zwykle stosuje się k=3..10, dla których koszt czasowy jest umiarkowany.
+Zbiór danych jest losowo dzielony na k równych podzbiorów. Następnie każdy z podzbiorów w kolejnych k iteracjach staje się kolejno zbiorem testowym, pozostałe zbiory tworzą zbiór uczący, na podstawie, którego buduje się model. Klasyfikacja i testowanie wykonywane są k-krotnie. Otrzymane wyniki łączy się i uśrednia w celu uzyskania jednego wyniku. Zaletą tej metody jest mały błąd estymacji oraz niższa wariancja błędu niż w przypadku metody minus jednego elementu. Zwykle stosuje się k=3..10, dla których koszt czasowy jest umiarkowany. Sprawdzian krzyżowy często wykorzystywany jest do badania modeli ze względu na możliwość przetestowania klasyfikatora na wszystkich danych.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./images/crossvalidation.jpg}
@@ -362,7 +364,7 @@ Zbiór danych jest losowo dzielony na k równych podzbiorów. Następnie każdy 
 \end{figure}
 
 \subsubsection{Równomierny sprawdzian krzyżowy k-krotny (ang. \textit{Stratified k-fold cross-validation})}
-Jest to specjalny przypadek sprawdzianu krzyżowego k-krotnego. Podzbiory tworzone są z zachowaniem proporcji wszystkich klas. Każdy podzbiór powinien zawierać w przybliżeniu podobny procent obserwacji z każdej kategorii.
+Jest to specjalny przypadek sprawdzianu krzyżowego k-krotnego. Podzbiory tworzone są z zachowaniem proporcji wszystkich klas. Każdy podzbiór powinien zawierać w przybliżeniu podobny procent obserwacji z każdej kategorii. Równomierny sprawdzian krzyżowy stosuje się zazwyczaj przy mniejszych zbiorach danych, zawierających klasy klasy mniejszościowe, stanowiące mniej niż 10\% ogółu danych.
 
 
 

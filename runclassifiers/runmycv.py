@@ -1,4 +1,4 @@
-from classifiers.myclassifiercv import F1ClassifierCV
+from classifiers.ensemble_rating import ensembel_rating
 from simplefunctions import *
 from cross_val.cross_val import cross_val_pred2ict
 from sklearn.model_selection import StratifiedKFold

@@ -18,4 +18,5 @@
 \addtolength{\evensidemargin}{-\oprawa}
 
 \setlist{listparindent=\parindent, parsep=\parskip} % potrzebuje enumitem
-
+\let\oldtabular\tabular 
+\renewcommand{\tabular}{\scriptsize\oldtabular}

@@ -317,7 +317,12 @@ def load_abalone0_4():
             target.append(1)
         elif item in range(5, 30):
             target.append(0)
-    return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
+
+    ohe = OneHotEncoder(categorical_features=[0])
+    data_one_hot = ohe.fit_transform(data).toarray()
+
+    return Bunch(data=data_one_hot, target=np.asarray(target, dtype='uint8'))
+
 
 
 def load_abalone16_29():
@@ -339,7 +344,11 @@ def load_abalone16_29():
             target.append(1)
         elif item in range(1, 16):
             target.append(0)
-    return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
+    ohe = OneHotEncoder(categorical_features=[0])
+    data_one_hot = ohe.fit_transform(data).toarray()
+
+    return Bunch(data=data_one_hot, target=np.asarray(target, dtype='uint8'))
+
 
 
 def load_abalone041629():
@@ -362,7 +371,11 @@ def load_abalone041629():
         elif item in range(4, 16):
             target.append(0)
 
-    return Bunch(data=data, target=np.asarray(target, dtype='uint8'))
+    ohe = OneHotEncoder(categorical_features=[0])
+    data_one_hot = ohe.fit_transform(data).toarray()
+
+    return Bunch(data=data_one_hot, target=np.asarray(target, dtype='uint8'))
+
 
 
 # missing
@@ -418,7 +431,10 @@ def load_hepatitis(imput_strategy='median'):
     lb = preprocessing.LabelEncoder()
     lb.fit(target)
     target1 = lb.transform(target)
-    return Bunch(data=imputed_data, target=np.asarray(target1, dtype='uint8'))
+
+    ohe = OneHotEncoder(categorical_features=[1])
+    data_one_hot = ohe.fit_transform(imputed_data).toarray()
+    return Bunch(data=data_one_hot, target=np.asarray(target1, dtype='uint8'))
 
 
 def load_heart_cleveland(imput_strategy='median'):
@@ -437,7 +453,11 @@ def load_heart_cleveland(imput_strategy='median'):
     imp = Imputer(missing_values='NaN', strategy=imput_strategy, axis=0)
     imp = imp.fit(data)
     imputed_data = imp.transform(data)
-    return Bunch(data=imputed_data, target=np.asarray(target, dtype='uint8'))
+
+    ohe = OneHotEncoder(categorical_features=[1])
+    data_one_hot = ohe.fit_transform(imputed_data).toarray()
+
+    return Bunch(data=data_one_hot, target=np.asarray(target, dtype='uint8'))
 
 
 def load_postoperative(imput_strategy='median'):

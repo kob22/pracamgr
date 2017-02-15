@@ -1,4 +1,5 @@
 from data import importdata
+from tests.gridsearch.tree import runtreegrid
 import numpy as np
 #from sklearn import tree
 from runclassifiers import runmy, runmycv, tree, majorityvoting, bagging, svm, runnaivebayes, randomforest, runknn
@@ -9,28 +10,28 @@ from runclassifiers import runmy, runmycv, tree, majorityvoting, bagging, svm, r
 # german = importdata.importfile("files/ionosphere.data")
 # german = importdata.importfile("files/transfusion.data")
 
-dataset = ['abalone0_4', 'abalone041629', 'abalone16_29', 'balance_scale', 'breast_cancer', 'bupa', 'car', 'cmc',
-           'ecoli', 'german', 'glass', 'haberman', 'heart_cleveland', 'hepatitis', 'horse_colic', 'ionosphere',
-           'new_thyroid', 'postoperative', 'seeds', 'solar_flare', 'transfusion', 'vehicle', 'vertebal', 'yeastME1',
-           'yeastME2', 'yeastME3']
-# dataset = ['postoperative','balance_scale']
-# dataset = [['load_breast_cancer', 'median'], ['load_hepatitis', 'median'], ['load_hear_cleveland', 'median'],
-# ['load_postoperative', 'median'], ['load_horse_colic', 'median']]
-# dataset = ['load_breast_cancer','load_german', 'load_car', 'load_cmc']
+dataset = ['abalone16_29', 'balance_scale', 'breast_cancer', 'car', 'cmc',
+           'ecoli', 'glass', 'haberman', 'heart_cleveland', 'hepatitis',
+           'new_thyroid', 'postoperative', 'solar_flare', 'transfusion', 'vehicle',
+           'yeastME3', 'bupa', 'german', 'horse_colic', 'ionosphere', 'seeds', 'vertebal']
+
 for data in dataset:
     print("-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------")
-    print(data)
+
     db = getattr(importdata, 'load_' + data)()
+    print(data)
     importdata.print_info(db.target)
 
     # runknn.runKNN(db.data,db.target)
     # importdata.print_info(db.target)
         # majorityvoting.runvoting(db.data, db.target)
-        # runmycv.runsmycv(db.data, db.target)
+    #runmy.runsmy(db.data, db.target)
     #runnaivebayes.runNB(db.data, db.target)
 
+    runtreegrid(db.data, db.target)
     #tree.runtree(db.data, db.target)
-    bagging.runbaggingtree(db.data, db.target)
+    # bagging.runbaggingtree(db.data, db.target)
+    #svm.runsvcn(db.data, db.target)
     #randomforest.runforest(db.data,db.target)
 
 #clf = tree.DecisionTreeClassifier()

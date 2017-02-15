@@ -21,12 +21,17 @@ data_, target_ = shuffle(data__, target__)
 mask = target_ == 1
 
 # liczba testow g
-max_iter = 10
+max_iter = 500
+# klasyfikator
 clf = tree.DecisionTreeClassifier()
+# sprawdzian krzyzowy
 folds = [StratifiedKFold(n_splits=10, random_state=5), KFold(n_splits=10, random_state=5)]
-name_folds = ['Stratified K-fold, k=10', 'Unstratified K-fold, k=10']
-
-for fold, name in zip(folds, name_folds):
+name_folds = ['Strat. CV, k=10', 'Unstrat. CV, k=10']
+# wykres
+fig1 = plt.figure(facecolor='white', figsize=(7.532, 6))
+plt.rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica'], 'size': 10})
+plt.rc('legend', fontsize=10)
+for id, (fold, name) in enumerate(zip(folds, name_folds)):
     print('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
     print(name)
     stdtptn = []
@@ -54,6 +59,7 @@ for fold, name in zip(folds, name_folds):
         gsesp = []
         gavg = []
 
+        # powtarzanie testow
         for r in range(max_iter):
             # print(r)
             # klonowanie klasyfikatora
@@ -78,6 +84,7 @@ for fold, name in zip(folds, name_folds):
             gsesp.append(g[1])
             gavg.append(g[2])
 
+        # obliczanie wynikow
         stdtptn.append(np.std(gtptn))
         stdsesp.append(np.std(gsesp))
         stdavg.append(np.std(gavg))
@@ -93,28 +100,39 @@ for fold, name in zip(folds, name_folds):
         print('G-mean AVG = %s, od. std. = %s' % (np.mean(gavg), np.std(gavg)))
         print('')
 
-    fig1 = plt.figure(facecolor='white')
+    # wyswietlanie wykresow
+    if id == 0:
+        ax1 = plt.subplot(2, 2, 1 + id)
+    else:
+        ax2 = plt.subplot(2, 2, 1 + id, sharey=ax1)
     plt.plot([x for x in range(1, 11)], stdtptn, 's-', lw=2, label="G-mean TP FN ")
     plt.plot([x for x in range(1, 11)], stdsesp, 'p-', lw=2, label="G-mean Se Sp")
     plt.plot([x for x in range(1, 11)], stdavg, '*-', lw=2, label="G-mean AVG")
-    plt.ylabel('Odchylenie standardowe')
+    if id == 0:
+        plt.ylabel('Odchylenie standardowe')
     plt.xlabel('Procent klasy mniejszosciowej')
     plt.xlim(0, 11)
-    plt.title('Odchylenie standardowe miar G-mean, %s' % name)
+    plt.xlim(0.8, 10.2)
+    plt.title('Od. std. G-mean, %s' % name)
     plt.legend(loc="upper right")
-    plt.savefig(os.path.join(path, 'wyniki/wykresy_zdjecia/stdgmean%s.png' % name.replace(" ", "_")))
-    fig1.show()
 
-    fig2 = plt.figure(facecolor='white')
+    if id == 0:
+        ax3 = plt.subplot(2, 2, 3 + id, sharex=ax1)
+    else:
+        ax4 = plt.subplot(2, 2, 3 + id, sharex=ax2, sharey=ax3)
     plt.plot([x for x in range(1, 11)], gtptnall, 's-', lw=2, label="G-mean TP FN ")
     plt.plot([x for x in range(1, 11)], gsespall, 'p-', lw=2, label="G-mean Se Sp")
     plt.plot([x for x in range(1, 11)], gavgall, '*-', lw=2, label="G-mean AVG")
-    plt.ylabel('Miara G-mean')
+    if id == 0:
+        plt.ylabel('Miara G-mean')
+
     plt.xlabel('Procent klasy mniejszosciowej')
-    plt.xlim(0, 11)
+    plt.xlim(0.8, 10.2)
     plt.title('Miara G-mean, %s' % name)
     plt.legend(loc="lower right")
-    plt.savefig(os.path.join(path, 'wyniki/wykresy_zdjecia/gmean%s.png' % name.replace(" ", "_")))
-    fig2.show()
 
+plt.tight_layout()
+plt.savefig(os.path.join(path, 'wyniki/wykresy_zdjecia/miara-G-mean.png'), dpi=120)
+fig1.show()
 raw_input()
+

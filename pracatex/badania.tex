@@ -73,7 +73,7 @@ Wszystkie dane zostały zapisane w skrypcie, w folderze $praca/data/files$, a op
 			\label{danebadania}
 		\end{center}
 	\end{table}
-
+\todo{opisac foldy w zaleznosci od ilosci danych}
 \section{Sposób mierzenia w sprawdzianie krzyżowym}
 \section{Ocena klasyfikatora w sprawdzianie krzyżowym k-krotnym.}
 W większości publikacji naukowych dotyczących klasyfikacji, ocena klasyfikatora mierzona jest z wykorzystaniem sprawdzianu krzyżowego (zwykle k=10) oraz przedstawionych wcześniej miar. Jednakże, w tych publikacjach nie został opisany sposób obliczania współczynników w czasie sprawdzianu krzyżowego. Wykorzystanie różnych sposobów, prowadzi do różnych wyników. Niektóre metody są mniej lub bardziej obciążone błędem. Różnice w wynikach, wynikające z przyjętej metody obliczeniowej, są szczególnie widoczne w sprawdzianie krzyżowym z losowym rozkładem danych oraz w klasyfikacji danych niezrównoważonych. Są dwie główne możliwości obliczania współczynników:
@@ -120,6 +120,19 @@ Czułość, specyficzność, FPR oraz precyzja w metodzie pierwszej obliczą si�
 \[Precision_{avg} := \sum_{i=1}^{k} Precision_{avg}^{(i)}\]
 W drugim sposobie korzysta się z wspólnej macierzy pomyłek oraz z podstawowych wzorów. \par
 Testy wyżej wymienionych współczynników, zostały przeprowadzone z wykorzystaniem skryptu $test\_wsk.py$. Zauważono, że w przypadku równomiernego sprawdzianu krzyżowego, różnica w wynikach jest bardzo mała, poniżej 0.5\%. Obie metody obarczone sa małym błędem i wariancją. Natomiast w przypadku sprawdzianu krzyżowego z rozkładem losowym, metoda druga okazała się lepsza. Obliczona czułość oraz precyzja sposobem drugim, uzyskały wyniki z mniejszym błędem, bliższe wartości "prawdziwej". Natomiast specyficzność w obu metodach wyszła taka sama, ze względu na dużą ilość przykładów z tej klasy. Zostało sprawdzone, że w momencie odwrócenia liczebności klas, specyficzność posiada taką samą charakterystykę jak czułość. Różnice w wynikach obu sposobów, zmniejszają się wraz ze wzrostem przykładów klasy większościowej. Zazwyczaj przy 10\% zawartości danych klasy zdominowanej w zbiorze, wyniki są takie same.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{./images/wsk.png}
+	\caption{Wykresy czułości, specyficzności oraz precyzji w zależności od wielkości klasy mniejszościowej dla równomiernego oraz losowego sprawdzianu krzyżowego (k=10).}
+	\label{fig:wskazniki}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{./images/stdwsk.png}
+	\caption{Odchylenie standardowe miar czułości, specyficzności oraz precyzji w zależności od wielkości klasy mniejszościowej dla równomiernego oraz losowego sprawdzianu krzyżowego (k=10).}
+	\label{fig:wskaznikistd}
+\end{figure}
 \todo{wstawic wykres i opisac}
 \subsubsection{Miara $F_1$}
 W niniejszej pracy oraz w dużej ilości publikacjach miara F-measure obliczana jest dla $\beta=1$, dlatego testy przeprowadzono tylko dla tej wartości. Miarę F, można obliczyć na trzy różne sposoby. Pierwszy polega na obliczeniu F dla każdego k klasyfikatora, a następnie uśrednienie wyników:
@@ -131,23 +144,41 @@ Drugi sposób, to obliczenie średniej czułości i precyzji, a następnie miary
 Ostatnio sposób, to obliczenie współczynnika F ze wspólnej, końcowej macierzy pomyłek:
 \[F_{tp, fp, fn} = \frac{2*TP}{2*TP+FP+FN} \]
 Do powyższych wzorów można dodać jeszcze sposób odrzucający oceny klasyfikatorów, dla których precyzja lub czułość są niezdefiniowane. Ta metoda została odrzucona ze względu na zawyżanie końcowej oceny. \par 
-Skrypt testujący powyższe trzy sposoby znajduje się w pliku $test\_f1.py$. Analizując otrzymane wyniki, zauważono, że najbardziej powtarzalne wyniki otrzymano korzystając z wzoru $F_{tp, fp, fn}$. W przypadku obu sprawdzianów krzyżowych, metoda ta generowała najmniejszy błąd. Zauważono, że niezależnie od ilości danych niezrównoważonych, otrzymane wyniki tą metodą różniły się nieznacznie, w przeciwieństwie do pozostałych sposobów. Podobnie jak w przypadku poprzednich miar, wraz ze wzrostem ilości danych niezrównoważonych, uzyskiwane wyniki były prawie takie same, niezależnie od sposobu obliczania.
+Skrypt testujący powyższe trzy sposoby znajduje się w pliku $test\_f1.py$. Analizując otrzymane wyniki (wykres \ref{fig:wykresf1}), zauważono, że najbardziej powtarzalne wyniki otrzymano korzystając z wzoru $F_{tp, fp, fn}$. W przypadku obu sprawdzianów krzyżowych, metoda ta generowała najmniejszy błąd. Zauważono, że niezależnie od ilości danych niezrównoważonych, otrzymane wyniki tą metodą różniły się nieznacznie, w przeciwieństwie do pozostałych sposobów. Podobnie jak w przypadku poprzednich miar, wraz ze wzrostem ilości danych niezrównoważonych, uzyskiwane wyniki były prawie takie same, niezależnie od sposobu obliczania.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{./images/miara-F1.png}
+	\caption{Wykres odchylenia standardowego miar F1 oraz średniej miar F1 w zależności od wielkości klasy mniejszościowej dla równomiernego oraz losowego sprawdzianu krzyżowego (k=10).}
+	\label{fig:wykresf1}
+\end{figure}
 \subsubsection{Miara G-mean}
-Miara G-mean również może być obliczona na trzy różne sposoby. Pierwszy z nich to średnia z wszystkich klasyfikatorów:
+Miara G-mean może zostać obliczona również na trzy różne sposoby. Pierwszy z nich to średnia z wszystkich klasyfikatorów:
 \[G-mean_{avg} := \frac{1}{k} \sum_{i=1}^{k} G-mean^{(i)} \]
 W drugim sposobie należy najpierw obliczyć średnią wartość czułości oraz specyficzności, a końcowy wynik G-mean oblicza się z głównego wzoru:
 \[G-mean_{Se, Sp} = \sqrt{Sensitivity_{avg}*Specificity_{avg}} \]
 W ostatniej metodzie obliczania G-mean, za czułość oraz specyficzność, wstawia się właściwie wzory, a wartość oblicza się na podstawie zsumowanej macierzy pomyłek.
 \[G-mean_{tp, fp, fn} = \sqrt{\frac{TP}{TP + FN}*\frac{TN}{TN + FP}} \]
-Skrypt testujący powyższe wzory znajduje się w pliku $test\_g\_mean.py$. Analizując wyniki równomiernego sprawdzianu krzyżowego, zaobserwowano, że  wyniki $G-mean_{tp, fp, fn}$ oraz $G-mean_{Se, Sp}$ pokrywają się. Natomiast w zwykłym sprawdzianie krzyżowym, pomiarem najmniej obarczonym błędem był $G-mean_{tp, fp, fn}$. Z wykorzystaniem tego wzoru, dla różnej zawartości klasy mniejszościowej w zbiorze danych otrzymano wyniki różniące się jedynie o kilka procent pomiędzy sobą, podczas gdy wyniki pozostałych metod różniły się aż o 15\%-30\%
-
+Skrypt testujący powyższe wzory znajduje się w pliku $test\_g\_mean.py$. Analizując wyniki (wykres \ref{fig:wykresgmean}) równomiernego sprawdzianu krzyżowego, zaobserwowano, że  wyniki $G-mean_{tp, fp, fn}$ oraz $G-mean_{Se, Sp}$ pokrywają się. Natomiast w zwykłym sprawdzianie krzyżowym, pomiarem najmniej obarczonym błędem był $G-mean_{tp, fp, fn}$. Z wykorzystaniem tego wzoru, dla różnej zawartości klasy mniejszościowej w zbiorze danych otrzymano wyniki różniące się jedynie o kilka procent pomiędzy sobą, podczas gdy wyniki pozostałych metod różniły się aż o 15\%-30\%. Jednocześnie ta metoda dawała najmniejszy błąd odchylenia standardowego. Zauważono także, że w przypadku zawartości minimum 6\% klasy mniejszościowej w danych, otrzymywane wyniki różnią się nieznacznie (poniżej 1\%).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{./images/miara-G-mean.png}
+	\caption{Wykres odchylenia standardowego miar G-mean oraz średniej miar G-mean w zależności od wielkości klasy mniejszościowej dla równomiernego oraz losowego sprawdzianu krzyżowego (k=10).}
+	\label{fig:wykresgmean}
+\end{figure}
 \subsubsection{Krzywa ROC i miara AUC}
 Wartość AUC w sprawdzianie krzyżowym można skonstruować na dwa sposoby. W pierwszej metodzie, konstruuje się krzywą ROC oraz oblicza się AUC dla każdego k klasyfikatora. Następnie oblicza się $AUC_{AVG}$ poprzez obliczenie średniej:
 \[AUC_{AVG} := \frac{1}{k} \sum_{i=1}^{k} AUC^{(i)} \]
 W przypadku sprawdzianu krzyżowego z losowym rozkładem klas, może okazać się, że nie sklasyfikowano żadnego przykładu pozytywnego. Wtedy skonstruowanie krzywej ROC oraz obliczenie AUC będzie niemożliwe. W takich przypadkach podczas obliczania $AUC_{AVG}$ można pominąć taki wynik. \par
-Drugim sposobem jest połączenie prawdopodobieństwa przykładów testowych z każdej iteracji. Z połączonych obserwacji, konstruuje się jedną krzywą ROC i oblicza AUC. Korzystając z tego sposobu, zakłada się, że klasyfikator ma dobrze skalibrowane określanie prawdopodobieństwa. Test obu metod zostały przeprowadzone z użyciem skryptu $test_roc.py$.
+Drugim sposobem jest połączenie prawdopodobieństwa przykładów testowych z każdej iteracji. Z połączonych obserwacji, konstruuje się jedną krzywą ROC i oblicza $AUC_{merge}$. Korzystając z tego sposobu, zakłada się, że klasyfikator ma dobrze skalibrowane określanie prawdopodobieństwa.  Test obu metod zostały przeprowadzone z użyciem skryptu $test_roc.py$ i danych $tranfusion$. Wygenerowane krzywe (wykres \ref{fig:cv_roc}) ROC k klasyfikatorów różnią się od siebie kształtem oraz powierzchnią AUC. W obu sprawdzianach krzyżowych obliczona średnia $ROC_{AVG}$ oraz $AUC_{AVG}$ znajdują się pomiędzy wartościami otrzymanymi z klasyfikatorów cząstkowych (fold). Natomiast w sprawdzianie krzyżowym równomiernym wykres $ROC_{merge}$ przez większość przebiegu znajduje się poniżej części składowych, a obliczona wartość $AUC_{merge}$ jest niższa od AUC każdego klasyfikatora.
+\begin{figure}[H]
+	\centering
+	\includegraphics{./images/CV_ROC.png}
+	\caption{Wykresy krzywych ROC dla klasyfikatorów ze sprawdzianu krzyżowego równomiernego i normalnego wraz z obliczoną średnią $ROC_{AVG}$ oraz $ROC_{merge}$.}
+	\label{fig:cv_roc}
+\end{figure}
+
 \subsubsection{Podsumowanie}
-Analizując przeprowadzone testy, najlepsze wyniki osiągnęły miary obliczone metodami opartymi na zsumowanej macierzy pomyłek oraz na łączeniu wyników testów z każdej iteracji sprawdzianu krzyżowego. Obliczone w ten sposób współczynniki miały najbardziej stabilne wyniki, najmniejszy błąd oraz wariancję. Poniżej przedstawiono tabelę (\ref{przykladoblwsp}) z obliczonymi współczynnikami na różne sposoby. W dalszej części pracy, wszystkie miary w sprawdzianie krzyżowym, będą obliczane nad podstawie wspólnej macierzy pomyłek.
+Analizując przeprowadzone testy, najlepsze wyniki osiągnęły miary obliczone metodami opartymi na zsumowanej macierzy pomyłek oraz na łączeniu wyników testów z każdej iteracji sprawdzianu krzyżowego. Obliczone w ten sposób współczynniki miały najbardziej stabilne wyniki, najmniejszy błąd oraz wariancję. Poniżej przedstawiono tabelę (\ref{przykladoblwsp}) z obliczonymi współczynnikami na różne sposoby. Mimo równomiernego rozkładu klas, klasyfikator w części numer 2 nie rozpoznał ani jednego przykładu pozytywnego. W efekcie czułość oraz precyzja musiały zostać ustawione na 0, skutkiem czego miara G-mean oraz F1 dla tej części wynoszą 0. Pochodną tego zdarzenia jest zaniżenie wszystkich wartości średnich miar (oznaczonych w tabeli jako AVG). W dalszej części pracy, wszystkie miary w sprawdzianie krzyżowym, będą obliczane nad podstawie wspólnej macierzy pomyłek. 
 \begin{table}[H]
 	\begin{center}
 		\resizebox{\textwidth}{!}{%
@@ -215,7 +246,7 @@ Wnioskiem wynikającym z powyższego badania jest konieczność stosowania overs
 				yeastME3&0.96&0.96&0.96&0.96&0.66&0.65&0.79&0.81&0.17\\%
 				\hline%
 			\end{tabular}}%
-			\caption{Otrzymane wyniki sprawdzianu krzyżowego (metoda pierwsza) drzewa decyzyjnego z oversampling SMOTE. Dane w kolumnach "Decision Tree TEST" to wyniki otrzymane na podstawie zbioru walidacyjnego. Ostatnia kolumna zawiera różnicę  miar G ze sprawdzianu krzyżowego i zbioru walidacyjnego $G-G_T$ (im bliżej zera tym lepiej)}
+			\caption{Wyniki sprawdzianu krzyżowego (metoda pierwsza) drzewa decyzyjnego z oversampling SMOTE. Dane w kolumnach "Decision Tree TEST" to wyniki otrzymane na podstawie zbioru walidacyjnego. Ostatnia kolumna zawiera różnicę  miar G ze sprawdzianu krzyżowego i zbioru walidacyjnego $G-G_T$ (im bliżej zera tym lepiej).}
 			\label{CVoversampling1}
 		\end{center}
 \end{table}
@@ -260,7 +291,7 @@ Wnioskiem wynikającym z powyższego badania jest konieczność stosowania overs
 			yeastME3&0.81&0.77&0.88&0.89&0.68&0.68&0.81&0.82&0.07\\%
 			\hline%
 		\end{tabular}}%
-			\caption{Otrzymane wyniki sprawdzianu krzyżowego (metoda druga) drzewa decyzyjnego z oversampling SMOTE. Dane w kolumnach "Decision Tree TEST" to wyniki otrzymane na podstawie zbioru walidacyjnego. Ostatnia kolumna zawiera różnicę  miar G ze sprawdzianu krzyżowego i zbioru walidacyjnego $G-G_T$ (im bliżej zera tym lepiej)}
+			\caption{Wyniki sprawdzianu krzyżowego (metoda druga) drzewa decyzyjnego z oversampling SMOTE. Dane w kolumnach "Decision Tree TEST" to wyniki otrzymane na podstawie zbioru walidacyjnego. Ostatnia kolumna zawiera różnicę  miar G ze sprawdzianu krzyżowego i zbioru walidacyjnego $G-G_T$ (im bliżej zera tym lepiej).}
 			\label{CVoversampling2}
 	\end{center}
 \end{table}
@@ -269,262 +300,117 @@ Wnioskiem wynikającym z powyższego badania jest konieczność stosowania overs
 \todo{przetestsowa wszystkie klasyfkatory, z metodami pre i bez}
 
 Porównanie klasyfikatorów z domyślnymi ustawieniami, na takich samych typach danych. Jeżeli w tabelce występuje 0, to klasyfikator całkowicie błędnie klasyfikuje klasę mniejszościową.
-\begin{table}[h]
-	\begin{center}
-		\resizebox{\textwidth}{!}{%
-			\begin{tabular}{|c|c|c|c|c|c|c|c|c|}%
-				\hline%
-				&Drzewo&kNN&NKB&SVM&RForest&BAGGING&BOOSTING&STACKING\\%
-				\hline%
-				abalone0\_4&0.98&0.99&0.96&0.98&0.99&0.96&0.96&0.99\\%
-				\hline%
-				abalone0\_4\_16\_29&0.89&0.92&0.87&0.92&0.93&0.87&0.71&0.92\\%
-				\hline%
-				abalone16\_29&0.9&0.93&0.7&0.94&0.94&0.71&0.66&0.94\\%
-				\hline%
-				balance\_scale&0.86&0.91&0.92&0.92&0.91&0.92&0.92&0.92\\%
-				\hline%
-				breast\_cancer&0.62&0.64&0.73&0.66&0.71&0.72&0.37&0.7\\%
-				\hline%
-				bupa&0.65&0.64&0.53&0.58&0.71&0.55&0.52&0.64\\%
-				\hline%
-				car&0.99&0.97&0.88&0.98&0.98&0.89&0.98&0.99\\%
-				\hline%
-				cmc&0.7&0.75&0.68&0.77&0.76&0.68&0.63&0.77\\%
-				\hline%
-				ecoli&0.89&0.9&0.77&0.9&0.92&0.78&0.93&0.9\\%
-				\hline%
-				german&0.68&0.69&0.73&0.72&0.77&0.71&0.68&0.73\\%
-				\hline%
-				glass&0.89&0.9&0.45&0.92&0.92&0.49&0.85&0.92\\%
-				\hline%
-				haberman&0.58&0.71&0.75&0.71&0.67&0.76&0.63&0.75\\%
-				\hline%
-				heart\_cleveland&0.8&0.88&0.8&0.88&0.87&0.8&0.78&0.88\\%
-				\hline%
-				hepatitis&0.78&0.75&0.77&0.79&0.83&0.75&0.55&0.81\\%
-				\hline%
-				horse\_colic&0.79&0.72&0.79&0.68&0.86&0.79&0.61&0.82\\%
-				\hline%
-				ionosphere&0.87&0.83&0.88&0.94&0.93&0.89&0.78&0.92\\%
-				\hline%
-				new\_thyroid&0.97&0.97&0.97&0.86&0.98&0.97&0.97&0.97\\%
-				\hline%
-				postoperative&0.61&0.63&0.72&0.73&0.64&0.68&0.38&0.71\\%
-				\hline%
-				seeds&0.9&0.93&0.92&0.95&0.92&0.92&0.9&0.93\\%
-				\hline%
-				solar\_flare&0.94&0.95&0.67&0.96&0.94&0.67&0.52&0.96\\%
-				\hline%
-				transfusion&0.62&0.67&0.74&0.7&0.66&0.74&0.64&0.72\\%
-				\hline%
-				vehicle&0.94&0.93&0.66&0.77&0.97&0.67&0.75&0.93\\%
-				\hline%
-				vertebal&0.79&0.82&0.78&0.68&0.82&0.77&0.71&0.81\\%
-				\hline%
-				yeastME1&0.98&0.98&0.66&0.97&0.98&0.7&0.92&0.98\\%
-				\hline%
-				yeastME2&0.94&0.96&0.17&0.97&0.97&0.17&0.1&0.96\\%
-				\hline%
-				yeastME3&0.93&0.95&0.32&0.89&0.95&0.29&0.89&0.94\\%
-				\hline%
-			\end{tabular}}%
-			\caption{Dokładność algorytmów}
-			\label{tab1}
-		\end{center}
-	\end{table}
-	
-	\begin{table}[h]
-		\begin{center}
-			\resizebox{\textwidth}{!}{%
-				\begin{tabular}{|c|c|c|c|c|c|c|c|c|}%
-					\hline%
-					&Drzewo&kNN&NKB&SVM&RForest&BAGGING&BOOSTING&STACKING\\%
-					\hline%
-					abalone0\_4&0.43&0.58&0.97&0.0&0.51&0.97&0.42&0.42\\%
-					\hline%
-					abalone0\_4\_16\_29&0.36&0.25&0.3&0.0&0.23&0.29&0.28&0.16\\%
-					\hline%
-					abalone16\_29&0.29&0.15&0.59&0.0&0.13&0.57&0.45&0.08\\%
-					\hline%
-					balance\_scale&0.08&0.0&0.0&0.0&0.0&0.0&0.0&0.0\\%
-					\hline%
-					breast\_cancer&0.41&0.2&0.45&0.07&0.38&0.44&0.6&0.24\\%
-					\hline%
-					bupa&0.6&0.46&0.77&0.0&0.52&0.78&0.48&0.45\\%
-					\hline%
-					car&0.92&0.62&1.0&0.77&0.71&1.0&0.82&0.92\\%
-					\hline%
-					cmc&0.34&0.29&0.6&0.15&0.28&0.6&0.35&0.15\\%
-					\hline%
-					ecoli&0.6&0.46&0.94&0.0&0.49&0.94&0.63&0.4\\%
-					\hline%
-					german&0.51&0.32&0.62&0.13&0.41&0.64&0.01&0.18\\%
-					\hline%
-					glass&0.41&0.12&0.76&0.0&0.06&0.71&0.12&0.0\\%
-					\hline%
-					haberman&0.32&0.35&0.21&0.01&0.25&0.25&0.2&0.17\\%
-					\hline%
-					heart\_cleveland&0.23&0.0&0.57&0.0&0.0&0.51&0.31&0.0\\%
-					\hline%
-					hepatitis&0.53&0.06&0.72&0.0&0.5&0.69&0.56&0.31\\%
-					\hline%
-					horse\_colic&0.73&0.57&0.76&0.25&0.76&0.76&0.56&0.64\\%
-					\hline%
-					ionosphere&0.8&0.56&0.74&0.84&0.87&0.76&0.73&0.83\\%
-					\hline%
-					new\_thyroid&0.9&0.77&0.87&0.0&0.9&0.87&0.8&0.83\\%
-					\hline%
-					postoperative&0.21&0.0&0.12&0.0&0.0&0.12&0.62&0.0\\%
-					\hline%
-					seeds&0.89&0.94&0.94&0.94&0.9&0.94&0.9&0.91\\%
-					\hline%
-					solar\_flare&0.14&0.0&0.93&0.0&0.07&0.93&0.56&0.0\\%
-					\hline%
-					transfusion&0.24&0.27&0.17&0.06&0.27&0.18&0.34&0.1\\%
-					\hline%
-					vehicle&0.85&0.88&0.83&0.01&0.95&0.83&0.74&0.81\\%
-					\hline%
-					vertebal&0.66&0.76&0.88&0.0&0.73&0.85&0.61&0.7\\%
-					\hline%
-					yeastME1&0.68&0.66&1.0&0.0&0.64&1.0&0.55&0.55\\%
-					\hline%
-					yeastME2&0.33&0.14&0.96&0.0&0.14&0.96&0.94&0.0\\%
-					\hline%
-					yeastME3&0.68&0.68&0.98&0.0&0.66&0.98&0.03&0.61\\%
-					\hline%
-				\end{tabular}}%
-				\caption{Specyficzność algorytmów}
-				\label{tab}
-			\end{center}
-		\end{table}
-		
-		\begin{table}[h]
-			\begin{center}
-				\resizebox{\textwidth}{!}{%
-					\begin{tabular}{|c|c|c|c|c|c|c|c|c|}%
-						\hline%
-						&Drzewo&kNN&NKB&SVM&RForest&BAGGING&BOOSTING&STACKING\\%
-						\hline%
-						abalone0\_4&0.66&0.76&0.97&0.0&0.71&0.97&0.64&0.65\\%
-						\hline%
-						abalone0\_4\_16\_29&0.58&0.49&0.52&0.0&0.48&0.52&0.46&0.4\\%
-						\hline%
-						abalone16\_29&0.52&0.38&0.65&0.0&0.36&0.64&0.55&0.28\\%
-						\hline%
-						balance\_scale&0.27&0.0&0.0&0.0&0.0&0.0&0.0&0.0\\%
-						\hline%
-						breast\_cancer&0.54&0.41&0.61&0.25&0.57&0.6&0.41&0.46\\%
-						\hline%
-						bupa&0.64&0.59&0.53&0.0&0.66&0.56&0.52&0.59\\%
-						\hline%
-						car&0.96&0.78&0.94&0.87&0.84&0.94&0.9&0.96\\%
-						\hline%
-						cmc&0.52&0.51&0.65&0.38&0.5&0.65&0.5&0.38\\%
-						\hline%
-						ecoli&0.75&0.66&0.84&0.0&0.69&0.85&0.78&0.62\\%
-						\hline%
-						german&0.62&0.52&0.69&0.36&0.62&0.69&0.1&0.42\\%
-						\hline%
-						glass&0.62&0.34&0.57&0.0&0.24&0.58&0.33&0.0\\%
-						\hline%
-						haberman&0.47&0.54&0.45&0.11&0.45&0.48&0.4&0.41\\%
-						\hline%
-						heart\_cleveland&0.45&0.0&0.69&0.0&0.0&0.65&0.51&0.0\\%
-						\hline%
-						hepatitis&0.67&0.24&0.75&0.0&0.68&0.72&0.55&0.54\\%
-						\hline%
-						horse\_colic&0.77&0.68&0.78&0.48&0.84&0.78&0.6&0.77\\%
-						\hline%
-						ionosphere&0.85&0.74&0.84&0.91&0.92&0.86&0.77&0.89\\%
-						\hline%
-						new\_thyroid&0.94&0.88&0.93&0.0&0.94&0.93&0.89&0.91\\%
-						\hline%
-						postoperative&0.4&0.0&0.34&0.0&0.0&0.33&0.42&0.0\\%
-						\hline%
-						seeds&0.89&0.94&0.92&0.95&0.91&0.92&0.9&0.93\\%
-						\hline%
-						solar\_flare&0.37&0.0&0.78&0.0&0.26&0.78&0.54&0.0\\%
-						\hline%
-						transfusion&0.42&0.46&0.4&0.22&0.46&0.41&0.5&0.3\\%
-						\hline%
-						vehicle&0.91&0.91&0.71&0.1&0.97&0.72&0.75&0.88\\%
-						\hline%
-						vertebal&0.75&0.8&0.8&0.0&0.8&0.79&0.68&0.77\\%
-						\hline%
-						yeastME1&0.82&0.81&0.81&0.0&0.8&0.83&0.71&0.74\\%
-						\hline%
-						yeastME2&0.57&0.37&0.36&0.0&0.37&0.37&0.26&0.0\\%
-						\hline%
-						yeastME3&0.81&0.82&0.49&0.0&0.81&0.45&0.17&0.77\\%
-						\hline%
-					\end{tabular}}%
-					\caption{G-mean}
-					\label{tab3}
-				\end{center}
-			\end{table}
-			
-			\begin{table}[h]
+
+			\begin{table}[H]
 				\begin{center}
 					\resizebox{\textwidth}{!}{%
-					\begin{tabular}{|c|c|c|c|c|c|c|c|c|}%
-						\hline%
-						&Drzewo&kNN&NKB&SVM&RForest&BAGGING&BOOSTING&STACKING\\%
-						\hline%
-						abalone0\_4&0.48&0.62&0.45&0.0&0.58&0.45&0.29&0.53\\%
-						\hline%
-						abalone0\_4\_16\_29&0.34&0.34&0.27&0.0&0.34&0.27&0.14&0.25\\%
-						\hline%
-						abalone16\_29&0.27&0.22&0.2&0.0&0.2&0.2&0.14&0.14\\%
-						\hline%
-						balance\_scale&0.08&0.0&0.0&0.0&0.0&0.0&0.0&0.0\\%
-						\hline%
-						breast\_cancer&0.39&0.25&0.49&0.11&0.44&0.48&0.36&0.32\\%
-						\hline%
-						bupa&0.58&0.51&0.58&0.0&0.6&0.59&0.45&0.51\\%
-						\hline%
-						car&0.86&0.61&0.39&0.76&0.72&0.4&0.79&0.85\\%
-						\hline%
-						cmc&0.34&0.35&0.46&0.23&0.34&0.46&0.3&0.23\\%
-						\hline%
-						ecoli&0.54&0.49&0.46&0.0&0.57&0.47&0.64&0.46\\%
-						\hline%
-						german&0.49&0.38&0.58&0.22&0.52&0.58&0.02&0.29\\%
-						\hline%
-						glass&0.37&0.16&0.18&0.0&0.11&0.18&0.11&0.0\\%
-						\hline%
-						haberman&0.29&0.39&0.31&0.02&0.28&0.35&0.22&0.27\\%
-						\hline%
-						heart\_cleveland&0.21&0.0&0.39&0.0&0.0&0.37&0.24&0.0\\%
-						\hline%
-						hepatitis&0.5&0.1&0.56&0.0&0.55&0.53&0.34&0.41\\%
-						\hline%
-						horse\_colic&0.71&0.6&0.73&0.37&0.8&0.73&0.51&0.72\\%
-						\hline%
-						ionosphere&0.81&0.7&0.82&0.91&0.91&0.83&0.7&0.88\\%
-						\hline%
-						new\_thyroid&0.89&0.87&0.9&0.0&0.92&0.9&0.87&0.89\\%
-						\hline%
-						postoperative&0.22&0.0&0.19&0.0&0.0&0.17&0.35&0.0\\%
-						\hline%
-						seeds&0.85&0.9&0.89&0.92&0.88&0.89&0.85&0.9\\%
-						\hline%
-						solar\_flare&0.15&0.0&0.19&0.0&0.09&0.18&0.09&0.0\\%
-						\hline%
-						transfusion&0.23&0.28&0.24&0.08&0.28&0.25&0.31&0.15\\%
-						\hline%
-						vehicle&0.87&0.86&0.54&0.02&0.94&0.54&0.58&0.84\\%
-						\hline%
-						vertebal&0.67&0.73&0.72&0.0&0.73&0.71&0.57&0.7\\%
-						\hline%
-						yeastME1&0.62&0.7&0.15&0.0&0.7&0.16&0.28&0.66\\%
-						\hline%
-						yeastME2&0.29&0.21&0.07&0.0&0.22&0.07&0.07&0.0\\%
-						\hline%
-						yeastME3&0.67&0.73&0.24&0.0&0.73&0.23&0.06&0.69\\%
-						\hline%
-					\end{tabular}}%
+						\begin{tabular}{c|cccccccccc}%
+							\hline%
+							&Tree&BG&(3)&B(3)&(5)&B(5)&(10)&B(10)&(20)&B(20)\\%
+							\hline%
+							abalone0\_4&0.71&0.74&\textbf{0.82}&0.78&0.74&0.73&0.71&0.74&0.69&0.74\\%
+							\hline%
+							abalone041629&\textbf{0.58}&0.53&0.39&0.36&0.48&0.48&0.56&0.53&\textbf{0.58}&0.53\\%
+							\hline%
+							abalone16\_29&0.51&0.46&0.16&0.0&0.44&0.4&\textbf{0.52}&0.46&0.51&0.46\\%
+							\hline%
+							balance\_scale&\textbf{0.27}&0.0&0.0&0.0&0.2&0.0&\textbf{0.27}&0.0&\textbf{0.27}&0.0\\%
+							\hline%
+							breast\_cancer&0.54&0.58&0.51&0.52&0.51&0.54&0.54&\textbf{0.59}&0.55&0.58\\%
+							\hline%
+							car&\textbf{0.96}&\textbf{0.96}&0.0&0.0&0.95&0.95&\textbf{0.96}&\textbf{0.96}&\textbf{0.96}&\textbf{0.96}\\%
+							\hline%
+							cmc&0.52&0.48&0.22&0.15&\textbf{0.54}&0.48&0.5&0.5&0.51&0.49\\%
+							\hline%
+							ecoli&0.71&0.72&0.63&0.65&\textbf{0.75}&0.72&0.71&0.72&0.71&0.72\\%
+							\hline%
+							glass&\textbf{0.52}&0.0&0.24&0.0&\textbf{0.52}&0.0&\textbf{0.52}&0.0&\textbf{0.52}&0.0\\%
+							\hline%
+							haberman&0.47&0.48&\textbf{0.58}&0.51&0.49&0.49&0.48&0.49&0.47&0.48\\%
+							\hline%
+							heart\_cleveland&\textbf{0.48}&0.23&0.17&0.0&0.42&0.23&\textbf{0.48}&0.23&\textbf{0.48}&0.23\\%
+							\hline%
+							hepatitis&\textbf{0.69}&\textbf{0.69}&0.6&0.56&\textbf{0.69}&0.67&\textbf{0.69}&\textbf{0.69}&\textbf{0.69}&\textbf{0.69}\\%
+							\hline%
+							new\_thyroid&\textbf{0.94}&\textbf{0.94}&0.9&0.92&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}\\%
+							\hline%
+							postoperative&\textbf{0.36}&0.26&0.0&0.0&0.19&0.27&\textbf{0.36}&0.26&\textbf{0.36}&0.26\\%
+							\hline%
+							solar\_flare&\textbf{0.37}&0.34&0.0&0.0&\textbf{0.37}&0.26&\textbf{0.37}&0.34&\textbf{0.37}&0.34\\%
+							\hline%
+							transfusion&0.43&0.46&0.38&0.28&0.45&\textbf{0.47}&0.43&0.46&0.43&0.46\\%
+							\hline%
+							vehicle&0.89&0.94&0.71&0.71&0.89&\textbf{0.95}&0.9&0.94&0.89&0.94\\%
+							\hline%
+							yeastME1&0.85&0.81&\textbf{0.86}&0.72&0.81&0.79&0.85&0.81&0.85&0.81\\%
+							\hline%
+							yeastME2&\textbf{0.66}&0.5&0.24&0.14&0.65&0.5&\textbf{0.66}&0.5&\textbf{0.66}&0.5\\%
+							\hline%
+							yeastME3&0.81&0.84&\textbf{0.88}&0.87&0.84&0.85&0.81&0.84&0.81&0.84\\%
+							\hline%
+							bupa&0.64&\textbf{0.67}&0.6&0.6&\textbf{0.67}&0.66&0.65&\textbf{0.67}&0.65&\textbf{0.67}\\%
+							\hline%
+							german&0.63&0.64&0.45&0.47&0.63&0.64&0.62&\textbf{0.65}&0.62&0.64\\%
+							\hline%
+						\end{tabular}
+}%
 						\caption{F1}
 						\label{tab4}
 					\end{center}
-				\end{table}
+				\end{table}			\begin{table}[H]
+				\begin{center}
+					\resizebox{\textwidth}{!}{%
+						\begin{tabular}{c|cccccccccc}%
+							\hline%
+							&Tree&BG&(3)&B(3)&(5)&B(5)&(10)&B(10)&(20)&B(20)\\%
+							\hline%
+							abalone0\_4&0.71&0.74&\textbf{0.82}&0.78&0.74&0.73&0.71&0.74&0.69&0.74\\%
+							\hline%
+							abalone041629&\textbf{0.58}&0.53&0.39&0.36&0.48&0.48&0.56&0.53&\textbf{0.58}&0.53\\%
+							\hline%
+							abalone16\_29&0.51&0.46&0.16&0.0&0.44&0.4&\textbf{0.52}&0.46&0.51&0.46\\%
+							\hline%
+							balance\_scale&\textbf{0.27}&0.0&0.0&0.0&0.2&0.0&\textbf{0.27}&0.0&\textbf{0.27}&0.0\\%
+							\hline%
+							breast\_cancer&0.54&0.58&0.51&0.52&0.51&0.54&0.54&\textbf{0.59}&0.55&0.58\\%
+							\hline%
+							car&\textbf{0.96}&\textbf{0.96}&0.0&0.0&0.95&0.95&\textbf{0.96}&\textbf{0.96}&\textbf{0.96}&\textbf{0.96}\\%
+							\hline%
+							cmc&0.52&0.48&0.22&0.15&\textbf{0.54}&0.48&0.5&0.5&0.51&0.49\\%
+							\hline%
+							ecoli&0.71&0.72&0.63&0.65&\textbf{0.75}&0.72&0.71&0.72&0.71&0.72\\%
+							\hline%
+							glass&\textbf{0.52}&0.0&0.24&0.0&\textbf{0.52}&0.0&\textbf{0.52}&0.0&\textbf{0.52}&0.0\\%
+							\hline%
+							haberman&0.47&0.48&\textbf{0.58}&0.51&0.49&0.49&0.48&0.49&0.47&0.48\\%
+							\hline%
+							heart\_cleveland&\textbf{0.48}&0.23&0.17&0.0&0.42&0.23&\textbf{0.48}&0.23&\textbf{0.48}&0.23\\%
+							\hline%
+							hepatitis&\textbf{0.69}&\textbf{0.69}&0.6&0.56&\textbf{0.69}&0.67&\textbf{0.69}&\textbf{0.69}&\textbf{0.69}&\textbf{0.69}\\%
+							\hline%
+							new\_thyroid&\textbf{0.94}&\textbf{0.94}&0.9&0.92&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}\\%
+							\hline%
+							postoperative&\textbf{0.36}&0.26&0.0&0.0&0.19&0.27&\textbf{0.36}&0.26&\textbf{0.36}&0.26\\%
+							\hline%
+							solar\_flare&\textbf{0.37}&0.34&0.0&0.0&\textbf{0.37}&0.26&\textbf{0.37}&0.34&\textbf{0.37}&0.34\\%
+							\hline%
+							transfusion&0.43&0.46&0.38&0.28&0.45&\textbf{0.47}&0.43&0.46&0.43&0.46\\%
+							\hline%
+							vehicle&0.89&0.94&0.71&0.71&0.89&\textbf{0.95}&0.9&0.94&0.89&0.94\\%
+							\hline%
+							yeastME1&0.85&0.81&\textbf{0.86}&0.72&0.81&0.79&0.85&0.81&0.85&0.81\\%
+							\hline%
+							yeastME2&\textbf{0.66}&0.5&0.24&0.14&0.65&0.5&\textbf{0.66}&0.5&\textbf{0.66}&0.5\\%
+							\hline%
+							yeastME3&0.81&0.84&\textbf{0.88}&0.87&0.84&0.85&0.81&0.84&0.81&0.84\\%
+							\hline%
+							bupa&0.64&\textbf{0.67}&0.6&0.6&\textbf{0.67}&0.66&0.65&\textbf{0.67}&0.65&\textbf{0.67}\\%
+							\hline%
+							german&0.63&0.64&0.45&0.47&0.63&0.64&0.62&\textbf{0.65}&0.62&0.64\\%
+							\hline%
+						\end{tabular}
+					}%
+					\caption{F1}
+					\label{tab4}
+				\end{center}
+			\end{table}
