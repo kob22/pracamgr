@@ -19,16 +19,15 @@ for data in dataset:
     print("-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------")
 
     db = getattr(importdata, 'load_' + data)()
-    print(data)
     importdata.print_info(db.target)
 
     # runknn.runKNN(db.data,db.target)
     # importdata.print_info(db.target)
-        # majorityvoting.runvoting(db.data, db.target)
+    # majorityvoting.runvoting(db.data, db.target)
     #runmy.runsmy(db.data, db.target)
-    #runnaivebayes.runNB(db.data, db.target)
+    runnaivebayes.runNB(db.data, db.target)
 
-    runtreegrid(db.data, db.target)
+    # rungrid(db.data, db.target)
     #tree.runtree(db.data, db.target)
     # bagging.runbaggingtree(db.data, db.target)
     #svm.runsvcn(db.data, db.target)

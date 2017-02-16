@@ -18,10 +18,11 @@ def runNB(data, target):
             testpredict, testtarget = cross_val_pred2ict(nvb, data, target, cv=10,
                                                          n_jobs=-1)
             print_scores(testpredict, testtarget)
-
+            nvb = GaussianNB()
             testpredict, testtarget = cross_val_pred2ict(nvb, datamms, target, cv=10,
                                                          n_jobs=-1)
             print_scores(testpredict, testtarget)
+            nvb = GaussianNB()
             testpredict, testtarget = cross_val_pred2ict(nvb, datastdsc, target, cv=10,
                                                          n_jobs=-1)
             print_scores(testpredict, testtarget)
