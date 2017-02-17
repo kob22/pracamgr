@@ -9,6 +9,7 @@ from pylatex import Tabular, Document, Section
 from pylatex.utils import bold
 from sklearn.ensemble import VotingClassifier
 from classifiers.ensemble_rating import ensembel_rating
+from classifiers.ensemble_rating2 import ensembel_rating2
 from classifiers.ensemble_ratingcv import ensembel_rating_cv
 from sklearn.neural_network import MLPClassifier
 import os
@@ -19,10 +20,10 @@ dataset = ['abalone0_4', 'abalone041629', 'abalone16_29', 'balance_scale', 'brea
            'new_thyroid', 'postoperative', 'solar_flare', 'transfusion', 'vehicle', 'yeastME1',
            'yeastME2', 'yeastME3', 'bupa', 'german', 'horse_colic', 'ionosphere', 'seeds', 'vertebal']
 
-sections = ["Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
+sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
 tables = []
-for tab in range(4):
+for tab in range(5):
     table = Tabular('c|cccccc')
     table.add_hline()
     table.add_row(('', "KNN", "TREE", "NB", "ESR", "ESR z MLP", "VOTING"))
@@ -36,7 +37,7 @@ clf4 = MLPClassifier(solver='lbfgs', random_state=1)
 
 voting = VotingClassifier(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)], voting='hard')
 prec_clf1 = ensembel_rating(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)])
-prec_clf2 = ensembel_rating(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3), ("MLP", clf4)])
+prec_clf2 = ensembel_rating2(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3), ('MLP', MLPClassifier())])
 
 clfs = [clf1, clf2, clf3, prec_clf1, prec_clf2, voting]
 
@@ -46,7 +47,7 @@ for data in dataset:
     print('Zbior danych: %s' % data)
     importdata.print_info(db.target)
     rows = []
-    for i in range(4):
+    for i in range(5):
         rows.append([data])
 
     length_data = len(data)
@@ -62,7 +63,7 @@ for data in dataset:
     for clf in clfs:
         clf_ = clone(clf)
         testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
-        scores = print_to_latex_sespf1g(testpredict, testtarget)
+        scores = print_to_latex_accsespf1g(testpredict, testtarget)
 
         for i, score in enumerate(scores):
             rows[i].append(score)
