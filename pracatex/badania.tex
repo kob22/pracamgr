@@ -88,6 +88,54 @@ Wszystkie dane zostały zapisane w skrypcie, w folderze $praca/data/files$, a op
 			\label{danebadania}
 		\end{center}
 	\end{table}
+\subsubsection{Analiza klas mniejszościowych}
+Dane użyte w badaniach poddano analizie sąsiedztwa w celu określenia przynależności przykładów z klasy mniejszościowej do jednej z czterech grup. Analizę wykonano z wykorzystaniem algorytmu k najbliższych sąsiadów, k = 5. Do pomiaru odległości wykorzystano miarę Czebyszewa. Skrypt analizujący dane znajduje się w pliku: $analyze\_db.py$ Przykłady klasyfikowano do grup w zależności od ilości sąsiadów\cite{przykladyklas}:
+\begin{itemize}
+	\item safe - jeżeli w sąsiedztwie znajdowało się przynajmniej 4 przykłady z tej samej klasy,
+	\item border - jeżeli liczba przykładów z obu klas była podobna, tj. dla 2-3 przykłady z tej samej klasy,
+	\item rare - jeżeli w sąsiedztwie był tylko jeden przykład z tej klasy,
+	\item outlier - jeżeli wszyscy sąsiedzi należeli do innej klasy.
+\end{itemize}
+Wyniki analizy przedstawiono w tabeli \ref{dane_analiza_grupy}.
+\begin{table}[h]
+	\scriptsize
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccc}%
+				&Safe [\%]&Borderline [\%]&Rare [\%]&Outlier [\%]\\%
+				\hline%
+				seeds&88.57&10.0&0.0&1.43\\%
+				new\_thyroid&73.33&10.0&6.67&10.0\\%
+				vehicle&62.81&26.63&2.51&8.04\\%
+				ionosphere&57.94&21.43&13.49&7.14\\%
+				vertebal&56.0&33.0&2.0&9.0\\%
+				yeastME3&50.92&32.52&10.43&6.13\\%
+				yeastME1&36.36&52.27&0.0&11.36\\%
+				ecoli&31.43&48.57&14.29&5.71\\%
+				bupa&27.66&48.23&8.51&15.6\\%
+				horse\_colic&22.79&52.94&13.24&11.03\\%
+				abalone0\_4&37.84&32.43&18.92&10.81\\%
+				german&9.0&51.33&14.67&25.0\\%
+				breast\_cancer&3.53&52.94&12.94&30.59\\%
+				cmc&12.31&43.24&20.42&24.02\\%
+				hepatitis&0.0&53.12&15.62&31.25\\%
+				haberman&12.35&38.27&18.52&30.86\\%
+				yeastME2&3.92&35.29&35.29&25.49\\%
+				abalone041629&11.04&31.94&30.75&26.27\\%
+				transfusion&13.41&36.31&21.79&28.49\\%
+				car&1.54&33.85&35.38&29.23\\%
+				glass&0.0&47.06&23.53&29.41\\%
+				abalone16\_29&3.45&31.8&34.1&30.65\\%
+				solar\_flare&4.65&16.28&46.51&32.56\\%
+				heart\_cleveland&0.0&5.71&48.57&45.71\\%
+				balance\_scale&0.0&22.45&30.61&46.94\\%
+				postoperative&0.0&33.33&8.33&58.33\\%
+			\end{tabular}}
+			\caption{Analiza przynależności przykładów z klasy mniejszościowej do grup. Dane posortowano w kolejności od najłatwiejszych w klasyfikacji do najtrudniejszych.}
+			\label{dane_analiza_grupy}
+		\end{center}
+	\end{table}
+
 \todo{opisac foldy w zaleznosci od ilosci danych}
 \section{Sposób mierzenia w sprawdzianie krzyżowym}
 \section{Ocena klasyfikatora w sprawdzianie krzyżowym k-krotnym.}

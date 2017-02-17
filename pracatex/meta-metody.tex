@@ -1,0 +1,247 @@
+\chapter{Meta-metody}
+\section{Bagging}
+Klasyfikator bagging to meta-klasyfikator, który trenuje n klasyfikatorów bazowych na losowych podzbiorach oryginalnego zbioru danych, a następnie poprzez głosowanie lub uśrednianie indywidualnych prognoz nadaje ostateczną klasę. W procesie tworzenia klasyfikatora bagging, należy wybrać klasyfikator bazowy oraz określić liczbę n tworzonych instancji tego klasyfikatora. Można także zdefiniować czy tworzone losowe podzbiory mają być tworzone próbą boostrap, maksymalną liczebność podzbiorów oraz liczebność atrybutów. Zmieniając liczbę estymatorów, liczebność podzbiorów oraz atrybutów wpływa się na jakość klasyfikacji. Badania przeprowadzono z wykorzystaniem trzech różnych klasyfikatorów bazowych tj. z drzewem decyzyjnym, naiwnym klasyfikatorem bayesowskim oraz klasyfikatorem k najbliższych sąsiadów oraz dla różnych wartości przykładów oraz atrybutów. Każdy test został przeprowadzony z wykorzystaniem 5, 10, 15, 30, 50, 100 i 200 estymatorów. Wszystkie podzbiory zostały utworzone z wykorzystaniem próby boostrap, zatem podzbiory z taką samą liczebnością jak zbiór główny będą różniły się od siebie próbkami.
+  
+\subsection{Bagging z naiwnym klasyfikatorem bayesowskim}
+Zbudowano klasyfikator bagging z naiwnym klasyfikatorem bazowym. Test ten znajduje się w pliku $bagging\_NB.py$. W pierwszym etapie zostały wybrane standardowe ustawienia, czyli liczebność podzbiorów ($max\_samples$) oraz atrybutów ($max\_features$) była taka sama jak w zbiorze oryginalnym.
+\begin{table}[H]
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccccc}%
+				\hline%
+				Liczba klasyf.&NB&5&10&15&30&50&100&200\\%
+				\hline%
+				abalone16\_29&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}\\%
+				\hline%
+				balance\_scale&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}\\%
+				\hline%
+				breast\_cancer&0.72&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}&0.72&0.72&0.72&0.72\\%
+				\hline%
+				car&0.89&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+				\hline%
+				cmc&0.68&0.68&\textbf{0.69}&0.68&0.68&0.68&0.68&0.68\\%
+				\hline%
+				ecoli&0.78&0.76&0.79&0.79&0.79&0.79&\textbf{0.8}&\textbf{0.8}\\%
+				\hline%
+				glass&0.48&0.45&0.47&0.46&0.5&\textbf{0.52}&0.5&0.5\\%
+				\hline%
+				haberman&0.73&\textbf{0.75}&0.74&0.74&0.74&0.74&0.74&0.74\\%
+				\hline%
+				heart\_cleveland&\textbf{0.81}&\textbf{0.81}&0.8&0.8&0.8&\textbf{0.81}&\textbf{0.81}&\textbf{0.81}\\%
+				\hline%
+				hepatitis&0.66&\textbf{0.68}&0.66&0.66&0.66&0.67&\textbf{0.68}&\textbf{0.68}\\%
+				\hline%
+				new\_thyroid&0.96&\textbf{0.97}&\textbf{0.97}&0.96&\textbf{0.97}&\textbf{0.97}&0.96&0.96\\%
+				\hline%
+				postoperative&\textbf{0.67}&\textbf{0.67}&0.64&0.64&0.63&0.64&0.64&0.64\\%
+				\hline%
+				solar\_flare&\textbf{0.65}&0.47&0.63&0.63&0.62&0.62&0.62&0.63\\%
+				\hline%
+				transfusion&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}\\%
+				\hline%
+				vehicle&0.66&0.66&0.66&0.66&0.66&0.66&\textbf{0.67}&\textbf{0.67}\\%
+				\hline%
+				yeastME3&\textbf{0.27}&0.17&0.21&0.22&0.24&0.24&0.25&0.24\\%
+				\hline%
+				bupa&0.54&\textbf{0.55}&0.54&0.54&\textbf{0.55}&0.54&0.54&\textbf{0.55}\\%
+				\hline%
+				german&\textbf{0.73}&0.67&0.7&0.71&0.72&0.72&0.72&0.72\\%
+				\hline%
+				horse\_colic&\textbf{0.78}&0.75&0.75&0.76&0.77&0.77&0.77&0.77\\%
+				\hline%
+				ionosphere&\textbf{0.87}&0.85&0.86&0.86&0.86&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}\\%
+				\hline%
+				seeds&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+				\hline%
+				vertebal&\textbf{0.78}&0.77&0.77&0.77&0.77&0.77&0.77&0.77\\%
+				\hline%
+			\end{tabular}}
+			\caption{Dokładność klasyfikatora bagging, dla $max\_features = 1.0$ oraz $max\_samples = 1.0$}
+			\label{bagging_11}
+		\end{center}
+\end{table}
+\begin{table}[H]
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c|cccccccc}%
+			\hline%
+			Liczba klasyf.&NB&5&10&15&30&50&100&200\\%
+			\hline%
+			abalone16\_29&0.58&0.58&\textbf{0.59}&0.57&0.57&0.57&0.57&0.57\\%
+			\hline%
+			balance\_scale&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}\\%
+			\hline%
+			breast\_cancer&\textbf{0.44}&\textbf{0.44}&\textbf{0.44}&\textbf{0.44}&\textbf{0.44}&\textbf{0.44}&\textbf{0.44}&\textbf{0.44}\\%
+			\hline%
+			car&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}\\%
+			\hline%
+			cmc&0.61&\textbf{0.62}&\textbf{0.62}&\textbf{0.62}&\textbf{0.62}&\textbf{0.62}&\textbf{0.62}&\textbf{0.62}\\%
+			\hline%
+			ecoli&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}\\%
+			\hline%
+			glass&0.82&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&0.82&0.82&0.82\\%
+			\hline%
+			haberman&0.17&\textbf{0.21}&0.17&0.19&0.2&0.19&0.2&0.2\\%
+			\hline%
+			heart\_cleveland&\textbf{0.63}&0.54&0.57&0.6&0.54&0.6&0.57&0.57\\%
+			\hline%
+			hepatitis&\textbf{0.78}&0.75&0.75&0.75&0.75&0.75&0.75&0.75\\%
+			\hline%
+			new\_thyroid&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}\\%
+			\hline%
+			postoperative&0.17&0.12&0.17&\textbf{0.21}&0.17&\textbf{0.21}&\textbf{0.21}&0.17\\%
+			\hline%
+			solar\_flare&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}\\%
+			\hline%
+			transfusion&0.2&0.2&0.2&0.2&0.2&\textbf{0.21}&\textbf{0.21}&\textbf{0.21}\\%
+			\hline%
+			vehicle&0.84&0.84&\textbf{0.85}&\textbf{0.85}&0.84&0.84&0.84&0.84\\%
+			\hline%
+			yeastME3&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}\\%
+			\hline%
+			bupa&0.74&0.7&\textbf{0.75}&0.74&0.74&0.74&0.74&0.74\\%
+			\hline%
+			german&0.62&\textbf{0.73}&0.69&0.66&0.67&0.66&0.65&0.67\\%
+			\hline%
+			horse\_colic&0.75&0.74&0.74&0.74&0.74&\textbf{0.76}&0.74&0.74\\%
+			\hline%
+			ionosphere&0.76&0.75&\textbf{0.77}&0.75&0.76&\textbf{0.77}&0.76&0.76\\%
+			\hline%
+			seeds&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}\\%
+			\hline%
+			vertebal&\textbf{0.87}&0.86&0.86&0.86&0.86&0.86&0.86&0.86\\%
+			\hline%
+		\end{tabular}}
+		\caption{Specyficzność klasy mniejszościowej, dla klasyfikatora bagging i parametrów: $max\_features = 1.0$ oraz $max\_samples = 1.0$.}
+		\label{bagging-specyficznosc11}
+	\end{center}
+\end{table}
+W tabelach powyżej przedstawiono dokładność klasyfikacji (tabela \ref{bagging_11}) oraz specyficzność klasy mniejszościowej (tabela \ref{bagging-specyficznosc11}). W kolumnie drugiej znajdują się wyniki dla samego naiwnego klasyfikatora Bayesa, natomiast w kolejnych kolumnach znajdują się wyniki meta-klasyfikatora bagging z różną ilością modeli bazowych. Analizując otrzymane wyniki, zauważono tylko minimalny wzrost poprawy klasyfikacji dla niektórych zbiorów danych.\par
+W kolejnym teście wykonano zachłanne obliczenia polegające na wyłonieniu najlepszych ustawień klasyfikatora maksymalizującego miarę $F_1$ klasy mniejszościowej.W tym celu wykonano wyszukiwanie zachłanne najlepszych parametrów spośród $max\_features=[0.4, 0.6, 0.7, 0.8, 0.9, 1.0]$ oraz $max\_samples=[0.4, 0.6, 0.7, 0.8, 0.9, 1.0]$. Wyszukanie wykonano dla n-klasyfikatorów ze zbioru $[5, 10, 15, 20, 50, 100, 200]$ oraz dla każdego zbioru danych. Otrzymana wartość średnia parametru $max\_features$ to 0.72, a $max\_samples$ to 0.68, zaś mediana dla obu wartości to 0.7. \par
+Zbudowany meta-klasyfikator bagging z parametrami $max\_features=0.72$ i $max\_samples=0,68$ poradził sobie lepiej z klasyfikacją. W przypadku 17 zbiorów danych osiągnął lepszą dokładność (nastąpił wzrost średnio o 2-3\%, w 3 zbiorach był zdecydowanie większy) niż zwykły klasyfikator. Natomiast w 5 zbiorach danych uzyskał taką samą lub minimalne gorszą dokładność. W zespołach liczących powyżej 10 klasyfikatorów dokładność już nie rosła lub wstępował minimalny przyrost poniżej 1\%. Baza danych $yeastME3$ osiągnęła wzrost dokładności o ponad 200\% w zespole liczącym 5 klasyfikatorów w stosunku do pozostałych.
+\begin{table}[H]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccccc}%
+
+				Liczba klasyf.&NB&5&10&15&30&50&100&200\\%
+				\hline%
+				abalone16\_29&0.68&\textbf{0.81}&\textbf{0.81}&0.8&0.79&0.79&0.79&0.79\\%
+
+				balance\_scale&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}\\%
+
+				breast\_cancer&0.72&0.71&0.72&\textbf{0.73}&0.72&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}\\%
+
+				car&0.89&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+
+				cmc&0.68&0.72&0.71&0.72&\textbf{0.73}&0.71&0.72&0.72\\%
+
+				ecoli&0.78&0.74&0.81&0.84&0.84&0.83&\textbf{0.85}&0.84\\%
+
+				glass&0.48&0.54&0.52&0.54&0.51&0.52&0.56&\textbf{0.58}\\%
+
+				haberman&0.73&\textbf{0.75}&\textbf{0.75}&\textbf{0.75}&0.74&0.74&0.74&0.74\\%
+
+				heart\_cleveland&0.81&0.79&0.81&\textbf{0.82}&\textbf{0.82}&\textbf{0.82}&0.81&\textbf{0.82}\\%
+
+				hepatitis&0.66&0.54&0.58&0.59&0.66&0.66&\textbf{0.68}&0.67\\%
+
+				new\_thyroid&0.96&0.94&0.97&\textbf{0.98}&0.97&\textbf{0.98}&0.97&0.97\\%
+
+				postoperative&0.67&0.67&0.69&\textbf{0.7}&0.66&0.66&0.64&0.64\\%
+
+				solar\_flare&0.65&\textbf{0.76}&0.6&0.64&0.55&0.58&0.59&0.6\\%
+
+				transfusion&0.74&0.76&0.76&0.76&0.76&0.76&0.76&\textbf{0.77}\\%
+
+				vehicle&0.66&\textbf{0.68}&0.67&\textbf{0.68}&0.67&0.67&\textbf{0.68}&\textbf{0.68}\\%
+
+				yeastME3&0.27&\textbf{0.62}&0.35&0.31&0.26&0.27&0.26&0.26\\%
+
+				bupa&0.54&0.58&0.55&0.57&\textbf{0.59}&\textbf{0.59}&0.58&\textbf{0.59}\\%
+
+				german&\textbf{0.73}&0.71&0.72&\textbf{0.73}&0.71&0.7&0.71&0.7\\%
+
+				horse\_colic&0.78&0.77&\textbf{0.8}&\textbf{0.8}&0.79&\textbf{0.8}&0.79&0.79\\%
+
+				ionosphere&\textbf{0.87}&0.83&0.85&0.84&0.86&0.86&0.86&0.86\\%
+
+				seeds&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+
+				vertebal&\textbf{0.78}&0.77&0.77&0.77&0.77&0.77&\textbf{0.78}&\textbf{0.78}\\%
+				\hline%
+			\end{tabular}}
+			\caption{Dokładność klasyfikatora bagging, dla $max\_features = 0.72$ oraz $max\_samples = 0.68$}
+			\label{bagging_acc2}
+		\end{center}
+	\end{table}
+\begin{table}[H]
+	\scriptsize
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccccc}%
+
+				Liczba klasyf.&NB&5&10&15&30&50&100&200\\%
+				\hline%
+				abalone16\_29&\textbf{0.58}&0.39&0.4&0.42&0.43&0.43&0.44&0.43\\%
+
+				balance\_scale&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}\\%
+
+				breast\_cancer&\textbf{0.44}&0.34&0.39&\textbf{0.44}&0.38&0.42&0.42&0.42\\%
+
+				car&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}\\%
+
+				cmc&\textbf{0.61}&0.52&0.52&0.52&0.52&0.53&0.51&0.5\\%
+
+				ecoli&\textbf{0.94}&0.91&0.91&0.91&0.91&0.91&0.91&0.91\\%
+
+				glass&\textbf{0.82}&0.76&0.71&0.71&\textbf{0.82}&0.76&0.76&0.71\\%
+
+				haberman&0.17&\textbf{0.25}&0.19&0.16&0.15&0.15&0.15&0.12\\%
+
+				heart\_cleveland&\textbf{0.63}&0.49&0.54&0.51&0.51&0.51&0.46&0.49\\%
+
+				hepatitis&\textbf{0.78}&\textbf{0.78}&\textbf{0.78}&\textbf{0.78}&0.75&0.75&0.75&0.75\\%
+
+				new\_thyroid&\textbf{0.87}&0.83&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}\\%
+
+				postoperative&\textbf{0.17}&\textbf{0.17}&0.12&\textbf{0.17}&\textbf{0.17}&\textbf{0.17}&0.12&0.12\\%
+
+				solar\_flare&0.93&\textbf{0.98}&0.93&0.91&0.95&0.93&0.93&0.93\\%
+
+				transfusion&\textbf{0.2}&0.12&0.13&0.14&0.15&0.15&0.16&0.15\\%
+
+				vehicle&0.84&0.82&\textbf{0.85}&0.84&0.82&0.81&0.82&0.82\\%
+
+				yeastME3&0.99&0.96&0.99&0.99&\textbf{1.0}&0.99&0.99&0.99\\%
+
+				bupa&\textbf{0.74}&0.55&0.68&0.7&0.67&0.67&0.69&0.69\\%
+
+				german&0.62&0.62&0.67&0.63&\textbf{0.69}&0.68&0.65&0.67\\%
+
+				horse\_colic&0.75&0.73&0.76&0.76&0.75&\textbf{0.77}&0.75&0.75\\%
+
+				ionosphere&0.76&0.73&0.73&0.72&0.75&0.75&\textbf{0.77}&0.76\\%
+
+				seeds&\textbf{0.91}&0.89&0.89&0.89&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}\\%
+
+				vertebal&\textbf{0.87}&\textbf{0.87}&0.86&\textbf{0.87}&\textbf{0.87}&0.85&0.86&0.86\\%
+				\hline%
+			\end{tabular}}
+			\caption{Specyficzność klasy mniejszościowej, dla klasyfikatora bagging i parametrów: $max\_features = 0.72$ oraz $max\_samples = 0.68$.}
+			\label{baggin_spec2}
+		\end{center}
+	\end{table}
+\subsection{Boosting}
+Do przetestowania metody boosting wybrano algorytm AdaBoost autorstwa Yoava Freunda i Roberta Schapire w zmodyfikowanej wersji znanej jako AdaBoost-SAMME.R. Algorytm wielokrotnie trenuje "słabe" klasyfikatory na tym samym zbiorze danych, w kolejnych iteracjach zwiększając wagę przykładów źle sklasyfikowanych. Zatem wybrany klasyfikator bazowy musi umożliwiać nadawanie prawdopodobieństwa lub wag przykładom. Jako klasyfikator bazowy, wybrano drzewo decyzyjne oraz naiwny klasyfikator bayesowski. W badaniu zrezygnowano z klasyfikatora kNN, ponieważ nie można w nim nadawać wag przykładom. Budując klasyfikator AdaBoost należy wybrać ilość iteracji (klasyfikatorów). Testy przeprowadzono dla 5, 10, 15, 30, 50, 100 i 200 iteracji.
+
+\subsection{AdaBoost z naiwnym klasyfikatorem Bayesa}
+Test klasyfikatora AdaBoost wykonano w pliku $adaboost\_NB.py$. Test przeprowadzono wielokrotnie, a otrzymane wyniki powtarzały się. Zbudowany klasyfikator był stabilny. Dla połowy zbiorów danych nastąpił wzrost dokładności (średnio około 5\%, dla baz glass oraz yeastME3 nastąpił wzrost z 0,41 i 0,27 do 0,91 i 0,87) klasyfikacji dla 5,10 i 15 klasyfikatorów. Dla drugiej połowy danych nastąpił wzrost błędu klasyfikacji. Zwiększenie liczby klasyfikatorów (30, 50, 100, 200) nie przełożyło się na poprawienie dokładności. Powyżej 15 klasyfikatorów otrzymane wyniki były tylko 
+
+
+
+\subsection{Stacking}
+
+\todo{wielokrotne testy}
+\todo{porównać wyniki ada, stacking, boosting}
