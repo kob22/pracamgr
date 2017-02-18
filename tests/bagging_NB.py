@@ -11,15 +11,15 @@ from pylatex.basic import TextColor
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
-dataset = ['abalone16_29', 'balance_scale', 'breast_cancer', 'car', 'cmc',
-           'ecoli', 'glass', 'haberman', 'heart_cleveland', 'hepatitis',
-           'new_thyroid', 'postoperative', 'solar_flare', 'transfusion', 'vehicle',
-           'yeastME3', 'bupa', 'german', 'horse_colic', 'ionosphere', 'seeds', 'vertebal']
+dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME3', 'ecoli', 'bupa',
+           'horse_colic',
+           'german', 'breast_cancer', 'cmc', 'hepatitis', 'haberman', 'transfusion',
+           'car', 'glass', 'abalone16_29', 'solar_flare', 'heart_cleveland', 'balance_scale', 'postoperative']
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
-samples = [0.2, 0.4, 0.6, 0.7, 0.8, 0.9, 1.0]
-features = [0.4, 0.6, 0.7, 0.8, 0.9, 1.0]
+samples = [0.72]
+features = [0.68]
 for feat in features:
     for samp in samples:
         tables = []
@@ -80,7 +80,6 @@ for feat in features:
                     else:
                         new_row.append(item)
                 table.add_row(new_row)
-                table.add_hline()
 
         doc = Document("bagging_NB%s%s" % (feat, samp))
         for i, tab, in enumerate(tables):

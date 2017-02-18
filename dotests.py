@@ -1,5 +1,5 @@
 from data import importdata
-from tests.gridsearch import tree, svm
+from tests.gridsearch import bagging_tree, svm
 
 # dataset = ['load_breast_cancer','load_german', 'load_car', 'load_cmc']
 dataset = ['load_german', 'load_haberman', 'load_transfusion', 'load_ionosphere', 'load_balance_scale', 'load_bupa',

@@ -1,5 +1,5 @@
 from data import importdata
-from sklearn import tree
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import BaggingClassifier
 from sklearn.base import clone
 from cross_val.cross_val import cross_val_pred2ict
@@ -7,38 +7,39 @@ from simplefunctions import *
 from pylatex import Tabular, Document, Section
 from pylatex.utils import bold
 from pylatex.basic import TextColor
-from pylatex import MultiRow
+from pylatex import MultiRow, LongTable
 
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
-dataset = ['breast_cancer', 'cmc', 'hepatitis', 'haberman', 'glass', 'abalone16_29',
-           'heart_cleveland', 'postoperative']
+dataset = ['breast_cancer', 'cmc', 'hepatitis', 'haberman', 'glass', 'abalone16_29', 'solar_flare', 'heart_cleveland',
+           'balance_scale', 'postoperative']
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
 tables = []
+
 for tab in range(5):
-    table = Tabular('c|c|ccccccc')
+    table = LongTable('c|c|ccccc')
     table.add_hline()
-    table.add_row(('Glebokosc drzewa', 'Liczba est.', "-", "3", "5", "7", "10", "15", "20"))
+    table.add_row(('Glebokosc drzewa', 'Liczba est.', "1", "2", "3", "5", "7"))
     table.add_hline()
     tables.append(table)
-depths = [None, 3, 5, 7, 10, 15, 20]
+n_neighbors = [1, 2, 3, 5, 7]
 estimators = [5, 10, 20, 50]
 estimators_name = ['-']
 estimators_name.extend(estimators)
 print(estimators_name)
 clfs = []
 temp_clf = []
-for depth in depths:
-    temp_clf.append(tree.DecisionTreeClassifier(max_depth=depth))
+for neighbors in n_neighbors:
+    temp_clf.append(KNeighborsClassifier(n_neighbors=neighbors))
 clfs.append(temp_clf)
 
 for estimator in estimators:
     temp2_clf = []
-    for depth in depths:
-        temp2_clf.append(BaggingClassifier(tree.DecisionTreeClassifier(max_depth=depth), n_estimators=estimator))
+    for neighbors in n_neighbors:
+        temp2_clf.append(BaggingClassifier(KNeighborsClassifier(n_neighbors=neighbors), n_estimators=estimator))
     clfs.append(temp2_clf)
 
 for data in dataset:
@@ -91,7 +92,7 @@ for data in dataset:
             else:
                 table.add_hline(start=2)
 
-doc = Document("bagging_tree_2")
+doc = Document("bagging_knn")
 for i, tab, in enumerate(tables):
     section = Section(sections[i])
     section.append(tab)

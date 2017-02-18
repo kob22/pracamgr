@@ -1,23 +1,13 @@
 from data import importdata
-from sklearn import tree
-from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.svm import SVC
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import BaggingClassifier
-from sklearn.linear_model import LogisticRegression
-from classifiers.stackingcv import StackingCVClassifier
 from sklearn.ensemble import AdaBoostClassifier
-from sklearn.model_selection import StratifiedKFold
 from sklearn.base import clone
 from cross_val.cross_val import cross_val_pred2ict
 from simplefunctions import *
 from pylatex import Tabular, Document, Section
 from pylatex.utils import bold
-from classifiers.stacking import StackingClassifier
-from classifiers.stackingcv import StackingCVClassifier
-from sklearn.linear_model import Perceptron
-from sklearn.neural_network import MLPClassifier
+from pylatex.basic import TextColor
+
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
@@ -27,36 +17,25 @@ dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME
            'car', 'glass', 'abalone16_29', 'solar_flare', 'heart_cleveland', 'balance_scale', 'postoperative']
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
-
 random_state = 5
+
 tables = []
 for tab in range(5):
-    table = Tabular('c|ccccccc')
-    table.add_row(('', "KNN", "TREE", "NB", "STK", "STK P", "STK MLP", "STK MLP P"))
+    table = Tabular('c|cccccccc')
+    table.add_row(('', "NB", "5", "10", "15", "30", "50", "100", "200"))
     table.add_hline()
     tables.append(table)
-clf1 = KNeighborsClassifier(n_neighbors=1)
-clf2 = tree.DecisionTreeClassifier(max_depth=1)
-clf3 = GaussianNB()
-lr = LogisticRegression()
 
-sclf = StackingClassifier(
-    classifiers=[KNeighborsClassifier(n_neighbors=1), tree.DecisionTreeClassifier(max_depth=1), GaussianNB()],
-    meta_classifier=LogisticRegression())
+clf1 = GaussianNB()
+clfs = [clf1,
+        AdaBoostClassifier(GaussianNB(), n_estimators=5),
+        AdaBoostClassifier(GaussianNB(), n_estimators=10),
+        AdaBoostClassifier(GaussianNB(), n_estimators=15),
+        AdaBoostClassifier(GaussianNB(), n_estimators=30),
+        AdaBoostClassifier(GaussianNB(), n_estimators=50),
+        AdaBoostClassifier(GaussianNB(), n_estimators=100),
+        AdaBoostClassifier(GaussianNB(), n_estimators=200)]
 
-sclfproba = StackingClassifier(
-    classifiers=[KNeighborsClassifier(n_neighbors=1), tree.DecisionTreeClassifier(max_depth=1), GaussianNB()],
-    meta_classifier=LogisticRegression(), use_probas=True)
-
-sclfMLP = StackingClassifier(
-    classifiers=[KNeighborsClassifier(n_neighbors=1), tree.DecisionTreeClassifier(max_depth=1), GaussianNB()],
-    meta_classifier=MLPClassifier(solver='lbfgs', random_state=1))
-
-sclfMLPproba = StackingClassifier(
-    classifiers=[KNeighborsClassifier(n_neighbors=1), tree.DecisionTreeClassifier(max_depth=1), GaussianNB()],
-    meta_classifier=MLPClassifier(solver='lbfgs', random_state=1), use_probas=True)
-
-clfs = [clf1, clf2, clf3, sclf, sclfproba, sclfMLP, sclfMLPproba]
 for data in dataset:
     db = getattr(importdata, 'load_' + data)()
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
@@ -85,10 +64,11 @@ for data in dataset:
             rows[i].append(score)
         print("----------")
         print(str(clf))
-        print_scores(testpredict, testtarget)
     for table, row in zip(tables, rows):
+        print(row)
         max_v = max(row[1:])
         new_row = []
+
         for item in row:
             if item == max_v:
                 new_row.append(bold(max_v))
@@ -96,7 +76,7 @@ for data in dataset:
                 new_row.append(item)
         table.add_row(new_row)
 
-doc = Document("Stacking")
+doc = Document("adaboost_NB")
 for i, tab, in enumerate(tables):
     section = Section(sections[i])
     section.append(tab)

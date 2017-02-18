@@ -12,10 +12,8 @@ from pylatex import MultiRow
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
-dataset = ['abalone16_29', 'balance_scale', 'breast_cancer', 'car', 'cmc',
-           'ecoli', 'glass', 'haberman', 'heart_cleveland', 'hepatitis',
-           'new_thyroid', 'postoperative', 'solar_flare', 'transfusion', 'vehicle',
-           'yeastME3', 'bupa', 'german', 'horse_colic', 'ionosphere', 'seeds', 'vertebal']
+dataset = ['breast_cancer', 'cmc', 'hepatitis', 'haberman', 'glass', 'abalone16_29',
+           'heart_cleveland', 'postoperative']
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
@@ -78,12 +76,12 @@ for data in dataset:
             print(str(clf))
             print_scores(testpredict, testtarget)
         for table, row in zip(tables, rows):
-            print(row)
+
             max_v = max(row[2:])
             new_row = []
 
             for item in row:
-                if item == max_v:
+                if item == max_v and item > 0.01:
                     new_row.append(bold(max_v))
                 else:
                     new_row.append(item)

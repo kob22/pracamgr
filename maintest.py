@@ -1,5 +1,5 @@
 from data import importdata
-from tests.gridsearch.tree import runtreegrid
+from tests.gridsearch.bagging_knn import runknngrid
 import numpy as np
 #from sklearn import tree
 from runclassifiers import runmy, runmycv, tree, majorityvoting, bagging, svm, runnaivebayes, randomforest, runknn
@@ -16,16 +16,15 @@ dataset = ['abalone16_29', 'balance_scale', 'breast_cancer', 'car', 'cmc',
            'yeastME3', 'bupa', 'german', 'horse_colic', 'ionosphere', 'seeds', 'vertebal']
 
 for data in dataset:
-    print("-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------")
-
     db = getattr(importdata, 'load_' + data)()
-    importdata.print_info(db.target)
+    # importdata.print_info(db.target)
 
+    a = runknngrid(db.data, db.target)
     # runknn.runKNN(db.data,db.target)
     # importdata.print_info(db.target)
     # majorityvoting.runvoting(db.data, db.target)
     #runmy.runsmy(db.data, db.target)
-    runnaivebayes.runNB(db.data, db.target)
+    #runnaivebayes.runNB(db.data, db.target)
 
     # rungrid(db.data, db.target)
     #tree.runtree(db.data, db.target)

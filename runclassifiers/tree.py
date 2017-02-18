@@ -5,7 +5,7 @@ from sklearn.model_selection import StratifiedKFold, cross_val_predict
 from sklearn import preprocessing
 from sklearn.metrics import roc_auc_score
 from sklearn.svm import LinearSVC
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 
 from imblearn.under_sampling import NearMiss
 from imblearn.pipeline import make_pipeline
@@ -21,25 +21,17 @@ def runtree(data, target):
         for depth in depths:
             print('depth = %d ' % depth)
             clf = tree.DecisionTreeClassifier()
-            skf = StratifiedKFold(n_splits=fold, random_state=5)
+            clf1 = tree.DecisionTreeClassifier(max_depth=1)
+            clf2 = tree.DecisionTreeClassifier(max_depth=1)
+            length_data = len(data)
+            if length_data > 1000:
+                folds = 10
+            elif length_data > 700:
+                folds = 7
+            elif length_data > 500:
+                folds = 5
+            else:
+                folds = 3
 
-            testpredict, testtarget = cross_val_pred2ict(clf, data, target, cv=skf.get_n_splits(data, target),
-                                                         n_jobs=-1)
-            clf.fit(data, target)
-
-            print_scores(testpredict, testtarget)
-            clf.fit(X_train, y_train)
-            print_scores([clf.predict(X_test)], [y_test])
-            testpredict = cross_val_predict(clf, data, target, cv=skf.get_n_splits(data, target),
-                                            n_jobs=-1, method='predict_proba')
-            print(roc_auc_score(y_true=target, y_score=testpredict[:, 1]))
-
-    # Create a pipeline
-
-    clf = tree.DecisionTreeClassifier()
-    clf.fit(X_train, y_train)
-
-    # Classify and report the results
-    a = clf.predict(X_test)
-    print(classification_report_imbalanced(y_test, a))
-    print_scores([a], [y_test])
+            print(avg(cross_val_score(clf, data, target, cv=folds)), avg(cross_val_score(clf1, data, target, cv=folds)),
+                  avg(cross_val_score(clf2, data, target, cv=folds)))
