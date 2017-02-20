@@ -14,7 +14,7 @@ path = os.path.dirname(os.path.abspath(__file__))
 dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME3', 'ecoli', 'bupa',
            'horse_colic',
            'german', 'breast_cancer', 'cmc', 'hepatitis', 'haberman', 'transfusion',
-           'car', 'glass', 'abalone16_29', 'solar_flare', 'heart_cleveland', 'balance_scale', 'postoperative']
+           'car', 'glass', 'abalone16_29',, 'heart_cleveland', 'balance_scale', 'postoperative']
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5

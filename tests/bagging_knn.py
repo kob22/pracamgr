@@ -12,8 +12,7 @@ from pylatex import MultiRow, LongTable
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
-dataset = ['breast_cancer', 'cmc', 'hepatitis', 'haberman', 'glass', 'abalone16_29', 'solar_flare', 'heart_cleveland',
-           'balance_scale', 'postoperative']
+dataset = ['breast_cancer', 'cmc', 'hepatitis', 'haberman', 'glass', 'abalone16_29', 'heart_cleveland', 'postoperative']
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
@@ -39,7 +38,9 @@ clfs.append(temp_clf)
 for estimator in estimators:
     temp2_clf = []
     for neighbors in n_neighbors:
-        temp2_clf.append(BaggingClassifier(KNeighborsClassifier(n_neighbors=neighbors), n_estimators=estimator))
+        temp2_clf.append(
+            BaggingClassifier(KNeighborsClassifier(n_neighbors=neighbors), n_estimators=estimator, max_features=1.0,
+                              max_samples=0.8))
     clfs.append(temp2_clf)
 
 for data in dataset:

@@ -1,9 +1,6 @@
 \chapter{Klasyfikacja danych niezrównoważonych}
-\todo{wspomnieć o 2 podejścia -> preprecesing oraz algorytmy (algorytmamie się nie zajmuje)}
-
-Większość istniejących algorytmów klasyfikacji, nastawiona jest na poprawną klasyfikację zbiorów o zrównoważonej liczebności wszystkich klas. Niestety, w rzeczywistych problemach, bardzo często zdarza się, że zbiory są mocno niezbilansowane.
+Większość istniejących algorytmów klasyfikacji, nastawiona jest na poprawną klasyfikację zbiorów o zrównoważonej liczebności wszystkich klas. Niestety, w rzeczywistych problemach, bardzo często zdarza się, że zbiory są mocno niezbilansowane. Istnieją dwie metody pozwalające zwiększyć skuteczność klasyfikacji danych mniejszościowych. W pierwszej metodzie modyfikuje się dane treningowe przed procesem uczenia. Dodaje się lub usuwa przykłady w celu zrównoważenia liczebnie obu klasy. W drugim podejściu wykorzystuje się zmodyfikowane algorytmy pod kątem niezrównoważonych zbiorów. W niniejszej pracy skupiono się wyłącznie na pierwszej metodzie, równoważeniu zbiorów.	
 \section{Dane niezrównoważone}
-\todo{dodac odnosnik do one vs all}
 Dane są niezrównoważone (ang. \textit{imbalanced data} jeśli klasy decyzyjne nie są przybliżeniu tak samo liczebne. Najmniejsza klasa, nazywana jest klasą mniejszościową (ang. \textit{minority class}), natomiast klasa dominująca, lub pozostałe połączone klasy (można połączyć pozostałe klasy w jedną, doprowadzając do klasyfikacji binarnej, one vs all), nazywana jest klasą większościową (ang. \textit{majority class}). W praktyce klasa mniejszościowa, zazwyczaj liczy około 10-20\% wszystkich przykładów. Często zdarzają się jednak takie problemy, gdzie to zróżnicowanie jest większe np.:
 \begin{itemize}
 	\item około 2\% transakcji kartami kredytowymi w GOCARDLESS to oszustwa \cite{gocardless}.
@@ -23,12 +20,17 @@ Przykłady z klasy zdominowanej można podzielić na cztery grupy. K. Napierała
 \todo{podac wykresy przykłady danych niezrównoważonych}
 
 
-
-\section{!!preprocessing danych niezrównoważonych}
+\section{Równoważenie rozkładu klas w zbiorze danych}
 W celu zrównoważenia rozkładu danych niezbilansowanych wprowadzono różne metody usuwania przykładów klasy dominującej lub tworzenia sztucznych obserwacji klasy mniejszościowej. Poniżej zostaną omówione metody, które zostały użyte podczas badań.
 \subsection{Metody undersampling}
 Jest to cała rodzina różnych metod, które usuwają przykłady z klasy większościowej. \textbf{Losowe usuwanie} (ang. \textit{random undersampling}), jak sama nazwa wskazuje, usuwa losowo przykłady z klasy dominującej. Rozwiązanie to ma niestety wadę. Jeśli usunie się zbyt dużo przykładów danego przypadku, można pozbawić klasyfikator bardzo ważnej informacji. \par
 Lepszym rozwiązaniem jest świadome usuwanie przykładów spełniających określone kryteria. Taką metodą jest \textbf{undersampling z "Tomek links"}. Parę punktów Tomek link, definiuje się jako dwa punkty należące do różnych klas, z odległością równą $d(E_i,E_j)$, jeśli nie istnieje inny punkt $E_l$, taki, że $d(E_i,E_l) < d(E_i,E_j)$ lub $d(E_j,E_l) < d(E_i,E_j)$. Punkty tworzące Tomek link to szum lub punkt graniczny. Po znalezieniu takich punktów, usuwa się przykład z klasy dominującej. Usunięcie takiej obserwacji, powoduje rozszerzenie granicy klasy mniejszościowej. \par
-\todo{opisac reszte te ktore wykorzystam}
+W metodzie \textbf{\textit{Edited Nearest Neighbour}} (ENN) analizowane są przykłady klasy większościowej. Usuwany jest każdy niewiarygodny przykład, jeżeli z trzech sąsiadów, przynajmniej dwóch ma inną klasę. \par
+Modyfikacją metody ENN, jest bardziej rygorystyczna reguła \textbf{\textit{Neighbour Cleaning Rule}} (NCR). Usuwa ona zdecydowanie więcej przykładów z klasy większościowej. Usuwany jest każdy przykład dominującej klasy, jeżeli w jego sąsiedztwie znajdują się przynajmniej dwie obserwacje z klasy mniejszościowej. Dodatkowo, jeżeli w otoczeniu przykładu klasy zdominowanej, znajdują się dwa przykłady z klasy dominującej to te dwa przykłady również są usuwane.
 
 \subsection{Metody oversampling}
+Metodach z rodziny oversampling, generują nowe sztuczne obserwacje klasy mniejszościowej. Najprostszą metodą tworzenia nowych przykładów jest \textbf{losowe próbkowanie} (ang. \textit{random oversampling}). Polega ona na kopiowaniu losowo wybranych przykładów z klasy mniejszościowej. Metoda ta, może doprowadzić do nadmiernego dopasowania, szczególnie w przypadku wielokrotnego skopiowania przykładów z szumu. \par
+Lepszym wyborem może być metoda \textbf{\textit{SMOTE}} (\textit{Synthetic Minority Over-sampling Technique}), która generuje nowe sztuczne obserwacje. W metodzie tej, analizowanych jest k najbliższych sąsiadów obserwacji z klasy mniejszościowej. Następnie generowane są nowe sztuczne przykłady na losowo wybranych punktach z odcinków łączących analizowany przykład z sąsiadami. Ilość wygenerowanych próbek można zdefiniować, w zależności od potrzebnej liczby nowych obserwacji. SMOTE nie analizuje przykładów z drugiej klasy, co może prowadzić do większego wymieszania obu klas, a w konsekwencji do pogorszenia skuteczności klasyfikacji. \par
+Rozwinięciem metody SMOTE jest algorytm \textit{ADASYN} (\textit{Adaptive Synthetic Sampling Approach for Imbalanced Learning}). Metoda ADASYN podobnie jak SMOTE, generuje nowe sztuczne obserwacje klasy mniejszościowej, jednak skupia się bardziej na przykładach trudniejszych w klasyfikacji. Algorytm SMOTE generuje taką samą liczbę nowych próbek dla każdego przykładu klasy zdominowanej. ADASYN wprowadzona różne wagi dla obserwacji klasy mniejszościowej, dzięki czemu można skuteczniej klasyfikować trudniejsze przykłady.
+\subsection{Metody hybrydowe}
+W zrównoważeniu zbioru danych można połączyć metody oversampling oraz undersampling. Takimi połączonymi metodami jest \textbf{SMOTE z ENN} (SMOTENN) oraz \textbf{SMOTE z Tomek links} (SMOTETOMEK). Tworzenie nowych próbek odbywa się tak jak metodzie SMOTE, a następnie usuwane są przykłady klasy większościowej również zgodnie z algorytmem. Dodatkowo usuwane są sztuczne wygenerowane obserwacje, które za bardzo ingerują w przestrzeń klasy większościowej.

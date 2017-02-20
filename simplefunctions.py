@@ -607,3 +607,43 @@ def precion_calc(predict, target):
     for matrix in matrices0:
         matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
     return [precision_tp_fp(matrices1), precision_avg(matrices1)[0]]
+
+
+def accsespf1g(predict, target):
+    matrices0 = []
+    matrices1 = []
+
+    if len(predict) != len(target):
+        raise ValueError('length score and target are different!')
+    for pr, tar in zip(predict, target):
+        matrices0.append(confusion_matrix(tar, pr))
+
+    acc = accuracy(matrices0)
+    tprate = tpr(matrices0)
+    tnrate = tnr(matrices0)
+
+    prec0 = precision_tp_fp(matrices0)
+    sens0 = sensitivity_tp_fn(matrices0)
+    spec0 = specificity_tn_fp(matrices0)
+    g0 = g_mean(sens0, spec0)
+    for matrix in matrices0:
+        matrices1.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
+
+    prec1 = precision_tp_fp(matrices1)
+    sens1 = sensitivity_tp_fn(matrices1)
+    spec1 = specificity_tn_fp(matrices1)
+    g1 = g_mean(sens1, spec1)
+    f1 = f1tpfp(matrices1)
+    return [acc[1], sens0, spec0, f1, g0]
+
+
+def avgaccsespf1g(scores):
+    return np.mean(scores, axis=0)
+
+
+def print_to_latex_two_decimal(table):
+    rettab = []
+    for item in table:
+        rettab.append(float("{0:.2f}".format(item)))
+
+    return rettab
