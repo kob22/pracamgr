@@ -1,0 +1,2672 @@
+\chapter{Meta-metody}
+\section{Bagging}
+Klasyfikator bagging to meta-klasyfikator, który trenuje n klasyfikatorów bazowych na losowych podzbiorach oryginalnego zbioru danych, a następnie poprzez głosowanie lub uśrednianie indywidualnych prognoz nadaje ostateczną klasę. W procesie tworzenia klasyfikatora bagging, należy wybrać klasyfikator bazowy oraz określić liczbę n tworzonych instancji tego klasyfikatora. Można także zdefiniować czy tworzone losowe podzbiory mają być tworzone próbą boostrap, maksymalną liczebność podzbiorów oraz liczebność atrybutów. Zmieniając liczbę estymatorów, liczebność podzbiorów oraz atrybutów wpływa się na jakość klasyfikacji. Badania przeprowadzono z wykorzystaniem trzech różnych klasyfikatorów bazowych tj. z drzewem decyzyjnym, naiwnym klasyfikatorem bayesowskim oraz klasyfikatorem k najbliższych sąsiadów oraz dla różnych wartości przykładów oraz atrybutów. Każdy test został przeprowadzony z wykorzystaniem 5, 10, 15, 30, 50, 100 i 200 estymatorów. Wszystkie podzbiory zostały utworzone z wykorzystaniem próby boostrap, zatem podzbiory z taką samą liczebnością jak zbiór główny będą różniły się od siebie próbkami.
+  
+\subsection{Bagging z naiwnym klasyfikatorem bayesowskim}
+Zbudowano klasyfikator bagging z naiwnym klasyfikatorem bazowym. Test ten znajduje się w pliku $bagging\_NB.py$. W pierwszym etapie wybrano standardowe ustawienia, czyli liczebność podzbiorów ($max\_samples$) oraz atrybutów ($max\_features$) była taka sama jak w zbiorze oryginalnym.
+W tabelach powyżej przedstawiono dokładność klasyfikacji (tabela \ref{bagging_11}) oraz specyficzność klasy mniejszościowej (tabela \ref{bagging-specyficznosc11}). W kolumnie drugiej znajdują się wyniki dla samego naiwnego klasyfikatora Bayesa, natomiast w kolejnych kolumnach znajdują się wyniki meta-klasyfikatora bagging z różną ilością modeli bazowych (dla 5, 10, 15, 30, 50, 100, 200 klasyfikatorów). Analizując otrzymane wyniki, zauważono tylko minimalny wzrost (około 1\%) poprawy klasyfikacji obu klas dla połowy zbiorów danych. Dla prawie wszystkich zbiorów danych, wartość miary G-mean zmieniła się minimalnie, poniżej błędu. Test został wykonany wielokrotnie, a otrzymywane wyniki różniły się w bardzo niewielkim stopniu. 
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccccc}%
+				Zbiór danych&NB&5&10&15&30&50&100&200\\%
+				\hline%
+				seeds&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+				
+				new\_thyroid&0.96&0.96&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&0.96&0.96&0.96\\%
+				
+				vehicle&0.66&\textbf{0.67}&\textbf{0.67}&\textbf{0.67}&\textbf{0.67}&0.66&0.66&0.66\\%
+				
+				ionosphere&\textbf{0.87}&0.85&0.85&0.85&0.86&0.86&\textbf{0.87}&\textbf{0.87}\\%
+				
+				vertebal&\textbf{0.78}&0.77&0.77&0.77&0.77&0.77&\textbf{0.78}&0.77\\%
+				
+				yeastME3&\textbf{0.27}&0.17&0.21&0.23&0.25&0.25&0.25&0.25\\%
+				
+				ecoli&0.78&0.77&0.79&\textbf{0.8}&0.79&0.79&0.78&0.79\\%
+				
+				bupa&0.54&0.53&\textbf{0.55}&0.54&\textbf{0.55}&\textbf{0.55}&0.54&0.54\\%
+				
+				horse\_colic&\textbf{0.78}&0.76&0.77&0.77&0.77&0.77&\textbf{0.78}&0.77\\%
+				
+				german&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}&0.72&0.72&0.72&0.72\\%
+				
+				breast\_cancer&\textbf{0.72}&\textbf{0.72}&0.71&0.71&\textbf{0.72}&\textbf{0.72}&\textbf{0.72}&\textbf{0.72}\\%
+				
+				cmc&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}\\%
+				
+				hepatitis&0.66&0.65&0.65&0.66&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}&\textbf{0.68}\\%
+				
+				haberman&0.73&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}\\%
+				
+				transfusion&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}&\textbf{0.74}\\%
+				
+				car&0.89&\textbf{0.91}&0.9&0.9&0.9&0.9&0.9&0.9\\%
+				
+				glass&0.48&0.48&0.49&\textbf{0.53}&0.48&0.49&0.49&0.5\\%
+				
+				abalone16\_29&0.68&0.68&0.68&\textbf{0.69}&0.68&0.68&0.68&0.68\\%
+				
+				solar\_flare&\textbf{0.65}&0.62&0.61&0.63&0.62&0.62&0.62&0.63\\%
+				
+				heart\_cleveland&\textbf{0.81}&0.8&\textbf{0.81}&0.8&\textbf{0.81}&\textbf{0.81}&0.8&0.8\\%
+				
+				balance\_scale&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}\\%
+				
+				postoperative&\textbf{0.67}&0.62&0.64&0.62&0.6&0.61&0.62&0.63\\%
+				
+			\end{tabular}}
+			\caption{Dokładność klasyfikatora bagging, dla $max\_features = 1.0$ oraz $max\_samples = 1.0$}
+			\label{bagging_11}
+		\end{center}
+	\end{table}
+	\begin{table}[h]
+		\tiny
+		\begin{center}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{c|cccccccc}%
+					Zbiór danych&NB&5&10&15&30&50&100&200\\%
+					\hline%
+					seeds&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}\\%
+					
+					new\_thyroid&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}\\%
+					
+					vehicle&0.84&0.83&0.84&0.84&\textbf{0.85}&0.84&0.84&0.84\\%
+					
+					ionosphere&0.76&0.76&\textbf{0.77}&\textbf{0.77}&\textbf{0.77}&0.76&0.76&0.76\\%
+					
+					vertebal&\textbf{0.87}&0.86&0.86&0.86&0.86&0.86&\textbf{0.87}&0.86\\%
+					
+					yeastME3&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}\\%
+					
+					ecoli&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}\\%
+					
+					bupa&0.74&0.75&\textbf{0.77}&\textbf{0.77}&0.74&0.75&0.75&0.74\\%
+					
+					horse\_colic&\textbf{0.75}&\textbf{0.75}&0.74&\textbf{0.75}&\textbf{0.75}&0.74&0.74&0.73\\%
+					
+					german&0.62&0.6&0.6&0.6&0.63&0.63&\textbf{0.65}&\textbf{0.65}\\%
+					
+					breast\_cancer&0.44&0.45&0.44&0.44&\textbf{0.46}&\textbf{0.46}&\textbf{0.46}&\textbf{0.46}\\%
+					
+					cmc&0.61&0.61&0.61&0.61&\textbf{0.62}&\textbf{0.62}&\textbf{0.62}&0.61\\%
+					
+					hepatitis&\textbf{0.78}&0.72&0.72&0.75&0.75&0.75&0.75&0.75\\%
+					
+					haberman&0.17&\textbf{0.2}&0.19&0.19&\textbf{0.2}&\textbf{0.2}&\textbf{0.2}&\textbf{0.2}\\%
+					
+					transfusion&0.2&\textbf{0.21}&\textbf{0.21}&\textbf{0.21}&\textbf{0.21}&\textbf{0.21}&\textbf{0.21}&\textbf{0.21}\\%
+					
+					car&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}\\%
+					
+					glass&0.82&0.82&0.82&0.82&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&0.82\\%
+					
+					abalone16\_29&0.58&\textbf{0.59}&0.58&0.58&0.58&0.58&0.58&0.58\\%
+					
+					solar\_flare&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}\\%
+					
+					heart\_cleveland&\textbf{0.63}&0.57&0.6&0.57&0.6&0.57&0.57&0.57\\%
+					
+					balance\_scale&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}\\%
+					
+					postoperative&0.17&\textbf{0.21}&\textbf{0.21}&\textbf{0.21}&0.12&0.12&0.12&0.12\\%
+					
+				\end{tabular}}
+				\caption{Specyficzność klasy mniejszościowej, dla klasyfikatora bagging i parametrów: $max\_features = 1.0$ oraz $max\_samples = 1.0$.}
+				\label{bagging-specyficznosc11}
+			\end{center}
+		\end{table}
+\par
+W kolejnym teście znajdującym się w pliku $gridsearch/bagging\_NB.py$, wykonano zachłanne obliczenia polegające na wyłonieniu najlepszych ustawień klasyfikatora maksymalizującego miarę $F_1$ klasy mniejszościowej. W tym celu wykonano wyszukiwanie zachłanne najlepszych parametrów (liczby atrybutów oraz liczebności zbiorów) spośród $max\_features=[0.4, 0.6, 0.7, 0.8, 0.9, 1.0]$ oraz $max\_samples=[0.4, 0.6, 0.7, 0.8, 0.9, 1.0]$. Wyszukanie wykonano dla n-klasyfikatorów ze zbioru $[5, 10, 15, 30, 50, 100, 200]$ oraz dla każdego zbioru danych. Obliczona średnia wartość parametru $max\_features$ wyniosła 0.72, a $max\_samples$ 0.68, zaś mediana dla obu wartości to 0.7. \par
+Zbudowany meta-klasyfikator bagging z parametrami $max\_features=0.72$ i $max\_samples=0,68$ poradził sobie lepiej z klasyfikacją niż klasyfikator bagging z domyślnymi parametrami oraz zwykły klasyfikator. W przypadku 17 zbiorów danych osiągnął lepszą dokładność (tabela \ref{bagging_acc2}). Dokładność klasyfikacji wzrosła średnio o 2-3\%, a w 3 zbiorach wzrost był zdecydowanie większy. Natomiast w 5 zbiorach danych, klasyfikator bagging uzyskał taką samą lub minimalne gorszą dokładność. W zespołach liczących powyżej 10 klasyfikatorów wystąpił minimalny przyrost dokładności poniżej 1\%. Prawie dla wszystkich danych, zwiększyła się czułość klasy większościowej, kosztem specyficzności (tabela \ref{baggin_spec2}) klasy mniejszościowej. Podobnie jak dla poprzedniego klasyfikatora, miara G-mean minimalnie spadła lub wzrosła w stosunku do NKB.
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccccc}%
+
+				Zbiór danych&NB&5&10&15&30&50&100&200\\%
+				\hline%
+				seeds&0.9&0.89&0.9&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&0.9&0.9\\%
+				new\_thyroid&0.96&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}\\%
+				vehicle&0.66&0.68&0.68&0.67&\textbf{0.69}&0.67&0.67&0.68\\%
+				ionosphere&\textbf{0.87}&0.83&0.86&0.83&\textbf{0.87}&\textbf{0.87}&0.86&0.86\\%
+				vertebal&\textbf{0.78}&0.75&0.76&0.77&0.77&0.77&0.77&\textbf{0.78}\\%
+				yeastME3&0.27&\textbf{0.34}&0.25&0.17&0.21&0.23&0.23&0.22\\%
+				ecoli&0.78&0.83&0.8&0.8&0.81&0.83&\textbf{0.84}&0.83\\%
+				bupa&0.54&0.57&0.57&\textbf{0.6}&\textbf{0.6}&0.59&0.59&\textbf{0.6}\\%
+				horse\_colic&0.78&0.73&0.76&0.73&0.76&0.77&0.78&\textbf{0.79}\\%
+				german&\textbf{0.73}&0.66&0.66&0.68&0.7&0.72&0.72&\textbf{0.73}\\%
+				breast\_cancer&0.72&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}\\%
+				cmc&0.68&\textbf{0.72}&0.71&0.71&0.71&0.71&\textbf{0.72}&\textbf{0.72}\\%
+				hepatitis&0.66&0.63&0.67&\textbf{0.68}&0.66&0.66&\textbf{0.68}&0.67\\%
+				haberman&0.73&0.74&\textbf{0.75}&\textbf{0.75}&0.74&0.74&0.74&0.74\\%
+				transfusion&0.74&0.76&0.75&0.75&0.75&\textbf{0.77}&\textbf{0.77}&\textbf{0.77}\\%
+				car&0.89&\textbf{0.92}&0.9&0.9&0.9&0.9&0.9&0.9\\%
+				glass&0.48&\textbf{0.76}&0.59&0.61&0.59&0.6&0.6&0.59\\%
+				abalone16\_29&0.68&0.8&\textbf{0.81}&0.8&0.79&0.79&0.79&0.79\\%
+				solar\_flare&\textbf{0.65}&0.6&0.53&0.52&0.64&0.58&0.53&0.58\\%
+				heart\_cleveland&0.81&0.78&0.8&0.81&0.82&0.82&\textbf{0.83}&0.82\\%
+				balance\_scale&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}\\%
+				postoperative&0.67&\textbf{0.69}&0.63&0.62&0.64&0.62&0.63&0.64\\%
+				\end{tabular}}
+			\caption{Dokładność klasyfikatora bagging, dla $max\_features = 0.72$ oraz $max\_samples = 0.68$}
+			\label{bagging_acc2}
+		\end{center}
+	\end{table}
+\begin{table}[h]
+		\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccccc}%
+
+				Zbiór danych&NB&5&10&15&30&50&100&200\\%
+				\hline%
+				seeds&\textbf{0.91}&0.89&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}\\%
+				new\_thyroid&\textbf{0.87}&0.8&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}\\%
+				vehicle&0.84&\textbf{0.85}&0.82&0.83&0.82&0.82&0.82&0.83\\%
+				ionosphere&0.76&\textbf{0.83}&0.75&0.79&0.75&0.73&0.72&0.74\\%
+				vertebal&\textbf{0.87}&0.81&0.83&0.86&0.86&0.86&0.84&0.86\\%
+				yeastME3&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}&\textbf{0.99}\\%
+				ecoli&\textbf{0.94}&0.83&0.86&0.8&0.91&0.91&0.91&0.91\\%
+				bupa&\textbf{0.74}&0.5&0.63&0.62&0.64&0.7&0.67&0.67\\%
+				horse\_colic&0.75&0.72&0.74&0.75&0.75&0.75&\textbf{0.76}&\textbf{0.76}\\%
+				german&0.62&\textbf{0.73}&0.71&0.69&0.69&0.64&0.63&0.64\\%
+				breast\_cancer&\textbf{0.44}&0.39&\textbf{0.44}&\textbf{0.44}&\textbf{0.44}&\textbf{0.44}&0.42&0.42\\%
+				cmc&\textbf{0.61}&0.51&0.53&0.5&0.52&0.5&0.48&0.5\\%
+				hepatitis&0.78&\textbf{0.84}&0.75&0.75&0.72&0.72&0.75&0.75\\%
+				haberman&0.17&0.1&\textbf{0.19}&0.16&0.17&0.16&0.14&0.14\\%
+				transfusion&\textbf{0.2}&0.15&0.16&0.17&0.15&0.16&0.16&0.16\\%
+				car&\textbf{1.0}&0.45&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}\\%
+				glass&\textbf{0.82}&0.59&0.76&0.71&0.71&0.71&0.76&0.76\\%
+				abalone16\_29&\textbf{0.58}&0.28&0.4&0.42&0.43&0.43&0.44&0.43\\%
+				solar\_flare&\textbf{0.93}&0.81&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}\\%
+				heart\_cleveland&\textbf{0.63}&0.57&0.54&0.49&0.46&0.46&0.51&0.46\\%
+				balance\_scale&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}\\%
+				postoperative&\textbf{0.17}&\textbf{0.17}&0.12&0.12&\textbf{0.17}&0.12&0.08&0.12\\%
+			\end{tabular}}
+			\caption{Specyficzność klasy mniejszościowej, dla klasyfikatora bagging i parametrów: $max\_features = 0.72$ oraz $max\_samples = 0.68$.}
+			\label{baggin_spec2}
+		\end{center}
+	\end{table}
+\subsection{Bagging drzewa decyzyjne}
+Do kolejnych testów z meta-klasyfikatorem bagging wybrano drzewo decyzyjne. Budując klasyfikator drzewa decyzyjnego można zdefiniować maksymalną głębokość drzewa. Również meta-klasyfikator bagging można zbudować z drzew o różnej maksymalnej głębokości. Do testów wybrano drzewo bez ograniczenia głębokości oraz drzewa z ograniczeniami do maksymalnie 3, 5, 7, 10, 15 i 20 poziomu. Meta-klasyfikator był budowany z 5, 10, 20 lub 50 klasyfikatorów. Dla porównania, w wynikach zamieszczono pojedyncze drzewo decyzyjne o różnej głębokości. Przeprowadzony test znajduje się w pliku $bagging\_tree.py$. Ze względu na dużą objętość tabel, dla bazy $seeds$ i $new\_thyroid$, dokładność klasyfikacji i wykrywalność klas pozostała na takim samym poziomie niezależnie od głębokości drzewa i ilości klasyfikatorów. Natomiast w przypadku baz $vehicle$, $ionosphere$, $vertebal$, $yeastME3$, $solar\_flare$ klasyfikator bagging zwiększył dokładność klasyfikacji średnio o 2-3\%, czułość pozostała na niezmienionym poziomie, wzrosła natomiast specyficzność klasy mniejszościowej o 2-3\% oraz miara G-mean. Należy zaznaczyć, że dokładność oraz pozostałe współczynniki rosły wraz ze zwiększeniem ilości klasyfikatorów. Powyżej 50 klasyfikatorów, przyrost był minimalny. Dokładność klasyfikatora baggging dla pozostałych baz została przedstawiona w tabeli \ref{baggingdrzewoacc}. Zwiększając liczbę estymatorów wzrastała także dokładność, zwykle 2-3\% w stosunku do pojedynczego drzewa decyzyjnego. Zdecydowanie najlepsze wyniki w tej grupie oraz w reszcie baz zdanych, uzyskały klasyfikator z drzewem decyzyjnym z maksymalną głębokością równą 3. Wraz ze wzrostem dokładności, poprawiła się także czułość klasy większościowej, średnio o 2-10\%. Największy przyrost czułości nastąpił w klasyfikatorze bagging składającym się z 50 klasyfikatorów. Oprócz zbioru $breast\_cancer$, w którym specyficzność klasy zdominowanej wzrosła o 5\%, w pozostałych nastąpił wyraźny spadek rozpoznawalności klasy mniejszościowej. Zwiększając liczbę klasyfikatorów malał współczynnik specyficzności (tabela \ref{baggingdrzewospec}), a w przypadku bazy $glass$ spadł do zera. Zauważono, że wzrost wykrywalności obu klas nastąpił w bazach zawierających dużą liczbę przykładów bezpiecznych. W bazach trudniejszych do klasyfikacji, z dużą liczbą przykładów rzadkich oraz odstających, dokładność klasyfikacji klasy dominującej wzrosła kosztem wykrywalności klasy mniejszościowej. W czterech bazach, $glass$, $abalone16\_29$, $heart\_cleveland$, $postoperative$ wartość miary G-mean malała wraz ze zwiększeniem ilości klasyfikatorów, zaś w pozostałych bazach wzrastała. Dla baz $transfusion$, $balance\_scale$ oraz $car$ oprócz wzrostu jakości klasyfikacji klasy większościowej dla klasyfikatorów z drzewem decyzyjnym z maksymalna głębokością drzewa równą 3, nie stwierdzono różnic w pozostałych współczynnikach. W tabelach \ref{baggingdrzewoacc} i \ref{baggingdrzewospec} w kolumnach znajdują się klasyfikatory z różną maksymalną głębokością drzewa, a znak '-' oznacza drzewo bez ograniczenia.
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c|c|ccccccc}%
+			\hline%
+			Zbiór danych&Liczba est.&{-}&3&5&7&10&15&20\\%
+			\hline%
+			\multirow{5}{*}{breast\_cancer}&{-}&0.63&\textbf{0.73}&0.72&0.67&0.66&0.63&0.63\\%
+			\cline{2%
+				-%
+				9}%
+			&5&0.68&\textbf{0.7}&\textbf{0.7}&0.67&0.67&0.68&0.68\\%
+			\cline{2%
+				-%
+				9}%
+			&10&\textbf{0.71}&\textbf{0.71}&0.7&0.67&\textbf{0.71}&\textbf{0.71}&\textbf{0.71}\\%
+			\cline{2%
+				-%
+				9}%
+			&20&0.71&0.71&0.72&0.71&\textbf{0.74}&0.71&0.71\\%
+			\cline{2%
+				-%
+				9}%
+			&50&0.7&\textbf{0.72}&\textbf{0.72}&0.7&0.71&0.71&0.7\\%
+			\hline%
+			\multirow{5}{*}{cmc}&{-}&0.68&\textbf{0.78}&0.76&0.71&0.72&0.68&0.68\\%
+			\cline{2%
+				-%
+				9}%
+			&5&0.71&\textbf{0.78}&0.77&0.76&0.73&0.71&0.71\\%
+			\cline{2%
+				-%
+				9}%
+			&10&0.73&\textbf{0.77}&\textbf{0.77}&0.76&0.74&0.73&0.73\\%
+			\cline{2%
+				-%
+				9}%
+			&20&0.74&\textbf{0.78}&0.77&0.77&0.75&0.74&0.74\\%
+			\cline{2%
+				-%
+				9}%
+			&50&0.75&\textbf{0.78}&0.77&0.77&0.76&0.74&0.75\\%
+			\hline%
+			\multirow{5}{*}{hepatitis}&{-}&0.66&0.66&\textbf{0.68}&0.66&0.66&0.66&0.66\\%
+			\cline{2%
+				-%
+				9}%
+			&5&0.68&\textbf{0.7}&0.68&0.68&0.68&0.68&0.68\\%
+			\cline{2%
+				-%
+				9}%
+			&10&0.75&0.75&\textbf{0.77}&0.75&0.75&0.75&0.75\\%
+			\cline{2%
+				-%
+				9}%
+			&20&\textbf{0.72}&0.7&\textbf{0.72}&\textbf{0.72}&\textbf{0.72}&\textbf{0.72}&\textbf{0.72}\\%
+			\cline{2%
+				-%
+				9}%
+			&50&\textbf{0.7}&0.69&\textbf{0.7}&\textbf{0.7}&\textbf{0.7}&\textbf{0.7}&\textbf{0.7}\\%
+			\hline%
+			\multirow{5}{*}{haberman}&{-}&0.66&\textbf{0.75}&\textbf{0.75}&0.73&0.63&0.66&0.66\\%
+			\cline{2%
+				-%
+				9}%
+			&5&0.66&\textbf{0.74}&0.73&0.69&0.67&0.66&0.66\\%
+			\cline{2%
+				-%
+				9}%
+			&10&0.66&0.72&\textbf{0.74}&0.72&0.65&0.66&0.66\\%
+			\cline{2%
+				-%
+				9}%
+			&20&0.66&0.73&\textbf{0.74}&0.68&0.67&0.66&0.66\\%
+			\cline{2%
+				-%
+				9}%
+			&50&0.68&\textbf{0.74}&0.73&0.71&0.69&0.68&0.68\\%
+			\hline%
+			\multirow{5}{*}{glass}&{-}&0.7&\textbf{0.82}&0.75&0.69&0.7&0.7&0.7\\%
+			\cline{2%
+				-%
+				9}%
+			&5&0.73&\textbf{0.86}&0.78&0.73&0.73&0.73&0.73\\%
+			\cline{2%
+				-%
+				9}%
+			&10&0.84&\textbf{0.86}&0.83&0.84&0.84&0.84&0.84\\%
+			\cline{2%
+				-%
+				9}%
+			&20&0.86&\textbf{0.89}&0.87&0.86&0.86&0.86&0.86\\%
+			\cline{2%
+				-%
+				9}%
+			&50&0.86&\textbf{0.88}&0.87&0.86&0.86&0.86&0.86\\%
+			\hline%
+			\multirow{5}{*}{abalone16\_29}&{-}&0.91&\textbf{0.94}&0.93&0.93&0.91&0.91&0.91\\%
+			\cline{2%
+				-%
+				9}%
+			&5&0.93&\textbf{0.94}&\textbf{0.94}&0.93&0.93&0.93&0.93\\%
+			\cline{2%
+				-%
+				9}%
+			&10&0.93&\textbf{0.94}&\textbf{0.94}&0.93&0.93&0.93&0.93\\%
+			\cline{2%
+				-%
+				9}%
+			&20&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&0.93&\textbf{0.94}&\textbf{0.94}\\%
+			\cline{2%
+				-%
+				9}%
+			&50&0.93&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}\\%
+			\hline%
+			\multirow{5}{*}{heart\_cleveland}&{-}&0.82&\textbf{0.86}&0.79&0.82&0.82&0.82&0.82\\%
+			\cline{2%
+				-%
+				9}%
+			&5&0.84&\textbf{0.87}&0.84&0.84&0.84&0.84&0.84\\%
+			\cline{2%
+				-%
+				9}%
+			&10&0.85&\textbf{0.86}&0.85&0.85&0.85&0.85&0.85\\%
+			\cline{2%
+				-%
+				9}%
+			&20&0.84&\textbf{0.88}&0.85&0.84&0.84&0.84&0.84\\%
+			\cline{2%
+				-%
+				9}%
+			&50&0.84&\textbf{0.87}&0.85&0.84&0.84&0.84&0.84\\%
+			\hline%
+			\multirow{5}{*}{postoperative}&{-}&0.67&\textbf{0.71}&0.7&0.69&0.7&0.67&0.67\\%
+			\cline{2%
+				-%
+				9}%
+			&5&0.68&\textbf{0.72}&0.68&0.69&0.7&0.68&0.68\\%
+			\cline{2%
+				-%
+				9}%
+			&10&0.7&\textbf{0.72}&0.7&0.69&0.7&0.7&0.7\\%
+			\cline{2%
+				-%
+				9}%
+			&20&0.7&\textbf{0.71}&0.7&0.68&\textbf{0.71}&0.7&0.7\\%
+			\cline{2%
+				-%
+				9}%
+			&50&0.66&\textbf{0.7}&0.69&0.67&0.64&0.66&0.66\\%
+			\hline%
+		\end{tabular}}
+			\caption{Dokładność klasyfikatora bagging drzewo decyzyjne dla parametrów: $max\_features = 1$ oraz $max\_samples = 1$.}
+			\label{baggingdrzewoacc}
+		\end{center}
+	\end{table}
+
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|c|ccccccc}%
+				\hline%
+				Zbiór danych&Liczba est.&{-}&3&5&7&10&15&20\\%
+				\hline%
+				\multirow{5}{*}{breast\_cancer}&{-}&0.38&0.31&0.32&0.31&\textbf{0.4}&0.38&0.38\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.39}&0.33&0.36&0.34&0.38&\textbf{0.39}&\textbf{0.39}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.35&0.32&0.36&0.33&\textbf{0.38}&0.35&0.35\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.38&0.31&0.36&0.36&\textbf{0.45}&0.38&0.38\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.4}&0.31&0.34&0.36&\textbf{0.4}&0.39&\textbf{0.4}\\%
+				\hline%
+				\multirow{5}{*}{cmc}&{-}&0.36&\textbf{0.39}&0.29&0.26&0.35&0.38&0.36\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.3}&0.13&0.2&0.23&0.29&0.29&\textbf{0.3}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.27}&0.14&0.21&0.22&\textbf{0.27}&0.26&\textbf{0.27}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.29}&0.25&0.23&0.26&0.28&\textbf{0.29}&\textbf{0.29}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.32}&0.23&0.22&0.26&0.3&0.31&0.31\\%
+				\hline%
+				\multirow{5}{*}{hepatitis}&{-}&\textbf{0.59}&0.5&0.56&0.56&\textbf{0.59}&\textbf{0.59}&\textbf{0.59}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.56}&0.53&0.53&\textbf{0.56}&\textbf{0.56}&\textbf{0.56}&\textbf{0.56}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.47&\textbf{0.53}&0.47&0.47&0.47&0.47&0.47\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.5&0.5&\textbf{0.53}&0.5&0.5&0.5&0.5\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.5&0.5&\textbf{0.53}&0.5&0.5&0.5&0.5\\%
+				\hline%
+				\multirow{5}{*}{haberman}&{-}&0.26&0.32&0.22&0.2&\textbf{0.33}&0.26&0.26\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.31&0.32&\textbf{0.38}&0.32&0.31&0.31&0.31\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.27&0.16&\textbf{0.36}&0.3&0.33&0.27&0.27\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.28&0.25&\textbf{0.36}&0.3&0.33&0.3&0.28\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.36&0.27&0.3&0.32&\textbf{0.37}&0.36&0.36\\%
+				\hline%
+				\multirow{5}{*}{glass}&{-}&\textbf{0.18}&0.12&0.12&0.12&\textbf{0.18}&\textbf{0.18}&\textbf{0.18}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.24}&0.0&\textbf{0.24}&\textbf{0.24}&\textbf{0.24}&\textbf{0.24}&\textbf{0.24}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.12&0.0&\textbf{0.18}&0.12&0.12&0.12&0.12\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.0&0.0&\textbf{0.06}&0.0&0.0&0.0&0.0\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.0&0.0&0.0&0.0&0.0&0.0&0.0\\%
+				\hline%
+				\multirow{5}{*}{abalone16\_29}&{-}&\textbf{0.31}&0.09&0.11&0.23&0.28&\textbf{0.31}&\textbf{0.31}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.21}&0.07&0.12&0.14&0.2&\textbf{0.21}&\textbf{0.21}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.17&0.06&0.13&0.14&\textbf{0.2}&0.18&0.17\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.18&0.09&0.12&0.13&\textbf{0.2}&\textbf{0.2}&0.19\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.17&0.08&0.1&0.15&\textbf{0.18}&\textbf{0.18}&\textbf{0.18}\\%
+				\hline%
+				\multirow{5}{*}{heart\_cleveland}&{-}&\textbf{0.17}&0.03&\textbf{0.17}&\textbf{0.17}&\textbf{0.17}&\textbf{0.17}&\textbf{0.17}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.2}&0.06&0.06&0.17&0.17&\textbf{0.2}&\textbf{0.2}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.11}&0.03&0.09&\textbf{0.11}&\textbf{0.11}&\textbf{0.11}&\textbf{0.11}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.09}&0.03&0.06&\textbf{0.09}&\textbf{0.09}&\textbf{0.09}&\textbf{0.09}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.06}&0.03&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}\\%
+				\hline%
+				\multirow{5}{*}{postoperative}&{-}&0.17&0.08&0.12&\textbf{0.21}&0.17&0.17&0.17\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.12&0.12&0.12&\textbf{0.17}&\textbf{0.17}&0.12&0.12\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.12}&\textbf{0.12}&0.08&0.08&\textbf{0.12}&\textbf{0.12}&\textbf{0.12}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.21&0.12&0.17&0.17&\textbf{0.25}&0.21&0.21\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.12}&0.04&\textbf{0.12}&\textbf{0.12}&\textbf{0.12}&\textbf{0.12}&\textbf{0.12}\\%
+				\hline%
+			\end{tabular}}
+			\caption{Specyficzność klasy mniejszościowej, dla klasyfikatora bagging z drzewem decyzyjnym, z ustawionymi parametrami: $max\_features = 1$ oraz $max\_samples = 1$.}
+			\label{baggingdrzewospec}
+		\end{center}
+	\end{table}
+\par
+W kolejnym teście klasyfikatora bagging z drzewem decyzyjnym (plik $gridsearch/bagging_tree.py$) obliczono najlepsze średnie ustawienia liczby atrybutów oraz liczby przykładów. Wyszukiwanie zachłanne wykonano dla parametrów $max\_features=[0.4, 0.6, 0.7, 0.8, 0.9, 1.0]$ oraz $max\_samples=[0.4, 0.6, 0.7, 0.8, 0.9, 1.0]$. Test przeprowadzono dla maksymalnej głębokości drzewa równej [None, 3, 5, 7, 10, 20], gdzie $none$ to bez ograniczenia głębokości oraz dla liczby klasyfikatorów równej [5, 10, 15, 20, 50, 100]. Dla każdej klasyfikatora wyłaniano najlepsze ustawienia, a nastepnie obliczono wartości średnie. Średnia liczba atrybutów wyniosła 0.85, średnia liczba przykładów 0.74, natomiast mediana wyniosła odpowiednio 0.9 oraz 0.8. Ponad połowa klasyfikatorów, najlepszą klasyfikację osiągnęła z wszystkimi atrybutami, a 20\% klasyfikatorów z wszystkimi przykładami. Kolejne obliczenia wykonano z parametrami $max\_features = 0.9$ oraz $max\_samples = 0.8$. W tabeli \ref{baggingdrzewoacc2} przedstawiono dokładność dla 6 zbiorów danych z największą liczbą przykładów bezpiecznych. Dokładność klasyfikacji poprawiła się głównie dla drzew z ograniczoną wysokością oraz z większa ilością klasyfikatorów. Podobnie jak poprzednio nastąpił wzrost specyficzności klasy mniejszościowej, miary F-1 klasy mniejszościowej (tabela \ref{baggingdrzewo2f1}) orazz miary G-mean. Natomias wykrywalność klasy większościowej wzrosła minimalnie. W tabeli \ref{baggingdrzewo2acc2} przedstawiono dokładność dla pozostałych danych. Otrzymane wyniki różniły się w granicy błędu od wyników uzyskanych z domyślnymi parametrami. W stosunku do normalnego drzewa decyzyjnego, nastąpił kilku procentowy wzrost dokładności. Meta-klasyfikator bagging najlepsze wyniki osiągał z drzewem decyzyjnym z maksymalną głębokością równą trzy. Zwiekszając ilość klasyfikatorów, rosła stoponiowo dokładność. Uzyskano podobne wartośći specyficzności klasy mniejszościowej (tabela \ref{baggingdrzewo2spec2}) oraz pozostałych współczynników jak z domyślnymi ustawieniami baggingu.
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|c|ccccccc}%
+				\hline%
+				Zbiór danych&Liczba est.&{-}&3&5&7&10&15&20\\%
+				\hline%
+				\multirow{5}{*}{seeds}&{-}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.89&\textbf{0.9}&0.89&0.89&0.89&0.89&0.89\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.91}&0.9&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}\\%
+				\hline%
+				\multirow{5}{*}{new\_thyroid}&{-}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}\\%
+				\hline%
+				\multirow{5}{*}{vehicle}&{-}&0.93&0.9&0.93&\textbf{0.94}&\textbf{0.94}&0.93&0.93\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.95}&0.92&0.93&0.94&\textbf{0.95}&\textbf{0.95}&\textbf{0.95}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.96}&0.93&\textbf{0.96}&\textbf{0.96}&\textbf{0.96}&\textbf{0.96}&\textbf{0.96}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.96}&0.93&\textbf{0.96}&\textbf{0.96}&\textbf{0.96}&\textbf{0.96}&\textbf{0.96}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.97}&0.94&0.95&0.96&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}\\%
+				\hline%
+				\multirow{5}{*}{ionosphere}&{-}&0.86&0.86&\textbf{0.87}&\textbf{0.87}&0.86&0.86&0.86\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.9}&0.89&0.89&0.89&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.91}&0.9&0.9&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.91&0.91&0.91&\textbf{0.92}&0.91&0.91&0.91\\%
+				\hline%
+				\multirow{5}{*}{vertebal}&{-}&0.71&0.71&0.72&\textbf{0.73}&0.71&0.71&0.71\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.71&\textbf{0.72}&0.71&0.71&0.71&0.71&0.71\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.71&0.71&0.71&\textbf{0.72}&0.71&0.71&0.71\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.71&0.71&\textbf{0.72}&\textbf{0.72}&\textbf{0.72}&0.71&0.71\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.73}&0.72&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}&\textbf{0.73}\\%
+				\hline%
+				\multirow{5}{*}{yeastME3}&{-}&0.93&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&0.93&0.93&0.93\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.94&\textbf{0.95}&\textbf{0.95}&0.94&0.94&0.94&0.94\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.94&\textbf{0.95}&\textbf{0.95}&0.94&0.94&0.94&0.94\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.94&\textbf{0.95}&0.94&0.94&\textbf{0.95}&0.94&0.94\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.95}&\textbf{0.95}&0.94&0.94&\textbf{0.95}&\textbf{0.95}&\textbf{0.95}\\%
+				\hline%
+			\end{tabular}}
+			\caption{Dokładność klasyfikatora bagging, dla $max\_features = 0.9$ oraz $max\_samples = 0.8$}
+			\label{baggingdrzewoacc2}
+		\end{center}
+	\end{table}
+	
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|c|ccccccc}%
+				\hline%
+				Zbiór danych&Liczba est.&{-}&3&5&7&10&15&20\\%
+				\hline%
+				\multirow{5}{*}{seeds}&{-}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.83&\textbf{0.85}&0.83&0.83&0.83&0.83&0.83\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.85}&\textbf{0.85}&\textbf{0.85}&\textbf{0.85}&\textbf{0.85}&\textbf{0.85}&\textbf{0.85}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.85}&0.84&\textbf{0.85}&\textbf{0.85}&\textbf{0.85}&\textbf{0.85}&\textbf{0.85}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.87}&0.86&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}\\%
+				\hline%
+				\multirow{5}{*}{new\_thyroid}&{-}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.9}&0.88&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+				\hline%
+				\multirow{5}{*}{vehicle}&{-}&0.86&0.81&0.84&\textbf{0.87}&\textbf{0.87}&0.86&0.86\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.88}&0.82&0.85&0.87&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.91}&0.85&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.92}&0.85&0.91&0.91&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.93}&0.87&0.89&0.92&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}\\%
+				\hline%
+				\multirow{5}{*}{ionosphere}&{-}&0.81&0.79&\textbf{0.82}&\textbf{0.82}&0.81&0.81&0.81\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.86}&0.84&0.83&0.84&\textbf{0.86}&\textbf{0.86}&\textbf{0.86}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.86&0.85&0.85&\textbf{0.87}&0.86&0.86&0.86\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.87&0.87&\textbf{0.88}&0.87&0.87&0.87&0.87\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.87&0.87&\textbf{0.88}&\textbf{0.88}&0.87&0.87&0.87\\%
+				\hline%
+				\multirow{5}{*}{vertebal}&{-}&0.63&0.62&0.64&\textbf{0.66}&0.63&0.63&0.63\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.62&\textbf{0.63}&0.62&0.62&0.62&0.62&0.62\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.61&0.61&\textbf{0.62}&\textbf{0.62}&0.61&0.61&0.61\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.62&0.62&\textbf{0.63}&\textbf{0.63}&\textbf{0.63}&0.62&0.62\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.65}&0.63&0.64&\textbf{0.65}&\textbf{0.65}&\textbf{0.65}&\textbf{0.65}\\%
+				\hline%
+				\multirow{5}{*}{yeastME3}&{-}&0.68&\textbf{0.74}&0.72&0.72&0.69&0.68&0.68\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.75&\textbf{0.78}&0.76&0.74&0.74&0.75&0.75\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.72&\textbf{0.76}&0.74&0.73&0.72&0.73&0.72\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.73&\textbf{0.76}&0.73&0.74&0.74&0.73&0.73\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.74&0.74&0.74&0.73&0.74&\textbf{0.75}&0.74\\%
+				\hline%
+			\end{tabular}}
+			\caption{Miara F-1 klasy mniejszościowej. Klasyfikator bagging drzewo decyzyjne z parametrami $max\_features = 0.9$ oraz $max\_samples = 0.8$.}
+			\label{baggingdrzewo2f1}
+		\end{center}
+	\end{table}
+	
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|c|ccccccc}%
+				\hline%
+				Zbiór danych&Liczba est.&{-}&3&5&7&10&15&20\\%
+				\hline%
+				\multirow{5}{*}{breast\_cancer}&{-}&0.63&\textbf{0.73}&\textbf{0.73}&0.71&0.66&0.63&0.63\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.65&\textbf{0.74}&0.7&0.69&0.67&0.66&0.65\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.71&\textbf{0.74}&0.72&0.71&0.71&0.71&0.71\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.67&\textbf{0.71}&\textbf{0.71}&0.69&0.68&0.68&0.67\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.69&\textbf{0.73}&0.7&0.71&0.69&0.69&0.69\\%
+				\hline%
+				\multirow{5}{*}{cmc}&{-}&0.68&\textbf{0.78}&0.76&0.71&0.71&0.68&0.68\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.72&\textbf{0.78}&0.77&0.75&0.74&0.72&0.72\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.74&\textbf{0.78}&\textbf{0.78}&0.76&0.74&0.74&0.74\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.75&\textbf{0.78}&0.77&0.77&0.75&0.74&0.75\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.74&0.77&\textbf{0.78}&0.77&0.76&0.75&0.75\\%
+				\hline%
+				\multirow{5}{*}{hepatitis}&{-}&0.7&0.66&\textbf{0.72}&0.7&0.7&0.7&0.7\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.64&\textbf{0.74}&0.65&0.64&0.64&0.64&0.64\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.71&\textbf{0.72}&\textbf{0.72}&0.7&0.71&0.71&0.71\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.72&0.72&\textbf{0.73}&0.72&0.72&0.72&0.72\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.7}&0.68&0.69&\textbf{0.7}&\textbf{0.7}&\textbf{0.7}&\textbf{0.7}\\%
+				\hline%
+				\multirow{5}{*}{haberman}&{-}&0.66&\textbf{0.75}&\textbf{0.75}&0.72&0.67&0.64&0.66\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.68&\textbf{0.75}&0.73&0.71&0.68&0.68&0.68\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.7&\textbf{0.75}&\textbf{0.75}&0.73&0.71&0.7&0.7\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.68&\textbf{0.75}&\textbf{0.75}&0.69&0.67&0.68&0.68\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.67&\textbf{0.75}&0.74&0.71&0.67&0.67&0.67\\%
+				\hline%
+				\multirow{5}{*}{glass}&{-}&0.75&\textbf{0.82}&0.76&0.74&0.75&0.75&0.75\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.86&\textbf{0.9}&0.86&0.86&0.86&0.86&0.86\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.87&\textbf{0.9}&0.86&0.87&0.87&0.87&0.87\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.85&\textbf{0.88}&0.8&0.85&0.85&0.85&0.85\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.86&\textbf{0.89}&0.84&0.86&0.86&0.86&0.86\\%
+				\hline%
+				\multirow{5}{*}{abalone16\_29}&{-}&0.91&\textbf{0.94}&0.93&0.93&0.91&0.91&0.91\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.93&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&0.93&0.93&0.93\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.93&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&0.93\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.93&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&0.93&0.93&0.93\\%
+				\hline%
+				\multirow{5}{*}{heart\_cleveland}&{-}&0.8&\textbf{0.86}&0.8&0.8&0.8&0.8&0.8\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.85}&0.83&0.84&0.84&\textbf{0.85}&\textbf{0.85}&\textbf{0.85}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.86}&0.85&0.84&\textbf{0.86}&\textbf{0.86}&\textbf{0.86}&\textbf{0.86}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.86&\textbf{0.87}&0.85&0.86&0.86&0.86&0.86\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.84&\textbf{0.87}&0.85&0.84&0.84&0.84&0.84\\%
+				\hline%
+				\multirow{5}{*}{postoperative}&{-}&0.66&\textbf{0.73}&0.7&0.68&0.63&0.66&0.66\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.64&\textbf{0.68}&0.62&0.64&0.64&0.64&0.64\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.67}&\textbf{0.67}&0.63&0.66&\textbf{0.67}&\textbf{0.67}&\textbf{0.67}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.64&\textbf{0.68}&0.66&0.64&0.64&0.64&0.64\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.63&\textbf{0.68}&0.66&0.66&0.64&0.63&0.63\\%
+				\hline%
+			\end{tabular}}
+			\caption{Dokładność klasyfikatora bagging drzewo decyzyjne, dla $max\_features = 0.9$ oraz $max\_samples = 0.8$}
+			\label{baggingdrzewo2acc2}
+		\end{center}
+	\end{table}	
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|c|ccccccc}%
+				\hline%
+				Zbiór danych&Liczba est.&{-}&3&5&7&10&15&20\\%
+				\hline%
+				\multirow{5}{*}{breast\_cancer}&{-}&\textbf{0.39}&0.31&0.34&0.32&\textbf{0.39}&\textbf{0.39}&\textbf{0.39}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.38}&0.34&0.29&0.33&\textbf{0.38}&\textbf{0.38}&\textbf{0.38}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.39}&\textbf{0.39}&0.32&0.35&\textbf{0.39}&\textbf{0.39}&\textbf{0.39}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.36&0.34&0.34&0.36&\textbf{0.38}&\textbf{0.38}&0.36\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.41}&0.32&0.32&0.35&0.4&\textbf{0.41}&\textbf{0.41}\\%
+				\hline%
+				\multirow{5}{*}{cmc}&{-}&0.36&\textbf{0.39}&0.29&0.26&0.33&\textbf{0.39}&0.36\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.31&0.23&0.2&0.24&\textbf{0.32}&0.31&\textbf{0.32}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.28&0.15&0.2&0.22&\textbf{0.29}&\textbf{0.29}&0.28\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.3}&0.15&0.21&0.26&0.29&\textbf{0.3}&\textbf{0.3}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.31}&0.19&0.23&0.24&0.28&0.3&0.3\\%
+				\hline%
+				\multirow{5}{*}{hepatitis}&{-}&\textbf{0.56}&0.5&0.53&0.53&\textbf{0.56}&\textbf{0.56}&\textbf{0.56}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.5&0.47&\textbf{0.53}&0.5&0.5&0.5&0.5\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.47&0.5&\textbf{0.53}&0.47&0.47&0.47&0.47\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.59}&0.53&\textbf{0.59}&\textbf{0.59}&\textbf{0.59}&\textbf{0.59}&\textbf{0.59}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.53}&0.5&0.5&\textbf{0.53}&\textbf{0.53}&\textbf{0.53}&\textbf{0.53}\\%
+				\hline%
+				\multirow{5}{*}{haberman}&{-}&0.28&\textbf{0.32}&0.22&0.2&0.28&0.31&0.28\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.26&0.23&\textbf{0.32}&0.23&0.23&0.26&0.26\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.25&0.23&0.25&\textbf{0.26}&0.2&0.25&0.25\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.3}&0.23&0.23&0.26&0.27&\textbf{0.3}&\textbf{0.3}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.31}&0.27&0.3&0.26&0.28&\textbf{0.31}&\textbf{0.31}\\%
+				\hline%
+				\multirow{5}{*}{glass}&{-}&\textbf{0.24}&0.12&0.12&0.12&\textbf{0.24}&\textbf{0.24}&\textbf{0.24}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&0.0&0.0&0.0&0.0&0.0&0.0&0.0\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.06}&0.0&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}&\textbf{0.06}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.0&0.0&0.0&0.0&0.0&0.0&0.0\\%
+				\hline%
+				\multirow{5}{*}{abalone16\_29}&{-}&\textbf{0.33}&0.09&0.11&0.24&0.29&\textbf{0.33}&\textbf{0.33}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.24}&0.08&0.09&0.18&0.21&\textbf{0.24}&\textbf{0.24}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.18&0.07&0.1&0.15&\textbf{0.23}&0.18&0.18\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.18}&0.07&0.09&0.11&\textbf{0.18}&\textbf{0.18}&\textbf{0.18}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&0.17&0.08&0.08&0.13&0.16&\textbf{0.18}&0.17\\%
+				\hline%
+				\multirow{5}{*}{heart\_cleveland}&{-}&\textbf{0.17}&0.03&\textbf{0.17}&\textbf{0.17}&\textbf{0.17}&\textbf{0.17}&\textbf{0.17}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.17}&0.11&0.09&0.11&\textbf{0.17}&\textbf{0.17}&\textbf{0.17}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&0.06&0.0&\textbf{0.11}&0.06&0.06&0.06&0.06\\%
+				\cline{2%
+					-%
+					9}%
+				&20&0.06&0.0&\textbf{0.11}&0.09&0.06&0.06&0.06\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.09}&0.03&\textbf{0.09}&\textbf{0.09}&\textbf{0.09}&\textbf{0.09}&\textbf{0.09}\\%
+				\hline%
+				\multirow{5}{*}{postoperative}&{-}&\textbf{0.25}&0.08&0.08&0.17&\textbf{0.25}&\textbf{0.25}&\textbf{0.25}\\%
+				\cline{2%
+					-%
+					9}%
+				&5&\textbf{0.12}&0.04&0.04&0.08&\textbf{0.12}&\textbf{0.12}&\textbf{0.12}\\%
+				\cline{2%
+					-%
+					9}%
+				&10&\textbf{0.12}&0.0&0.08&0.08&\textbf{0.12}&\textbf{0.12}&\textbf{0.12}\\%
+				\cline{2%
+					-%
+					9}%
+				&20&\textbf{0.08}&0.04&0.04&\textbf{0.08}&\textbf{0.08}&\textbf{0.08}&\textbf{0.08}\\%
+				\cline{2%
+					-%
+					9}%
+				&50&\textbf{0.08}&0.04&0.04&\textbf{0.08}&\textbf{0.08}&\textbf{0.08}&\textbf{0.08}\\%
+				\hline%
+			\end{tabular}
+			}
+			\caption{Specyficzność klasy mniejszościowej dla klasyfikatora bagging z drzewem decyzyjnym z ustawieniami $max\_features = 0.9$ oraz $max\_samples = 0.8$.}
+			\label{baggingdrzewo2spec2}
+		\end{center}
+	\end{table}
+
+	
+\subsection{Bagging z klasyfikatorem kNN}
+Ostatnim klasyfikatorem przetestowanym w metodzie bagging był klasyfikator k najbliższych sąsiadów. W podstawowym ustawieniu, klasyfikator kNN analizuje pięciu sąsiadów. W niniejszym teście postanowiono przetestować meta-klasyfikator bagging z klasyfikatorem kNN dla 1, 2, 3, 5 oraz 7 sąsiadów. Tak samo jak poprzednio, klasyfikatory bagging były budowane z 5, 10, 20 oraz 50 klasyfikatorów. Test ten przeprowadzono z pliku $bagging_knn.py$. W pierwszym etapie budowano modele bagging z wszystkimi atrybutami oraz z maksymalną liczebnością zbiorów. Wyniki dokładności klasyfikacji zostały przedstawione w tabeli \ref{baggingknnacc}. Metoda bagging nie poprawiła jakości klasyfikacji. Dla pojedynczego klasyfikatora kNN czy też grupy klasyfikatorów bagging wyniki są podobne i mieszczą się w granicy błędu. Specyficzność klasy mniejszościowej (tabela \ref{baggingknnspec}) również nie zwiększyła się, pozostała na takim samym poziomie niezależnie od liczby klasyfikatorów składowych. Zmieniając liczbę analizowanych sąsiadów można wpływać na czułość i specyficzność klas. Dla większej liczby sąsiadów np. 5 i 7, rosła skuteczność klasyfikacji oraz czułość klasy większościowej, jednocześnie spadała specyficzność klasy mniejszościowej. Klasyfikator kNN z k większym od 10, nie wykrywał już przykładów klasy zdominowanej. Dla mniejszej liczby sąsiadów (2 i 3) specyficzność była większa. Największą skuteczność w klasyfikacji przykładów z klasy mniejszościowej osiągnięto przy analizowaniu tylko 1 sąsiada. Niestety, spadła wtedy czułość, a precyzja klasy mniejszościowej była niska (duża liczba błędnie zakwalifikowanych przykładów do klasy mniejszościowej). \par
+W celu określenia najlepszej liczby atrybutów oraz wielkości zbiorów, podobnie jak poprzednio wykonano wyszukiwanie zachłanne. Obliczenia przeprowadzono dla meta-klasyfikatora składającego się z 5, 10, 15, 20, 50 i 100 klasyfikatorów kNN z 1, 2, 3 i 5 sąsiadami. Najlepszą liczbę atrybutów szukano spośród [0.4, 0.6, 0.7, 0.8, 0.9, 1.0], a liczbę przykładów z [0.4, 0.6, 0.7, 0.8, 0.9, 1.0]. Dla każdego meta-klasyfikatora i zbioru danych wyłaniano najlepsze ustawienia. Przeprowadzony test znajduje się w pliku $gridsearch/bagging\_knn.py$. Mediana liczby atrybutów wyniosła 1, a liczby przykładów 0.8. Natomiast średnia liczba atrybutów to 0.9, a średnia liczba przykładów to 0.78. \par
+Badanie meta-klasyfikatora bagging z kNN powtórzono dla powyższych ustawień. Otrzymane wyniki były bardzo podobne jak podczas testu z ustawieniami domyślnymi, dokładność i jakość klasyfikacji nie zwiększyła się. Także w tym teście, zwiększenie liczby klasyfikatorów nie wpłynęła na poprawę wyników. Z powyższych powodów odstąpiono od prezentacji tych wyników.
+
+\begin{table}[h]
+	\tiny
+		\begin{center}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{c|c|ccccc}%
+					\hline%
+					Zbiór danych&Liczba est.&1&2&3&5&7\\%
+					\hline%
+					\multirow{5}{*}{breast\_cancer}&{-}&0.63&\textbf{0.68}&0.63&0.65&0.65\\%
+					\cline{2%
+						-%
+						7}%
+					&5&0.59&0.59&0.57&0.6&\textbf{0.63}\\%
+					\cline{2%
+						-%
+						7}%
+					&10&0.63&0.62&0.6&\textbf{0.64}&\textbf{0.64}\\%
+					\cline{2%
+						-%
+						7}%
+					&20&0.63&0.62&0.64&0.64&\textbf{0.65}\\%
+					\cline{2%
+						-%
+						7}%
+					&50&0.64&0.63&0.63&0.64&\textbf{0.65}\\%
+					\hline%
+					\multirow{5}{*}{cmc}&{-}&0.71&\textbf{0.76}&0.73&0.74&0.74\\%
+					\cline{2%
+						-%
+						7}%
+					&5&0.72&0.74&0.73&\textbf{0.75}&\textbf{0.75}\\%
+					\cline{2%
+						-%
+						7}%
+					&10&0.72&0.74&0.74&0.75&\textbf{0.76}\\%
+					\cline{2%
+						-%
+						7}%
+					&20&0.71&0.74&0.74&0.75&\textbf{0.76}\\%
+					\cline{2%
+						-%
+						7}%
+					&50&0.72&0.73&0.74&0.75&\textbf{0.76}\\%
+					\hline%
+					\multirow{5}{*}{hepatitis}&{-}&0.65&\textbf{0.77}&0.7&0.7&0.74\\%
+					\cline{2%
+						-%
+						7}%
+					&5&0.63&0.71&0.69&0.71&\textbf{0.74}\\%
+					\cline{2%
+						-%
+						7}%
+					&10&0.67&0.69&0.71&0.72&\textbf{0.74}\\%
+					\cline{2%
+						-%
+						7}%
+					&20&0.68&0.7&0.7&0.72&\textbf{0.74}\\%
+					\cline{2%
+						-%
+						7}%
+					&50&0.65&0.7&0.71&0.74&\textbf{0.75}\\%
+					\hline%
+					\multirow{5}{*}{haberman}&{-}&0.71&\textbf{0.72}&0.68&0.69&0.71\\%
+					\cline{2%
+						-%
+						7}%
+					&5&0.69&0.7&\textbf{0.72}&\textbf{0.72}&\textbf{0.72}\\%
+					\cline{2%
+						-%
+						7}%
+					&10&0.71&\textbf{0.72}&0.7&0.7&\textbf{0.72}\\%
+					\cline{2%
+						-%
+						7}%
+					&20&\textbf{0.71}&\textbf{0.71}&0.7&0.69&\textbf{0.71}\\%
+					\cline{2%
+						-%
+						7}%
+					&50&0.71&0.69&0.69&0.69&\textbf{0.72}\\%
+					\hline%
+					\multirow{5}{*}{glass}&{-}&0.78&0.88&0.84&0.88&\textbf{0.89}\\%
+					\cline{2%
+						-%
+						7}%
+					&5&0.79&0.85&0.87&\textbf{0.91}&\textbf{0.91}\\%
+					\cline{2%
+						-%
+						7}%
+					&10&0.79&0.82&0.86&\textbf{0.9}&\textbf{0.9}\\%
+					\cline{2%
+						-%
+						7}%
+					&20&0.79&0.8&0.84&0.87&\textbf{0.89}\\%
+					\cline{2%
+						-%
+						7}%
+					&50&0.78&0.84&0.85&0.87&\textbf{0.89}\\%
+					\hline%
+					\multirow{5}{*}{abalone16\_29}&{-}&0.92&0.93&0.93&0.93&\textbf{0.94}\\%
+					\cline{2%
+						-%
+						7}%
+					&5&0.92&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}\\%
+					\cline{2%
+						-%
+						7}%
+					&10&0.92&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}&\textbf{0.93}\\%
+					\cline{2%
+						-%
+						7}%
+					&20&0.92&0.93&0.93&\textbf{0.94}&\textbf{0.94}\\%
+					\cline{2%
+						-%
+						7}%
+					&50&0.92&0.93&0.93&\textbf{0.94}&\textbf{0.94}\\%
+					\hline%
+					\multirow{5}{*}{heart\_cleveland}&{-}&0.83&\textbf{0.88}&0.87&\textbf{0.88}&\textbf{0.88}\\%
+					\cline{2%
+						-%
+						7}%
+					&5&0.83&0.86&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}\\%
+					\cline{2%
+						-%
+						7}%
+					&10&0.85&0.86&\textbf{0.88}&0.87&\textbf{0.88}\\%
+					\cline{2%
+						-%
+						7}%
+					&20&0.84&0.87&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}\\%
+					\cline{2%
+						-%
+						7}%
+					&50&0.83&0.86&0.87&\textbf{0.88}&\textbf{0.88}\\%
+					\hline%
+					\multirow{5}{*}{postoperative}&{-}&0.63&\textbf{0.71}&0.67&0.7&0.69\\%
+					\cline{2%
+						-%
+						7}%
+					&5&0.64&0.7&0.67&0.69&\textbf{0.72}\\%
+					\cline{2%
+						-%
+						7}%
+					&10&0.68&0.67&0.68&\textbf{0.71}&\textbf{0.71}\\%
+					\cline{2%
+						-%
+						7}%
+					&20&0.64&0.67&0.68&0.7&\textbf{0.71}\\%
+					\cline{2%
+						-%
+						7}%
+					&50&0.66&0.68&0.67&\textbf{0.71}&0.7\\%
+					\hline%
+				\end{tabular}}
+				\caption{Dokładność klasyfikatora bagging z kNN, dla $max\_features = 1.0$ oraz $max\_samples = 1.0$}
+				\label{baggingknnacc}
+			\end{center}
+		\end{table}
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|c|ccccc}%
+				\hline%
+				Zbiór danych&Liczba est.&1&2&3&5&7\\%
+			\hline%
+			\multirow{5}{*}{breast\_cancer}&{-}&\textbf{0.36}&0.08&0.28&0.2&0.18\\%
+			\cline{2%
+				-%
+				7}%
+			&5&\textbf{0.33}&0.22&0.2&0.15&0.16\\%
+			\cline{2%
+				-%
+				7}%
+			&10&\textbf{0.33}&0.27&0.25&0.19&0.16\\%
+			\cline{2%
+				-%
+				7}%
+			&20&\textbf{0.33}&0.29&0.26&0.19&0.18\\%
+			\cline{2%
+				-%
+				7}%
+			&50&\textbf{0.36}&0.25&0.22&0.14&0.14\\%
+			\hline%
+			\multirow{5}{*}{cmc}&{-}&\textbf{0.38}&0.17&0.29&0.28&0.24\\%
+			\cline{2%
+				-%
+				7}%
+			&5&\textbf{0.35}&0.28&0.3&0.28&0.25\\%
+			\cline{2%
+				-%
+				7}%
+			&10&\textbf{0.31}&0.29&0.29&0.27&0.24\\%
+			\cline{2%
+				-%
+				7}%
+			&20&\textbf{0.32}&0.3&0.29&0.26&0.24\\%
+			\cline{2%
+				-%
+				7}%
+			&50&\textbf{0.32}&0.29&0.28&0.27&0.25\\%
+			\hline%
+			\multirow{5}{*}{hepatitis}&{-}&\textbf{0.22}&0.03&0.16&0.06&0.0\\%
+			\cline{2%
+				-%
+				7}%
+			&5&\textbf{0.19}&0.09&0.12&0.03&0.06\\%
+			\cline{2%
+				-%
+				7}%
+			&10&\textbf{0.22}&0.12&0.09&0.09&0.03\\%
+			\cline{2%
+				-%
+				7}%
+			&20&\textbf{0.22}&0.12&0.09&0.09&0.03\\%
+			\cline{2%
+				-%
+				7}%
+			&50&\textbf{0.22}&0.12&0.09&0.06&0.0\\%
+			\hline%
+			\multirow{5}{*}{haberman}&{-}&\textbf{0.33}&0.1&0.32&0.25&0.22\\%
+			\cline{2%
+				-%
+				7}%
+			&5&0.32&\textbf{0.35}&\textbf{0.35}&0.26&0.27\\%
+			\cline{2%
+				-%
+				7}%
+			&10&\textbf{0.31}&0.26&\textbf{0.31}&0.23&0.27\\%
+			\cline{2%
+				-%
+				7}%
+			&20&0.31&\textbf{0.32}&0.31&0.2&0.21\\%
+			\cline{2%
+				-%
+				7}%
+			&50&\textbf{0.33}&0.3&0.3&0.22&0.23\\%
+			\hline%
+			\multirow{5}{*}{glass}&{-}&\textbf{0.29}&0.18&0.24&0.18&0.12\\%
+			\cline{2%
+				-%
+				7}%
+			&5&\textbf{0.35}&0.24&0.29&0.18&0.0\\%
+			\cline{2%
+				-%
+				7}%
+			&10&\textbf{0.29}&0.24&0.24&0.18&0.12\\%
+			\cline{2%
+				-%
+				7}%
+			&20&\textbf{0.29}&0.18&0.24&0.18&0.12\\%
+			\cline{2%
+				-%
+				7}%
+			&50&\textbf{0.29}&0.18&0.24&0.12&0.12\\%
+			\hline%
+			\multirow{5}{*}{abalone16\_29}&{-}&\textbf{0.23}&0.08&0.18&0.13&0.1\\%
+			\cline{2%
+				-%
+				7}%
+			&5&\textbf{0.23}&0.15&0.16&0.15&0.11\\%
+			\cline{2%
+				-%
+				7}%
+			&10&\textbf{0.18}&0.14&0.15&0.1&0.09\\%
+			\cline{2%
+				-%
+				7}%
+			&20&\textbf{0.2}&0.17&0.16&0.11&0.09\\%
+			\cline{2%
+				-%
+				7}%
+			&50&\textbf{0.22}&0.18&0.16&0.11&0.09\\%
+			\hline%
+			\multirow{5}{*}{heart\_cleveland}&{-}&\textbf{0.14}&0.0&0.0&0.0&0.0\\%
+			\cline{2%
+				-%
+				7}%
+			&5&\textbf{0.11}&0.06&0.09&0.0&0.0\\%
+			\cline{2%
+				-%
+				7}%
+			&10&\textbf{0.11}&0.09&0.06&0.0&0.0\\%
+			\cline{2%
+				-%
+				7}%
+			&20&\textbf{0.14}&0.11&0.0&0.0&0.0\\%
+			\cline{2%
+				-%
+				7}%
+			&50&\textbf{0.14}&0.03&0.0&0.0&0.0\\%
+			\hline%
+			\multirow{5}{*}{postoperative}&{-}&\textbf{0.21}&0.0&0.08&0.04&0.04\\%
+			\cline{2%
+				-%
+				7}%
+			&5&\textbf{0.25}&0.12&0.04&0.04&0.0\\%
+			\cline{2%
+				-%
+				7}%
+			&10&\textbf{0.12}&0.04&0.0&0.04&0.0\\%
+			\cline{2%
+				-%
+				7}%
+			&20&\textbf{0.12}&0.0&0.0&0.04&0.0\\%
+			\cline{2%
+				-%
+				7}%
+			&50&\textbf{0.17}&0.0&0.0&0.04&0.04\\%
+			\hline%
+			\end{tabular}}
+			\caption{Specyficzność klasy mniejszościowej dla klasyfikatora bagging z kNN i ustawieniami $max\_features = 1.0$ oraz $max\_samples = 1.0$.}
+			\label{baggingknnspec}
+		\end{center}
+	\end{table}
+\section{Boosting}
+Do przetestowania metody boosting wybrano algorytm AdaBoost autorstwa Yoava Freunda i Roberta Schapire w zmodyfikowanej wersji znanej jako AdaBoost-SAMME.R. Algorytm wielokrotnie trenuje "słabe" klasyfikatory na tym samym zbiorze danych, w kolejnych iteracjach zwiększając wagę przykładów źle sklasyfikowanych. Zatem wybrany klasyfikator bazowy musi umożliwiać nadawanie prawdopodobieństwa lub wag przykładom. Jako klasyfikator bazowy, wybrano drzewo decyzyjne oraz naiwny klasyfikator bayesowski. W klasyfikatorze kNN nie można nadawać wag przykładom, dlatego zrezygnowano z niego w badaniu. Budując klasyfikator AdaBoost należy wybrać liczbę iteracji (klasyfikatorów).
+
+\subsection{AdaBoost z naiwnym klasyfikatorem Bayesa}
+Test klasyfikatora AdaBoost wykonano w pliku $adaboost\_NB.py$. Badanie przeprowadzono dla 5, 10, 15, 30, 50, 100 i 200 klasyfikatorów hierarchicznych. Zbudowany klasyfikator był stabilny, otrzymywane wyniki były powtarzalne. Zaobserwowano wzrost dokładności klasyfikacji (tabela \ref{adaboostNBacc2}) w połowie zbiorów danych dla 5, 10 i 15 klasyfikatorów. Dokładności klasyfikacji zwiększyła się średnio o 5\%, dla bazy glass dokładność wzrosła dwa razy a, dla yeastME3 trzy razy. Niestety w pozostałych zbiorach zwiększył się błąd klasyfikacji. Zwiększenie liczby klasyfikatorów (powyżej 15) nie przełożyło się na poprawę wyników, a w większości przypadków dokładność klasyfikacji zmalała. W 16 bazach odnotowany wyraźny spadek specyficzności (tabela \ref{adaboostNKBspec}) (rozpoznawalności) klasy mniejszościowej, a w pozostałych 6 zbiorach wystąpił kilkukrotny wzrost wykrywania klasy zdominowanej. Trzy z sześciu baz zawierały dużą liczbę obserwacji odstających. Potwierdzeniem wszystkich obserwacji są wyniki miary G-mean (tabela \ref{adaboostNKBgmean}). Zazwyczaj wraz ze wzrostem wykrywalności jednej klasy, spada jakość klasyfikacji drugiej klasy. W AdaBoost z NKB zwiększyła się dokładność klasyfikacji klasy dominującej, kosztem klasy zdominowanej. Tylko w 6 zbiorach wystąpił wzrost miary G-mean, a aż w 16 przypadkach osiągnięto gorsze wyniki niż w podstawowej wersji algorytmu NKB.
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c|cccccccc}%
+			Zbiór danych&NB&5&10&15&30&50&100&200\\%
+			\hline%
+			seeds&0.9&0.69&0.84&0.9&0.89&0.87&\textbf{0.91}&\textbf{0.91}\\%
+			new\_thyroid&0.96&0.76&0.94&\textbf{0.97}&0.96&\textbf{0.97}&0.94&0.94\\%
+			vehicle&0.66&0.6&0.71&0.64&0.81&0.86&\textbf{0.87}&0.83\\%
+			ionosphere&\textbf{0.87}&0.78&0.72&0.69&0.79&0.79&0.83&0.79\\%
+			vertebal&\textbf{0.78}&0.73&0.75&0.68&0.67&0.6&0.72&0.72\\%
+			yeastME3&0.27&0.47&\textbf{0.87}&0.46&0.75&0.84&0.84&0.84\\%
+			ecoli&0.78&0.72&0.89&0.69&0.81&\textbf{0.9}&0.89&0.85\\%
+			bupa&0.54&0.53&0.53&0.58&\textbf{0.6}&0.56&0.55&0.58\\%
+			horse\_colic&\textbf{0.78}&0.65&0.54&0.55&0.58&0.66&0.69&0.67\\%
+			german&\textbf{0.73}&\textbf{0.73}&0.57&\textbf{0.73}&0.57&0.57&0.57&0.57\\%
+			breast\_cancer&\textbf{0.72}&0.63&0.36&0.53&0.35&0.35&0.35&0.35\\%
+			cmc&0.68&0.66&\textbf{0.73}&0.67&0.63&0.63&0.63&0.63\\%
+			hepatitis&0.66&0.63&0.46&\textbf{0.7}&0.61&0.55&0.45&0.6\\%
+			haberman&\textbf{0.73}&0.67&0.55&0.48&0.6&0.67&0.69&0.72\\%
+			transfusion&\textbf{0.74}&0.56&0.73&0.49&0.41&0.73&0.56&0.58\\%
+			car&0.89&\textbf{0.95}&0.9&0.9&0.91&0.91&0.91&0.91\\%
+			glass&0.48&\textbf{0.91}&0.78&0.66&0.74&0.79&0.87&0.88\\%
+			abalone16\_29&\textbf{0.68}&0.62&0.55&0.62&0.55&0.55&0.55&0.55\\%
+			solar\_flare&\textbf{0.65}&\textbf{0.65}&0.32&\textbf{0.65}&0.32&0.32&0.32&0.32\\%
+			heart\_cleveland&0.81&0.76&0.82&\textbf{0.88}&0.74&0.8&0.8&0.8\\%
+			balance\_scale&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}\\%
+			postoperative&\textbf{0.67}&0.57&0.63&0.58&0.66&0.54&0.59&0.59\\%
+		\end{tabular}}
+			\caption{Dokładność klasyfikatora AdaBoost z naiwnym klasyfikatorem Bayesa.}
+			\label{adaboostNBacc2}
+		\end{center}
+	\end{table}
+
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c|cccccccc}%
+			Zbiór danych&NB&5&10&15&30&50&100&200\\%
+			\hline%
+			seeds&\textbf{0.91}&0.66&0.64&0.8&0.76&0.81&0.89&0.9\\%
+			new\_thyroid&0.87&0.9&0.67&0.83&0.77&\textbf{0.93}&0.6&0.6\\%
+			vehicle&\textbf{0.84}&0.78&0.56&0.72&0.56&0.46&0.64&0.78\\%
+			ionosphere&\textbf{0.76}&0.7&0.6&0.7&0.64&0.64&0.74&0.49\\%
+			vertebal&0.87&0.8&0.61&0.59&0.79&0.79&\textbf{0.9}&0.82\\%
+			yeastME3&\textbf{0.99}&0.88&0.29&0.66&0.52&0.49&0.49&0.49\\%
+			ecoli&\textbf{0.94}&0.6&0.31&0.51&0.46&0.37&0.49&0.49\\%
+			bupa&\textbf{0.74}&0.43&0.6&0.31&0.21&0.27&0.34&0.4\\%
+			horse\_colic&\textbf{0.75}&0.43&0.62&0.51&0.36&0.2&0.3&0.33\\%
+			german&\textbf{0.62}&\textbf{0.62}&0.32&\textbf{0.62}&0.32&0.32&0.32&0.32\\%
+			breast\_cancer&0.44&0.49&\textbf{0.73}&0.66&\textbf{0.73}&0.71&0.71&0.71\\%
+			cmc&\textbf{0.61}&0.5&0.03&0.5&0.28&0.28&0.28&0.28\\%
+			hepatitis&\textbf{0.78}&0.47&0.44&0.56&0.12&0.38&0.25&0.16\\%
+			haberman&0.17&0.23&0.35&\textbf{0.62}&0.3&0.22&0.26&0.23\\%
+			transfusion&0.2&0.48&0.3&0.5&\textbf{0.58}&0.31&0.54&0.52\\%
+			car&\textbf{1.0}&0.52&\textbf{1.0}&0.42&0.69&0.69&0.69&0.69\\%
+			glass&\textbf{0.82}&0.0&0.18&0.18&0.0&0.12&0.06&0.06\\%
+			abalone16\_29&0.58&\textbf{0.61}&0.31&\textbf{0.61}&0.31&0.31&0.31&0.31\\%
+			solar\_flare&\textbf{0.93}&0.91&0.26&0.91&0.26&0.26&0.26&0.26\\%
+			heart\_cleveland&\textbf{0.63}&0.29&0.17&0.03&0.2&0.14&0.14&0.14\\%
+			balance\_scale&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}\\%
+			postoperative&0.17&\textbf{0.46}&0.25&0.33&0.29&0.42&0.42&0.42\\%
+		\end{tabular}}
+		\caption{Specyficzność klasyfikatora AdaBoost z NKB.}
+		\label{adaboostNKBspec}
+	\end{center}
+\end{table}
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c|cccccccc}%
+			Zbiór danych&NB&5&10&15&30&50&100&200\\%
+			\hline%
+			seeds&\textbf{0.91}&0.68&0.78&0.88&0.85&0.86&\textbf{0.91}&\textbf{0.91}\\%
+			new\_thyroid&0.92&0.82&0.81&0.91&0.87&\textbf{0.96}&0.77&0.77\\%
+			vehicle&0.72&0.65&0.65&0.67&0.7&0.67&0.78&\textbf{0.81}\\%
+			ionosphere&\textbf{0.84}&0.76&0.68&0.69&0.75&0.75&0.81&0.68\\%
+			vertebal&\textbf{0.8}&0.74&0.7&0.65&0.69&0.63&0.75&0.74\\%
+			yeastME3&0.42&0.61&0.52&0.53&0.64&\textbf{0.66}&\textbf{0.66}&\textbf{0.66}\\%
+			ecoli&\textbf{0.85}&0.66&0.55&0.6&0.62&0.6&0.67&0.66\\%
+			bupa&\textbf{0.55}&0.51&0.53&0.49&0.42&0.45&0.49&0.54\\%
+			horse\_colic&\textbf{0.77}&0.58&0.55&0.54&0.51&0.43&0.53&0.54\\%
+			german&\textbf{0.69}&\textbf{0.69}&0.46&\textbf{0.69}&0.46&0.46&0.46&0.46\\%
+			breast\_cancer&\textbf{0.6}&0.58&0.39&0.56&0.37&0.37&0.37&0.37\\%
+			cmc&\textbf{0.65}&0.59&0.18&0.6&0.45&0.45&0.45&0.45\\%
+			hepatitis&\textbf{0.7}&0.56&0.45&0.65&0.3&0.47&0.35&0.33\\%
+			haberman&0.4&0.44&0.46&\textbf{0.52}&0.46&0.43&0.47&0.46\\%
+			transfusion&0.43&0.53&0.51&0.49&0.45&0.52&0.55&\textbf{0.56}\\%
+			car&0.94&0.71&\textbf{0.95}&0.62&0.8&0.8&0.8&0.8\\%
+			glass&\textbf{0.61}&0.0&0.38&0.35&0.0&0.32&0.24&0.24\\%
+			abalone16\_29&\textbf{0.63}&0.61&0.42&0.61&0.42&0.42&0.42&0.42\\%
+			solar\_flare&\textbf{0.77}&0.76&0.29&0.76&0.29&0.29&0.29&0.29\\%
+			heart\_cleveland&\textbf{0.72}&0.48&0.39&0.17&0.4&0.36&0.36&0.36\\%
+			balance\_scale&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}&\textbf{0.0}\\%
+			postoperative&0.38&\textbf{0.53}&0.44&0.47&0.48&0.5&0.52&0.52\\%
+		\end{tabular}}
+			\caption{Miara G-mean dla AdaBoost z NKB}
+			\label{adaboostNKBgmean}
+		\end{center}
+	\end{table}
+	
+\subsection{AdaBoost z drzewem decyzyjnym}
+Meta-klasyfikator AdaBoost z drzewem decyzyjnym przetestowano dla 5, 10, 20 i 50 klasyfikatorów. Użyto drzewo decyzyjne bez ograniczenia głębokości oraz drzewa ograniczona głębokością do 3, 5, 7, 10, 15, 20 poziomu. Przeprowadzony test znajduje się w pliku $adaboost\_tree.py$. Badanie przeprowadzono dla wszystkich danych. Klasyfikator AdaBoost nie poprawił wyników (utrzymały się na tym samym poziomie) zbiorów $seeds$ i $vehicle$ oraz poprawił tylko nieznacznie dokładność w zbiorach $vertebal$, $yeastME3$, $bupa$, $horse\_colic$, $solar_flare$, $balance\_scale$. Wyniki pozostałych danych zostały zaprezentowane w tabelach. W kolumnach umieszczono wyniki dla AdaBoost z różną ilością klasyfikatorów (pauza oznacza pojedyncze drzewo decyzyjne), natomiast w wierszach znajduje się informacja o głębokości drzewa (pauza oznacza drzewo bez ograniczonej głębokości). W tabeli \ref{adaboostdrzewo} znajdują się wyniki większości zbiorów danych. Meta-klasyfikator poprawił wyniki każdego zbioru przynajmniej minimalnie, a większości baz o kilka procent. Najlepsze wyniki osiągnął dla bazowych drzew decyzyjnych z głębokością 1 i 3 oraz dla większej ilości klasyfikatorów tj. 50 i 100. Rozpoznawalność klasy mniejszościowej (tabela specyficzności \ref{adaspecyficznosc}) również wzrosła o kilka procent, a klasyfikatory oparte o drzewa o głębokości 3 i 5 generowały zazwyczaj najlepsze wyniki.
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+\begin{tabular}{c|c|cccccc}%
+\hline%
+Zbiór danych&Głębokość drzewa&{-}&5&10&20&50&100\\%
+\hline%
+\multirow{4}{*}{vehicle}&{-}&\textbf{0.95}&\textbf{0.95}&\textbf{0.95}&\textbf{0.95}&\textbf{0.95}&\textbf{0.95}\\%
+\cline{2%
+	-%
+	8}%
+&1&0.76&0.89&0.93&0.96&0.97&\textbf{0.98}\\%
+\cline{2%
+	-%
+	8}%
+&3&0.9&0.94&0.94&0.96&\textbf{0.97}&\textbf{0.97}\\%
+\cline{2%
+	-%
+	8}%
+&5&0.93&0.95&0.95&0.96&\textbf{0.97}&\textbf{0.97}\\%
+\hline%
+\multirow{4}{*}{ionosphere}&{-}&\textbf{0.88}&0.86&0.86&0.86&0.86&0.86\\%
+\cline{2%
+	-%
+	8}%
+&1&0.79&0.88&0.87&\textbf{0.91}&0.89&\textbf{0.91}\\%
+\cline{2%
+	-%
+	8}%
+&3&0.86&0.85&0.87&0.89&0.9&\textbf{0.92}\\%
+\cline{2%
+	-%
+	8}%
+&5&0.87&0.88&0.89&0.91&\textbf{0.93}&\textbf{0.93}\\%
+\hline%
+\multirow{4}{*}{ecoli}&{-}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}\\%
+\cline{2%
+	-%
+	8}%
+&1&0.78&\textbf{0.89}&\textbf{0.89}&0.88&0.85&0.87\\%
+\cline{2%
+	-%
+	8}%
+&3&0.86&0.89&0.89&0.89&\textbf{0.9}&0.89\\%
+\cline{2%
+	-%
+	8}%
+&5&0.88&0.88&0.88&\textbf{0.89}&0.88&0.88\\%
+\hline%
+\multirow{4}{*}{german}&{-}&\textbf{0.69}&\textbf{0.69}&\textbf{0.69}&\textbf{0.69}&\textbf{0.69}&\textbf{0.69}\\%
+\cline{2%
+	-%
+	8}%
+&1&0.7&0.73&0.74&0.74&\textbf{0.76}&0.75\\%
+\cline{2%
+	-%
+	8}%
+&3&0.74&0.74&\textbf{0.75}&0.74&0.73&0.73\\%
+\cline{2%
+	-%
+	8}%
+&5&\textbf{0.74}&0.71&0.71&0.71&0.71&\textbf{0.74}\\%
+\hline%
+\multirow{4}{*}{breast\_cancer}&{-}&0.63&0.69&0.69&\textbf{0.71}&0.69&0.69\\%
+\cline{2%
+	-%
+	8}%
+&1&0.7&0.71&0.71&\textbf{0.72}&0.71&0.71\\%
+\cline{2%
+	-%
+	8}%
+&3&\textbf{0.73}&0.7&0.71&0.69&0.66&0.65\\%
+\cline{2%
+	-%
+	8}%
+&5&\textbf{0.73}&0.68&0.69&0.71&\textbf{0.73}&0.71\\%
+\hline%
+\multirow{4}{*}{cmc}&{-}&0.69&0.72&0.72&0.72&\textbf{0.73}&\textbf{0.73}\\%
+\cline{2%
+	-%
+	8}%
+&1&0.77&0.77&\textbf{0.78}&0.76&0.77&0.76\\%
+\cline{2%
+	-%
+	8}%
+&3&\textbf{0.78}&0.77&0.75&0.74&0.73&0.72\\%
+\cline{2%
+	-%
+	8}%
+&5&\textbf{0.76}&0.74&0.71&0.72&0.72&0.72\\%
+\hline%
+\multirow{4}{*}{hepatitis}&{-}&0.66&\textbf{0.71}&\textbf{0.71}&\textbf{0.71}&\textbf{0.71}&\textbf{0.71}\\%
+\cline{2%
+	-%
+	8}%
+&1&0.63&0.75&\textbf{0.77}&0.74&0.75&\textbf{0.77}\\%
+\cline{2%
+	-%
+	8}%
+&3&0.66&0.78&0.79&0.81&\textbf{0.83}&\textbf{0.83}\\%
+\cline{2%
+	-%
+	8}%
+&5&0.68&0.74&0.74&\textbf{0.77}&\textbf{0.77}&0.75\\%
+\hline%
+\multirow{4}{*}{haberman}&{-}&0.62&\textbf{0.66}&0.63&0.63&0.63&0.64\\%
+\cline{2%
+	-%
+	8}%
+&1&0.74&\textbf{0.75}&\textbf{0.75}&0.73&0.72&0.7\\%
+\cline{2%
+	-%
+	8}%
+&3&\textbf{0.75}&0.72&0.7&0.67&0.64&0.64\\%
+\cline{2%
+	-%
+	8}%
+&5&\textbf{0.75}&0.69&0.68&0.68&0.69&0.68\\%
+\hline%
+\multirow{4}{*}{transfusion}&{-}&0.68&0.68&\textbf{0.69}&0.68&\textbf{0.69}&\textbf{0.69}\\%
+\cline{2%
+	-%
+	8}%
+&1&\textbf{0.76}&\textbf{0.76}&\textbf{0.76}&\textbf{0.76}&\textbf{0.76}&0.74\\%
+\cline{2%
+	-%
+	8}%
+&3&0.68&\textbf{0.74}&0.71&0.69&0.69&0.69\\%
+\cline{2%
+	-%
+	8}%
+&5&0.67&0.69&\textbf{0.7}&0.69&\textbf{0.7}&\textbf{0.7}\\%
+\hline%
+\multirow{4}{*}{car}&{-}&\textbf{0.67}&\textbf{0.67}&\textbf{0.67}&\textbf{0.67}&\textbf{0.67}&\textbf{0.67}\\%
+\cline{2%
+	-%
+	8}%
+&1&0.75&0.82&0.88&\textbf{0.93}&0.83&0.83\\%
+\cline{2%
+	-%
+	8}%
+&3&0.69&0.81&\textbf{0.95}&0.88&0.9&0.88\\%
+\cline{2%
+	-%
+	8}%
+&5&0.67&\textbf{0.98}&0.86&0.94&0.86&0.86\\%
+\hline%
+\multirow{4}{*}{glass}&{-}&0.69&\textbf{0.75}&\textbf{0.75}&\textbf{0.75}&\textbf{0.75}&\textbf{0.75}\\%
+\cline{2%
+	-%
+	8}%
+&1&\textbf{0.92}&0.79&0.87&0.86&0.83&0.82\\%
+\cline{2%
+	-%
+	8}%
+&3&0.82&0.79&0.8&0.81&0.83&\textbf{0.85}\\%
+\cline{2%
+	-%
+	8}%
+&5&0.75&\textbf{0.8}&0.79&0.79&\textbf{0.8}&\textbf{0.8}\\%
+\hline%
+\multirow{4}{*}{abalone16\_29}&{-}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}&\textbf{0.91}\\%
+\cline{2%
+	-%
+	8}%
+&1&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}\\%
+\cline{2%
+	-%
+	8}%
+&3&\textbf{0.94}&0.93&0.93&0.92&0.92&0.92\\%
+\cline{2%
+	-%
+	8}%
+&5&\textbf{0.93}&0.92&0.92&0.92&\textbf{0.93}&\textbf{0.93}\\%
+\hline%
+\multirow{4}{*}{heart\_cleveland}&{-}&\textbf{0.82}&0.8&0.8&0.8&0.8&0.8\\%
+\cline{2%
+	-%
+	8}%
+&1&\textbf{0.88}&0.86&0.85&0.84&0.83&0.84\\%
+\cline{2%
+	-%
+	8}%
+&3&\textbf{0.86}&0.78&0.82&0.83&0.85&0.84\\%
+\cline{2%
+	-%
+	8}%
+&5&0.81&0.82&\textbf{0.85}&0.84&0.84&0.84\\%
+\hline%
+\multirow{4}{*}{postoperative}&{-}&0.61&0.62&0.62&0.61&\textbf{0.63}&0.61\\%
+\cline{2%
+	-%
+	8}%
+&1&\textbf{0.72}&0.69&0.69&0.68&0.67&0.67\\%
+\cline{2%
+	-%
+	8}%
+&3&\textbf{0.71}&0.58&0.6&0.58&0.61&0.64\\%
+\cline{2%
+	-%
+	8}%
+&5&\textbf{0.67}&0.59&0.59&0.59&0.66&0.64\\%
+\hline%
+\end{tabular}}
+			\caption{Dokładność klasyfikatora AdaBoost z drzewem decyzyjnym.}
+			\label{adaboostdrzewo}
+		\end{center}
+\end{table}
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+				\begin{tabular}{c|c|cccccc}%
+					\hline%
+					Zbiór danych&Głębokość drzewa&{-}&5&10&20&50&100\\%
+					\hline%
+					\multirow{4}{*}{vehicle}&{-}&\textbf{0.9}&0.88&0.88&0.88&0.88&0.88\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.0&0.66&0.82&0.91&0.94&\textbf{0.95}\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.93&0.86&0.87&0.92&0.93&\textbf{0.95}\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.85&0.87&0.89&0.92&\textbf{0.94}&\textbf{0.94}\\%
+					\hline%
+					\multirow{4}{*}{ionosphere}&{-}&\textbf{0.84}&0.81&0.81&0.81&0.81&0.81\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.49&\textbf{0.82}&0.76&0.8&0.79&0.81\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.75&0.78&0.75&0.79&0.79&\textbf{0.81}\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.79&0.79&0.82&0.82&\textbf{0.85}&\textbf{0.85}\\%
+					\hline%
+					\multirow{4}{*}{ecoli}&{-}&\textbf{0.69}&0.6&0.6&0.6&0.6&0.6\\%
+					\cline{2%
+						-%
+						8}%
+					&1&\textbf{0.63}&0.6&0.51&0.4&0.43&0.43\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.49&0.54&0.6&0.51&\textbf{0.63}&0.6\\%
+					\cline{2%
+						-%
+						8}%
+					&5&\textbf{0.63}&0.54&0.54&0.54&0.51&0.49\\%
+					\hline%
+					\multirow{4}{*}{german}&{-}&\textbf{0.48}&0.46&0.46&0.46&0.46&0.46\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.0&0.42&0.42&0.45&\textbf{0.51}&0.5\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.42&0.51&\textbf{0.54}&0.52&0.52&0.51\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.4&0.46&\textbf{0.47}&\textbf{0.47}&0.45&0.45\\%
+					\hline%
+					\multirow{4}{*}{breast\_cancer}&{-}&\textbf{0.4}&0.38&0.33&0.33&0.31&0.29\\%
+					\cline{2%
+						-%
+						8}%
+					&1&\textbf{0.44}&0.41&0.35&0.38&0.39&0.38\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.31&0.38&0.4&\textbf{0.44}&0.41&0.36\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.33&0.36&0.35&\textbf{0.41}&0.4&0.35\\%
+					\hline%
+					\multirow{4}{*}{cmc}&{-}&\textbf{0.37}&0.33&0.33&0.32&0.31&0.31\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.0&0.08&0.19&0.21&0.21&\textbf{0.22}\\%
+					\cline{2%
+						-%
+						8}%
+					&3&\textbf{0.39}&0.32&0.3&0.3&0.36&0.35\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.29&0.34&0.31&0.34&\textbf{0.35}&0.33\\%
+					\hline%
+					\multirow{4}{*}{hepatitis}&{-}&\textbf{0.56}&\textbf{0.56}&\textbf{0.56}&\textbf{0.56}&\textbf{0.56}&\textbf{0.56}\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.53&0.41&\textbf{0.56}&0.47&0.53&\textbf{0.56}\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.5&0.5&0.56&0.56&0.62&\textbf{0.66}\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.56&0.56&0.56&\textbf{0.62}&0.56&0.56\\%
+					\hline%
+					\multirow{4}{*}{haberman}&{-}&0.31&0.25&0.42&0.42&0.42&\textbf{0.46}\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.0&0.23&\textbf{0.25}&0.2&0.22&\textbf{0.25}\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.32&0.32&0.22&0.37&0.42&\textbf{0.44}\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.22&0.33&0.36&\textbf{0.37}&0.28&0.31\\%
+					\hline%
+					\multirow{4}{*}{transfusion}&{-}&0.29&0.27&\textbf{0.32}&0.3&0.28&0.28\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.0&0.39&\textbf{0.4}&\textbf{0.4}&\textbf{0.4}&0.36\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.45&\textbf{0.46}&0.36&0.29&0.3&0.28\\%
+					\cline{2%
+						-%
+						8}%
+					&5&\textbf{0.36}&0.32&0.3&0.31&0.32&0.3\\%
+					\hline%
+					\multirow{4}{*}{car}&{-}&\textbf{0.46}&\textbf{0.46}&\textbf{0.46}&\textbf{0.46}&\textbf{0.46}&\textbf{0.46}\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.32&0.46&0.49&\textbf{0.54}&0.51&0.49\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.32&0.52&\textbf{0.68}&0.58&0.65&0.6\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.46&\textbf{0.6}&0.57&0.55&0.58&\textbf{0.6}\\%
+					\hline%
+					\multirow{4}{*}{glass}&{-}&\textbf{0.24}&0.18&0.18&0.18&0.18&0.18\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.0&\textbf{0.24}&\textbf{0.24}&0.12&0.06&0.18\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.12&0.06&0.06&\textbf{0.24}&0.18&0.18\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.12&0.12&0.18&\textbf{0.24}&\textbf{0.24}&0.18\\%
+					\hline%
+					\multirow{4}{*}{abalone16\_29}&{-}&\textbf{0.33}&0.31&0.31&0.31&0.31&0.31\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.0&0.03&0.11&0.16&0.18&\textbf{0.2}\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.09&0.21&\textbf{0.26}&0.24&0.24&0.22\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.11&\textbf{0.25}&0.22&0.23&0.2&0.15\\%
+					\hline%
+					\multirow{4}{*}{heart\_cleveland}&{-}&\textbf{0.2}&0.17&0.17&0.17&0.17&0.17\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.0&0.17&0.17&\textbf{0.2}&0.17&\textbf{0.2}\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.03&\textbf{0.09}&0.03&0.0&0.06&0.0\\%
+					\cline{2%
+						-%
+						8}%
+					&5&\textbf{0.2}&0.06&0.09&0.03&0.03&0.03\\%
+					\hline%
+					\multirow{4}{*}{postoperative}&{-}&\textbf{0.17}&0.12&\textbf{0.17}&0.12&0.12&0.12\\%
+					\cline{2%
+						-%
+						8}%
+					&1&0.0&\textbf{0.12}&0.08&0.08&\textbf{0.12}&\textbf{0.12}\\%
+					\cline{2%
+						-%
+						8}%
+					&3&0.08&0.17&0.17&\textbf{0.21}&\textbf{0.21}&0.17\\%
+					\cline{2%
+						-%
+						8}%
+					&5&0.08&\textbf{0.25}&0.12&0.17&0.17&0.17\\%
+					\hline%
+					\end{tabular}}
+					
+					\caption{Specyficzność klasyfikatora AdaBoost z drzewem decyzyjnym.}
+					\label{adaspecyficznosc}
+				\end{center}
+			\end{table}
+
+\subsection{Stacking}
+Do zbudowania meta-klasyfikatora stacking wykorzystano klasyfikator kNN, drzewo decyzyjne oraz naiwny klasyfikator bayesa. Wszystkie klasyfikatory bazowe były tworzone z ustawieniami domyślnymi, czyli klasyfikator kNN analizował 5 sąsiadów, a drzewo decyzyjne było bez ograniczenia głębokości. Końcowym meta-klasyfikatorem była wielowarstwowa sieć neuronowa. W badaniach jako końcowy meta-klasyfikator wykorzystywano regresję logistyczną, pojedynczą sieć neuronową oraz wielowarstwowa sieć neuronową. Najlepsze wyniki uzyskano z wielowarstwową siecią neuronową i to z nią zaprezentowano wynik działania meta-klasyfikatora. Każdy klasyfikator bazowy trenowany był osobno, a następnie na otrzymanych wynikach trenowana była sieć neuronowa. Klasyfikację danych rozpoczynają klasyfikatory bazowe, a o końcowej klasie decyduje meta-klasyfikator. W drugiej wersji meta-klasyfikatora, modele bazowe zamiast propozycji klas, generują prawdopodobieństwo klas, a następnie dane te wykorzystywane są jako wejście dla głównego klasyfikatora. Skrypt testowy znajduje się w pliku $stacking_cmp.py$. W tabeli \ref{stackingdokladnosc} przedstawiono dokładność klasyfikatora stacking. "STK" oznacza wersję z klasami jako atrybuty wejścia dla meta-klasyfikatora, natomiast "STK PROBA" to wersja z prawdopodobieństwem klas. Dla porównaniaMeta-klasyfikator stacking tylko w 4 przypadkach osiągnął równe wartości jak klasyfikatory bazowy. W pozostałych bazach, osiągał zazwyczaj lepszą dokładność niż najgorszy klasyfikator, ale niższą niż najlepszy. W 7 bazach zwiększył rozpoznawalność klasy mniejszościowej (tabela \ref{stackingspec}), a w pozostałych osiągnął wartości lepsze niż najgorszy klasyfikator. Potwierdzeniem powyższego są wyniki miary G-mean (tabela \ref{stackinggmean}). Dla porównania, w ostatniej tabeli zamieszczono wyniki głosowania większościowego (te same trzy klasyfikatory bazowe). Lepszą dokładność osiągnięto głosując, natomiast klasyfikator stacking lepiej rozpoznawał klasę mniejszościową.
+
+
+\todo{dobrym pomyslem moze byc ze robi stabline wyniki, mozna go uzyc do roznych baz jako uniwersalny, albo zastosowac inne klasyfikatory zeby uzyskac lepszy wynik}
+
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c|cccccc}%
+			&KNN&TREE&NB&STK&STK PROBA&VOTING\\%
+			\hline%
+			seeds&\textbf{0.92}&0.9&0.9&0.9&0.9&\textbf{0.92}\\%
+			new\_thyroid&0.96&\textbf{0.97}&0.96&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}\\%
+			vehicle&0.92&\textbf{0.94}&0.66&\textbf{0.94}&\textbf{0.94}&\textbf{0.94}\\%
+			ionosphere&0.82&0.89&0.87&0.89&0.89&\textbf{0.92}\\%
+			vertebal&0.74&0.72&\textbf{0.78}&0.72&0.72&0.74\\%
+			yeastME3&\textbf{0.95}&0.93&0.27&0.93&0.93&0.94\\%
+			ecoli&0.89&0.88&0.78&0.88&\textbf{0.9}&\textbf{0.9}\\%
+			bupa&\textbf{0.68}&0.64&0.54&0.64&0.64&0.67\\%
+			horse\_colic&0.71&\textbf{0.81}&0.78&\textbf{0.81}&\textbf{0.81}&0.8\\%
+			german&0.69&0.68&\textbf{0.73}&0.68&0.68&\textbf{0.73}\\%
+			breast\_cancer&0.65&0.63&\textbf{0.72}&0.63&0.62&0.69\\%
+			cmc&\textbf{0.74}&0.68&0.68&0.68&0.68&0.73\\%
+			hepatitis&0.7&0.66&0.66&0.66&0.66&\textbf{0.71}\\%
+			haberman&0.69&0.68&\textbf{0.73}&0.68&0.68&0.68\\%
+			transfusion&0.68&0.69&\textbf{0.74}&0.69&0.69&\textbf{0.74}\\%
+			car&\textbf{0.92}&0.67&0.89&0.89&0.9&0.89\\%
+			glass&\textbf{0.88}&0.68&0.48&0.68&0.68&0.82\\%
+			abalone16\_29&\textbf{0.93}&0.91&0.68&0.91&0.91&0.92\\%
+			solar\_flare&\textbf{0.95}&0.94&0.65&0.94&0.92&0.94\\%
+			heart\_cleveland&\textbf{0.88}&0.81&0.81&0.81&0.81&0.86\\%
+			balance\_scale&\textbf{0.92}&0.85&\textbf{0.92}&0.85&0.85&\textbf{0.92}\\%
+			postoperative&0.7&0.64&0.67&0.64&0.62&\textbf{0.71}\\%
+			\end{tabular}}
+			\caption{Dokładność klasyfikatora stacking.}
+			\label{stackingdokladnosc}
+		\end{center}
+	\end{table}
+	\begin{table}[h]
+		\tiny
+		\begin{center}
+			\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccc}%
+				&KNN&TREE&NB&STK&STK PROBA&VOTING\\%
+				\hline%
+				seeds&\textbf{0.91}&0.84&\textbf{0.91}&0.84&0.84&0.9\\%
+				new\_thyroid&0.73&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}&0.8\\%
+				vehicle&0.84&0.9&0.84&0.9&0.9&\textbf{0.95}\\%
+				ionosphere&0.55&\textbf{0.87}&0.76&\textbf{0.87}&\textbf{0.87}&0.79\\%
+				vertebal&0.79&0.77&\textbf{0.87}&0.77&0.77&0.81\\%
+				yeastME3&0.68&0.72&\textbf{0.99}&0.72&0.72&0.8\\%
+				ecoli&0.54&0.63&\textbf{0.94}&0.63&0.63&0.77\\%
+				bupa&0.48&0.57&\textbf{0.74}&0.57&0.57&0.61\\%
+				horse\_colic&0.54&\textbf{0.77}&0.75&\textbf{0.77}&\textbf{0.77}&0.74\\%
+				german&0.32&0.49&\textbf{0.62}&0.49&0.49&0.46\\%
+				breast\_cancer&0.2&0.4&\textbf{0.44}&0.4&0.4&0.31\\%
+				cmc&0.28&0.36&\textbf{0.61}&0.36&0.38&0.36\\%
+				hepatitis&0.06&0.62&\textbf{0.78}&0.62&0.62&0.56\\%
+				haberman&0.25&\textbf{0.3}&0.17&\textbf{0.3}&\textbf{0.3}&0.17\\%
+				transfusion&\textbf{0.31}&0.3&0.2&0.3&\textbf{0.31}&0.26\\%
+				car&0.43&0.46&\textbf{1.0}&0.46&0.46&0.48\\%
+				glass&0.18&0.24&\textbf{0.82}&0.24&0.24&0.24\\%
+				abalone16\_29&0.13&0.33&\textbf{0.58}&0.33&0.33&0.27\\%
+				solar\_flare&0.05&0.09&\textbf{0.93}&0.14&0.12&0.14\\%
+				heart\_cleveland&0.0&0.23&\textbf{0.63}&0.23&0.23&0.17\\%
+				balance\_scale&0.0&\textbf{0.02}&0.0&\textbf{0.02}&\textbf{0.02}&0.0\\%
+				postoperative&0.04&0.17&0.17&0.17&\textbf{0.21}&0.12\\%
+				\end{tabular}}
+				\caption{Specyficzność klasy mniejszościowej klasyfikatora stacking.}
+				\label{stackingspec}
+			\end{center}
+		\end{table}
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+		\begin{tabular}{c|cccccc}%
+			&KNN&TREE&NB&STK&STK PROBA&VOTING\\%
+			\hline%
+			seeds&\textbf{0.92}&0.88&0.91&0.88&0.88&0.91\\%
+			new\_thyroid&0.86&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}&0.89\\%
+			vehicle&0.89&0.93&0.72&0.93&0.93&\textbf{0.94}\\%
+			ionosphere&0.73&\textbf{0.88}&0.84&\textbf{0.88}&\textbf{0.88}&\textbf{0.88}\\%
+			vertebal&0.75&0.73&\textbf{0.8}&0.73&0.73&0.76\\%
+			yeastME3&0.82&0.83&0.42&0.83&0.83&\textbf{0.87}\\%
+			ecoli&0.71&0.76&\textbf{0.85}&0.76&0.76&0.84\\%
+			bupa&0.63&0.63&0.55&0.63&0.63&\textbf{0.66}\\%
+			horse\_colic&0.67&\textbf{0.8}&0.77&\textbf{0.8}&\textbf{0.8}&0.79\\%
+			german&0.52&0.61&\textbf{0.69}&0.61&0.61&0.63\\%
+			breast\_cancer&0.41&0.54&\textbf{0.6}&0.54&0.54&0.51\\%
+			cmc&0.49&0.53&\textbf{0.65}&0.53&0.54&0.55\\%
+			hepatitis&0.23&0.65&\textbf{0.7}&0.65&0.65&0.65\\%
+			haberman&0.46&\textbf{0.49}&0.4&\textbf{0.49}&\textbf{0.49}&0.39\\%
+			transfusion&\textbf{0.5}&0.49&0.43&0.49&\textbf{0.5}&0.48\\%
+			car&0.63&0.56&\textbf{0.94}&0.65&0.65&0.66\\%
+			glass&0.41&0.41&\textbf{0.61}&0.41&0.41&0.45\\%
+			abalone16\_29&0.35&0.56&\textbf{0.63}&0.56&0.56&0.51\\%
+			solar\_flare&0.21&0.3&\textbf{0.77}&0.37&0.33&0.37\\%
+			heart\_cleveland&0.0&0.45&\textbf{0.72}&0.45&0.45&0.4\\%
+			balance\_scale&0.0&\textbf{0.14}&0.0&\textbf{0.14}&\textbf{0.14}&0.0\\%
+			postoperative&0.2&0.37&0.38&0.37&\textbf{0.4}&0.34\\%
+			\end{tabular}}
+			\caption{G-mean klasyfikatora stacking.}
+			\label{stackinggmean}
+		\end{center}
+	\end{table}
+
+
+
+\subsection{Porównanie meta-metod}
+W ostatnim etapie testów meta-metod wykonano zbiorcze porównanie meta-klasyfikatorów. Do porównania wybrano bagging z naiwnym klasyfikatorem Bayesa (bag NB), bagging z drzewem decyzyjnym (Bag Tree), bagging z klasyfikatorem kNN (Bag kNN), AdaBoost z naiwnym klasyfikatorem Bayesa (AB NB), AdaBoost z drzewem decyzyjnym (AB TREE), las losowy (RF) oraz stacking z naiwnym klasyfikatorem Bayesa, drzewem decyzyjnym i klasyfikatorem kNN. Pierwszy test wykonano dla 50 klasyfikatorów (iteracji) oraz użyto klasyfikatorów z ustawieniami domyślnymi. Otrzymane wyniki dokładności (tabela \ref{accmeta}). Zdecydowanie najczęściej najlepszą dokładność osiągał las losowy. Klasyfikator bagging kNN osiągnął wysoką dokładność w zbiorach zawierających dużo przykładów rzadkich i odstających. Wysoka skuteczność obu klasyfikatorów odbiła się na niskiej wykrywalności klasy mniejszościowej (tabela specyficzności \ref{specmeta}) przez las losowy i prawie zerowej w przypadku klasyfikatora bagging kNN. Najlepszą wykrywalność klasy mniejszościowej oraz obu klas (miara G-mean tabela \ref{gmeanmeta}) osiągnął klasyfikator bagging z naiwnym klasyfikatorem bayesa. Większość otrzymanych wyników różniła się tylko o kilka procent. Zdarzało się, jednak że jeden klasyfikator osiągał zdecydowanie gorsze wyniki dla niektórych baz, np. bagging NB miał słabą skuteczność klasyfikacji dla baz: $vehicle$, $yeastME3$, $glass$, a AdaBoost NB dla baz $breast\_cancer$ i $solar\_flare$.
+
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|ccccccc}%
+				Zbiór danych&\specialcell{Bag\\NB}&\specialcell{Bag\\TREE}&\specialcell{Bag\\kNN}&\specialcell{AB\\NB}&\specialcell{AB\\Tree}&RF&Stacking\\%
+				\hline%
+				seeds&0.9&0.9&\textbf{0.92}&0.87&0.91&0.9&0.9\\%
+				new\_thyroid&0.96&\textbf{0.97}&0.96&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}\\%
+				vehicle&0.67&0.96&0.93&0.86&0.94&\textbf{0.97}&0.94\\%
+				ionosphere&0.87&0.9&0.81&0.79&0.86&\textbf{0.93}&0.89\\%
+				vertebal&\textbf{0.77}&0.72&0.73&0.6&0.73&0.72&0.72\\%
+				yeastME3&0.24&0.94&\textbf{0.95}&0.84&0.92&\textbf{0.95}&0.93\\%
+				ecoli&0.8&0.88&0.89&0.9&0.88&\textbf{0.92}&0.88\\%
+				bupa&0.57&0.7&0.68&0.56&0.64&\textbf{0.72}&0.65\\%
+				horse\_colic&0.77&0.85&0.73&0.66&0.8&\textbf{0.86}&0.81\\%
+				german&0.71&0.76&0.69&0.57&0.68&\textbf{0.77}&0.68\\%
+				breast\_cancer&0.72&0.67&0.65&0.35&\textbf{0.73}&0.71&0.65\\%
+				cmc&0.68&0.74&0.75&0.63&0.73&\textbf{0.76}&0.69\\%
+				hepatitis&0.68&0.72&0.71&0.55&0.66&\textbf{0.83}&0.65\\%
+				haberman&\textbf{0.74}&0.66&0.69&0.67&0.63&0.7&0.67\\%
+				transfusion&\textbf{0.74}&0.69&0.72&0.73&0.69&0.7&0.68\\%
+				car&0.9&0.68&\textbf{0.94}&0.91&0.67&0.92&0.89\\%
+				glass&0.53&0.88&0.87&0.79&0.75&\textbf{0.89}&0.71\\%
+				abalone16\_29&0.68&\textbf{0.94}&\textbf{0.94}&0.55&0.91&\textbf{0.94}&0.91\\%
+				solar\_flare&0.63&0.93&\textbf{0.95}&0.32&0.94&0.94&0.93\\%
+				heart\_cleveland&0.81&0.84&\textbf{0.88}&0.8&0.79&0.87&0.81\\%
+				balance\_scale&\textbf{0.92}&0.87&\textbf{0.92}&\textbf{0.92}&0.85&0.89&0.85\\%
+				postoperative&0.66&0.66&\textbf{0.71}&0.54&0.6&0.68&0.64\\%
+			\end{tabular}}
+			\caption{Dokładność meta-klasyfikatorów.}
+			\label{accmeta}
+		\end{center}
+	\end{table}
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|ccccccc}%
+				Zbiór danych&\specialcell{Bag\\NB}&\specialcell{Bag\\TREE}&\specialcell{Bag\\kNN}&\specialcell{AB\\NB}&\specialcell{AB\\Tree}&RF&Stacking\\%
+				\hline%
+				seeds&\textbf{0.91}&0.84&\textbf{0.91}&0.81&0.87&0.84&0.84\\%
+				new\_thyroid&0.87&0.87&0.73&\textbf{0.93}&0.87&0.87&0.87\\%
+				vehicle&0.84&0.92&0.86&0.46&0.88&\textbf{0.94}&0.88\\%
+				ionosphere&0.76&0.83&0.5&0.64&0.82&0.84&\textbf{0.87}\\%
+				vertebal&\textbf{0.86}&0.77&0.78&0.79&0.77&0.75&0.78\\%
+				yeastME3&\textbf{0.99}&0.72&0.68&0.49&0.71&0.7&0.71\\%
+				ecoli&\textbf{0.94}&0.54&0.57&0.37&0.6&0.54&0.63\\%
+				bupa&\textbf{0.72}&0.48&0.48&0.27&0.57&0.52&0.59\\%
+				horse\_colic&0.74&0.76&0.57&0.2&0.76&0.76&\textbf{0.78}\\%
+				german&\textbf{0.68}&0.47&0.29&0.32&0.48&0.4&0.44\\%
+				breast\_cancer&0.44&0.4&0.15&\textbf{0.71}&0.39&0.33&0.42\\%
+				cmc&\textbf{0.61}&0.29&0.26&0.28&0.31&0.29&0.38\\%
+				hepatitis&\textbf{0.75}&0.53&0.0&0.38&0.56&0.59&0.56\\%
+				haberman&0.21&0.31&0.25&0.22&\textbf{0.43}&0.27&0.28\\%
+				transfusion&0.21&\textbf{0.31}&0.27&\textbf{0.31}&0.28&\textbf{0.31}&0.3\\%
+				car&\textbf{1.0}&0.46&0.45&0.69&0.46&0.46&0.46\\%
+				glass&\textbf{0.76}&0.0&0.12&0.12&0.18&0.06&0.18\\%
+				abalone16\_29&\textbf{0.57}&0.17&0.1&0.31&0.31&0.1&0.31\\%
+				solar\_flare&\textbf{0.93}&0.14&0.05&0.26&0.07&0.16&0.16\\%
+				heart\_cleveland&\textbf{0.57}&0.09&0.0&0.14&0.14&0.03&0.11\\%
+				balance\_scale&0.0&0.0&0.0&0.0&\textbf{0.04}&0.0&0.02\\%
+				postoperative&0.17&0.12&0.0&\textbf{0.42}&0.17&0.04&0.17\\%
+		\end{tabular}}
+		\caption{Specyficzność klasy mniejszościowej dla meta-klasyfikatorów.}
+		\label{specmeta}
+	\end{center}
+\end{table}
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|ccccccc}%
+				Zbiór danych&\specialcell{Bag\\NB}&\specialcell{Bag\\TREE}&\specialcell{Bag\\kNN}&\specialcell{AB\\NB}&\specialcell{AB\\Tree}&RF&Stacking\\%
+				\hline%
+				seeds&0.91&0.88&\textbf{0.92}&0.86&0.9&0.88&0.88\\%
+				new\_thyroid&0.92&0.92&0.86&\textbf{0.96}&0.92&0.93&0.92\\%
+				vehicle&0.72&0.95&0.9&0.67&0.92&\textbf{0.96}&0.92\\%
+				ionosphere&0.84&0.88&0.7&0.75&0.85&\textbf{0.9}&0.88\\%
+				vertebal&\textbf{0.79}&0.73&0.74&0.63&0.74&0.72&0.73\\%
+				yeastME3&0.38&\textbf{0.83}&0.82&0.66&0.82&\textbf{0.83}&0.82\\%
+				ecoli&\textbf{0.86}&0.71&0.73&0.6&0.74&0.72&0.76\\%
+				bupa&0.58&0.64&0.63&0.45&0.63&\textbf{0.67}&0.64\\%
+				horse\_colic&0.76&0.83&0.68&0.43&0.79&\textbf{0.84}&0.8\\%
+				german&\textbf{0.7}&0.64&0.5&0.46&0.61&0.61&0.59\\%
+				breast\_cancer&\textbf{0.6}&0.56&0.36&0.37&0.58&0.54&0.56\\%
+				cmc&\textbf{0.65}&0.5&0.48&0.45&0.52&0.51&0.54\\%
+				hepatitis&0.71&0.64&0.0&0.47&0.62&\textbf{0.73}&0.62\\%
+				haberman&0.44&0.49&0.46&0.43&\textbf{0.55}&0.48&0.48\\%
+				transfusion&0.43&0.5&0.48&\textbf{0.52}&0.48&0.51&0.49\\%
+				car&\textbf{0.94}&0.56&0.65&0.8&0.56&0.66&0.65\\%
+				glass&\textbf{0.62}&0.0&0.33&0.32&0.38&0.24&0.37\\%
+				abalone16\_29&\textbf{0.63}&0.41&0.31&0.42&0.54&0.31&0.55\\%
+				solar\_flare&\textbf{0.76}&0.37&0.21&0.29&0.26&0.4&0.4\\%
+				heart\_cleveland&\textbf{0.69}&0.28&0.0&0.36&0.35&0.17&0.32\\%
+				balance\_scale&0.0&0.0&0.0&0.0&\textbf{0.19}&0.0&0.14\\%
+				postoperative&0.37&0.33&0.0&\textbf{0.5}&0.36&0.19&0.37\\%
+			\end{tabular}}
+			\caption{G-mean meta-klasyfikatorów.}
+			\label{gmeanmeta}
+		\end{center}
+	\end{table}
+Drugi test porównujący wykonano dla 100 klasyfikatorów bazowych oraz ograniczono głębokość drzewa do 3 poziomu. Ponownie najlepszym klasyfikatorem pod względem dokładności (tabela \ref{accmeta2}) okazał się las losowy, a klasyfikator bagging NB najlepiej wykrywał klasę mniejszościową (tabela \ref{specmeta2}). Zwiększenie ilości klasyfikatorów tylko w niektórych przypadkach pozwoliło na zwiększenie skuteczności klasyfikacji, większość klasyfikatorów osiągnęła podobno poziom skuteczności. Zwiększając liczbę klasyfikatorów w meta-klasyfikatorze bagging NB, uzyskano dużo lepszą wykrywalność klasy mniejszościowej w bazie $vehicle$. Jednak zwiększona liczba klasyfikatorów wpłynęła negatywne na specyficzność klasy mniejszościowej dla bazy $new\_thyroid$. Zmieniając ustawienia klasyfikatora można poprawić jakość klasyfikacji dla niektórych zbiorów danych, a pogorszyć dla innych. Aby uzyskać możliwe najlepszą klasyfikację, należy dla każdego zbioru osobno dobierać klasyfikator i ustawienia. Najbardziej stabilne wyniki (dokładność klasyfikacji oraz specyficzność klasy mniejszościowej) niezależnie od zbioru danych, zazwyczaj minimalnie gorsze od najlepszego klasyfikatora otrzymano z meta-klasyfikatora stacking. Jest to najbardziej uniwersalny klasyfikator.
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|ccccccc}%
+				Zbiór danych&\specialcell{Bag\\NB}&\specialcell{Bag\\TREE}&\specialcell{Bag\\kNN}&\specialcell{AB\\NB}&\specialcell{AB\\Tree}&RF&Stacking\\%
+				\hline%
+				seeds&0.9&0.91&\textbf{0.94}&0.91&0.91&0.91&0.91\\%
+				new\_thyroid&0.96&\textbf{0.97}&0.96&0.94&\textbf{0.97}&\textbf{0.97}&\textbf{0.97}\\%
+				vehicle&0.66&\textbf{0.97}&0.92&0.87&0.94&\textbf{0.97}&0.95\\%
+				ionosphere&0.87&0.9&0.82&0.83&0.86&\textbf{0.92}&0.88\\%
+				vertebal&\textbf{0.78}&0.72&0.73&0.72&0.72&0.72&0.72\\%
+				yeastME3&0.24&0.94&\textbf{0.95}&0.84&0.93&\textbf{0.95}&0.93\\%
+				ecoli&0.79&0.9&0.89&0.89&0.88&\textbf{0.91}&0.88\\%
+				bupa&0.55&0.71&0.68&0.55&0.62&\textbf{0.72}&0.65\\%
+				horse\_colic&0.78&\textbf{0.86}&0.71&0.69&0.8&0.85&0.78\\%
+				german&0.72&0.75&0.7&0.57&0.69&\textbf{0.77}&0.7\\%
+				breast\_cancer&0.72&0.69&0.66&0.35&0.7&\textbf{0.73}&0.64\\%
+				cmc&0.68&0.74&0.75&0.63&0.73&\textbf{0.76}&0.69\\%
+				hepatitis&0.67&0.72&0.7&0.45&0.68&\textbf{0.81}&0.7\\%
+				haberman&\textbf{0.74}&0.69&0.69&0.69&0.64&0.72&0.65\\%
+				transfusion&\textbf{0.74}&0.68&0.73&0.56&0.68&0.7&0.69\\%
+				car&0.9&0.68&\textbf{0.94}&0.91&0.67&0.87&0.89\\%
+				glass&0.51&\textbf{0.9}&0.87&0.87&0.68&0.88&0.68\\%
+				abalone16\_29&0.68&\textbf{0.94}&\textbf{0.94}&0.55&0.91&\textbf{0.94}&0.91\\%
+				solar\_flare&0.61&0.94&\textbf{0.95}&0.32&0.93&0.94&0.94\\%
+				heart\_cleveland&0.8&0.84&\textbf{0.88}&0.8&0.8&0.85&0.82\\%
+				balance\_scale&\textbf{0.92}&0.87&\textbf{0.92}&\textbf{0.92}&0.85&0.89&0.85\\%
+				postoperative&0.63&0.67&\textbf{0.68}&0.59&0.58&0.66&0.66\\%
+			\end{tabular}}
+			\caption{Dokładność meta-klasyfikatorów dla testu nr 2.}
+			\label{accmeta2}
+		\end{center}
+	\end{table}
+	\begin{table}[h]
+		\tiny
+		\begin{center}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{c|ccccccc}%
+					Zbiór danych&\specialcell{Bag\\NB}&\specialcell{Bag\\TREE}&\specialcell{Bag\\kNN}&\specialcell{AB\\NB}&\specialcell{AB\\Tree}&RF&Stacking\\%
+					\hline%
+					seeds&0.91&0.87&\textbf{0.96}&0.89&0.87&0.89&0.86\\%
+					new\_thyroid&\textbf{0.87}&\textbf{0.87}&0.73&0.6&\textbf{0.87}&\textbf{0.87}&\textbf{0.87}\\%
+					vehicle&0.84&0.92&0.84&0.64&0.89&\textbf{0.94}&0.88\\%
+					ionosphere&0.76&0.83&0.52&0.74&0.81&\textbf{0.86}&0.85\\%
+					vertebal&0.87&0.76&0.76&\textbf{0.9}&0.78&0.75&0.76\\%
+					yeastME3&\textbf{0.99}&0.71&0.68&0.49&0.72&0.69&0.69\\%
+					ecoli&\textbf{0.94}&0.63&0.54&0.49&0.66&0.51&0.6\\%
+					bupa&\textbf{0.74}&0.52&0.47&0.34&0.53&0.5&0.57\\%
+					horse\_colic&0.75&\textbf{0.76}&0.55&0.3&\textbf{0.76}&0.74&0.74\\%
+					german&\textbf{0.68}&0.46&0.3&0.32&0.47&0.4&0.48\\%
+					breast\_cancer&0.44&0.39&0.19&\textbf{0.71}&0.34&0.39&0.38\\%
+					cmc&\textbf{0.6}&0.29&0.27&0.28&0.32&0.27&0.39\\%
+					hepatitis&\textbf{0.72}&0.5&0.03&0.25&0.59&0.53&0.59\\%
+					haberman&0.19&0.31&0.23&0.26&\textbf{0.53}&0.3&0.28\\%
+					transfusion&0.21&0.31&0.28&\textbf{0.54}&0.28&0.32&0.31\\%
+					car&\textbf{1.0}&0.46&0.43&0.69&0.46&0.45&0.46\\%
+					glass&\textbf{0.82}&0.0&0.12&0.06&0.18&0.06&0.18\\%
+					abalone16\_29&\textbf{0.58}&0.18&0.11&0.31&0.32&0.11&0.3\\%
+					solar\_flare&\textbf{0.93}&0.14&0.05&0.26&0.05&0.09&0.14\\%
+					heart\_cleveland&\textbf{0.57}&0.06&0.0&0.14&0.17&0.03&0.2\\%
+					balance\_scale&0.0&0.0&0.0&0.0&0.02&0.0&\textbf{0.04}\\%
+					postoperative&0.17&0.12&0.0&\textbf{0.42}&0.17&0.08&0.17\\%
+				\end{tabular}}
+				\caption{Specyficzność klasy mniejszościowej dla meta-klasyfikatorów w teście nr 2.}
+				\label{specmeta2}
+			\end{center}
+		\end{table}
+		\begin{table}[h]
+			\tiny
+			\begin{center}
+				\resizebox{\textwidth}{!}{%
+					\begin{tabular}{c|ccccccc}%
+						Zbiór danych&\specialcell{Bag\\NB}&\specialcell{Bag\\TREE}&\specialcell{Bag\\kNN}&\specialcell{AB\\NB}&\specialcell{AB\\Tree}&RF&Stacking\\%
+						\hline%
+						seeds&0.91&0.9&\textbf{0.94}&0.91&0.9&0.91&0.9\\%
+						new\_thyroid&0.92&0.92&0.86&0.77&0.92&\textbf{0.93}&0.92\\%
+						vehicle&0.72&0.95&0.9&0.78&0.92&\textbf{0.96}&0.92\\%
+						ionosphere&0.84&0.88&0.72&0.81&0.85&\textbf{0.91}&0.87\\%
+						vertebal&\textbf{0.8}&0.73&0.74&0.75&0.74&0.73&0.73\\%
+						yeastME3&0.38&\textbf{0.83}&0.82&0.66&\textbf{0.83}&0.82&0.81\\%
+						ecoli&\textbf{0.86}&0.76&0.71&0.67&0.77&0.7&0.74\\%
+						bupa&0.55&\textbf{0.66}&0.62&0.49&0.61&\textbf{0.66}&0.63\\%
+						horse\_colic&0.77&\textbf{0.83}&0.67&0.53&0.79&0.82&0.77\\%
+						german&\textbf{0.71}&0.63&0.51&0.46&0.61&0.61&0.61\\%
+						breast\_cancer&\textbf{0.6}&0.56&0.4&0.37&0.54&0.58&0.53\\%
+						cmc&\textbf{0.65}&0.5&0.49&0.45&0.52&0.5&0.55\\%
+						hepatitis&\textbf{0.69}&0.62&0.17&0.35&0.65&\textbf{0.69}&0.66\\%
+						haberman&0.42&0.51&0.45&0.47&\textbf{0.6}&0.51&0.47\\%
+						transfusion&0.43&0.5&0.5&\textbf{0.55}&0.48&0.52&0.5\\%
+						car&\textbf{0.94}&0.56&0.64&0.8&0.56&0.63&0.65\\%
+						glass&\textbf{0.63}&0.0&0.33&0.24&0.36&0.24&0.36\\%
+						abalone16\_29&\textbf{0.63}&0.42&0.33&0.42&0.55&0.33&0.53\\%
+						solar\_flare&\textbf{0.74}&0.37&0.21&0.29&0.21&0.3&0.37\\%
+						heart\_cleveland&\textbf{0.69}&0.23&0.0&0.36&0.39&0.17&0.42\\%
+						balance\_scale&0.0&0.0&0.0&0.0&0.14&0.0&\textbf{0.19}\\%
+						postoperative&0.37&0.33&0.0&\textbf{0.52}&0.35&0.27&0.37\\%
+					\end{tabular}}
+					\caption{G-mean meta-klasyfikatorów z badania nr 2.}
+					\label{gmeanmeta2}
+				\end{center}
+			\end{table}
+			
+\subsection{Poprawa klasyfikacji danych mniejszościowych}
+W ostatniej części badań meta-metod, przeprowadzono testy w kierunku poprawy wykrywalności klasy mniejszościowej. W tych badaniach, skupiono się wyłącznie na wpływie bilansowania zbiorów danych na klasyfikację z wykorzystaniem meta-metod. Do badań wybrano klasyfikatory: 
+\begin{itemize}
+	\item bagging z drzewem decyzyjnym z maksymalną głębokością 3 (Bag TREE),
+	\item AdaBoost z drzewem decyzyjnym z maksymalną głębokością 3 (AB Tree),
+	\item stacking CV z drzewem decyzyjnym, kNN i naiwnym klasyfikatorem Bayesa oraz siecią neuronową MLP jako meta-klasyfikator (Stacking).
+\end{itemize}
+Baginng i AdaBoost zostały przetestowane z 50 klasyfikatorami. Ze względu na to, że jest to badanie w celu poprawy wykrywania klasy mniejszościowej, w wynikach zostały zaprezentowane tylko miara specyficzności oraz G-mean. Testy przeprowadzono zgodnie z opisem z rozdziału \ref{rozdzialbalansowanie}. każdą klasyfikację powtórzono dziesięciokrotnie, a wyniki uśredniono. W sąsiednich kolumnach znajduje się meta-klasyfikator bez przetwarzania danych oraz z, wyniki zostały porównane, większe wartości zostały pogrubione.
+\subsubsection{Oversampling metoda SMOTE}
+W pierwszym teście, wygenerowano sztucznie dane klasy mniejszościowej metodą SMOTE. Przeprowadzone badanie znajduje się w pliku $imbalancedtests/smote.py$. W przypadku metody bagging i stacking tylko w 3 zbiorach lepszy okazał się klasyfikator bez metody SMOTE (tabela specyficzności \ref{specsmote}). Użycie metody SMOTE pozwoliło zwiększyć wykrywalność klasy mniejszościowej o kilka procent, aż do ponad 100\%. Każdemu wzrostowi specyficzności tych klasyfikatorów, towarzyszył wzrost miary G-mean (tabela \ref{gmeansmote}). Nieco gorzej z klasyfikacją poradził sobie model AdaBoost, w 14 na 22 zbiorach zanotowano wzrost. Najlepszym klasyfikatorem okazał się bagging z drzewem decyzyjnym i metodą SMOTE. Uzyskał on najlepszy wynik miary G-mean w 13 zbiorach. Prawie dla każdej bazy (20 z 22) zanotowano kilku procentowy spadek czułości klasy większościowej, tabeli z tymi wynikami nie zamieszczano w pracy.
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccc}%
+				Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\SMOTE}&\specialcell{AB\\TREE}&\specialcell{AB TREE\\SMOTE}&Stacking&\specialcell{Stacking\\SMOTE}\\%
+				\hline%
+				seeds&\textbf{0.86}&0.84&0.84&\textbf{0.86}&0.91&0.91\\%
+				new\_thyroid&\textbf{0.87}&0.81&\textbf{0.87}&0.86&\textbf{0.87}&0.84\\%
+				vehicle&\textbf{0.92}&0.91&0.93&0.93&0.81&\textbf{0.85}\\%
+				ionosphere&0.78&\textbf{0.82}&0.79&\textbf{0.83}&0.84&\textbf{0.87}\\%
+				vertebal&0.75&\textbf{0.86}&0.72&\textbf{0.8}&0.75&\textbf{0.83}\\%
+				yeastME3&0.77&\textbf{0.9}&0.63&\textbf{0.77}&0.77&\textbf{0.81}\\%
+				ecoli&0.49&\textbf{0.81}&0.6&\textbf{0.67}&0.37&\textbf{0.83}\\%
+				bupa&0.48&\textbf{0.58}&\textbf{0.56}&0.5&0.44&\textbf{0.57}\\%
+				horse\_colic&0.71&\textbf{0.76}&\textbf{0.76}&0.72&0.69&\textbf{0.71}\\%
+				german&0.33&\textbf{0.61}&\textbf{0.52}&0.45&\textbf{0.41}&0.3\\%
+				breast\_cancer&0.29&\textbf{0.41}&\textbf{0.42}&0.35&0.33&\textbf{0.51}\\%
+				cmc&0.25&\textbf{0.47}&\textbf{0.36}&0.34&\textbf{0.37}&0.29\\%
+				hepatitis&0.47&\textbf{0.69}&0.59&\textbf{0.65}&0.44&\textbf{0.62}\\%
+				haberman&0.28&\textbf{0.31}&\textbf{0.42}&0.39&0.14&\textbf{0.25}\\%
+				transfusion&0.39&\textbf{0.62}&0.3&\textbf{0.33}&0.21&\textbf{0.45}\\%
+				car&0.32&\textbf{0.67}&\textbf{0.65}&0.61&0.43&\textbf{0.59}\\%
+				glass&0.0&\textbf{0.54}&0.24&\textbf{0.34}&0.0&\textbf{0.46}\\%
+				abalone16\_29&0.08&\textbf{0.77}&0.24&\textbf{0.3}&0.07&\textbf{0.59}\\%
+				solar\_flare&0.09&\textbf{0.72}&0.14&\textbf{0.21}&0.07&\textbf{0.53}\\%
+				heart\_cleveland&0.03&\textbf{0.41}&0.0&\textbf{0.08}&0.0&\textbf{0.24}\\%
+				balance\_scale&0.0&0.0&0.06&\textbf{0.09}&0.0&\textbf{0.18}\\%
+				postoperative&0.04&\textbf{0.08}&0.17&\textbf{0.24}&0.0&\textbf{0.29}\\%
+			\end{tabular}}
+			\caption{Specyficzność klasy mniejszościowej.}
+			\label{specsmote}
+\end{center}
+\end{table}
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccc}%
+				Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\SMOTE}&\specialcell{AB\\TREE}&\specialcell{AB TREE\\SMOTE}&Stacking&\specialcell{Stacking\\SMOTE}\\%
+					\hline%
+				seeds&\textbf{0.89}&0.88&0.88&\textbf{0.89}&0.92&0.92\\%
+				new\_thyroid&\textbf{0.92}&0.89&0.92&0.92&\textbf{0.92}&0.91\\%
+				vehicle&\textbf{0.92}&0.9&\textbf{0.96}&0.95&0.88&\textbf{0.89}\\%
+				ionosphere&0.86&\textbf{0.88}&0.87&\textbf{0.89}&0.89&\textbf{0.9}\\%
+				vertebal&0.73&\textbf{0.78}&0.71&\textbf{0.75}&0.73&\textbf{0.76}\\%
+				yeastME3&0.87&\textbf{0.92}&0.78&\textbf{0.86}&0.86&\textbf{0.88}\\%
+				ecoli&0.67&\textbf{0.85}&0.75&\textbf{0.79}&0.59&\textbf{0.84}\\%
+				bupa&0.66&\textbf{0.68}&\textbf{0.66}&0.61&0.59&\textbf{0.64}\\%
+				horse\_colic&0.81&\textbf{0.83}&\textbf{0.81}&0.79&0.81&\textbf{0.82}\\%
+				german&0.56&\textbf{0.67}&\textbf{0.65}&0.61&\textbf{0.61}&0.51\\%
+				breast\_cancer&0.52&\textbf{0.59}&\textbf{0.57}&0.53&0.53&\textbf{0.61}\\%
+				cmc&0.48&\textbf{0.59}&\textbf{0.55}&0.53&\textbf{0.58}&0.5\\%
+				hepatitis&0.6&\textbf{0.68}&0.72&\textbf{0.73}&0.6&\textbf{0.66}\\%
+				haberman&\textbf{0.51}&0.5&\textbf{0.55}&0.51&0.36&\textbf{0.46}\\%
+				transfusion&0.59&\textbf{0.62}&\textbf{0.49}&0.47&0.44&\textbf{0.58}\\%
+				car&0.48&\textbf{0.78}&\textbf{0.77}&0.73&0.63&\textbf{0.76}\\%
+				glass&0.0&\textbf{0.57}&0.46&\textbf{0.52}&0.0&\textbf{0.6}\\%
+				abalone16\_29&0.28&\textbf{0.76}&0.48&\textbf{0.54}&0.27&\textbf{0.71}\\%
+				solar\_flare&0.3&\textbf{0.8}&0.37&\textbf{0.45}&0.26&\textbf{0.69}\\%
+				heart\_cleveland&0.17&\textbf{0.58}&0.0&\textbf{0.27}&0.0&\textbf{0.46}\\%
+				balance\_scale&0.0&0.0&0.24&\textbf{0.28}&0.0&\textbf{0.39}\\%
+				postoperative&0.2&\textbf{0.26}&0.36&\textbf{0.41}&0.0&\textbf{0.44}\\%
+				\end{tabular}}
+				\caption{Miara G-mean.}
+				\label{gmeansmote}
+			\end{center}
+			\end{table}
+\subsubsection{Oversampling metodą ADASYN}
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccc}%
+				Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\ADASYN}&\specialcell{AB\\TREE}&\specialcell{AB TREE\\ADASYN}&Stacking&\specialcell{Stacking\\ADASYN}\\%
+				\hline%
+				seeds&0.87&\textbf{0.93}&0.84&\textbf{0.91}&0.86&\textbf{0.96}\\%
+				new\_thyroid&\textbf{0.87}&0.86&\textbf{0.87}&0.83&\textbf{0.87}&0.84\\%
+				vehicle&\textbf{0.94}&0.92&0.94&\textbf{0.96}&0.82&\textbf{0.85}\\%
+				ionosphere&0.77&\textbf{0.83}&0.79&\textbf{0.82}&0.79&\textbf{0.85}\\%
+				vertebal&0.73&\textbf{0.91}&0.77&\textbf{0.79}&0.77&\textbf{0.89}\\%
+				yeastME3&0.77&\textbf{0.96}&0.63&\textbf{0.82}&0.71&\textbf{0.86}\\%
+				ecoli&0.49&\textbf{0.94}&0.6&\textbf{0.76}&0.37&\textbf{0.86}\\%
+				bupa&0.43&\textbf{0.62}&0.55&\textbf{0.58}&0.39&\textbf{0.54}\\%
+				horse\_colic&0.74&\textbf{0.75}&0.74&\textbf{0.79}&0.68&\textbf{0.74}\\%
+				german&\textbf{0.33}&0.15&\textbf{0.51}&0.47&\textbf{0.37}&0.2\\%
+				breast\_cancer&0.33&\textbf{0.41}&0.41&\textbf{0.46}&0.25&\textbf{0.54}\\%
+				cmc&0.25&\textbf{0.53}&0.36&\textbf{0.38}&0.14&\textbf{0.4}\\%
+				hepatitis&0.53&\textbf{0.58}&0.59&\textbf{0.64}&0.34&\textbf{0.64}\\%
+				haberman&0.27&\textbf{0.49}&0.42&\textbf{0.49}&0.01&\textbf{0.59}\\%
+				transfusion&0.36&\textbf{0.59}&0.3&\textbf{0.4}&0.18&\textbf{0.59}\\%
+				car&0.32&\textbf{0.78}&0.6&0.6&0.43&\textbf{0.58}\\%
+				glass&0.0&\textbf{0.44}&0.18&\textbf{0.28}&0.12&\textbf{0.39}\\%
+				abalone16\_29&0.08&\textbf{0.81}&0.23&\textbf{0.35}&0.06&\textbf{0.49}\\%
+				solar\_flare&0.09&\textbf{0.84}&0.09&\textbf{0.23}&0.0&\textbf{0.59}\\%
+				heart\_cleveland&0.03&\textbf{0.45}&0.0&\textbf{0.11}&0.0&\textbf{0.4}\\%
+				balance\_scale&0.0&\textbf{0.18}&0.06&\textbf{0.33}&0.0&\textbf{0.41}\\%
+				postoperative&0.04&\textbf{0.06}&0.17&\textbf{0.21}&0.12&\textbf{0.32}\\%
+			\end{tabular}}
+			\caption{Specyficzność klasy mniejszościowej.}
+			\label{specsmote}
+		\end{center}
+	\end{table}
+	\begin{table}[h]
+		\tiny
+		\begin{center}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{c|cccccc}%
+					Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\ADASYN}&\specialcell{AB\\TREE}&\specialcell{AB TREE\\ADASYN}&Stacking&\specialcell{Stacking\\ADASYN}\\%
+					\hline%
+					seeds&\textbf{0.9}&0.88&0.89&\textbf{0.9}&\textbf{0.89}&0.88\\%
+					new\_thyroid&0.92&0.92&\textbf{0.92}&0.91&\textbf{0.92}&0.9\\%
+					vehicle&\textbf{0.93}&0.91&0.96&\textbf{0.97}&0.88&\textbf{0.89}\\%
+					ionosphere&0.86&\textbf{0.87}&0.87&\textbf{0.89}&0.86&\textbf{0.88}\\%
+					vertebal&0.71&\textbf{0.79}&\textbf{0.73}&0.71&0.74&\textbf{0.77}\\%
+					yeastME3&0.86&\textbf{0.93}&0.78&\textbf{0.88}&0.83&\textbf{0.88}\\%
+					ecoli&0.68&\textbf{0.87}&0.75&\textbf{0.81}&0.59&\textbf{0.86}\\%
+					bupa&0.62&\textbf{0.67}&0.64&\textbf{0.66}&0.59&0.59\\%
+					horse\_colic&0.83&0.83&0.81&\textbf{0.82}&0.8&\textbf{0.82}\\%
+					german&\textbf{0.55}&0.37&\textbf{0.64}&0.62&\textbf{0.59}&0.41\\%
+					breast\_cancer&0.54&\textbf{0.58}&0.56&\textbf{0.59}&0.48&\textbf{0.63}\\%
+					cmc&0.48&\textbf{0.64}&0.55&\textbf{0.56}&0.37&\textbf{0.59}\\%
+					hepatitis&0.62&\textbf{0.63}&0.72&\textbf{0.73}&0.51&\textbf{0.69}\\%
+					haberman&0.5&\textbf{0.62}&0.55&\textbf{0.59}&0.11&\textbf{0.61}\\%
+					transfusion&0.56&\textbf{0.6}&0.49&\textbf{0.52}&0.42&\textbf{0.59}\\%
+					car&0.48&\textbf{0.84}&0.74&\textbf{0.75}&0.63&\textbf{0.74}\\%
+					glass&0.0&\textbf{0.52}&0.4&\textbf{0.47}&0.33&\textbf{0.53}\\%
+					abalone16\_29&0.28&\textbf{0.77}&0.48&\textbf{0.57}&0.24&\textbf{0.66}\\%
+					solar\_flare&0.3&\textbf{0.83}&0.3&\textbf{0.46}&0.0&\textbf{0.71}\\%
+					heart\_cleveland&0.17&\textbf{0.62}&0.0&\textbf{0.31}&0.0&\textbf{0.58}\\%
+					balance\_scale&0.0&\textbf{0.38}&0.24&\textbf{0.47}&0.0&\textbf{0.51}\\%
+					postoperative&0.2&\textbf{0.23}&0.37&\textbf{0.4}&0.34&\textbf{0.4}\\%
+				\end{tabular}}
+				\caption{Miara G-mean.}
+				\label{gmeansmote}
+			\end{center}
+		\end{table}
+		
+\subsubsection{Undersampling NCR}
+\begin{table}[h]
+			\tiny
+			\begin{center}
+				\resizebox{\textwidth}{!}{%
+					\begin{tabular}{c|cccccc}%
+Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\ADASYN}&\specialcell{AB TREE}&\specialcell{AB TREE\\ADASYN}&Stacking&\specialcell{Stacking\\ADASYN}\\%
+\hline%
+seeds&0.84&\textbf{0.93}&0.84&\textbf{0.92}&0.9&\textbf{0.96}\\%
+new\_thyroid&0.87&\textbf{0.93}&0.87&\textbf{0.88}&0.87&\textbf{0.95}\\%
+vehicle&0.9&\textbf{0.98}&0.93&\textbf{0.97}&0.85&\textbf{0.89}\\%
+ionosphere&0.79&\textbf{0.81}&0.8&\textbf{0.83}&0.84&\textbf{0.87}\\%
+vertebal&0.76&\textbf{0.93}&0.72&\textbf{0.89}&0.71&\textbf{0.92}\\%
+yeastME3&0.75&\textbf{0.85}&0.63&\textbf{0.82}&0.69&\textbf{0.79}\\%
+ecoli&0.51&\textbf{0.67}&0.6&\textbf{0.69}&0.54&\textbf{0.69}\\%
+bupa&0.43&\textbf{0.82}&0.56&\textbf{0.82}&0.41&\textbf{0.79}\\%
+horse\_colic&0.73&\textbf{0.85}&0.71&\textbf{0.82}&0.7&\textbf{0.8}\\%
+german&0.34&\textbf{0.77}&0.52&\textbf{0.67}&0.42&\textbf{0.7}\\%
+breast\_cancer&0.33&\textbf{0.64}&0.42&\textbf{0.63}&0.28&\textbf{0.63}\\%
+cmc&0.24&\textbf{0.43}&0.36&\textbf{0.58}&0.17&\textbf{0.51}\\%
+hepatitis&0.53&\textbf{0.66}&0.59&\textbf{0.7}&\textbf{0.44}&0.4\\%
+haberman&0.3&\textbf{0.5}&0.42&\textbf{0.68}&0.14&\textbf{0.45}\\%
+transfusion&0.36&\textbf{0.58}&0.3&\textbf{0.56}&0.27&\textbf{0.52}\\%
+car&0.32&0.32&\textbf{0.65}&0.63&0.43&\textbf{0.45}\\%
+glass&0.0&\textbf{0.01}&\textbf{0.29}&0.27&0.0&\textbf{0.06}\\%
+abalone16\_29&0.08&\textbf{0.13}&0.24&\textbf{0.34}&0.06&\textbf{0.23}\\%
+solar\_flare&0.09&\textbf{0.16}&0.12&\textbf{0.41}&0.0&\textbf{0.26}\\%
+heart\_cleveland&0.0&\textbf{0.15}&0.03&\textbf{0.08}&0.0&\textbf{0.07}\\%
+balance\_scale&0.0&0.0&0.06&\textbf{0.07}&0.0&0.0\\%
+postoperative&0.04&\textbf{0.23}&0.21&\textbf{0.5}&0.04&\textbf{0.23}\\%
+					\end{tabular}}
+					\caption{Specyficzność klasy mniejszościowej.}
+					\label{specsmote}
+				\end{center}
+			\end{table}
+			\begin{table}[h]
+				\tiny
+				\begin{center}
+					\resizebox{\textwidth}{!}{%
+						\begin{tabular}{c|cccccc}%
+Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\ADASYN}&\specialcell{AB TREE}&\specialcell{AB TREE\\ADASYN}&Stacking&\specialcell{Stacking\\ADASYN}\\%
+							\hline%
+seeds&0.88&\textbf{0.9}&0.88&\textbf{0.89}&0.9&\textbf{0.92}\\%
+new\_thyroid&0.92&\textbf{0.95}&0.92&\textbf{0.93}&0.92&\textbf{0.96}\\%
+vehicle&0.92&\textbf{0.93}&0.96&0.96&0.89&0.89\\%
+ionosphere&0.86&\textbf{0.88}&0.89&0.89&0.86&\textbf{0.9}\\%
+vertebal&0.73&\textbf{0.8}&0.71&\textbf{0.77}&0.71&\textbf{0.79}\\%
+yeastME3&0.85&\textbf{0.9}&0.78&\textbf{0.89}&0.82&\textbf{0.87}\\%
+ecoli&0.69&\textbf{0.73}&0.75&\textbf{0.76}&0.71&\textbf{0.79}\\%
+bupa&\textbf{0.62}&0.58&\textbf{0.67}&0.63&\textbf{0.58}&0.57\\%
+horse\_colic&\textbf{0.82}&0.8&\textbf{0.79}&0.75&\textbf{0.82}&0.76\\%
+german&0.56&\textbf{0.71}&0.65&\textbf{0.66}&0.61&\textbf{0.69}\\%
+breast\_cancer&0.54&\textbf{0.62}&0.57&\textbf{0.59}&0.5&\textbf{0.65}\\%
+cmc&0.47&\textbf{0.6}&0.55&\textbf{0.62}&0.41&\textbf{0.63}\\%
+hepatitis&0.65&\textbf{0.71}&0.72&\textbf{0.74}&\textbf{0.61}&0.58\\%
+haberman&0.52&\textbf{0.63}&0.55&\textbf{0.61}&0.36&\textbf{0.59}\\%
+transfusion&0.57&\textbf{0.63}&0.49&\textbf{0.58}&0.49&\textbf{0.58}\\%
+car&0.48&0.48&0.77&\textbf{0.79}&0.63&\textbf{0.64}\\%
+glass&0.0&\textbf{0.02}&\textbf{0.51}&0.47&0.0&\textbf{0.19}\\%
+abalone16\_29&0.28&\textbf{0.36}&0.48&\textbf{0.57}&0.25&\textbf{0.47}\\%
+solar\_flare&0.3&\textbf{0.39}&0.34&\textbf{0.61}&0.0&\textbf{0.5}\\%
+heart\_cleveland&0.0&\textbf{0.38}&0.16&\textbf{0.27}&0.0&\textbf{0.23}\\%
+balance\_scale&0.0&0.0&0.24&\textbf{0.26}&0.0&0.0\\%
+postoperative&0.2&\textbf{0.39}&0.39&\textbf{0.41}&0.2&\textbf{0.38}\\%
+						\end{tabular}}
+						\caption{Miara G-mean.}
+						\label{gmeansmote}
+					\end{center}
+				\end{table}		
+\subsubsection{Oversampling SMOTE i undersampling metodą ENN}
+W tym teście znajdującym się w pliku $imbalancedtests/smoteeen.py$ do równoważenia klas w zbiorach danych wybrano metodę SMOTEENN. 
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccc}%
+			Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\SMOTEENN}&\specialcell{AB TREE}&\specialcell{AB TREE\\SMOTEENN}&Stacking&\specialcell{Stacking\\SMOTEENN}\\%
+			\hline%
+			seeds&\textbf{0.89}&0.82&\textbf{0.89}&0.83&\textbf{0.93}&0.88\\%
+			new\_thyroid&\textbf{0.87}&0.76&0.87&0.87&\textbf{0.93}&0.84\\%
+			vehicle&\textbf{0.92}&0.83&\textbf{0.93}&0.81&\textbf{0.84}&0.72\\%
+			ionosphere&\textbf{0.8}&0.74&\textbf{0.79}&0.72&\textbf{0.81}&0.74\\%
+			vertebal&\textbf{0.75}&0.74&\textbf{0.74}&0.73&0.75&\textbf{0.78}\\%
+			yeastME3&0.77&\textbf{0.9}&0.63&\textbf{0.77}&0.72&\textbf{0.82}\\%
+			ecoli&0.49&\textbf{0.82}&0.57&\textbf{0.67}&0.57&\textbf{0.79}\\%
+			bupa&\textbf{0.43}&0.32&\textbf{0.53}&0.27&\textbf{0.36}&0.33\\%
+			horse\_colic&\textbf{0.74}&0.66&\textbf{0.71}&0.55&\textbf{0.71}&0.58\\%
+			german&\textbf{0.38}&0.01&\textbf{0.51}&0.07&\textbf{0.45}&0.04\\%
+			breast\_cancer&\textbf{0.31}&0.23&\textbf{0.42}&0.22&0.24&\textbf{0.27}\\%
+			cmc&0.28&0.28&\textbf{0.36}&0.12&0.15&\textbf{0.18}\\%
+			hepatitis&0.56&\textbf{0.61}&\textbf{0.59}&0.56&0.44&\textbf{0.52}\\%
+			haberman&\textbf{0.31}&0.01&\textbf{0.42}&0.19&0.05&\textbf{0.09}\\%
+			transfusion&\textbf{0.42}&0.0&\textbf{0.3}&0.18&\textbf{0.22}&0.18\\%
+			car&0.32&\textbf{0.69}&\textbf{0.65}&0.61&0.43&\textbf{0.59}\\%
+			glass&0.0&\textbf{0.53}&0.06&\textbf{0.32}&0.12&\textbf{0.45}\\%
+			abalone16\_29&0.08&\textbf{0.75}&0.24&\textbf{0.33}&0.09&\textbf{0.56}\\%
+			solar\_flare&0.09&\textbf{0.72}&0.12&\textbf{0.13}&0.0&\textbf{0.43}\\%
+			heart\_cleveland&0.03&\textbf{0.37}&0.03&\textbf{0.04}&0.03&\textbf{0.19}\\%
+			balance\_scale&0.0&0.0&\textbf{0.06}&0.02&0.0&\textbf{0.18}\\%
+			postoperative&0.04&\textbf{0.06}&\textbf{0.21}&0.07&0.0&\textbf{0.08}\\%
+			\end{tabular}}
+			\caption{Specyficzność klasy mniejszościowej.}
+			\label{specsmoteen}
+		\end{center}
+	\end{table}
+	\begin{table}[h]
+		\tiny
+		\begin{center}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{c|cccccc}%
+			Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\SMOTEENN}&\specialcell{AB TREE}&\specialcell{AB TREE\\SMOTEENN}&Stacking&\specialcell{Stacking\\SMOTEENN}\\%
+			\hline%
+			seeds&\textbf{0.91}&0.88&\textbf{0.91}&0.89&\textbf{0.92}&0.9\\%
+			new\_thyroid&\textbf{0.92}&0.86&0.92&0.92&\textbf{0.95}&0.91\\%
+			vehicle&\textbf{0.92}&0.88&\textbf{0.96}&0.89&\textbf{0.89}&0.83\\%
+			ionosphere&\textbf{0.87}&0.85&\textbf{0.87}&0.84&\textbf{0.87}&0.85\\%
+			vertebal&0.72&\textbf{0.73}&0.72&\textbf{0.73}&0.73&\textbf{0.75}\\%
+			yeastME3&0.86&\textbf{0.92}&0.78&\textbf{0.86}&0.84&\textbf{0.89}\\%
+			ecoli&0.67&\textbf{0.86}&0.73&\textbf{0.78}&0.73&\textbf{0.83}\\%
+			bupa&\textbf{0.63}&0.55&\textbf{0.64}&0.51&\textbf{0.56}&0.54\\%
+			horse\_colic&\textbf{0.82}&0.79&\textbf{0.79}&0.72&\textbf{0.81}&0.73\\%
+			german&\textbf{0.59}&0.1&\textbf{0.64}&0.27&\textbf{0.63}&0.19\\%
+			breast\_cancer&\textbf{0.52}&0.46&\textbf{0.57}&0.45&0.47&\textbf{0.49}\\%
+			cmc&\textbf{0.51}&0.49&\textbf{0.55}&0.34&0.38&\textbf{0.4}\\%
+			hepatitis&0.67&\textbf{0.69}&\textbf{0.73}&0.7&0.61&\textbf{0.64}\\%
+			haberman&\textbf{0.53}&0.1&\textbf{0.55}&0.42&0.22&\textbf{0.29}\\%
+			transfusion&\textbf{0.61}&0.0&\textbf{0.5}&0.4&\textbf{0.44}&0.41\\%
+			car&0.48&\textbf{0.79}&\textbf{0.77}&0.73&0.63&\textbf{0.75}\\%
+			glass&0.0&\textbf{0.57}&0.23&\textbf{0.51}&0.33&\textbf{0.59}\\%
+			abalone16\_29&0.28&\textbf{0.76}&0.48&\textbf{0.56}&0.3&\textbf{0.7}\\%
+			solar\_flare&0.3&\textbf{0.8}&0.34&\textbf{0.36}&0.0&\textbf{0.63}\\%
+			heart\_cleveland&0.17&\textbf{0.56}&0.16&\textbf{0.17}&0.17&\textbf{0.41}\\%
+			balance\_scale&0.0&0.0&\textbf{0.24}&0.11&0.0&\textbf{0.4}\\%
+			postoperative&0.2&\textbf{0.24}&\textbf{0.39}&0.25&0.0&\textbf{0.27}\\%
+				\end{tabular}}
+				\caption{Miara G-mean.}
+				\label{gmeansmoteenn}
+			\end{center}
+		\end{table}
+		
+\subsubsection{Oversampling SMOTE i undersampling metodą Tomek links}
+W tym teście znajdującym się w pliku $imbalancedtests/smoteeen.py$ do równoważenia klas w zbiorach danych wybrano metodę SMOTEENN. 
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccc}%
+				Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\SMOTET}&\specialcell{AB TREE}&\specialcell{AB TREE\\SMOTET}&Stacking&\specialcell{Stacking\\SMOTET}\\%
+				\hline%
+				seeds&0.84&\textbf{0.85}&\textbf{0.89}&0.87&\textbf{0.91}&0.9\\%
+				new\_thyroid&\textbf{0.87}&0.81&\textbf{0.87}&0.86&\textbf{0.93}&0.84\\%
+				vehicle&0.91&0.91&\textbf{0.95}&0.89&\textbf{0.88}&0.83\\%
+				ionosphere&0.78&\textbf{0.81}&0.81&\textbf{0.82}&\textbf{0.87}&0.86\\%
+				vertebal&0.77&\textbf{0.86}&0.75&\textbf{0.8}&0.68&\textbf{0.81}\\%
+				yeastME3&0.74&\textbf{0.9}&0.63&\textbf{0.76}&0.7&\textbf{0.82}\\%
+				ecoli&0.51&\textbf{0.81}&0.51&\textbf{0.68}&0.43&\textbf{0.83}\\%
+				bupa&0.43&\textbf{0.47}&\textbf{0.55}&0.48&0.5&0.5\\%
+				horse\_colic&0.74&\textbf{0.76}&\textbf{0.75}&0.73&0.67&\textbf{0.72}\\%
+				german&\textbf{0.34}&0.33&\textbf{0.51}&0.43&\textbf{0.29}&0.1\\%
+				breast\_cancer&0.31&\textbf{0.38}&0.41&0.41&0.27&\textbf{0.4}\\%
+				cmc&0.24&\textbf{0.47}&\textbf{0.36}&0.3&0.16&\textbf{0.29}\\%
+				hepatitis&0.5&\textbf{0.68}&0.62&\textbf{0.63}&0.34&\textbf{0.62}\\%
+				haberman&\textbf{0.31}&0.25&\textbf{0.42}&0.25&0.19&\textbf{0.21}\\%
+				transfusion&0.37&\textbf{0.45}&0.3&\textbf{0.34}&0.08&\textbf{0.4}\\%
+				car&0.32&\textbf{0.69}&\textbf{0.65}&0.61&0.43&\textbf{0.59}\\%
+				glass&0.0&\textbf{0.53}&0.12&\textbf{0.31}&0.06&\textbf{0.45}\\%
+				abalone16\_29&0.08&\textbf{0.78}&0.24&\textbf{0.3}&0.1&\textbf{0.59}\\%
+				solar\_flare&0.12&\textbf{0.72}&0.12&\textbf{0.21}&0.05&\textbf{0.52}\\%
+				heart\_cleveland&0.06&\textbf{0.39}&0.0&\textbf{0.03}&0.0&\textbf{0.26}\\%
+				balance\_scale&0.0&0.0&0.06&\textbf{0.1}&0.0&\textbf{0.18}\\%
+				postoperative&0.04&\textbf{0.09}&0.17&\textbf{0.25}&0.0&\textbf{0.33}\\%
+			\end{tabular}}
+			\caption{Specyficzność klasy mniejszościowej.}
+			\label{specsmoteen}
+		\end{center}
+	\end{table}
+	\begin{table}[h]
+		\tiny
+		\begin{center}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{c|cccccc}%
+					Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\SMOTET}&\specialcell{AB TREE}&\specialcell{AB TREE\\SMOTET}&Stacking&\specialcell{Stacking\\SMOTET}\\%
+					\hline%
+					seeds&0.88&\textbf{0.89}&0.9&0.9&\textbf{0.92}&0.91\\%
+					new\_thyroid&\textbf{0.92}&0.9&0.92&0.92&\textbf{0.95}&0.91\\%
+					vehicle&\textbf{0.91}&0.9&\textbf{0.97}&0.93&\textbf{0.9}&0.88\\%
+					ionosphere&0.86&\textbf{0.88}&0.88&\textbf{0.89}&0.89&\textbf{0.9}\\%
+					vertebal&0.75&\textbf{0.78}&0.72&\textbf{0.75}&0.71&\textbf{0.76}\\%
+					yeastME3&0.85&\textbf{0.92}&0.78&\textbf{0.85}&0.82&\textbf{0.88}\\%
+					ecoli&0.69&\textbf{0.85}&0.69&\textbf{0.79}&0.64&\textbf{0.85}\\%
+					bupa&0.62&\textbf{0.63}&\textbf{0.65}&0.62&0.63&0.63\\%
+					horse\_colic&0.82&\textbf{0.83}&0.81&0.81&0.8&\textbf{0.82}\\%
+					german&\textbf{0.56}&0.54&\textbf{0.64}&0.61&\textbf{0.52}&0.29\\%
+					breast\_cancer&0.52&\textbf{0.57}&0.56&\textbf{0.58}&0.5&\textbf{0.57}\\%
+					cmc&0.47&\textbf{0.59}&\textbf{0.55}&0.5&0.39&\textbf{0.5}\\%
+					hepatitis&0.64&\textbf{0.68}&0.73&0.73&0.52&\textbf{0.67}\\%
+					haberman&\textbf{0.53}&0.47&\textbf{0.55}&0.44&0.42&\textbf{0.43}\\%
+					transfusion&0.57&0.57&0.49&0.49&0.28&\textbf{0.55}\\%
+					car&0.48&\textbf{0.79}&\textbf{0.77}&0.73&0.63&\textbf{0.76}\\%
+					glass&0.0&\textbf{0.58}&0.33&\textbf{0.5}&0.23&\textbf{0.58}\\%
+					abalone16\_29&0.28&\textbf{0.76}&0.48&\textbf{0.54}&0.31&\textbf{0.71}\\%
+					solar\_flare&0.34&\textbf{0.79}&0.34&\textbf{0.45}&0.21&\textbf{0.69}\\%
+					heart\_cleveland&0.24&\textbf{0.57}&0.0&\textbf{0.12}&0.0&\textbf{0.47}\\%
+					balance\_scale&0.0&0.0&0.24&\textbf{0.3}&0.0&\textbf{0.39}\\%
+					postoperative&0.2&\textbf{0.27}&0.35&\textbf{0.44}&0.0&\textbf{0.47}\\%
+				\end{tabular}}
+				\caption{Miara G-mean.}
+				\label{gmeansmoteenn}
+			\end{center}
+		\end{table}		
+					
+\subsection{Porównanie metod}
+\begin{table}[h]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|ccccc}%
+				Zbiór danych&SMOTE&ADASYN&NCR&SMOTEENN&SMOTETomek\\%
+				\hline%
+				seeds&0.84&\textbf{0.93}&\textbf{0.93}&0.84&0.84\\%
+				new\_thyroid&0.82&0.87&\textbf{0.9}&0.77&0.8\\%
+				vehicle&0.91&0.9&\textbf{0.97}&0.82&0.9\\%
+				ionosphere&0.84&\textbf{0.83}&0.82&0.73&0.81\\%
+				vertebal&0.87&0.91&\textbf{0.93}&0.76&0.88\\%
+				yeastME3&0.9&\textbf{0.97}&0.84&0.9&0.9\\%
+				ecoli&0.8&\textbf{0.94}&0.66&0.83&0.81\\%
+				bupa&0.59&0.62&\textbf{0.84}&0.3&0.51\\%
+				horse\_colic&0.75&0.76&\textbf{0.86}&0.65&0.76\\%
+				german&0.59&0.18&\textbf{0.77}&0.01&0.33\\%
+				breast\_cancer&0.44&0.41&\textbf{0.68}&0.23&0.37\\%
+				cmc&0.47&\textbf{0.55}&0.43&0.26&0.47\\%
+				hepatitis&0.69&0.61&0.66&0.62&\textbf{0.69}\\%
+				haberman&0.31&0.43&\textbf{0.51}&0.02&0.26\\%
+				transfusion&0.62&\textbf{0.59}&0.58&0.0&0.57\\%
+				car&0.69&\textbf{0.79}&0.32&0.69&0.66\\%
+				glass&0.53&0.44&0.0&\textbf{0.53}&\textbf{0.53}\\%
+				abalone16\_29&0.77&\textbf{0.81}&0.13&0.75&0.78\\%
+				solar\_flare&0.72&\textbf{0.84}&0.12&0.72&0.72\\%
+				heart\_cleveland&0.43&\textbf{0.47}&0.14&0.37&0.4\\%
+				balance\_scale&0.0&\textbf{0.18}&0.0&0.0&0.0\\%
+				postoperative&0.1&0.04&\textbf{0.19}&0.08&0.08\\%
+			\end{tabular}}
+			\caption{Specyficzność klasy mniejszościowej.}
+			\label{specsmoteen}
+		\end{center}
+	\end{table}
+	\begin{table}[h]
+		\tiny
+		\begin{center}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{c|ccccc}%
+					Zbiór danych&SMOTE&ADASYN&NCR&SMOTEENN&SMOTETomek\\%
+					\hline%
+					seeds&0.88&0.88&\textbf{0.9}&0.88&0.88\\%
+					new\_thyroid&0.9&0.92&\textbf{0.94}&0.87&0.89\\%
+					vehicle&0.9&0.9&\textbf{0.93}&0.87&0.9\\%
+					ionosphere&0.89&0.87&\textbf{0.88}&0.85&\textbf{0.88}\\%
+					vertebal&0.78&\textbf{0.79}&\textbf{0.79}&0.74&\textbf{0.79}\\%
+					yeastME3&0.92&\textbf{0.93}&0.9&0.92&0.92\\%
+					ecoli&0.85&\textbf{0.87}&0.72&0.86&0.86\\%
+					bupa&0.7&\textbf{0.68}&0.59&0.53&0.66\\%
+					horse\_colic&0.83&\textbf{0.83}&0.81&0.79&\textbf{0.83}\\%
+					german&0.67&0.41&\textbf{0.71}&0.07&0.54\\%
+					breast\_cancer&0.61&0.58&\textbf{0.63}&0.46&0.57\\%
+					cmc&0.6&\textbf{0.64}&0.6&0.47&0.59\\%
+					hepatitis&0.69&0.65&\textbf{0.71}&0.7&0.68\\%
+					haberman&0.51&0.59&\textbf{0.64}&0.11&0.48\\%
+					transfusion&0.62&0.6&\textbf{0.63}&0.0&0.62\\%
+					car&0.79&\textbf{0.84}&0.48&0.79&0.78\\%
+					glass&0.58&0.52&0.0&0.57&\textbf{0.58}\\%
+					abalone16\_29&0.76&\textbf{0.77}&0.36&0.76&\textbf{0.77}\\%
+					solar\_flare&0.8&\textbf{0.83}&0.34&0.8&0.8\\%
+					heart\_cleveland&0.6&\textbf{0.63}&0.37&0.56&0.58\\%
+					balance\_scale&0.0&\textbf{0.38}&0.0&0.0&0.0\\%
+					postoperative&0.29&0.19&\textbf{0.34}&0.28&0.26\\%
+				\end{tabular}}
+				\caption{Miara G-mean.}
+				\label{gmeansmoteenn}
+			\end{center}
+		\end{table}		
+\todo{wielokrotne testy}
+\todo{porównać wyniki ada, stacking, boosting}

@@ -1,0 +1,21 @@
+\select@language {polish}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Drzewo decyzyjne z maksymaln\IeC {\k a} g\IeC {\l }\IeC {\k e}boko\IeC {\'s}ci\IeC {\k a} r\IeC {\'o}wn\IeC {\k a} 3. Drzewo zbudowane dla danych $iris-data$, zawiera trzy klasy (gatunki) setosa, versicolor i virginica oraz cztery atrybuty d\IeC {\l }ugo\IeC {\'s}\IeC {\'c} i szeroko\IeC {\'s}\IeC {\'c} kwiatu peta i sepal. Podzia\IeC {\l } zosta\IeC {\l } dokonany ze wsp\IeC {\'o}\IeC {\l }czynnikiem gini.\relax }}{7}{figure.caption.10}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Przyk\IeC {\l }ad klasyfikatora kNN. Klasyfikator ma przewidzie\IeC {\'c} klas\IeC {\k e} dla czerwonego punktu. Dla k=3 wyszukuje trzech najbli\IeC {\.z}szych s\IeC {\k a}siad\IeC {\'o}w, w tym przypadku nada\IeC {\l }by klas\IeC {\k e} fioletow\IeC {\k a}, natomiast dla k=6 wyszukuje sze\IeC {\'s}ciu najbli\IeC {\.z}szych s\IeC {\k a}siad\IeC {\'o}w i punktowi nada\IeC {\l }by klas\IeC {\k e} zielon\IeC {\k a}.\relax }}{9}{figure.caption.11}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Przyk\IeC {\l }ad klasyfikatora SVM z maksymalnym marginesem oddzielaj\IeC {\k a}cym dwie klasy\relax }}{10}{figure.caption.13}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Przyk\IeC {\l }ad krzywej ROC, dla naiwnego klasyfikatora bayesowskiego oraz dla regresji logistycznej dla danych $abalone041629$.\relax }}{21}{figure.caption.28}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Obci\IeC {\k a}\IeC {\.z}enie i wariancja na przyk\IeC {\l }adzie tarczy strzeleckiej. Klasyfikator poprawnie przewiduje klasy je\IeC {\'s}li niebieskie kropki trafiaj\IeC {\k a} w \IeC {\'s}rodek tarczy.\relax }}{22}{figure.caption.29}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Przyk\IeC {\l }ad sprawdzianu krzy\IeC {\.z}owego k-krotnego, k=4.\relax }}{24}{figure.caption.35}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Wykresy czu\IeC {\l }o\IeC {\'s}ci, specyficzno\IeC {\'s}ci oraz precyzji w zale\IeC {\.z}no\IeC {\'s}ci od wielko\IeC {\'s}ci klasy mniejszo\IeC {\'s}ciowej dla r\IeC {\'o}wnomiernego oraz losowego sprawdzianu krzy\IeC {\.z}owego (k=10).\relax }}{37}{figure.caption.55}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Odchylenie standardowe miar czu\IeC {\l }o\IeC {\'s}ci, specyficzno\IeC {\'s}ci oraz precyzji w zale\IeC {\.z}no\IeC {\'s}ci od wielko\IeC {\'s}ci klasy mniejszo\IeC {\'s}ciowej dla r\IeC {\'o}wnomiernego oraz losowego sprawdzianu krzy\IeC {\.z}owego (k=10).\relax }}{38}{figure.caption.56}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Wykres odchylenia standardowego miar F1 oraz \IeC {\'s}redniej miar F1 w zale\IeC {\.z}no\IeC {\'s}ci od wielko\IeC {\'s}ci klasy mniejszo\IeC {\'s}ciowej dla r\IeC {\'o}wnomiernego oraz losowego sprawdzianu krzy\IeC {\.z}owego (k=10).\relax }}{40}{figure.caption.59}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Wykres odchylenia standardowego miar G-mean oraz \IeC {\'s}redniej miar G-mean w zale\IeC {\.z}no\IeC {\'s}ci od wielko\IeC {\'s}ci klasy mniejszo\IeC {\'s}ciowej dla r\IeC {\'o}wnomiernego oraz losowego sprawdzianu krzy\IeC {\.z}owego (k=10).\relax }}{41}{figure.caption.61}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Wykresy krzywych ROC dla klasyfikator\IeC {\'o}w ze sprawdzianu krzy\IeC {\.z}owego r\IeC {\'o}wnomiernego i normalnego wraz z obliczon\IeC {\k a} \IeC {\'s}redni\IeC {\k a} $ROC_{AVG}$ oraz $ROC_{merge}$.\relax }}{43}{figure.caption.63}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Przyk\IeC {\l }ad sprawdzianu krzy\IeC {\.z}owego z wykonanym oversamplingiem przed sprawdzianem. Sztucznie wygenerowane dane (niebiesko-fioletowy prostok\IeC {\k a}t) zosta\IeC {\l }y u\IeC {\.z}yte jako zbi\IeC {\'o}r testowy.\relax }}{45}{figure.caption.67}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Schemat klasyfikatora eksperckiego. $KB_1..KB_i$ to klasyfikatory bazowe.\relax }}{88}{figure.caption.111}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Projekt meta klasyfikatora\relax }}{89}{figure.caption.112}
+\addvspace {10\p@ }

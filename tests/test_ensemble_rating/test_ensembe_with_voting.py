@@ -8,9 +8,9 @@ from simplefunctions import *
 from pylatex import Tabular, Document, Section
 from pylatex.utils import bold
 from sklearn.ensemble import VotingClassifier
-from classifiers.ensemble_rating import ensembel_rating
+from classifiers.clf_expert import ensembel_rating
 from classifiers.ensemble_rating2 import ensembel_rating2
-from classifiers.ensemble_ratingcv import ensembel_rating_cv
+from classifiers.clf_expertCV import ensembel_rating_cv
 from sklearn.neural_network import MLPClassifier
 import os
 

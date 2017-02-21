@@ -13,7 +13,7 @@ def _parallel_fit_estimator(estimator, X, y):
     return estimator
 
 
-# klasyfikator ENSEBLE z funckja wybierajaca najlepszy klasyfikator na podstawie sprawdzianu krzyzowego
+# klasyfikator ekspercki z funkcja wybierajaca najlepszy klasyfikator na podstawie sprawdzianu krzyzowego
 # funkcja porownujaca klasyfikatory moze byc: precision_tp_fp, g_meantpfp, f1tpfps
 class ensembel_rating_cv(BaseEstimator, ClassifierMixin, TransformerMixin):
     # inicjalizacja

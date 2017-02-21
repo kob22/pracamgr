@@ -16,7 +16,7 @@ def _parallel_fit_estimator(estimator, X, y):
 
 # klasyfikator ENSEBLE z funckja wybierajaca najlepszy klasyfikator na podstawie sprawdzianu krzyzowego
 # funkcja porownujaca klasyfikatory moze byc: precision_tp_fp, g_meantpfp, f1tpfp
-class ensembel_rating(BaseEstimator, ClassifierMixin, TransformerMixin):
+class ensembel_rating2(BaseEstimator, ClassifierMixin, TransformerMixin):
     # inicjalizacja
 
     # function_compare - funkcja porownujaca klasyfikatory
@@ -44,7 +44,6 @@ class ensembel_rating(BaseEstimator, ClassifierMixin, TransformerMixin):
         self.estimators_ = Parallel(n_jobs=self.n_jobs)(
             delayed(_parallel_fit_estimator)(clone(clf), X, y)
             for _, clf in self.estimators)
-
 
         self.groups = np.unique(y)
 
@@ -85,23 +84,14 @@ class ensembel_rating(BaseEstimator, ClassifierMixin, TransformerMixin):
             if size == 1:
                 final_predictions.append(line[0])
             elif size > 1:
+
                 # sprawdza czy jest eksperci wskazali swoja klase, jezeli tylko 1 ekspert wskazal swoja klase to wybierana jest ona
                 # jezeli 2 ekspertow wskaze swoje klasy, wybierana jest ta z wiekszym prawdopodobnienstwem
                 # jezeli prawdopodobienstwo jest jednakowe, wybierany jest klasyfikator z wiekszym g-mean
                 if line[self.experts[0]] == self.groups[0]:
                     if line[self.experts[1]] == self.groups[1]:
-
-                        proba = [self._clf_predict_proba(self.experts[0], X[id].reshape(1, -1))[0][0],
-                                 self._clf_predict_proba(self.experts[1], X[id].reshape(1, -1))[0][1]]
-                        if proba[0] > proba[1]:
-                            final_predictions.append(self.groups[0])
-                        elif proba[1] > proba[0]:
-                            final_predictions.append(self.groups[1])
-                        else:
-                            if self.g_mean[0] > self.g_mean[1]:
-                                final_predictions.append(self.groups[0])
-                            else:
-                                final_predictions.append(self.groups[0])
+                        tmp = np.delete(line, self.experts)
+                        final_predictions.append(tmp[0])
 
                     else:
                         final_predictions.append(self.groups[0])

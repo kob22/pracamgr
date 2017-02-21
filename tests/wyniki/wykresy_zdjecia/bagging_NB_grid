@@ -1,0 +1,2020 @@
+/usr/bin/python2.7 /home/kob22/PycharmProjects/praca/tests/gridsearch/bagging_NB.py
+Liczba klasyfikatorow: 5
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: abalone16_29
+Liczba elementow: 4177
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 3916             | 0.938           |
++-------+------------------+-----------------+
+| 1     | 261              | 0.062           |
++-------+------------------+-----------------+
+/usr/local/lib/python2.7/dist-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+0.273951469214
+{'max_features': 0.4, 'max_samples': 0.7}
+{'max_features': 0.6, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: balance_scale
+Liczba elementow: 625
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 576              | 0.922           |
++-------+------------------+-----------------+
+| 1     | 49               | 0.078           |
++-------+------------------+-----------------+
+0.0
+{'max_features': 0.4, 'max_samples': 0.4}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: breast_cancer
+Liczba elementow: 286
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 201              | 0.703           |
++-------+------------------+-----------------+
+| 1     | 85               | 0.297           |
++-------+------------------+-----------------+
+0.503082347422
+{'max_features': 0.9, 'max_samples': 1.0}
+{'max_features': 0.7, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: car
+Liczba elementow: 1728
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1663             | 0.962           |
++-------+------------------+-----------------+
+| 1     | 65               | 0.038           |
++-------+------------------+-----------------+
+0.646910804001
+{'max_features': 0.8, 'max_samples': 0.6}
+{'max_features': 0.9, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: cmc
+Liczba elementow: 1473
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1140             | 0.774           |
++-------+------------------+-----------------+
+| 1     | 333              | 0.226           |
++-------+------------------+-----------------+
+0.480589464573
+{'max_features': 1.0, 'max_samples': 0.4}
+{'max_features': 0.9, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ecoli
+Liczba elementow: 336
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 301              | 0.896           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.104           |
++-------+------------------+-----------------+
+0.671386346301
+{'max_features': 0.7, 'max_samples': 0.4}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: glass
+Liczba elementow: 214
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 197              | 0.921           |
++-------+------------------+-----------------+
+| 1     | 17               | 0.079           |
++-------+------------------+-----------------+
+/usr/local/lib/python2.7/dist-packages/sklearn/naive_bayes.py:232: RuntimeWarning: invalid value encountered in divide
+  new_mu = np.average(X, axis=0, weights=sample_weight / n_new)
+/usr/local/lib/python2.7/dist-packages/sklearn/naive_bayes.py:234: RuntimeWarning: invalid value encountered in divide
+  weights=sample_weight / n_new)
+/usr/local/lib/python2.7/dist-packages/sklearn/naive_bayes.py:427: RuntimeWarning: divide by zero encountered in log
+  jointi = np.log(self.class_prior_[i])
+0.30517470146
+{'max_features': 0.8, 'max_samples': 0.6}
+{'max_features': 0.6, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: haberman
+Liczba elementow: 306
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.735           |
++-------+------------------+-----------------+
+| 1     | 81               | 0.265           |
++-------+------------------+-----------------+
+0.314786967419
+{'max_features': 1.0, 'max_samples': 0.9}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: heart_cleveland
+Liczba elementow: 303
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 268              | 0.884           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.116           |
++-------+------------------+-----------------+
+0.446237555148
+{'max_features': 0.6, 'max_samples': 0.6}
+{'max_features': 0.7, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: hepatitis
+Liczba elementow: 155
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 123              | 0.794           |
++-------+------------------+-----------------+
+| 1     | 32               | 0.206           |
++-------+------------------+-----------------+
+0.571182795699
+{'max_features': 0.4, 'max_samples': 0.8}
+{'max_features': 0.7, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: new_thyroid
+Liczba elementow: 215
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 185              | 0.860           |
++-------+------------------+-----------------+
+| 1     | 30               | 0.140           |
++-------+------------------+-----------------+
+0.926098191214
+{'max_features': 0.7, 'max_samples': 0.8}
+{'max_features': 0.6, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: postoperative
+Liczba elementow: 90
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 66               | 0.733           |
++-------+------------------+-----------------+
+| 1     | 24               | 0.267           |
++-------+------------------+-----------------+
+0.361253561254
+{'max_features': 0.8, 'max_samples': 0.6}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: solar_flare
+Liczba elementow: 1066
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1023             | 0.960           |
++-------+------------------+-----------------+
+| 1     | 43               | 0.040           |
++-------+------------------+-----------------+
+0.233055413355
+{'max_features': 0.8, 'max_samples': 0.7}
+{'max_features': 0.7, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: transfusion
+Liczba elementow: 748
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 569              | 0.761           |
++-------+------------------+-----------------+
+| 1     | 179              | 0.239           |
++-------+------------------+-----------------+
+0.309006304767
+{'max_features': 1.0, 'max_samples': 0.4}
+{'max_features': 1.0, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vehicle
+Liczba elementow: 846
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 647              | 0.765           |
++-------+------------------+-----------------+
+| 1     | 199              | 0.235           |
++-------+------------------+-----------------+
+0.56937078849
+{'max_features': 0.7, 'max_samples': 0.7}
+{'max_features': 0.4, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: yeastME3
+Liczba elementow: 1484
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1321             | 0.890           |
++-------+------------------+-----------------+
+| 1     | 163              | 0.110           |
++-------+------------------+-----------------+
+0.465428860855
+{'max_features': 0.6, 'max_samples': 1.0}
+{'max_features': 0.7, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: bupa
+Liczba elementow: 341
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 200              | 0.587           |
++-------+------------------+-----------------+
+| 1     | 141              | 0.413           |
++-------+------------------+-----------------+
+0.583597660825
+{'max_features': 0.9, 'max_samples': 0.7}
+{'max_features': 0.9, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: german
+Liczba elementow: 1000
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 700              | 0.700           |
++-------+------------------+-----------------+
+| 1     | 300              | 0.300           |
++-------+------------------+-----------------+
+0.58008434785
+{'max_features': 0.9, 'max_samples': 0.6}
+{'max_features': 1.0, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: horse_colic
+Liczba elementow: 368
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 232              | 0.630           |
++-------+------------------+-----------------+
+| 1     | 136              | 0.370           |
++-------+------------------+-----------------+
+0.745830819558
+{'max_features': 0.4, 'max_samples': 0.9}
+{'max_features': 0.8, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ionosphere
+Liczba elementow: 351
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.641           |
++-------+------------------+-----------------+
+| 1     | 126              | 0.359           |
++-------+------------------+-----------------+
+0.837229437229
+{'max_features': 0.9, 'max_samples': 0.4}
+{'max_features': 0.8, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: seeds
+Liczba elementow: 210
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 140              | 0.667           |
++-------+------------------+-----------------+
+| 1     | 70               | 0.333           |
++-------+------------------+-----------------+
+0.88303960786
+{'max_features': 0.6, 'max_samples': 0.9}
+{'max_features': 0.7, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vertebal
+Liczba elementow: 310
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 210              | 0.677           |
++-------+------------------+-----------------+
+| 1     | 100              | 0.323           |
++-------+------------------+-----------------+
+0.793360875299
+{'max_features': 0.7, 'max_samples': 0.8}
+{'max_features': 1.0, 'max_samples': 1.0}
+Liczba klasyfikatorow: 10
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: abalone16_29
+Liczba elementow: 4177
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 3916             | 0.938           |
++-------+------------------+-----------------+
+| 1     | 261              | 0.062           |
++-------+------------------+-----------------+
+0.245772666558
+{'max_features': 0.6, 'max_samples': 0.6}
+{'max_features': 0.6, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: balance_scale
+Liczba elementow: 625
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 576              | 0.922           |
++-------+------------------+-----------------+
+| 1     | 49               | 0.078           |
++-------+------------------+-----------------+
+0.0
+{'max_features': 0.4, 'max_samples': 0.4}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: breast_cancer
+Liczba elementow: 286
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 201              | 0.703           |
++-------+------------------+-----------------+
+| 1     | 85               | 0.297           |
++-------+------------------+-----------------+
+0.508297258297
+{'max_features': 0.8, 'max_samples': 0.6}
+{'max_features': 1.0, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: car
+Liczba elementow: 1728
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1663             | 0.962           |
++-------+------------------+-----------------+
+| 1     | 65               | 0.038           |
++-------+------------------+-----------------+
+0.727118153181
+{'max_features': 0.6, 'max_samples': 0.7}
+{'max_features': 0.7, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: cmc
+Liczba elementow: 1473
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1140             | 0.774           |
++-------+------------------+-----------------+
+| 1     | 333              | 0.226           |
++-------+------------------+-----------------+
+0.478199964179
+{'max_features': 0.9, 'max_samples': 0.8}
+{'max_features': 1.0, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ecoli
+Liczba elementow: 336
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 301              | 0.896           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.104           |
++-------+------------------+-----------------+
+0.683531746032
+{'max_features': 0.7, 'max_samples': 1.0}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: glass
+Liczba elementow: 214
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 197              | 0.921           |
++-------+------------------+-----------------+
+| 1     | 17               | 0.079           |
++-------+------------------+-----------------+
+0.310903426791
+{'max_features': 0.4, 'max_samples': 0.6}
+{'max_features': 0.7, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: haberman
+Liczba elementow: 306
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.735           |
++-------+------------------+-----------------+
+| 1     | 81               | 0.265           |
++-------+------------------+-----------------+
+0.358681383072
+{'max_features': 0.7, 'max_samples': 0.4}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: heart_cleveland
+Liczba elementow: 303
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 268              | 0.884           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.116           |
++-------+------------------+-----------------+
+0.424917491749
+{'max_features': 1.0, 'max_samples': 0.9}
+{'max_features': 0.9, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: hepatitis
+Liczba elementow: 155
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 123              | 0.794           |
++-------+------------------+-----------------+
+| 1     | 32               | 0.206           |
++-------+------------------+-----------------+
+0.589307257128
+{'max_features': 0.6, 'max_samples': 0.8}
+{'max_features': 0.6, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: new_thyroid
+Liczba elementow: 215
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 185              | 0.860           |
++-------+------------------+-----------------+
+| 1     | 30               | 0.140           |
++-------+------------------+-----------------+
+0.926098191214
+{'max_features': 0.6, 'max_samples': 1.0}
+{'max_features': 0.6, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: postoperative
+Liczba elementow: 90
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 66               | 0.733           |
++-------+------------------+-----------------+
+| 1     | 24               | 0.267           |
++-------+------------------+-----------------+
+0.18406285073
+{'max_features': 1.0, 'max_samples': 0.6}
+{'max_features': 0.8, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: solar_flare
+Liczba elementow: 1066
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1023             | 0.960           |
++-------+------------------+-----------------+
+| 1     | 43               | 0.040           |
++-------+------------------+-----------------+
+0.25942626639
+{'max_features': 0.4, 'max_samples': 0.8}
+{'max_features': 0.4, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: transfusion
+Liczba elementow: 748
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 569              | 0.761           |
++-------+------------------+-----------------+
+| 1     | 179              | 0.239           |
++-------+------------------+-----------------+
+0.292102173034
+{'max_features': 1.0, 'max_samples': 0.7}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vehicle
+Liczba elementow: 846
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 647              | 0.765           |
++-------+------------------+-----------------+
+| 1     | 199              | 0.235           |
++-------+------------------+-----------------+
+0.567876329512
+{'max_features': 0.7, 'max_samples': 0.6}
+{'max_features': 0.8, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: yeastME3
+Liczba elementow: 1484
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1321             | 0.890           |
++-------+------------------+-----------------+
+| 1     | 163              | 0.110           |
++-------+------------------+-----------------+
+0.386764293863
+{'max_features': 0.7, 'max_samples': 1.0}
+{'max_features': 0.4, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: bupa
+Liczba elementow: 341
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 200              | 0.587           |
++-------+------------------+-----------------+
+| 1     | 141              | 0.413           |
++-------+------------------+-----------------+
+0.594514932073
+{'max_features': 0.7, 'max_samples': 0.9}
+{'max_features': 0.8, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: german
+Liczba elementow: 1000
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 700              | 0.700           |
++-------+------------------+-----------------+
+| 1     | 300              | 0.300           |
++-------+------------------+-----------------+
+0.595281214276
+{'max_features': 0.8, 'max_samples': 0.7}
+{'max_features': 1.0, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: horse_colic
+Liczba elementow: 368
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 232              | 0.630           |
++-------+------------------+-----------------+
+| 1     | 136              | 0.370           |
++-------+------------------+-----------------+
+0.750689786977
+{'max_features': 0.7, 'max_samples': 0.7}
+{'max_features': 1.0, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ionosphere
+Liczba elementow: 351
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.641           |
++-------+------------------+-----------------+
+| 1     | 126              | 0.359           |
++-------+------------------+-----------------+
+0.840740740741
+{'max_features': 0.4, 'max_samples': 0.6}
+{'max_features': 0.8, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: seeds
+Liczba elementow: 210
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 140              | 0.667           |
++-------+------------------+-----------------+
+| 1     | 70               | 0.333           |
++-------+------------------+-----------------+
+0.885591856481
+{'max_features': 0.6, 'max_samples': 0.7}
+{'max_features': 0.4, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vertebal
+Liczba elementow: 310
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 210              | 0.677           |
++-------+------------------+-----------------+
+| 1     | 100              | 0.323           |
++-------+------------------+-----------------+
+0.784973196047
+{'max_features': 1.0, 'max_samples': 0.9}
+{'max_features': 1.0, 'max_samples': 0.4}
+Liczba klasyfikatorow: 15
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: abalone16_29
+Liczba elementow: 4177
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 3916             | 0.938           |
++-------+------------------+-----------------+
+| 1     | 261              | 0.062           |
++-------+------------------+-----------------+
+0.249876047302
+{'max_features': 0.6, 'max_samples': 0.9}
+{'max_features': 0.6, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: balance_scale
+Liczba elementow: 625
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 576              | 0.922           |
++-------+------------------+-----------------+
+| 1     | 49               | 0.078           |
++-------+------------------+-----------------+
+0.0
+{'max_features': 0.4, 'max_samples': 0.4}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: breast_cancer
+Liczba elementow: 286
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 201              | 0.703           |
++-------+------------------+-----------------+
+| 1     | 85               | 0.297           |
++-------+------------------+-----------------+
+0.498615716007
+{'max_features': 0.9, 'max_samples': 1.0}
+{'max_features': 0.9, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: car
+Liczba elementow: 1728
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1663             | 0.962           |
++-------+------------------+-----------------+
+| 1     | 65               | 0.038           |
++-------+------------------+-----------------+
+0.756804614124
+{'max_features': 0.6, 'max_samples': 1.0}
+{'max_features': 0.7, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: cmc
+Liczba elementow: 1473
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1140             | 0.774           |
++-------+------------------+-----------------+
+| 1     | 333              | 0.226           |
++-------+------------------+-----------------+
+0.474235528097
+{'max_features': 0.9, 'max_samples': 0.4}
+{'max_features': 1.0, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ecoli
+Liczba elementow: 336
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 301              | 0.896           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.104           |
++-------+------------------+-----------------+
+0.661108977641
+{'max_features': 0.7, 'max_samples': 0.7}
+{'max_features': 0.8, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: glass
+Liczba elementow: 214
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 197              | 0.921           |
++-------+------------------+-----------------+
+| 1     | 17               | 0.079           |
++-------+------------------+-----------------+
+0.340656228507
+{'max_features': 0.9, 'max_samples': 0.4}
+{'max_features': 0.6, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: haberman
+Liczba elementow: 306
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.735           |
++-------+------------------+-----------------+
+| 1     | 81               | 0.265           |
++-------+------------------+-----------------+
+0.311454311454
+{'max_features': 1.0, 'max_samples': 0.7}
+{'max_features': 1.0, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: heart_cleveland
+Liczba elementow: 303
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 268              | 0.884           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.116           |
++-------+------------------+-----------------+
+0.429886666828
+{'max_features': 0.9, 'max_samples': 0.7}
+{'max_features': 1.0, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: hepatitis
+Liczba elementow: 155
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 123              | 0.794           |
++-------+------------------+-----------------+
+| 1     | 32               | 0.206           |
++-------+------------------+-----------------+
+0.563433382449
+{'max_features': 0.6, 'max_samples': 0.9}
+{'max_features': 0.4, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: new_thyroid
+Liczba elementow: 215
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 185              | 0.860           |
++-------+------------------+-----------------+
+| 1     | 30               | 0.140           |
++-------+------------------+-----------------+
+0.926098191214
+{'max_features': 0.4, 'max_samples': 0.9}
+{'max_features': 0.6, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: postoperative
+Liczba elementow: 90
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 66               | 0.733           |
++-------+------------------+-----------------+
+| 1     | 24               | 0.267           |
++-------+------------------+-----------------+
+0.222556390977
+{'max_features': 0.9, 'max_samples': 0.4}
+{'max_features': 0.4, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: solar_flare
+Liczba elementow: 1066
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1023             | 0.960           |
++-------+------------------+-----------------+
+| 1     | 43               | 0.040           |
++-------+------------------+-----------------+
+0.2829119498
+{'max_features': 0.4, 'max_samples': 0.9}
+{'max_features': 0.4, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: transfusion
+Liczba elementow: 748
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 569              | 0.761           |
++-------+------------------+-----------------+
+| 1     | 179              | 0.239           |
++-------+------------------+-----------------+
+0.279164952694
+{'max_features': 1.0, 'max_samples': 0.4}
+{'max_features': 0.8, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vehicle
+Liczba elementow: 846
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 647              | 0.765           |
++-------+------------------+-----------------+
+| 1     | 199              | 0.235           |
++-------+------------------+-----------------+
+0.561217357482
+{'max_features': 0.8, 'max_samples': 0.6}
+{'max_features': 0.9, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: yeastME3
+Liczba elementow: 1484
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1321             | 0.890           |
++-------+------------------+-----------------+
+| 1     | 163              | 0.110           |
++-------+------------------+-----------------+
+0.448152930925
+{'max_features': 0.4, 'max_samples': 0.8}
+{'max_features': 0.6, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: bupa
+Liczba elementow: 341
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 200              | 0.587           |
++-------+------------------+-----------------+
+| 1     | 141              | 0.413           |
++-------+------------------+-----------------+
+0.592693513818
+{'max_features': 0.8, 'max_samples': 0.8}
+{'max_features': 1.0, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: german
+Liczba elementow: 1000
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 700              | 0.700           |
++-------+------------------+-----------------+
+| 1     | 300              | 0.300           |
++-------+------------------+-----------------+
+0.600965998017
+{'max_features': 0.8, 'max_samples': 0.6}
+{'max_features': 0.7, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: horse_colic
+Liczba elementow: 368
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 232              | 0.630           |
++-------+------------------+-----------------+
+| 1     | 136              | 0.370           |
++-------+------------------+-----------------+
+0.75912721494
+{'max_features': 0.4, 'max_samples': 0.7}
+{'max_features': 0.4, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ionosphere
+Liczba elementow: 351
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.641           |
++-------+------------------+-----------------+
+| 1     | 126              | 0.359           |
++-------+------------------+-----------------+
+0.826544002282
+{'max_features': 0.6, 'max_samples': 0.4}
+{'max_features': 0.7, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: seeds
+Liczba elementow: 210
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 140              | 0.667           |
++-------+------------------+-----------------+
+| 1     | 70               | 0.333           |
++-------+------------------+-----------------+
+0.890026164312
+{'max_features': 0.4, 'max_samples': 0.9}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vertebal
+Liczba elementow: 310
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 210              | 0.677           |
++-------+------------------+-----------------+
+| 1     | 100              | 0.323           |
++-------+------------------+-----------------+
+0.784973196047
+{'max_features': 0.8, 'max_samples': 0.9}
+[]
+Liczba klasyfikatorow: 20
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: abalone16_29
+Liczba elementow: 4177
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 3916             | 0.938           |
++-------+------------------+-----------------+
+| 1     | 261              | 0.062           |
++-------+------------------+-----------------+
+0.255271150669
+{'max_features': 0.6, 'max_samples': 1.0}
+{'max_features': 0.6, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: balance_scale
+Liczba elementow: 625
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 576              | 0.922           |
++-------+------------------+-----------------+
+| 1     | 49               | 0.078           |
++-------+------------------+-----------------+
+0.0
+{'max_features': 0.4, 'max_samples': 0.4}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: breast_cancer
+Liczba elementow: 286
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 201              | 0.703           |
++-------+------------------+-----------------+
+| 1     | 85               | 0.297           |
++-------+------------------+-----------------+
+0.498253252167
+{'max_features': 0.8, 'max_samples': 1.0}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: car
+Liczba elementow: 1728
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1663             | 0.962           |
++-------+------------------+-----------------+
+| 1     | 65               | 0.038           |
++-------+------------------+-----------------+
+0.606140194682
+{'max_features': 0.8, 'max_samples': 0.8}
+{'max_features': 0.6, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: cmc
+Liczba elementow: 1473
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1140             | 0.774           |
++-------+------------------+-----------------+
+| 1     | 333              | 0.226           |
++-------+------------------+-----------------+
+0.479366373642
+{'max_features': 0.8, 'max_samples': 0.9}
+{'max_features': 0.8, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ecoli
+Liczba elementow: 336
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 301              | 0.896           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.104           |
++-------+------------------+-----------------+
+0.669894094001
+{'max_features': 0.9, 'max_samples': 0.4}
+{'max_features': 1.0, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: glass
+Liczba elementow: 214
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 197              | 0.921           |
++-------+------------------+-----------------+
+| 1     | 17               | 0.079           |
++-------+------------------+-----------------+
+0.273054048755
+{'max_features': 0.4, 'max_samples': 0.8}
+{'max_features': 0.6, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: haberman
+Liczba elementow: 306
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.735           |
++-------+------------------+-----------------+
+| 1     | 81               | 0.265           |
++-------+------------------+-----------------+
+0.306349206349
+{'max_features': 1.0, 'max_samples': 0.4}
+{'max_features': 0.7, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: heart_cleveland
+Liczba elementow: 303
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 268              | 0.884           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.116           |
++-------+------------------+-----------------+
+0.425472816503
+{'max_features': 0.9, 'max_samples': 1.0}
+{'max_features': 1.0, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: hepatitis
+Liczba elementow: 155
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 123              | 0.794           |
++-------+------------------+-----------------+
+| 1     | 32               | 0.206           |
++-------+------------------+-----------------+
+0.549232854432
+{'max_features': 0.6, 'max_samples': 0.7}
+{'max_features': 0.6, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: new_thyroid
+Liczba elementow: 215
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 185              | 0.860           |
++-------+------------------+-----------------+
+| 1     | 30               | 0.140           |
++-------+------------------+-----------------+
+0.910431116551
+{'max_features': 0.6, 'max_samples': 1.0}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: postoperative
+Liczba elementow: 90
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 66               | 0.733           |
++-------+------------------+-----------------+
+| 1     | 24               | 0.267           |
++-------+------------------+-----------------+
+0.2573561704
+{'max_features': 1.0, 'max_samples': 0.6}
+{'max_features': 0.9, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: solar_flare
+Liczba elementow: 1066
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1023             | 0.960           |
++-------+------------------+-----------------+
+| 1     | 43               | 0.040           |
++-------+------------------+-----------------+
+0.235364559396
+{'max_features': 0.4, 'max_samples': 0.9}
+{'max_features': 0.4, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: transfusion
+Liczba elementow: 748
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 569              | 0.761           |
++-------+------------------+-----------------+
+| 1     | 179              | 0.239           |
++-------+------------------+-----------------+
+0.277027378314
+{'max_features': 1.0, 'max_samples': 0.6}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vehicle
+Liczba elementow: 846
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 647              | 0.765           |
++-------+------------------+-----------------+
+| 1     | 199              | 0.235           |
++-------+------------------+-----------------+
+0.554433933881
+{'max_features': 0.8, 'max_samples': 0.4}
+{'max_features': 0.9, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: yeastME3
+Liczba elementow: 1484
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1321             | 0.890           |
++-------+------------------+-----------------+
+| 1     | 163              | 0.110           |
++-------+------------------+-----------------+
+0.501625131359
+{'max_features': 0.4, 'max_samples': 0.4}
+{'max_features': 0.4, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: bupa
+Liczba elementow: 341
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 200              | 0.587           |
++-------+------------------+-----------------+
+| 1     | 141              | 0.413           |
++-------+------------------+-----------------+
+0.601342447222
+{'max_features': 1.0, 'max_samples': 0.8}
+{'max_features': 1.0, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: german
+Liczba elementow: 1000
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 700              | 0.700           |
++-------+------------------+-----------------+
+| 1     | 300              | 0.300           |
++-------+------------------+-----------------+
+0.60562756018
+{'max_features': 0.4, 'max_samples': 0.4}
+{'max_features': 1.0, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: horse_colic
+Liczba elementow: 368
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 232              | 0.630           |
++-------+------------------+-----------------+
+| 1     | 136              | 0.370           |
++-------+------------------+-----------------+
+0.748091072337
+{'max_features': 0.8, 'max_samples': 0.9}
+{'max_features': 0.4, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ionosphere
+Liczba elementow: 351
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.641           |
++-------+------------------+-----------------+
+| 1     | 126              | 0.359           |
++-------+------------------+-----------------+
+0.847031241768
+{'max_features': 0.7, 'max_samples': 0.8}
+{'max_features': 0.9, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: seeds
+Liczba elementow: 210
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 140              | 0.667           |
++-------+------------------+-----------------+
+| 1     | 70               | 0.333           |
++-------+------------------+-----------------+
+0.893960785448
+{'max_features': 0.4, 'max_samples': 1.0}
+{'max_features': 0.7, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vertebal
+Liczba elementow: 310
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 210              | 0.677           |
++-------+------------------+-----------------+
+| 1     | 100              | 0.323           |
++-------+------------------+-----------------+
+0.786358900685
+{'max_features': 0.8, 'max_samples': 0.4}
+[]
+Liczba klasyfikatorow: 50
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: abalone16_29
+Liczba elementow: 4177
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 3916             | 0.938           |
++-------+------------------+-----------------+
+| 1     | 261              | 0.062           |
++-------+------------------+-----------------+
+0.249426824229
+{'max_features': 0.6, 'max_samples': 0.7}
+{'max_features': 0.6, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: balance_scale
+Liczba elementow: 625
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 576              | 0.922           |
++-------+------------------+-----------------+
+| 1     | 49               | 0.078           |
++-------+------------------+-----------------+
+0.0
+{'max_features': 0.4, 'max_samples': 0.4}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: breast_cancer
+Liczba elementow: 286
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 201              | 0.703           |
++-------+------------------+-----------------+
+| 1     | 85               | 0.297           |
++-------+------------------+-----------------+
+0.49509851217
+{'max_features': 0.9, 'max_samples': 0.7}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: car
+Liczba elementow: 1728
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1663             | 0.962           |
++-------+------------------+-----------------+
+| 1     | 65               | 0.038           |
++-------+------------------+-----------------+
+0.722865963003
+{'max_features': 0.6, 'max_samples': 0.4}
+{'max_features': 0.6, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: cmc
+Liczba elementow: 1473
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1140             | 0.774           |
++-------+------------------+-----------------+
+| 1     | 333              | 0.226           |
++-------+------------------+-----------------+
+0.478456390531
+{'max_features': 0.9, 'max_samples': 0.4}
+{'max_features': 0.8, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ecoli
+Liczba elementow: 336
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 301              | 0.896           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.104           |
++-------+------------------+-----------------+
+0.676770353303
+{'max_features': 0.6, 'max_samples': 0.4}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: glass
+Liczba elementow: 214
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 197              | 0.921           |
++-------+------------------+-----------------+
+| 1     | 17               | 0.079           |
++-------+------------------+-----------------+
+0.315298810324
+{'max_features': 0.4, 'max_samples': 0.8}
+{'max_features': 0.8, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: haberman
+Liczba elementow: 306
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.735           |
++-------+------------------+-----------------+
+| 1     | 81               | 0.265           |
++-------+------------------+-----------------+
+0.303703703704
+{'max_features': 1.0, 'max_samples': 0.4}
+{'max_features': 1.0, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: heart_cleveland
+Liczba elementow: 303
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 268              | 0.884           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.116           |
++-------+------------------+-----------------+
+0.42047038788
+{'max_features': 1.0, 'max_samples': 0.6}
+{'max_features': 0.8, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: hepatitis
+Liczba elementow: 155
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 123              | 0.794           |
++-------+------------------+-----------------+
+| 1     | 32               | 0.206           |
++-------+------------------+-----------------+
+0.554980192417
+{'max_features': 0.4, 'max_samples': 0.9}
+{'max_features': 0.4, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: new_thyroid
+Liczba elementow: 215
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 185              | 0.860           |
++-------+------------------+-----------------+
+| 1     | 30               | 0.140           |
++-------+------------------+-----------------+
+0.926098191214
+{'max_features': 0.7, 'max_samples': 0.9}
+{'max_features': 0.6, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: postoperative
+Liczba elementow: 90
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 66               | 0.733           |
++-------+------------------+-----------------+
+| 1     | 24               | 0.267           |
++-------+------------------+-----------------+
+0.203703703704
+{'max_features': 1.0, 'max_samples': 0.4}
+{'max_features': 0.7, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: solar_flare
+Liczba elementow: 1066
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1023             | 0.960           |
++-------+------------------+-----------------+
+| 1     | 43               | 0.040           |
++-------+------------------+-----------------+
+0.285059242343
+{'max_features': 0.4, 'max_samples': 1.0}
+{'max_features': 0.4, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: transfusion
+Liczba elementow: 748
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 569              | 0.761           |
++-------+------------------+-----------------+
+| 1     | 179              | 0.239           |
++-------+------------------+-----------------+
+0.261280080214
+{'max_features': 1.0, 'max_samples': 0.6}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vehicle
+Liczba elementow: 846
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 647              | 0.765           |
++-------+------------------+-----------------+
+| 1     | 199              | 0.235           |
++-------+------------------+-----------------+
+0.555236491969
+{'max_features': 0.6, 'max_samples': 0.4}
+{'max_features': 0.8, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: yeastME3
+Liczba elementow: 1484
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1321             | 0.890           |
++-------+------------------+-----------------+
+| 1     | 163              | 0.110           |
++-------+------------------+-----------------+
+0.560769422428
+{'max_features': 0.4, 'max_samples': 0.7}
+{'max_features': 0.4, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: bupa
+Liczba elementow: 341
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 200              | 0.587           |
++-------+------------------+-----------------+
+| 1     | 141              | 0.413           |
++-------+------------------+-----------------+
+0.60038465439
+{'max_features': 0.8, 'max_samples': 0.9}
+{'max_features': 0.9, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: german
+Liczba elementow: 1000
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 700              | 0.700           |
++-------+------------------+-----------------+
+| 1     | 300              | 0.300           |
++-------+------------------+-----------------+
+0.595517334523
+{'max_features': 0.7, 'max_samples': 0.9}
+{'max_features': 0.7, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: horse_colic
+Liczba elementow: 368
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 232              | 0.630           |
++-------+------------------+-----------------+
+| 1     | 136              | 0.370           |
++-------+------------------+-----------------+
+0.747463190255
+{'max_features': 0.4, 'max_samples': 0.7}
+{'max_features': 0.9, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ionosphere
+Liczba elementow: 351
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.641           |
++-------+------------------+-----------------+
+| 1     | 126              | 0.359           |
++-------+------------------+-----------------+
+0.824635495224
+{'max_features': 0.6, 'max_samples': 0.9}
+{'max_features': 0.6, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: seeds
+Liczba elementow: 210
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 140              | 0.667           |
++-------+------------------+-----------------+
+| 1     | 70               | 0.333           |
++-------+------------------+-----------------+
+0.876894167345
+{'max_features': 0.4, 'max_samples': 0.8}
+{'max_features': 0.6, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vertebal
+Liczba elementow: 310
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 210              | 0.677           |
++-------+------------------+-----------------+
+| 1     | 100              | 0.323           |
++-------+------------------+-----------------+
+0.784973196047
+{'max_features': 1.0, 'max_samples': 0.7}
+[]
+Liczba klasyfikatorow: 100
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: abalone16_29
+Liczba elementow: 4177
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 3916             | 0.938           |
++-------+------------------+-----------------+
+| 1     | 261              | 0.062           |
++-------+------------------+-----------------+
+0.253211343224
+{'max_features': 0.6, 'max_samples': 0.7}
+{'max_features': 0.6, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: balance_scale
+Liczba elementow: 625
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 576              | 0.922           |
++-------+------------------+-----------------+
+| 1     | 49               | 0.078           |
++-------+------------------+-----------------+
+0.0
+{'max_features': 0.4, 'max_samples': 0.4}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: breast_cancer
+Liczba elementow: 286
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 201              | 0.703           |
++-------+------------------+-----------------+
+| 1     | 85               | 0.297           |
++-------+------------------+-----------------+
+0.494456931957
+{'max_features': 0.7, 'max_samples': 0.7}
+{'max_features': 0.8, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: car
+Liczba elementow: 1728
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1663             | 0.962           |
++-------+------------------+-----------------+
+| 1     | 65               | 0.038           |
++-------+------------------+-----------------+
+0.580898648788
+{'max_features': 0.7, 'max_samples': 0.4}
+{'max_features': 0.7, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: cmc
+Liczba elementow: 1473
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1140             | 0.774           |
++-------+------------------+-----------------+
+| 1     | 333              | 0.226           |
++-------+------------------+-----------------+
+0.476491045153
+{'max_features': 1.0, 'max_samples': 0.4}
+{'max_features': 0.9, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ecoli
+Liczba elementow: 336
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 301              | 0.896           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.104           |
++-------+------------------+-----------------+
+0.67775974026
+{'max_features': 0.6, 'max_samples': 0.4}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: glass
+Liczba elementow: 214
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 197              | 0.921           |
++-------+------------------+-----------------+
+| 1     | 17               | 0.079           |
++-------+------------------+-----------------+
+0.284697778857
+{'max_features': 0.6, 'max_samples': 0.9}
+{'max_features': 0.6, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: haberman
+Liczba elementow: 306
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.735           |
++-------+------------------+-----------------+
+| 1     | 81               | 0.265           |
++-------+------------------+-----------------+
+0.314457314457
+{'max_features': 1.0, 'max_samples': 0.7}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: heart_cleveland
+Liczba elementow: 303
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 268              | 0.884           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.116           |
++-------+------------------+-----------------+
+0.411823551654
+{'max_features': 1.0, 'max_samples': 1.0}
+{'max_features': 0.9, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: hepatitis
+Liczba elementow: 155
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 123              | 0.794           |
++-------+------------------+-----------------+
+| 1     | 32               | 0.206           |
++-------+------------------+-----------------+
+0.548790679242
+{'max_features': 0.4, 'max_samples': 0.9}
+{'max_features': 0.4, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: new_thyroid
+Liczba elementow: 215
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 185              | 0.860           |
++-------+------------------+-----------------+
+| 1     | 30               | 0.140           |
++-------+------------------+-----------------+
+0.926098191214
+{'max_features': 0.4, 'max_samples': 0.9}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: postoperative
+Liczba elementow: 90
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 66               | 0.733           |
++-------+------------------+-----------------+
+| 1     | 24               | 0.267           |
++-------+------------------+-----------------+
+0.160606060606
+{'max_features': 1.0, 'max_samples': 0.9}
+{'max_features': 1.0, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: solar_flare
+Liczba elementow: 1066
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1023             | 0.960           |
++-------+------------------+-----------------+
+| 1     | 43               | 0.040           |
++-------+------------------+-----------------+
+0.31180380595
+{'max_features': 0.4, 'max_samples': 1.0}
+{'max_features': 0.4, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: transfusion
+Liczba elementow: 748
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 569              | 0.761           |
++-------+------------------+-----------------+
+| 1     | 179              | 0.239           |
++-------+------------------+-----------------+
+0.257405489625
+{'max_features': 1.0, 'max_samples': 0.8}
+{'max_features': 1.0, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vehicle
+Liczba elementow: 846
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 647              | 0.765           |
++-------+------------------+-----------------+
+| 1     | 199              | 0.235           |
++-------+------------------+-----------------+
+0.554907645989
+{'max_features': 0.9, 'max_samples': 0.4}
+{'max_features': 0.8, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: yeastME3
+Liczba elementow: 1484
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1321             | 0.890           |
++-------+------------------+-----------------+
+| 1     | 163              | 0.110           |
++-------+------------------+-----------------+
+0.309152071142
+{'max_features': 0.4, 'max_samples': 0.8}
+{'max_features': 0.4, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: bupa
+Liczba elementow: 341
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 200              | 0.587           |
++-------+------------------+-----------------+
+| 1     | 141              | 0.413           |
++-------+------------------+-----------------+
+0.597305223112
+{'max_features': 0.9, 'max_samples': 0.6}
+{'max_features': 0.9, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: german
+Liczba elementow: 1000
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 700              | 0.700           |
++-------+------------------+-----------------+
+| 1     | 300              | 0.300           |
++-------+------------------+-----------------+
+0.59418182643
+{'max_features': 0.7, 'max_samples': 0.6}
+{'max_features': 0.6, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: horse_colic
+Liczba elementow: 368
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 232              | 0.630           |
++-------+------------------+-----------------+
+| 1     | 136              | 0.370           |
++-------+------------------+-----------------+
+0.743334917916
+{'max_features': 0.6, 'max_samples': 0.9}
+{'max_features': 0.6, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ionosphere
+Liczba elementow: 351
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.641           |
++-------+------------------+-----------------+
+| 1     | 126              | 0.359           |
++-------+------------------+-----------------+
+0.819209138635
+{'max_features': 0.7, 'max_samples': 0.8}
+{'max_features': 0.9, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: seeds
+Liczba elementow: 210
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 140              | 0.667           |
++-------+------------------+-----------------+
+| 1     | 70               | 0.333           |
++-------+------------------+-----------------+
+0.88303960786
+{'max_features': 0.4, 'max_samples': 0.9}
+{'max_features': 0.4, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vertebal
+Liczba elementow: 310
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 210              | 0.677           |
++-------+------------------+-----------------+
+| 1     | 100              | 0.323           |
++-------+------------------+-----------------+
+0.784973196047
+{'max_features': 1.0, 'max_samples': 1.0}
+{'max_features': 0.7, 'max_samples': 0.9}
+Liczba klasyfikatorow: 200
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: abalone16_29
+Liczba elementow: 4177
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 3916             | 0.938           |
++-------+------------------+-----------------+
+| 1     | 261              | 0.062           |
++-------+------------------+-----------------+
+0.251951991078
+{'max_features': 0.6, 'max_samples': 0.4}
+{'max_features': 0.6, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: balance_scale
+Liczba elementow: 625
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 576              | 0.922           |
++-------+------------------+-----------------+
+| 1     | 49               | 0.078           |
++-------+------------------+-----------------+
+0.0
+{'max_features': 0.4, 'max_samples': 0.4}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: breast_cancer
+Liczba elementow: 286
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 201              | 0.703           |
++-------+------------------+-----------------+
+| 1     | 85               | 0.297           |
++-------+------------------+-----------------+
+0.490926645818
+{'max_features': 0.7, 'max_samples': 0.8}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: car
+Liczba elementow: 1728
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1663             | 0.962           |
++-------+------------------+-----------------+
+| 1     | 65               | 0.038           |
++-------+------------------+-----------------+
+0.569764533306
+{'max_features': 0.6, 'max_samples': 0.8}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: cmc
+Liczba elementow: 1473
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1140             | 0.774           |
++-------+------------------+-----------------+
+| 1     | 333              | 0.226           |
++-------+------------------+-----------------+
+0.477995994432
+{'max_features': 1.0, 'max_samples': 0.4}
+{'max_features': 1.0, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ecoli
+Liczba elementow: 336
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 301              | 0.896           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.104           |
++-------+------------------+-----------------+
+0.672489648033
+{'max_features': 0.8, 'max_samples': 0.4}
+{'max_features': 0.6, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: glass
+Liczba elementow: 214
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 197              | 0.921           |
++-------+------------------+-----------------+
+| 1     | 17               | 0.079           |
++-------+------------------+-----------------+
+0.304457225018
+{'max_features': 0.4, 'max_samples': 1.0}
+{'max_features': 0.4, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: haberman
+Liczba elementow: 306
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.735           |
++-------+------------------+-----------------+
+| 1     | 81               | 0.265           |
++-------+------------------+-----------------+
+0.301651826042
+{'max_features': 1.0, 'max_samples': 0.4}
+{'max_features': 1.0, 'max_samples': 0.7}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: heart_cleveland
+Liczba elementow: 303
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 268              | 0.884           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.116           |
++-------+------------------+-----------------+
+0.403880373858
+{'max_features': 1.0, 'max_samples': 0.8}
+{'max_features': 1.0, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: hepatitis
+Liczba elementow: 155
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 123              | 0.794           |
++-------+------------------+-----------------+
+| 1     | 32               | 0.206           |
++-------+------------------+-----------------+
+0.509538575462
+{'max_features': 0.6, 'max_samples': 0.4}
+{'max_features': 0.8, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: new_thyroid
+Liczba elementow: 215
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 185              | 0.860           |
++-------+------------------+-----------------+
+| 1     | 30               | 0.140           |
++-------+------------------+-----------------+
+0.904514363885
+{'max_features': 0.4, 'max_samples': 0.4}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: postoperative
+Liczba elementow: 90
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 66               | 0.733           |
++-------+------------------+-----------------+
+| 1     | 24               | 0.267           |
++-------+------------------+-----------------+
+0.151515151515
+{'max_features': 0.9, 'max_samples': 0.7}
+{'max_features': 0.9, 'max_samples': 0.8}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: solar_flare
+Liczba elementow: 1066
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1023             | 0.960           |
++-------+------------------+-----------------+
+| 1     | 43               | 0.040           |
++-------+------------------+-----------------+
+0.260890410321
+{'max_features': 0.4, 'max_samples': 0.7}
+{'max_features': 0.4, 'max_samples': 1.0}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: transfusion
+Liczba elementow: 748
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 569              | 0.761           |
++-------+------------------+-----------------+
+| 1     | 179              | 0.239           |
++-------+------------------+-----------------+
+0.25782208007
+{'max_features': 1.0, 'max_samples': 0.4}
+{'max_features': 1.0, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vehicle
+Liczba elementow: 846
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 647              | 0.765           |
++-------+------------------+-----------------+
+| 1     | 199              | 0.235           |
++-------+------------------+-----------------+
+0.554500245414
+{'max_features': 0.9, 'max_samples': 0.4}
+{'max_features': 0.7, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: yeastME3
+Liczba elementow: 1484
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1321             | 0.890           |
++-------+------------------+-----------------+
+| 1     | 163              | 0.110           |
++-------+------------------+-----------------+
+0.344735731549
+{'max_features': 0.4, 'max_samples': 1.0}
+{'max_features': 0.4, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: bupa
+Liczba elementow: 341
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 200              | 0.587           |
++-------+------------------+-----------------+
+| 1     | 141              | 0.413           |
++-------+------------------+-----------------+
+0.592706120122
+{'max_features': 0.9, 'max_samples': 0.8}
+{'max_features': 0.9, 'max_samples': 0.4}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: german
+Liczba elementow: 1000
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 700              | 0.700           |
++-------+------------------+-----------------+
+| 1     | 300              | 0.300           |
++-------+------------------+-----------------+
+0.597652334502
+{'max_features': 0.4, 'max_samples': 0.4}
+{'max_features': 0.9, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: horse_colic
+Liczba elementow: 368
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 232              | 0.630           |
++-------+------------------+-----------------+
+| 1     | 136              | 0.370           |
++-------+------------------+-----------------+
+0.74248448315
+{'max_features': 0.4, 'max_samples': 0.6}
+{'max_features': 0.6, 'max_samples': 0.9}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: ionosphere
+Liczba elementow: 351
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.641           |
++-------+------------------+-----------------+
+| 1     | 126              | 0.359           |
++-------+------------------+-----------------+
+0.804407968965
+{'max_features': 1.0, 'max_samples': 0.7}
+{'max_features': 0.9, 'max_samples': 0.6}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: seeds
+Liczba elementow: 210
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 140              | 0.667           |
++-------+------------------+-----------------+
+| 1     | 70               | 0.333           |
++-------+------------------+-----------------+
+0.871251068306
+{'max_features': 0.4, 'max_samples': 0.6}
+[]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Zbior danych: vertebal
+Liczba elementow: 310
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 210              | 0.677           |
++-------+------------------+-----------------+
+| 1     | 100              | 0.323           |
++-------+------------------+-----------------+
+0.784973196047
+{'max_features': 1.0, 'max_samples': 1.0}
+{'max_features': 0.7, 'max_samples': 0.4}
+
+Process finished with exit code 0

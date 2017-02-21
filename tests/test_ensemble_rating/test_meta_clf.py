@@ -8,7 +8,7 @@ from simplefunctions import *
 from pylatex import Tabular, Document, Section
 from pylatex.utils import bold
 from classifiers.meta_clf import meta_classifier
-from classifiers.ensemble_rating import ensembel_rating
+from classifiers.clf_expert import ensembel_rating
 import os
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import BaggingClassifier

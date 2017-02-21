@@ -1,3 +1,4 @@
+
 % rozmaite polecenia pomocnicze
 % gdzie rysunki?
 \newcommand{\ImgPath}{.}
@@ -13,10 +14,12 @@
 % na oprawe (1.1cm - 0.7cm)*2 = 0.8cm
 %  oddsidemargin lewy margines na nieparzystych stronach
 % evensidemargin lewy margines na parzystych stronach
-\def\oprawa{1.05cm}
-\addtolength{\oddsidemargin}{\oprawa}
-\addtolength{\evensidemargin}{-\oprawa}
 
+\usepackage[top=2.5cm,bottom=2.5cm,left=3.5cm,right=2.5cm]{geometry}
 \setlist{listparindent=\parindent, parsep=\parskip} % potrzebuje enumitem
 \newcommand{\specialcell}[2][c]{%
 	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\linespread{1.15}
+\usepackage[font=small,labelfont=bf]{caption}
+

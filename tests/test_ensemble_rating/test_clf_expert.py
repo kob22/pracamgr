@@ -7,24 +7,26 @@ from cross_val.cross_val import cross_val_pred2ict
 from simplefunctions import *
 from pylatex import Tabular, Document, Section
 from pylatex.utils import bold
-from classifiers.ensemble_rating import ensembel_rating
-from classifiers.ensemble_ratingcv import ensembel_rating_cv
+from classifiers.clf_expert import ensembel_rating
+from classifiers.clf_expertCV import ensembel_rating_cv
 
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
-dataset = ['abalone0_4', 'abalone041629', 'abalone16_29', 'balance_scale', 'breast_cancer', 'car', 'cmc',
-           'ecoli', 'glass', 'haberman', 'heart_cleveland', 'hepatitis',
-           'new_thyroid', 'postoperative', 'solar_flare', 'transfusion', 'vehicle', 'yeastME1',
-           'yeastME2', 'yeastME3', 'bupa', 'german', 'horse_colic', 'ionosphere', 'seeds', 'vertebal']
+dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME3', 'ecoli', 'bupa',
+           'horse_colic',
+           'german', 'breast_cancer', 'cmc', 'hepatitis', 'haberman', 'transfusion',
+           'car', 'glass', 'abalone16_29', 'solar_flare', 'heart_cleveland', 'balance_scale', 'postoperative']
 
-sections = ["Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
+sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
+iterations = 10
+
 tables = []
 for tab in range(4):
     table = Tabular('c|cccccc')
     table.add_hline()
-    table.add_row(('', "ESR", "ESR CV", "ESR F1", "ESR F1 CV", "ESR G", "ESR G CV"))
+    table.add_row(('', "CLFE", "CLFE CV", "CLFE F1", "CLFE F1 CV", "CLFE G", "CLFE G CV"))
     table.add_hline()
     tables.append(table)
 
@@ -50,7 +52,7 @@ for data in dataset:
     print('Zbior danych: %s' % data)
     importdata.print_info(db.target)
     rows = []
-    for i in range(4):
+    for i in range(5):
         rows.append([data])
 
     length_data = len(data)
@@ -64,15 +66,19 @@ for data in dataset:
         folds = 3
 
     for clf in clfs:
-        clf_ = clone(clf)
-        testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
-        scores = print_to_latex_sespf1g(testpredict, testtarget)
+        scores = []
+        for iteration in range(iterations):
+            clf_ = clone(clf)
+            testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
+            scores.append(accsespf1g(testpredict, testtarget))
+            print(str(clf))
+            print_scores(testpredict, testtarget)
 
-        for i, score in enumerate(scores):
+        avgscores = avgaccsespf1g(scores)
+        to_decimal = print_to_latex_two_decimal(avgscores)
+
+        for i, score in enumerate(to_decimal):
             rows[i].append(score)
-        print("----------")
-        print(str(clf))
-        print_scores(testpredict, testtarget)
     for table, row in zip(tables, rows):
         max_v = max(row[1:])
         new_row = []
@@ -83,9 +89,8 @@ for data in dataset:
                 new_row.append(item)
 
         table.add_row(new_row)
-        table.add_hline()
 
-doc = Document("test_ensemble_rating")
+doc = Document("test_expert_clf")
 for i, (tab, sec) in enumerate(zip(tables, sections)):
     section = Section(sec)
     section.append(tab)

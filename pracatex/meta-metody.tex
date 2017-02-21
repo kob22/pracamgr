@@ -2240,7 +2240,7 @@ Drugi test porównujący wykonano dla 100 klasyfikatorów bazowych oraz ogranicz
 				\end{center}
 			\end{table}
 			
-\subsection{Poprawa klasyfikacji danych mniejszościowych}
+\section{Poprawa klasyfikacji danych mniejszościowych}
 W ostatniej części badań meta-metod, przeprowadzono testy w kierunku poprawy wykrywalności klasy mniejszościowej. W tych badaniach, skupiono się wyłącznie na wpływie bilansowania zbiorów danych na klasyfikację z wykorzystaniem meta-metod. Do badań wybrano klasyfikatory: 
 \begin{itemize}
 	\item bagging z drzewem decyzyjnym z maksymalną głębokością 3 (Bag TREE),
@@ -2248,8 +2248,8 @@ W ostatniej części badań meta-metod, przeprowadzono testy w kierunku poprawy 
 	\item stacking CV z drzewem decyzyjnym, kNN i naiwnym klasyfikatorem Bayesa oraz siecią neuronową MLP jako meta-klasyfikator (Stacking).
 \end{itemize}
 Baginng i AdaBoost zostały przetestowane z 50 klasyfikatorami. Ze względu na to, że jest to badanie w celu poprawy wykrywania klasy mniejszościowej, w wynikach zostały zaprezentowane tylko miara specyficzności oraz G-mean. Testy przeprowadzono zgodnie z opisem z rozdziału \ref{rozdzialbalansowanie}. każdą klasyfikację powtórzono dziesięciokrotnie, a wyniki uśredniono. W sąsiednich kolumnach znajduje się meta-klasyfikator bez przetwarzania danych oraz z, wyniki zostały porównane, większe wartości zostały pogrubione.
-\subsubsection{Oversampling metoda SMOTE}
-W pierwszym teście, wygenerowano sztucznie dane klasy mniejszościowej metodą SMOTE. Przeprowadzone badanie znajduje się w pliku $imbalancedtests/smote.py$. W przypadku metody bagging i stacking tylko w 3 zbiorach lepszy okazał się klasyfikator bez metody SMOTE (tabela specyficzności \ref{specsmote}). Użycie metody SMOTE pozwoliło zwiększyć wykrywalność klasy mniejszościowej o kilka procent, aż do ponad 100\%. Każdemu wzrostowi specyficzności tych klasyfikatorów, towarzyszył wzrost miary G-mean (tabela \ref{gmeansmote}). Nieco gorzej z klasyfikacją poradził sobie model AdaBoost, w 14 na 22 zbiorach zanotowano wzrost. Najlepszym klasyfikatorem okazał się bagging z drzewem decyzyjnym i metodą SMOTE. Uzyskał on najlepszy wynik miary G-mean w 13 zbiorach. Prawie dla każdej bazy (20 z 22) zanotowano kilku procentowy spadek czułości klasy większościowej, tabeli z tymi wynikami nie zamieszczano w pracy.
+\subsection{Oversampling metodą SMOTE}
+W pierwszym teście, wygenerowano sztucznie dodatkowe dane klasy mniejszościowej metodą SMOTE. Przeprowadzone badanie znajduje się w pliku $imbalancedtests/smote.py$. W przypadku metody bagging i stacking tylko w 3 zbiorach (zbiory z dużą liczbą przykładów bezpiecznych) lepszy okazał się klasyfikator bez metody SMOTE (tabela specyficzności \ref{specsmote}). Użycie metody SMOTE pozwoliło zwiększyć wykrywalność klasy mniejszościowej o kilka procent, aż do ponad 100\%. Każdemu wzrostowi specyficzności tych klasyfikatorów, towarzyszył wzrost miary G-mean (tabela \ref{gmeansmote}). Nieco gorzej z klasyfikacją poradził sobie model AdaBoost, w 14 na 22 zbiorach zanotowano wzrost. W zbiorach danych z dużą ilość przykładów brzegowych, rzadki i odstających zanotowano kilku procentowy spadek specyficzności dla klasyfikatora AdaBoost. Najlepszym meta-klasyfikatorem okazał się bagging z drzewem decyzyjnym i metodą SMOTE. Uzyskał on najlepszy wynik miary G-mean w 13 zbiorach. Prawie dla każdej bazy (20 z 22) zanotowano kilku procentowy spadek czułości klasy większościowej, tabeli z tymi wynikami nie zamieszczano w pracy.
 \begin{table}[H]
 	\tiny
 	\begin{center}
@@ -2280,7 +2280,7 @@ W pierwszym teście, wygenerowano sztucznie dane klasy mniejszościowej metodą 
 				balance\_scale&0.0&0.0&0.06&\textbf{0.09}&0.0&\textbf{0.18}\\%
 				postoperative&0.04&\textbf{0.08}&0.17&\textbf{0.24}&0.0&\textbf{0.29}\\%
 			\end{tabular}}
-			\caption{Specyficzność klasy mniejszościowej.}
+			\caption{Specyficzność klasy mniejszościowej z użyciem metody SMOTE.}
 			\label{specsmote}
 \end{center}
 \end{table}
@@ -2314,16 +2314,18 @@ W pierwszym teście, wygenerowano sztucznie dane klasy mniejszościowej metodą 
 				balance\_scale&0.0&0.0&0.24&\textbf{0.28}&0.0&\textbf{0.39}\\%
 				postoperative&0.2&\textbf{0.26}&0.36&\textbf{0.41}&0.0&\textbf{0.44}\\%
 				\end{tabular}}
-				\caption{Miara G-mean.}
+				\caption{Miara G-mean z użyciem metody SMOTE..}
 				\label{gmeansmote}
 			\end{center}
 			\end{table}
-\subsubsection{Oversampling metodą ADASYN}
+\subsection{Oversampling metodą ADASYN}
+Metoda ADASYN to zmodyfikowana wersja algorytmu SMOTE, generująca nowe próbki głównie w okolicach przykładów trudnych w klasyfikacji. Test z wykorzystaniem tej metody znajduje się w pliku $imbalancedtests/adasyn.py$. Skuteczność klasyfikacji klasy mniejszościowej (tabela specyficzności \ref{specadasyn}) z wykorzystaniem tej metody wzrosła o kilka procent dla wszystkich klasyfikatorów i prawie wszystkich baz danych. Bagging z metodą ADASYN dla baz $solar\: flare$ oraz $abalone16\_29$ podniósł wykrywalność klasy mniejszościowej z poziomu poniżej 10\% do powyżej 80\%. Każdy meta-klasyfikator uzyskał gorszą specyficzność z metodą ADASYN dla bazy $new\: thyroid$ oraz $german$ (podobnie jak w metodzie SMOTE). Bazy te zawierają dużo przykładów brzegowych, rzadkich i odstających. Zanotowano także wzrost miary G-mean (tabela \ref{gmeanadasyn}) w 19 bazach dla każdego meta-klasyfikatora. Oczywiście wzrost specyficzności klasy mniejszościowej odbił się na gorszej dokładności klasyfikacji oraz na spadku czułości klasy dominującej. Spadki te wyniosły najczęściej od kilku procent do 20\%.
 \begin{table}[H]
 	\tiny
 	\begin{center}
 		\resizebox{\textwidth}{!}{%
 			\begin{tabular}{c|cccccc}%
+
 				Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\ADASYN}&\specialcell{AB\\TREE}&\specialcell{AB TREE\\ADASYN}&Stacking&\specialcell{Stacking\\ADASYN}\\%
 				\hline%
 				seeds&0.87&\textbf{0.93}&0.84&\textbf{0.91}&0.86&\textbf{0.96}\\%
@@ -2349,8 +2351,8 @@ W pierwszym teście, wygenerowano sztucznie dane klasy mniejszościowej metodą 
 				balance\_scale&0.0&\textbf{0.18}&0.06&\textbf{0.33}&0.0&\textbf{0.41}\\%
 				postoperative&0.04&\textbf{0.06}&0.17&\textbf{0.21}&0.12&\textbf{0.32}\\%
 			\end{tabular}}
-			\caption{Specyficzność klasy mniejszościowej.}
-			\label{specsmote}
+			\caption{Specyficzność klasy mniejszościowej z metodą ADASYN.}
+			\label{specadasyn}
 		\end{center}
 	\end{table}
 	\begin{table}[H]
@@ -2383,18 +2385,19 @@ W pierwszym teście, wygenerowano sztucznie dane klasy mniejszościowej metodą 
 					balance\_scale&0.0&\textbf{0.38}&0.24&\textbf{0.47}&0.0&\textbf{0.51}\\%
 					postoperative&0.2&\textbf{0.23}&0.37&\textbf{0.4}&0.34&\textbf{0.4}\\%
 				\end{tabular}}
-				\caption{Miara G-mean.}
-				\label{gmeansmote}
+				\caption{Miara G-mean z użyciem metody ADASYN.}
+				\label{gmeanadasyn}
 			\end{center}
 		\end{table}
 		
-\subsubsection{Undersampling NCR}
+\subsection{Undersampling NCR}
+Test meta-klasyfikatorów z metodą NCR został on przeprowadzony tak samo jak poprzednie i znajduje się w pliku $imbalancedtests/NCR.py$. Wszystkie meta-klasyfikatory poprawiły wynik specyficzności (tabela specyficzności \ref{specncr}) dla 20 baz. Podobnie jak w poprzednich metoda, wzrost wyniósł średnio kilka procent. Zanotowano mniejszy spadek dokładności i czułości niż w poprzednich metodach. Usunięcie przykładów z klasy mniejszościowej nie zwiększyło specyficzności w trudnych bazach $glass$ oraz $balanace\: scale$ i klasyfikatory nadal nie wykrywały przykładów klasy mniejszościowej w tych bazach. Miara G-mean (tabela \ref{gmeanncr}) wzrosła dla wszystkich baz oprócz $bupa$ oraz $horse\: olic$. Jest to związane z tym, że dla tych dwóch baz czułość klasy większościowej spadła odpowiednio o 20\% oraz o 50\%. Obie bazy zawierają dużo przykładów granicznych, dla których NCR mógł usunąć z sąsiedztwa obserwacje klasy dominującej.
 \begin{table}[H]
 			\tiny
 			\begin{center}
 				\resizebox{\textwidth}{!}{%
 					\begin{tabular}{c|cccccc}%
-Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\ADASYN}&\specialcell{AB TREE}&\specialcell{AB TREE\\ADASYN}&Stacking&\specialcell{Stacking\\ADASYN}\\%
+Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\NCR}&\specialcell{AB TREE}&\specialcell{AB TREE\\NCR}&Stacking&\specialcell{Stacking\\NCR}\\%
 \hline%
 seeds&0.84&\textbf{0.93}&0.84&\textbf{0.92}&0.9&\textbf{0.96}\\%
 new\_thyroid&0.87&\textbf{0.93}&0.87&\textbf{0.88}&0.87&\textbf{0.95}\\%
@@ -2419,8 +2422,8 @@ heart\_cleveland&0.0&\textbf{0.15}&0.03&\textbf{0.08}&0.0&\textbf{0.07}\\%
 balance\_scale&0.0&0.0&0.06&\textbf{0.07}&0.0&0.0\\%
 postoperative&0.04&\textbf{0.23}&0.21&\textbf{0.5}&0.04&\textbf{0.23}\\%
 					\end{tabular}}
-					\caption{Specyficzność klasy mniejszościowej.}
-					\label{specsmote}
+					\caption{Specyficzność klasy mniejszościowej z metodą NCR.}
+					\label{specncr}
 				\end{center}
 			\end{table}
 			\begin{table}[H]
@@ -2428,7 +2431,7 @@ postoperative&0.04&\textbf{0.23}&0.21&\textbf{0.5}&0.04&\textbf{0.23}\\%
 				\begin{center}
 					\resizebox{\textwidth}{!}{%
 						\begin{tabular}{c|cccccc}%
-Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\ADASYN}&\specialcell{AB TREE}&\specialcell{AB TREE\\ADASYN}&Stacking&\specialcell{Stacking\\ADASYN}\\%
+Zbiór danych&\specialcell{Bag\\TREE}&\specialcell{Bag TREE\\NCR}&\specialcell{AB TREE}&\specialcell{AB TREE\\NCR}&Stacking&\specialcell{Stacking\\NCR}\\%
 							\hline%
 seeds&0.88&\textbf{0.9}&0.88&\textbf{0.89}&0.9&\textbf{0.92}\\%
 new\_thyroid&0.92&\textbf{0.95}&0.92&\textbf{0.93}&0.92&\textbf{0.96}\\%
@@ -2453,12 +2456,13 @@ heart\_cleveland&0.0&\textbf{0.38}&0.16&\textbf{0.27}&0.0&\textbf{0.23}\\%
 balance\_scale&0.0&0.0&0.24&\textbf{0.26}&0.0&0.0\\%
 postoperative&0.2&\textbf{0.39}&0.39&\textbf{0.41}&0.2&\textbf{0.38}\\%
 						\end{tabular}}
-						\caption{Miara G-mean.}
-						\label{gmeansmote}
+						\caption{Miara G-mean z metodą NCR.}
+						\label{gmeanncr}
 					\end{center}
 				\end{table}		
-\subsubsection{Oversampling SMOTE i undersampling metodą ENN}
-W tym teście znajdującym się w pliku $imbalancedtests/smoteeen.py$ do równoważenia klas w zbiorach danych wybrano metodę SMOTEENN. 
+\subsection{Oversampling SMOTE i undersampling metodą ENN}
+W tym teście znajdującym się w pliku $imbalancedtests/smoteeen.py$ do równoważenia klas w zbiorach danych wybrano metodę SMOTEENN. W pierwszej kolejności algorytm generuje sztuczne obserwacje metodą SMOTE, a następnie usuwa przykłady z klasy większościowej metodą ENN oraz sztuczne przykłady z klasy mniejszościowej, jeżeli ingerują w przestrzeń klasy dominującej. Otrzymanie wyniki specyficzności są zdecydowanie gorsze niż dla poprzednich metod. Tylko Stacking ze SMOTEENN uzyskał w 14 bazach lepsze wyniki, pozostałe klasyfikatory uzyskały lepsze wyniki dla połowy zbiorów lub mniej. Specyficzność zmalała w bazach zawierających dużo przykładów bezpiecznych ($seeds$, $new\; thyroid$, $vehicle$, $ionosphere$), z dużą ilością przykładów granicznych ($bupa$, $horse\; colic$, $german$) oraz z dużą ilością przykładów mieszanych niebezpiecznych ($haberman$, $transfusion$). Porównując wyniki z samą metodą SMOTE, widać pogorszenie skuteczności klasyfikacji dla połączonych metod SMOTE i ENN.
+W zbiorach, w których spadła specyficzność klasy mniejszościowej, zwiększyła się wykrywalność klasy większościowej. Miarę G-mean przedstawiono w tabeli \ref{gmeansmoteenn}. Meta-klasyfikator bagging aż w połowie zbiorów danych osiągnął gorszy wynik w klasyfikacji obu klas.
 \begin{table}[H]
 	\tiny
 	\begin{center}
@@ -2489,7 +2493,7 @@ W tym teście znajdującym się w pliku $imbalancedtests/smoteeen.py$ do równo
 			balance\_scale&0.0&0.0&\textbf{0.06}&0.02&0.0&\textbf{0.18}\\%
 			postoperative&0.04&\textbf{0.06}&\textbf{0.21}&0.07&0.0&\textbf{0.08}\\%
 			\end{tabular}}
-			\caption{Specyficzność klasy mniejszościowej.}
+			\caption{Specyficzność klasy mniejszościowej z metodą SMOTEENN.}
 			\label{specsmoteen}
 		\end{center}
 	\end{table}
@@ -2523,13 +2527,13 @@ W tym teście znajdującym się w pliku $imbalancedtests/smoteeen.py$ do równo
 			balance\_scale&0.0&0.0&\textbf{0.24}&0.11&0.0&\textbf{0.4}\\%
 			postoperative&0.2&\textbf{0.24}&\textbf{0.39}&0.25&0.0&\textbf{0.27}\\%
 				\end{tabular}}
-				\caption{Miara G-mean.}
+				\caption{Miara G-mean z metodą SMOTEENN.}
 				\label{gmeansmoteenn}
 			\end{center}
 		\end{table}
 		
-\subsubsection{Oversampling SMOTE i undersampling metodą Tomek links}
-W tym teście znajdującym się w pliku $imbalancedtests/smoteeen.py$ do równoważenia klas w zbiorach danych wybrano metodę SMOTEENN. 
+\subsection{Oversampling SMOTE i undersampling metodą Tomek links}
+W następnym teście zbadano wpływ połączonej metody SMOTE z usuwaniem przykładów metodą Tomek links. Test zamieszczono w pliku $imbalancedtests/SMOTETomek.py$. Z wykorzystaniem metody SMOTETomek (w tabeli wyniki z tą metodą oznaczone są jako SMOTETomek) uzyskano zdecydowanie lepsze wyniki niż w metodzie SMOTEENN (tabela specyficzności \ref{specsmotetomek}). Metoda ta poprawiła wyniki w baggingu aż w 19 zbiorach, w stackingu w 17 zbiorach, a algorytmie AdaBoost w 14 zbiorach. Kolejny raz nie udało się poprawić wyników w zbiorach z dużą ilością bezpiecznych przykładów ($seeds$, $new\; thyroid$, $vehicle$) oraz w zbiorach ($german$ oraz $haberman$). Wartość miary G-mean (tabela \ref{gmeansmotetomek}) oprócz wymienionych wcześniej zbiorów wzrosła, mimo, że czułość klasy większościowej spadła dla wszystkich zbiorów, w których zanotowano wzrost wykrywalności klasy zdominowanej. Undersampling Tomek links usuwa 
 \begin{table}[H]
 	\tiny
 	\begin{center}
@@ -2560,8 +2564,8 @@ W tym teście znajdującym się w pliku $imbalancedtests/smoteeen.py$ do równo
 				balance\_scale&0.0&0.0&0.06&\textbf{0.1}&0.0&\textbf{0.18}\\%
 				postoperative&0.04&\textbf{0.09}&0.17&\textbf{0.25}&0.0&\textbf{0.33}\\%
 			\end{tabular}}
-			\caption{Specyficzność klasy mniejszościowej.}
-			\label{specsmoteen}
+			\caption{Specyficzność klasy mniejszościowej dla metody SMOTE z Tomek links.}
+			\label{specsmotetomek}
 		\end{center}
 	\end{table}
 	\begin{table}[H]
@@ -2594,8 +2598,8 @@ W tym teście znajdującym się w pliku $imbalancedtests/smoteeen.py$ do równo
 					balance\_scale&0.0&0.0&0.24&\textbf{0.3}&0.0&\textbf{0.39}\\%
 					postoperative&0.2&\textbf{0.27}&0.35&\textbf{0.44}&0.0&\textbf{0.47}\\%
 				\end{tabular}}
-				\caption{Miara G-mean.}
-				\label{gmeansmoteenn}
+				\caption{Miara G-mean SMOTE z Tomek links.}
+				\label{gmeansmotetomek}
 			\end{center}
 		\end{table}		
 					
@@ -2604,69 +2608,135 @@ W tym teście znajdującym się w pliku $imbalancedtests/smoteeen.py$ do równo
 	\tiny
 	\begin{center}
 		\resizebox{\textwidth}{!}{%
-			\begin{tabular}{c|ccccc}%
-				Zbiór danych&SMOTE&ADASYN&NCR&SMOTEENN&SMOTETomek\\%
+			\begin{tabular}{c|cccccc}%
+				Zbiór danych&Bag&SMOTE&ADASYN&NCR&SMOTEENN&SMOTET\\%
 				\hline%
-				seeds&0.84&\textbf{0.93}&\textbf{0.93}&0.84&0.84\\%
-				new\_thyroid&0.82&0.87&\textbf{0.9}&0.77&0.8\\%
-				vehicle&0.91&0.9&\textbf{0.97}&0.82&0.9\\%
-				ionosphere&0.84&\textbf{0.83}&0.82&0.73&0.81\\%
-				vertebal&0.87&0.91&\textbf{0.93}&0.76&0.88\\%
-				yeastME3&0.9&\textbf{0.97}&0.84&0.9&0.9\\%
-				ecoli&0.8&\textbf{0.94}&0.66&0.83&0.81\\%
-				bupa&0.59&0.62&\textbf{0.84}&0.3&0.51\\%
-				horse\_colic&0.75&0.76&\textbf{0.86}&0.65&0.76\\%
-				german&0.59&0.18&\textbf{0.77}&0.01&0.33\\%
-				breast\_cancer&0.44&0.41&\textbf{0.68}&0.23&0.37\\%
-				cmc&0.47&\textbf{0.55}&0.43&0.26&0.47\\%
-				hepatitis&0.69&0.61&0.66&0.62&\textbf{0.69}\\%
-				haberman&0.31&0.43&\textbf{0.51}&0.02&0.26\\%
-				transfusion&0.62&\textbf{0.59}&0.58&0.0&0.57\\%
-				car&0.69&\textbf{0.79}&0.32&0.69&0.66\\%
-				glass&0.53&0.44&0.0&\textbf{0.53}&\textbf{0.53}\\%
-				abalone16\_29&0.77&\textbf{0.81}&0.13&0.75&0.78\\%
-				solar\_flare&0.72&\textbf{0.84}&0.12&0.72&0.72\\%
-				heart\_cleveland&0.43&\textbf{0.47}&0.14&0.37&0.4\\%
-				balance\_scale&0.0&\textbf{0.18}&0.0&0.0&0.0\\%
-				postoperative&0.1&0.04&\textbf{0.19}&0.08&0.08\\%
+				seeds&0.9&\textbf{0.9}&0.86&0.89&\textbf{0.9}&\textbf{0.9}\\%
+				new\_thyroid&0.97&0.96&\textbf{0.97}&\textbf{0.97}&0.96&0.96\\%
+				vehicle&0.93&0.89&0.9&\textbf{0.91}&\textbf{0.91}&0.9\\%
+				ionosphere&0.9&0.89&0.88&\textbf{0.9}&\textbf{0.9}&\textbf{0.9}\\%
+				vertebal&0.73&\textbf{0.76}&\textbf{0.76}&\textbf{0.76}&0.73&\textbf{0.76}\\%
+				yeastME3&0.95&0.94&0.9&\textbf{0.95}&0.94&0.94\\%
+				ecoli&0.89&0.88&0.8&0.78&\textbf{0.89}&\textbf{0.89}\\%
+				bupa&0.71&\textbf{0.72}&0.69&0.59&0.68&0.7\\%
+				horse\_colic&0.85&\textbf{0.86}&\textbf{0.86}&0.79&0.84&0.85\\%
+				german&0.75&0.7&0.71&0.69&0.7&\textbf{0.72}\\%
+				breast\_cancer&0.71&\textbf{0.71}&\textbf{0.71}&0.61&\textbf{0.71}&\textbf{0.71}\\%
+				cmc&0.78&0.69&0.71&\textbf{0.76}&0.72&0.69\\%
+				hepatitis&0.74&0.69&0.67&0.74&\textbf{0.75}&0.68\\%
+				haberman&0.76&0.7&0.7&\textbf{0.72}&0.71&\textbf{0.72}\\%
+				transfusion&0.78&0.62&0.61&0.65&\textbf{0.76}&0.66\\%
+				car&0.69&0.89&0.89&0.69&\textbf{0.9}&\textbf{0.9}\\%
+				glass&0.9&0.62&0.58&\textbf{0.88}&0.61&0.61\\%
+				abalone16\_29&0.94&0.75&0.73&\textbf{0.94}&0.77&0.75\\%
+				solar\_flare&0.95&0.87&0.82&\textbf{0.94}&0.88&0.87\\%
+				heart\_cleveland&0.87&0.78&0.8&\textbf{0.85}&0.79&0.79\\%
+				balance\_scale&0.92&\textbf{0.92}&0.75&\textbf{0.92}&\textbf{0.92}&\textbf{0.92}\\%
+				postoperative&0.71&0.63&0.66&0.52&\textbf{0.72}&0.63\\%
 			\end{tabular}}
-			\caption{Specyficzność klasy mniejszościowej.}
-			\label{specsmoteen}
+			\caption{Dokładność klasyfikacji.}
+			\label{accporownanie}
 		\end{center}
 	\end{table}
 	\begin{table}[H]
 		\tiny
 		\begin{center}
 			\resizebox{\textwidth}{!}{%
-				\begin{tabular}{c|ccccc}%
-					Zbiór danych&SMOTE&ADASYN&NCR&SMOTEENN&SMOTETomek\\%
+				\begin{tabular}{c|cccccc}%
+					Zbiór danych&Bag&SMOTE&ADASYN&NCR&SMOTEENN&SMOTET\\%
 					\hline%
-					seeds&0.88&0.88&\textbf{0.9}&0.88&0.88\\%
-					new\_thyroid&0.9&0.92&\textbf{0.94}&0.87&0.89\\%
-					vehicle&0.9&0.9&\textbf{0.93}&0.87&0.9\\%
-					ionosphere&0.89&0.87&\textbf{0.88}&0.85&\textbf{0.88}\\%
-					vertebal&0.78&\textbf{0.79}&\textbf{0.79}&0.74&\textbf{0.79}\\%
-					yeastME3&0.92&\textbf{0.93}&0.9&0.92&0.92\\%
-					ecoli&0.85&\textbf{0.87}&0.72&0.86&0.86\\%
-					bupa&0.7&\textbf{0.68}&0.59&0.53&0.66\\%
-					horse\_colic&0.83&\textbf{0.83}&0.81&0.79&\textbf{0.83}\\%
-					german&0.67&0.41&\textbf{0.71}&0.07&0.54\\%
-					breast\_cancer&0.61&0.58&\textbf{0.63}&0.46&0.57\\%
-					cmc&0.6&\textbf{0.64}&0.6&0.47&0.59\\%
-					hepatitis&0.69&0.65&\textbf{0.71}&0.7&0.68\\%
-					haberman&0.51&0.59&\textbf{0.64}&0.11&0.48\\%
-					transfusion&0.62&0.6&\textbf{0.63}&0.0&0.62\\%
-					car&0.79&\textbf{0.84}&0.48&0.79&0.78\\%
-					glass&0.58&0.52&0.0&0.57&\textbf{0.58}\\%
-					abalone16\_29&0.76&\textbf{0.77}&0.36&0.76&\textbf{0.77}\\%
-					solar\_flare&0.8&\textbf{0.83}&0.34&0.8&0.8\\%
-					heart\_cleveland&0.6&\textbf{0.63}&0.37&0.56&0.58\\%
-					balance\_scale&0.0&\textbf{0.38}&0.0&0.0&0.0\\%
-					postoperative&0.29&0.19&\textbf{0.34}&0.28&0.26\\%
+					seeds&0.92&0.92&0.83&0.87&\textbf{0.94}&0.93\\%
+					new\_thyroid&0.98&\textbf{0.99}&0.98&0.98&\textbf{0.99}&\textbf{0.99}\\%
+					vehicle&0.94&0.88&0.9&0.89&\textbf{0.93}&0.89\\%
+					ionosphere&0.96&0.94&0.91&0.94&\textbf{0.98}&0.94\\%
+					vertebal&0.72&0.71&0.69&0.68&\textbf{0.72}&0.71\\%
+					yeastME3&0.97&0.94&0.89&\textbf{0.96}&0.94&0.94\\%
+					ecoli&0.93&0.89&0.78&0.79&\textbf{0.9}&\textbf{0.9}\\%
+					bupa&0.9&0.81&0.74&0.42&\textbf{0.94}&0.86\\%
+					horse\_colic&0.93&0.91&0.91&0.75&\textbf{0.95}&0.9\\%
+					german&0.93&0.75&0.95&0.65&\textbf{1.0}&0.88\\%
+					breast\_cancer&0.9&0.83&0.84&0.59&\textbf{0.92}&0.86\\%
+					cmc&0.92&0.76&0.76&\textbf{0.86}&0.85&0.76\\%
+					hepatitis&0.79&0.68&0.69&0.77&\textbf{0.78}&0.68\\%
+					haberman&0.93&0.84&0.78&0.81&\textbf{0.96}&0.89\\%
+					transfusion&0.91&0.61&0.61&0.68&\textbf{1.0}&0.69\\%
+					car&0.71&0.9&0.89&0.71&\textbf{0.91}&\textbf{0.91}\\%
+					glass&0.98&0.62&0.59&\textbf{0.96}&0.61&0.62\\%
+					abalone16\_29&1.0&0.75&0.72&\textbf{0.99}&0.77&0.75\\%
+					solar\_flare&0.99&0.88&0.82&\textbf{0.98}&0.88&0.88\\%
+					heart\_cleveland&0.98&0.83&0.85&\textbf{0.94}&0.84&0.84\\%
+					balance\_scale&1.0&\textbf{1.0}&0.8&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}\\%
+					postoperative&0.95&0.83&0.87&0.64&\textbf{0.96}&0.83\\%
+				\end{tabular}}
+				\caption{Czułość klasy większościowej.}
+				\label{sensporownanie}
+			\end{center}
+		\end{table}
+\begin{table}[H]
+	\tiny
+	\begin{center}
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{c|cccccc}%
+				Zbiór danych&Bag&SMOTE&ADASYN&NCR&SMOTEENN&SMOTET\\%
+				\hline%
+				seeds&0.87&0.85&\textbf{0.93}&\textbf{0.93}&0.83&0.84\\%
+				new\_thyroid&0.87&0.82&0.87&\textbf{0.94}&0.78&0.81\\%
+				vehicle&0.89&0.91&0.9&\textbf{0.98}&0.83&0.9\\%
+				ionosphere&0.8&0.81&\textbf{0.83}&0.82&0.75&0.82\\%
+				vertebal&0.74&0.86&0.9&\textbf{0.93}&0.74&0.86\\%
+				yeastME3&0.77&0.91&\textbf{0.96}&0.85&0.9&0.9\\%
+				ecoli&0.54&0.81&\textbf{0.94}&0.67&0.8&0.81\\%
+				bupa&0.45&0.59&0.63&\textbf{0.82}&0.3&0.48\\%
+				horse\_colic&0.73&0.77&0.76&\textbf{0.85}&0.65&0.76\\%
+				german&0.32&0.59&0.17&\textbf{0.77}&0.01&0.32\\%
+				breast\_cancer&0.28&0.42&0.42&\textbf{0.64}&0.23&0.37\\%
+				cmc&0.29&0.46&\textbf{0.54}&0.43&0.28&0.47\\%
+				hepatitis&0.53&\textbf{0.7}&0.58&0.63&0.61&0.68\\%
+				haberman&0.28&0.31&0.48&\textbf{0.5}&0.02&0.23\\%
+				transfusion&0.35&\textbf{0.64}&0.59&0.56&0.0&0.54\\%
+				car&0.32&0.7&\textbf{0.89}&0.32&0.69&0.67\\%
+				glass&0.0&\textbf{0.53}&0.44&0.01&\textbf{0.53}&0.52\\%
+				abalone16\_29&0.09&0.78&\textbf{0.81}&0.13&0.75&0.77\\%
+				solar\_flare&0.09&0.72&\textbf{0.84}&0.16&0.72&0.72\\%
+				heart\_cleveland&0.03&0.41&\textbf{0.44}&0.14&0.38&0.38\\%
+				balance\_scale&0.0&0.0&\textbf{0.18}&0.0&0.0&0.0\\%
+				postoperative&0.04&0.08&0.07&\textbf{0.2}&0.06&0.08\\%
+			\end{tabular}}
+			\caption{Specyficzność klasy mniejszościowej.}
+			\label{specporownanie}
+		\end{center}
+	\end{table}
+	\begin{table}[H]
+		\tiny
+		\begin{center}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{c|cccccc}%
+					Zbiór danych&Bag&SMOTE&ADASYN&NCR&SMOTEENN&SMOTET\\%
+					\hline%
+					seeds&0.9&0.88&0.88&\textbf{0.9}&0.88&0.88\\%
+					new\_thyroid&0.92&0.9&0.92&\textbf{0.96}&0.87&0.89\\%
+					vehicle&0.92&0.9&0.9&\textbf{0.93}&0.88&0.9\\%
+					ionosphere&0.88&0.87&0.87&\textbf{0.88}&0.85&\textbf{0.88}\\%
+					vertebal&0.73&0.78&\textbf{0.79}&\textbf{0.79}&0.73&0.78\\%
+					yeastME3&0.87&0.92&\textbf{0.93}&0.9&0.92&0.92\\%
+					ecoli&0.71&0.85&\textbf{0.86}&0.73&0.85&0.85\\%
+					bupa&0.63&\textbf{0.69}&0.68&0.59&0.54&0.64\\%
+					horse\_colic&0.82&\textbf{0.83}&\textbf{0.83}&0.8&0.78&\textbf{0.83}\\%
+					german&0.54&0.66&0.4&\textbf{0.71}&0.07&0.53\\%
+					breast\_cancer&0.5&0.59&0.59&\textbf{0.62}&0.46&0.56\\%
+					cmc&0.52&0.59&\textbf{0.64}&0.6&0.49&0.59\\%
+					hepatitis&0.65&0.69&0.64&\textbf{0.7}&0.69&0.68\\%
+					haberman&0.51&0.51&0.61&\textbf{0.63}&0.12&0.45\\%
+					transfusion&0.57&\textbf{0.62}&0.6&\textbf{0.62}&0.0&0.61\\%
+					car&0.48&0.8&\textbf{0.89}&0.48&0.79&0.78\\%
+					glass&0.0&\textbf{0.57}&0.51&0.03&\textbf{0.57}&\textbf{0.57}\\%
+					abalone16\_29&0.3&0.76&\textbf{0.77}&0.36&0.76&0.76\\%
+					solar\_flare&0.3&0.8&\textbf{0.83}&0.39&0.8&0.8\\%
+					heart\_cleveland&0.17&0.59&\textbf{0.61}&0.36&0.57&0.56\\%
+					balance\_scale&0.0&0.0&\textbf{0.38}&0.0&0.0&0.0\\%
+					postoperative&0.2&0.26&0.24&\textbf{0.35}&0.23&0.26\\%
 				\end{tabular}}
 				\caption{Miara G-mean.}
-				\label{gmeansmoteenn}
+				\label{gmeanporownanie}
 			\end{center}
 		\end{table}		
-\todo{wielokrotne testy}
-\todo{porównać wyniki ada, stacking, boosting}

@@ -1,0 +1,754 @@
+/usr/bin/python2.7 /home/kob22/PycharmProjects/praca/maintest.py
+Console output is saving to: /home/kob22/maintest.txt
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+abalone16_29
+Liczba elementow: 4177
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 3916             | 0.938           |
++-------+------------------+-----------------+
+| 1     | 261              | 0.062           |
++-------+------------------+-----------------+
+None
+/usr/local/lib/python2.7/dist-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+0.311202856123
+{'max_features': 0.8, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 5}
+3
+0.153819738597
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 10}
+{'max_features': 0.9, 'max_samples': 0.8, 'n_estimators': 10}
+5
+0.213331086928
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 10}
+{'max_features': 0.9, 'max_samples': 0.9, 'n_estimators': 10}
+7
+0.258425017669
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 5}
+10
+0.289608177276
+{'max_features': 0.8, 'max_samples': 0.6, 'n_estimators': 10}
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 10}
+20
+0.299044211033
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 5}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+balance_scale
+Liczba elementow: 625
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 576              | 0.922           |
++-------+------------------+-----------------+
+| 1     | 49               | 0.078           |
++-------+------------------+-----------------+
+None
+0.0428571428571
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 20}
+3
+0.0
+{'max_features': 0.4, 'max_samples': 0.4, 'n_estimators': 5}
+[]
+5
+0.0421052631579
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 5}
+{'max_features': 0.8, 'max_samples': 0.7, 'n_estimators': 5}
+7
+0.0694060606061
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 10}
+{'max_features': 0.7, 'max_samples': 0.9, 'n_estimators': 5}
+10
+0.0444444444444
+{'max_features': 1.0, 'max_samples': 0.8, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 5}
+20
+0.068319504644
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 20}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+breast_cancer
+Liczba elementow: 286
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 201              | 0.703           |
++-------+------------------+-----------------+
+| 1     | 85               | 0.297           |
++-------+------------------+-----------------+
+None
+0.512650186976
+{'max_features': 0.9, 'max_samples': 0.9, 'n_estimators': 15}
+{'max_features': 0.7, 'max_samples': 0.6, 'n_estimators': 5}
+3
+0.482703343168
+{'max_features': 0.8, 'max_samples': 0.4, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 50}
+5
+0.467279573573
+{'max_features': 0.8, 'max_samples': 0.4, 'n_estimators': 15}
+{'max_features': 0.7, 'max_samples': 0.4, 'n_estimators': 5}
+7
+0.498659737096
+{'max_features': 0.6, 'max_samples': 0.4, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 0.4, 'n_estimators': 50}
+10
+0.489696018267
+{'max_features': 0.9, 'max_samples': 0.8, 'n_estimators': 10}
+{'max_features': 0.9, 'max_samples': 0.9, 'n_estimators': 15}
+20
+0.500814000814
+{'max_features': 0.8, 'max_samples': 1.0, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 20}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+car
+Liczba elementow: 1728
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1663             | 0.962           |
++-------+------------------+-----------------+
+| 1     | 65               | 0.038           |
++-------+------------------+-----------------+
+None
+0.929777167277
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.8, 'n_estimators': 15}
+3
+0.145987654321
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 20}
+[]
+5
+0.73561324221
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 20}
+7
+0.879152768528
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 20}
+10
+0.910129569505
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 15}
+[]
+20
+0.930036976912
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 10}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 15}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+cmc
+Liczba elementow: 1473
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1140             | 0.774           |
++-------+------------------+-----------------+
+| 1     | 333              | 0.226           |
++-------+------------------+-----------------+
+None
+0.373569071617
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 15}
+3
+0.352262654668
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 50}
+5
+0.355951295432
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 20}
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 5}
+7
+0.388741871631
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 10}
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 5}
+10
+0.364484571611
+{'max_features': 0.9, 'max_samples': 0.8, 'n_estimators': 10}
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 50}
+20
+0.378123826901
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 50}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 100}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+ecoli
+Liczba elementow: 336
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 301              | 0.896           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.104           |
++-------+------------------+-----------------+
+None
+0.639823348694
+{'max_features': 0.8, 'max_samples': 0.6, 'n_estimators': 10}
+{'max_features': 0.9, 'max_samples': 0.9, 'n_estimators': 5}
+3
+0.573247354497
+{'max_features': 0.7, 'max_samples': 0.8, 'n_estimators': 100}
+{'max_features': 0.8, 'max_samples': 0.4, 'n_estimators': 100}
+5
+0.645074224022
+{'max_features': 0.6, 'max_samples': 0.6, 'n_estimators': 10}
+{'max_features': 0.9, 'max_samples': 0.6, 'n_estimators': 20}
+7
+0.624890350877
+{'max_features': 0.9, 'max_samples': 0.8, 'n_estimators': 20}
+{'max_features': 0.8, 'max_samples': 0.8, 'n_estimators': 50}
+10
+0.637061403509
+{'max_features': 0.7, 'max_samples': 0.9, 'n_estimators': 100}
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 15}
+20
+0.624507697816
+{'max_features': 0.9, 'max_samples': 0.4, 'n_estimators': 15}
+{'max_features': 0.7, 'max_samples': 0.7, 'n_estimators': 15}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+glass
+Liczba elementow: 214
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 197              | 0.921           |
++-------+------------------+-----------------+
+| 1     | 17               | 0.079           |
++-------+------------------+-----------------+
+None
+0.235514018692
+{'max_features': 0.8, 'max_samples': 0.9, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 0.8, 'n_estimators': 5}
+3
+0.0961281708945
+{'max_features': 0.4, 'max_samples': 1.0, 'n_estimators': 5}
+[]
+5
+0.17960789825
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 5}
+{'max_features': 0.7, 'max_samples': 0.7, 'n_estimators': 5}
+7
+0.263881253436
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 5}
+10
+0.229396771453
+{'max_features': 0.7, 'max_samples': 1.0, 'n_estimators': 15}
+{'max_features': 0.4, 'max_samples': 1.0, 'n_estimators': 5}
+20
+0.168224299065
+{'max_features': 0.7, 'max_samples': 0.9, 'n_estimators': 10}
+[]
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+haberman
+Liczba elementow: 306
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.735           |
++-------+------------------+-----------------+
+| 1     | 81               | 0.265           |
++-------+------------------+-----------------+
+None
+0.411342174
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 10}
+3
+0.460889957963
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 100}
+5
+0.451812856638
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 15}
+7
+0.432267273295
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 5}
+10
+0.392684610076
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 50}
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 50}
+20
+0.444851444851
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 15}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+heart_cleveland
+Liczba elementow: 303
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 268              | 0.884           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.116           |
++-------+------------------+-----------------+
+None
+0.319534810624
+{'max_features': 0.8, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 0.8, 'max_samples': 0.4, 'n_estimators': 5}
+3
+0.242234517569
+{'max_features': 0.8, 'max_samples': 0.4, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 0.6, 'n_estimators': 5}
+5
+0.295175231809
+{'max_features': 0.7, 'max_samples': 0.9, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 0.4, 'n_estimators': 5}
+7
+0.281481481481
+{'max_features': 0.8, 'max_samples': 0.6, 'n_estimators': 5}
+{'max_features': 0.8, 'max_samples': 0.8, 'n_estimators': 5}
+10
+0.279633489665
+{'max_features': 0.8, 'max_samples': 0.6, 'n_estimators': 5}
+{'max_features': 0.7, 'max_samples': 0.9, 'n_estimators': 5}
+20
+0.233352747039
+{'max_features': 0.4, 'max_samples': 0.6, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 5}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+hepatitis
+Liczba elementow: 155
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 123              | 0.794           |
++-------+------------------+-----------------+
+| 1     | 32               | 0.206           |
++-------+------------------+-----------------+
+None
+0.618295415959
+{'max_features': 0.4, 'max_samples': 0.8, 'n_estimators': 15}
+{'max_features': 0.9, 'max_samples': 0.7, 'n_estimators': 5}
+3
+0.585922871695
+{'max_features': 0.8, 'max_samples': 0.6, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 0.4, 'n_estimators': 20}
+5
+0.604337941628
+{'max_features': 0.4, 'max_samples': 0.4, 'n_estimators': 15}
+{'max_features': 0.8, 'max_samples': 0.4, 'n_estimators': 15}
+7
+0.588817204301
+{'max_features': 0.7, 'max_samples': 0.9, 'n_estimators': 10}
+{'max_features': 0.7, 'max_samples': 0.4, 'n_estimators': 50}
+10
+0.570288624788
+{'max_features': 0.4, 'max_samples': 0.8, 'n_estimators': 20}
+{'max_features': 0.4, 'max_samples': 0.6, 'n_estimators': 10}
+20
+0.602492759413
+{'max_features': 0.7, 'max_samples': 0.7, 'n_estimators': 15}
+{'max_features': 0.8, 'max_samples': 0.7, 'n_estimators': 10}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+new_thyroid
+Liczba elementow: 215
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 185              | 0.860           |
++-------+------------------+-----------------+
+| 1     | 30               | 0.140           |
++-------+------------------+-----------------+
+None
+0.924098207214
+{'max_features': 0.4, 'max_samples': 0.7, 'n_estimators': 15}
+{'max_features': 0.4, 'max_samples': 0.7, 'n_estimators': 50}
+3
+0.924098207214
+{'max_features': 0.8, 'max_samples': 0.9, 'n_estimators': 5}
+{'max_features': 0.8, 'max_samples': 0.4, 'n_estimators': 50}
+5
+0.938938853707
+{'max_features': 0.9, 'max_samples': 0.8, 'n_estimators': 5}
+{'max_features': 0.6, 'max_samples': 0.6, 'n_estimators': 100}
+7
+0.931505507956
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 10}
+{'max_features': 0.4, 'max_samples': 0.8, 'n_estimators': 10}
+10
+0.917441860465
+{'max_features': 0.4, 'max_samples': 0.6, 'n_estimators': 15}
+[]
+20
+0.96330749354
+{'max_features': 0.4, 'max_samples': 0.7, 'n_estimators': 15}
+{'max_features': 0.4, 'max_samples': 0.6, 'n_estimators': 15}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+postoperative
+Liczba elementow: 90
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 66               | 0.733           |
++-------+------------------+-----------------+
+| 1     | 24               | 0.267           |
++-------+------------------+-----------------+
+None
+0.352272727273
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 5}
+{'max_features': 0.7, 'max_samples': 1.0, 'n_estimators': 5}
+3
+0.260101010101
+{'max_features': 0.8, 'max_samples': 0.4, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 0.6, 'n_estimators': 15}
+5
+0.271212121212
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 5}
+{'max_features': 0.8, 'max_samples': 0.7, 'n_estimators': 5}
+7
+0.266666666667
+{'max_features': 0.8, 'max_samples': 0.6, 'n_estimators': 15}
+{'max_features': 0.9, 'max_samples': 0.8, 'n_estimators': 15}
+10
+0.3
+{'max_features': 0.9, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 5}
+20
+0.241558441558
+{'max_features': 0.7, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 15}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+solar_flare
+Liczba elementow: 1066
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1023             | 0.960           |
++-------+------------------+-----------------+
+| 1     | 43               | 0.040           |
++-------+------------------+-----------------+
+None
+0.215947467167
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 10}
+{'max_features': 1.0, 'max_samples': 0.8, 'n_estimators': 5}
+3
+0.154489413026
+{'max_features': 0.9, 'max_samples': 0.4, 'n_estimators': 5}
+{'max_features': 0.6, 'max_samples': 0.9, 'n_estimators': 5}
+5
+0.172581077459
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 10}
+7
+0.220735487152
+{'max_features': 1.0, 'max_samples': 0.8, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 0.8, 'n_estimators': 15}
+10
+0.18946663093
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 15}
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 5}
+20
+0.203255010572
+{'max_features': 0.8, 'max_samples': 0.4, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 15}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+transfusion
+Liczba elementow: 748
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 569              | 0.761           |
++-------+------------------+-----------------+
+| 1     | 179              | 0.239           |
++-------+------------------+-----------------+
+None
+0.299484516633
+{'max_features': 0.6, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 5}
+3
+0.255121496786
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 0.7, 'n_estimators': 5}
+5
+0.349193090971
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 100}
+7
+0.316851252126
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 50}
+10
+0.305972175519
+{'max_features': 0.8, 'max_samples': 0.6, 'n_estimators': 5}
+{'max_features': 0.8, 'max_samples': 0.6, 'n_estimators': 10}
+20
+0.31256398233
+{'max_features': 0.8, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 0.7, 'max_samples': 0.8, 'n_estimators': 5}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+vehicle
+Liczba elementow: 846
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 647              | 0.765           |
++-------+------------------+-----------------+
+| 1     | 199              | 0.235           |
++-------+------------------+-----------------+
+None
+0.946377126668
+{'max_features': 0.4, 'max_samples': 0.6, 'n_estimators': 100}
+{'max_features': 0.6, 'max_samples': 0.8, 'n_estimators': 100}
+3
+0.892274356166
+{'max_features': 0.4, 'max_samples': 0.6, 'n_estimators': 100}
+{'max_features': 0.6, 'max_samples': 0.6, 'n_estimators': 100}
+5
+0.92771695694
+{'max_features': 0.4, 'max_samples': 0.9, 'n_estimators': 50}
+{'max_features': 0.4, 'max_samples': 0.7, 'n_estimators': 100}
+7
+0.944764515555
+{'max_features': 0.6, 'max_samples': 0.9, 'n_estimators': 100}
+{'max_features': 0.7, 'max_samples': 0.9, 'n_estimators': 100}
+10
+0.952398698982
+{'max_features': 0.6, 'max_samples': 0.9, 'n_estimators': 100}
+{'max_features': 0.8, 'max_samples': 1.0, 'n_estimators': 100}
+20
+0.947040237529
+{'max_features': 0.6, 'max_samples': 1.0, 'n_estimators': 50}
+{'max_features': 0.6, 'max_samples': 1.0, 'n_estimators': 100}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+yeastME3
+Liczba elementow: 1484
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1321             | 0.890           |
++-------+------------------+-----------------+
+| 1     | 163              | 0.110           |
++-------+------------------+-----------------+
+None
+0.764619663617
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 5}
+3
+0.791054762902
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 10}
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 20}
+5
+0.783141682681
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 50}
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 100}
+7
+0.769560333614
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 20}
+{'max_features': 0.9, 'max_samples': 0.6, 'n_estimators': 5}
+10
+0.77565975504
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 20}
+20
+0.770564056604
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 20}
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 20}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+bupa
+Liczba elementow: 341
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 200              | 0.587           |
++-------+------------------+-----------------+
+| 1     | 141              | 0.413           |
++-------+------------------+-----------------+
+None
+0.644663458355
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 50}
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 20}
+3
+0.606956322096
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 10}
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 10}
+5
+0.64226974124
+{'max_features': 0.7, 'max_samples': 0.4, 'n_estimators': 15}
+{'max_features': 0.9, 'max_samples': 0.7, 'n_estimators': 20}
+7
+0.634276718304
+{'max_features': 0.9, 'max_samples': 0.4, 'n_estimators': 100}
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 15}
+10
+0.638558691781
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 100}
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 10}
+20
+0.636102860532
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 20}
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 15}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+german
+Liczba elementow: 1000
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 700              | 0.700           |
++-------+------------------+-----------------+
+| 1     | 300              | 0.300           |
++-------+------------------+-----------------+
+None
+0.56937466094
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 100}
+3
+0.490838981639
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 5}
+5
+0.525228814679
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 10}
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 20}
+7
+0.552086103501
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 100}
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 100}
+10
+0.574867208352
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 15}
+{'max_features': 0.9, 'max_samples': 0.8, 'n_estimators': 50}
+20
+0.570628752571
+{'max_features': 1.0, 'max_samples': 0.8, 'n_estimators': 50}
+{'max_features': 1.0, 'max_samples': 0.4, 'n_estimators': 100}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+horse_colic
+Liczba elementow: 368
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 232              | 0.630           |
++-------+------------------+-----------------+
+| 1     | 136              | 0.370           |
++-------+------------------+-----------------+
+None
+0.818637619009
+{'max_features': 1.0, 'max_samples': 0.9, 'n_estimators': 50}
+{'max_features': 0.7, 'max_samples': 0.9, 'n_estimators': 15}
+3
+0.812028205814
+{'max_features': 0.8, 'max_samples': 1.0, 'n_estimators': 10}
+{'max_features': 0.9, 'max_samples': 0.6, 'n_estimators': 5}
+5
+0.823288656474
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 15}
+{'max_features': 0.9, 'max_samples': 0.7, 'n_estimators': 15}
+7
+0.815593640346
+{'max_features': 0.9, 'max_samples': 0.7, 'n_estimators': 20}
+{'max_features': 0.9, 'max_samples': 0.4, 'n_estimators': 20}
+10
+0.815901161826
+{'max_features': 1.0, 'max_samples': 1.0, 'n_estimators': 100}
+{'max_features': 0.8, 'max_samples': 0.8, 'n_estimators': 100}
+20
+0.817359226844
+{'max_features': 0.7, 'max_samples': 0.9, 'n_estimators': 50}
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 15}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+ionosphere
+Liczba elementow: 351
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.641           |
++-------+------------------+-----------------+
+| 1     | 126              | 0.359           |
++-------+------------------+-----------------+
+None
+0.916014534328
+{'max_features': 0.4, 'max_samples': 0.9, 'n_estimators': 15}
+{'max_features': 0.4, 'max_samples': 0.4, 'n_estimators': 20}
+3
+0.890648567119
+{'max_features': 0.4, 'max_samples': 0.6, 'n_estimators': 15}
+{'max_features': 0.6, 'max_samples': 0.8, 'n_estimators': 100}
+5
+0.901266345711
+{'max_features': 0.7, 'max_samples': 0.8, 'n_estimators': 20}
+{'max_features': 0.4, 'max_samples': 0.9, 'n_estimators': 100}
+7
+0.901266345711
+{'max_features': 0.4, 'max_samples': 0.6, 'n_estimators': 100}
+{'max_features': 0.6, 'max_samples': 1.0, 'n_estimators': 20}
+10
+0.904786475994
+{'max_features': 0.4, 'max_samples': 1.0, 'n_estimators': 100}
+{'max_features': 0.6, 'max_samples': 0.9, 'n_estimators': 20}
+20
+0.916470443065
+{'max_features': 0.4, 'max_samples': 0.8, 'n_estimators': 15}
+{'max_features': 0.4, 'max_samples': 0.7, 'n_estimators': 15}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+seeds
+Liczba elementow: 210
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 140              | 0.667           |
++-------+------------------+-----------------+
+| 1     | 70               | 0.333           |
++-------+------------------+-----------------+
+None
+0.904341491841
+{'max_features': 0.4, 'max_samples': 0.9, 'n_estimators': 10}
+{'max_features': 0.7, 'max_samples': 0.7, 'n_estimators': 10}
+3
+0.886858418164
+{'max_features': 0.8, 'max_samples': 0.8, 'n_estimators': 15}
+{'max_features': 0.6, 'max_samples': 1.0, 'n_estimators': 10}
+5
+0.890901027077
+{'max_features': 0.9, 'max_samples': 0.6, 'n_estimators': 10}
+{'max_features': 0.4, 'max_samples': 0.6, 'n_estimators': 100}
+7
+0.892751060935
+{'max_features': 0.9, 'max_samples': 0.6, 'n_estimators': 100}
+{'max_features': 0.7, 'max_samples': 0.7, 'n_estimators': 10}
+10
+0.889789915966
+{'max_features': 0.4, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 0.4, 'max_samples': 0.7, 'n_estimators': 50}
+20
+0.89799144464
+{'max_features': 0.7, 'max_samples': 0.4, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 1.0, 'n_estimators': 10}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+vertebal
+Liczba elementow: 310
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 210              | 0.677           |
++-------+------------------+-----------------+
+| 1     | 100              | 0.323           |
++-------+------------------+-----------------+
+None
+0.718586587436
+{'max_features': 0.9, 'max_samples': 0.9, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 10}
+3
+0.726669282626
+{'max_features': 1.0, 'max_samples': 0.8, 'n_estimators': 5}
+{'max_features': 1.0, 'max_samples': 0.8, 'n_estimators': 50}
+5
+0.725706403105
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 15}
+{'max_features': 0.9, 'max_samples': 0.6, 'n_estimators': 10}
+7
+0.732625630818
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 100}
+{'max_features': 1.0, 'max_samples': 0.8, 'n_estimators': 5}
+10
+0.724905404115
+{'max_features': 1.0, 'max_samples': 0.6, 'n_estimators': 15}
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 50}
+20
+0.722776932441
+{'max_features': 1.0, 'max_samples': 0.7, 'n_estimators': 5}
+{'max_features': 0.9, 'max_samples': 0.7, 'n_estimators': 15}
+
+Process finished with exit code 0

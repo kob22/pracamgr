@@ -1,0 +1,930 @@
+/usr/bin/python2.7 /home/kob22/PycharmProjects/praca/test2.py
+Console output is saving to: /home/kob22/log_test2.txt
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+abalone16_29
+Liczba elementow: 4177
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 3916             | 0.938           |
++-------+------------------+-----------------+
+| 1     | 261              | 0.062           |
++-------+------------------+-----------------+
+None
+0.270904119319
+{'n_estimators': 20}
+{'n_estimators': 100}
+1
+/usr/local/lib/python2.7/dist-packages/sklearn/metrics/classification.py:1113: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+  'precision', 'predicted', average, warn_for)
+0.301229147346
+{'n_estimators': 200}
+{'n_estimators': 100}
+2
+0.30423312324
+{'n_estimators': 80}
+{'n_estimators': 100}
+3
+0.321993309534
+{'n_estimators': 15}
+{'n_estimators': 20}
+5
+0.266087247263
+{'n_estimators': 10}
+{'n_estimators': 30}
+7
+0.2575937913
+{'n_estimators': 30}
+{'n_estimators': 15}
+10
+0.247644159327
+{'n_estimators': 15}
+{'n_estimators': 10}
+20
+0.277317101607
+{'n_estimators': 5}
+{'n_estimators': 20}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+balance_scale
+Liczba elementow: 625
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 576              | 0.922           |
++-------+------------------+-----------------+
+| 1     | 49               | 0.078           |
++-------+------------------+-----------------+
+None
+0.0242424242424
+{'n_estimators': 5}
+[]
+1
+0.0150943396226
+{'n_estimators': 200}
+{'n_estimators': 5}
+2
+0.0705882352941
+{'n_estimators': 100}
+{'n_estimators': 80}
+3
+0.130863768116
+{'n_estimators': 80}
+{'n_estimators': 50}
+5
+0.0911719298246
+{'n_estimators': 10}
+{'n_estimators': 5}
+7
+0.0556256728778
+{'n_estimators': 30}
+{'n_estimators': 80}
+10
+0.0397526570048
+{'n_estimators': 15}
+{'n_estimators': 10}
+20
+0.0242424242424
+{'n_estimators': 5}
+[]
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+breast_cancer
+Liczba elementow: 286
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 201              | 0.703           |
++-------+------------------+-----------------+
+| 1     | 85               | 0.297           |
++-------+------------------+-----------------+
+None
+0.445644087642
+{'n_estimators': 15}
+{'n_estimators': 5}
+1
+0.459879863726
+{'n_estimators': 30}
+{'n_estimators': 5}
+2
+0.503979298294
+{'n_estimators': 10}
+{'n_estimators': 5}
+3
+0.449435759276
+{'n_estimators': 10}
+{'n_estimators': 200}
+5
+0.442222856509
+{'n_estimators': 80}
+{'n_estimators': 200}
+7
+0.489142740664
+{'n_estimators': 20}
+{'n_estimators': 15}
+10
+0.45212875608
+{'n_estimators': 50}
+{'n_estimators': 200}
+20
+0.459603071731
+{'n_estimators': 15}
+{'n_estimators': 30}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+car
+Liczba elementow: 1728
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1663             | 0.962           |
++-------+------------------+-----------------+
+| 1     | 65               | 0.038           |
++-------+------------------+-----------------+
+None
+0.888497672986
+{'n_estimators': 5}
+[]
+1
+0.825494228385
+{'n_estimators': 10}
+{'n_estimators': 15}
+2
+1.0
+{'n_estimators': 50}
+{'n_estimators': 100}
+3
+1.0
+{'n_estimators': 30}
+[]
+5
+0.963067705715
+{'n_estimators': 15}
+{'n_estimators': 200}
+7
+0.947099197099
+{'n_estimators': 80}
+[]
+10
+0.874278096266
+{'n_estimators': 5}
+{'n_estimators': 15}
+20
+0.888497672986
+{'n_estimators': 5}
+[]
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+cmc
+Liczba elementow: 1473
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1140             | 0.774           |
++-------+------------------+-----------------+
+| 1     | 333              | 0.226           |
++-------+------------------+-----------------+
+None
+0.342273437242
+{'n_estimators': 80}
+{'n_estimators': 15}
+1
+0.27172954465
+{'n_estimators': 100}
+{'n_estimators': 200}
+2
+0.362042010627
+{'n_estimators': 50}
+{'n_estimators': 200}
+3
+0.402103040216
+{'n_estimators': 5}
+{'n_estimators': 10}
+5
+0.377564270414
+{'n_estimators': 10}
+{'n_estimators': 5}
+7
+0.357007966242
+{'n_estimators': 200}
+{'n_estimators': 100}
+10
+0.366212246515
+{'n_estimators': 200}
+{'n_estimators': 50}
+20
+0.363516111786
+{'n_estimators': 5}
+{'n_estimators': 50}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+ecoli
+Liczba elementow: 336
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 301              | 0.896           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.104           |
++-------+------------------+-----------------+
+None
+0.564021164021
+{'n_estimators': 5}
+[]
+1
+0.579170557112
+{'n_estimators': 5}
+{'n_estimators': 10}
+2
+0.584864567837
+{'n_estimators': 50}
+{'n_estimators': 200}
+3
+0.619642857143
+{'n_estimators': 80}
+{'n_estimators': 200}
+5
+0.565062830688
+{'n_estimators': 100}
+{'n_estimators': 10}
+7
+0.583238851096
+{'n_estimators': 100}
+{'n_estimators': 5}
+10
+0.583238851096
+{'n_estimators': 15}
+[]
+20
+0.564021164021
+{'n_estimators': 30}
+[]
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+glass
+Liczba elementow: 214
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 197              | 0.921           |
++-------+------------------+-----------------+
+| 1     | 17               | 0.079           |
++-------+------------------+-----------------+
+None
+0.134579439252
+{'n_estimators': 10}
+[]
+1
+0.309406481369
+{'n_estimators': 200}
+{'n_estimators': 15}
+2
+0.0747663551402
+{'n_estimators': 5}
+{'n_estimators': 20}
+3
+0.251214953271
+{'n_estimators': 80}
+{'n_estimators': 200}
+5
+0.206675567423
+{'n_estimators': 30}
+{'n_estimators': 80}
+7
+0.206675567423
+{'n_estimators': 20}
+[]
+10
+0.134579439252
+{'n_estimators': 5}
+[]
+20
+0.134579439252
+{'n_estimators': 10}
+[]
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+haberman
+Liczba elementow: 306
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.735           |
++-------+------------------+-----------------+
+| 1     | 81               | 0.265           |
++-------+------------------+-----------------+
+None
+0.385177630461
+{'n_estimators': 200}
+{'n_estimators': 20}
+1
+0.260759670437
+{'n_estimators': 5}
+{'n_estimators': 10}
+2
+0.286336756925
+{'n_estimators': 5}
+{'n_estimators': 100}
+3
+0.362351971991
+{'n_estimators': 80}
+{'n_estimators': 200}
+5
+0.364764079148
+{'n_estimators': 10}
+{'n_estimators': 15}
+7
+0.376214300605
+{'n_estimators': 5}
+{'n_estimators': 10}
+10
+0.360410830999
+{'n_estimators': 80}
+{'n_estimators': 200}
+20
+0.367377581663
+{'n_estimators': 30}
+{'n_estimators': 10}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+heart_cleveland
+Liczba elementow: 303
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 268              | 0.884           |
++-------+------------------+-----------------+
+| 1     | 35               | 0.116           |
++-------+------------------+-----------------+
+None
+0.174280920156
+{'n_estimators': 30}
+{'n_estimators': 15}
+1
+0.256556090392
+{'n_estimators': 30}
+{'n_estimators': 20}
+2
+0.193344334433
+{'n_estimators': 10}
+{'n_estimators': 5}
+3
+0.0811147781445
+{'n_estimators': 5}
+{'n_estimators': 200}
+5
+0.117943373285
+{'n_estimators': 10}
+{'n_estimators': 30}
+7
+0.0709391591333
+{'n_estimators': 15}
+{'n_estimators': 80}
+10
+0.174280920156
+{'n_estimators': 50}
+[]
+20
+0.176180255388
+{'n_estimators': 5}
+[]
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+hepatitis
+Liczba elementow: 155
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 123              | 0.794           |
++-------+------------------+-----------------+
+| 1     | 32               | 0.206           |
++-------+------------------+-----------------+
+None
+0.44930592139
+{'n_estimators': 30}
+{'n_estimators': 15}
+1
+0.512594670407
+{'n_estimators': 200}
+{'n_estimators': 10}
+2
+0.576774193548
+{'n_estimators': 200}
+{'n_estimators': 30}
+3
+0.59163803938
+{'n_estimators': 200}
+{'n_estimators': 30}
+5
+0.540917651773
+{'n_estimators': 100}
+{'n_estimators': 80}
+7
+0.549526591041
+{'n_estimators': 10}
+{'n_estimators': 5}
+10
+0.430392952929
+{'n_estimators': 30}
+[]
+20
+0.458214364804
+{'n_estimators': 20}
+{'n_estimators': 30}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+new_thyroid
+Liczba elementow: 215
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 185              | 0.860           |
++-------+------------------+-----------------+
+| 1     | 30               | 0.140           |
++-------+------------------+-----------------+
+None
+0.873761375126
+{'n_estimators': 5}
+[]
+1
+0.873761375126
+{'n_estimators': 20}
+[]
+2
+0.873761375126
+{'n_estimators': 15}
+[]
+3
+0.873761375126
+{'n_estimators': 5}
+[]
+5
+0.873761375126
+{'n_estimators': 5}
+[]
+7
+0.873761375126
+{'n_estimators': 5}
+[]
+10
+0.873761375126
+{'n_estimators': 5}
+[]
+20
+0.873761375126
+{'n_estimators': 5}
+[]
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+postoperative
+Liczba elementow: 90
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 66               | 0.733           |
++-------+------------------+-----------------+
+| 1     | 24               | 0.267           |
++-------+------------------+-----------------+
+None
+0.229225023343
+{'n_estimators': 5}
+{'n_estimators': 200}
+1
+0.177777777778
+{'n_estimators': 5}
+{'n_estimators': 50}
+2
+0.264167205344
+{'n_estimators': 20}
+{'n_estimators': 80}
+3
+0.249316696376
+{'n_estimators': 10}
+{'n_estimators': 15}
+5
+0.230158730159
+{'n_estimators': 5}
+{'n_estimators': 20}
+7
+0.233333333333
+{'n_estimators': 15}
+{'n_estimators': 10}
+10
+0.259109311741
+{'n_estimators': 15}
+{'n_estimators': 100}
+20
+0.250148544266
+{'n_estimators': 5}
+{'n_estimators': 20}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+solar_flare
+Liczba elementow: 1066
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1023             | 0.960           |
++-------+------------------+-----------------+
+| 1     | 43               | 0.040           |
++-------+------------------+-----------------+
+None
+0.186366479049
+{'n_estimators': 20}
+{'n_estimators': 15}
+1
+0.174233896185
+{'n_estimators': 5}
+{'n_estimators': 200}
+2
+0.143463920903
+{'n_estimators': 200}
+{'n_estimators': 15}
+3
+0.220867208672
+{'n_estimators': 100}
+{'n_estimators': 200}
+5
+0.216675600822
+{'n_estimators': 50}
+{'n_estimators': 15}
+7
+0.186679174484
+{'n_estimators': 200}
+{'n_estimators': 5}
+10
+0.184237172042
+{'n_estimators': 20}
+{'n_estimators': 80}
+20
+0.153131421424
+{'n_estimators': 20}
+{'n_estimators': 50}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+transfusion
+Liczba elementow: 748
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 569              | 0.761           |
++-------+------------------+-----------------+
+| 1     | 179              | 0.239           |
++-------+------------------+-----------------+
+None
+0.244455444069
+{'n_estimators': 10}
+{'n_estimators': 50}
+1
+0.335841203702
+{'n_estimators': 15}
+{'n_estimators': 30}
+2
+0.364059557465
+{'n_estimators': 10}
+{'n_estimators': 20}
+3
+0.301112690548
+{'n_estimators': 5}
+{'n_estimators': 15}
+5
+0.285616787968
+{'n_estimators': 5}
+{'n_estimators': 200}
+7
+0.247571816875
+{'n_estimators': 30}
+{'n_estimators': 80}
+10
+0.26345234396
+{'n_estimators': 15}
+{'n_estimators': 10}
+20
+0.24897318716
+{'n_estimators': 10}
+{'n_estimators': 5}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+vehicle
+Liczba elementow: 846
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 647              | 0.765           |
++-------+------------------+-----------------+
+| 1     | 199              | 0.235           |
++-------+------------------+-----------------+
+None
+0.876928247463
+{'n_estimators': 15}
+{'n_estimators': 80}
+1
+0.959995437767
+{'n_estimators': 200}
+{'n_estimators': 100}
+2
+0.958042016811
+{'n_estimators': 200}
+{'n_estimators': 80}
+3
+0.964746963319
+{'n_estimators': 200}
+{'n_estimators': 100}
+5
+0.954455335621
+{'n_estimators': 200}
+{'n_estimators': 80}
+7
+0.95447193977
+{'n_estimators': 100}
+{'n_estimators': 200}
+10
+0.88146116752
+{'n_estimators': 80}
+{'n_estimators': 50}
+20
+0.873503284978
+{'n_estimators': 15}
+{'n_estimators': 200}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+yeastME3
+Liczba elementow: 1484
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 1321             | 0.890           |
++-------+------------------+-----------------+
+| 1     | 163              | 0.110           |
++-------+------------------+-----------------+
+None
+0.67501902333
+{'n_estimators': 100}
+{'n_estimators': 20}
+1
+0.784596712318
+{'n_estimators': 5}
+{'n_estimators': 20}
+2
+0.763837049909
+{'n_estimators': 5}
+{'n_estimators': 10}
+3
+0.722879625416
+{'n_estimators': 200}
+{'n_estimators': 20}
+5
+0.742590643781
+{'n_estimators': 200}
+{'n_estimators': 50}
+7
+0.738513687881
+{'n_estimators': 200}
+{'n_estimators': 30}
+10
+0.726317331558
+{'n_estimators': 100}
+{'n_estimators': 80}
+20
+0.688443856705
+{'n_estimators': 10}
+{'n_estimators': 50}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+bupa
+Liczba elementow: 341
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 200              | 0.587           |
++-------+------------------+-----------------+
+| 1     | 141              | 0.413           |
++-------+------------------+-----------------+
+None
+0.585662241562
+{'n_estimators': 100}
+{'n_estimators': 20}
+1
+0.620158265373
+{'n_estimators': 20}
+{'n_estimators': 15}
+2
+0.602794153709
+{'n_estimators': 100}
+{'n_estimators': 15}
+3
+0.606587442642
+{'n_estimators': 80}
+{'n_estimators': 50}
+5
+0.62516232923
+{'n_estimators': 20}
+{'n_estimators': 30}
+7
+0.591679734692
+{'n_estimators': 80}
+{'n_estimators': 100}
+10
+0.616797587827
+{'n_estimators': 20}
+{'n_estimators': 100}
+20
+0.57077189515
+{'n_estimators': 100}
+{'n_estimators': 80}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+german
+Liczba elementow: 1000
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 700              | 0.700           |
++-------+------------------+-----------------+
+| 1     | 300              | 0.300           |
++-------+------------------+-----------------+
+None
+0.493486759112
+{'n_estimators': 5}
+{'n_estimators': 20}
+1
+0.55761946108
+{'n_estimators': 50}
+{'n_estimators': 80}
+2
+0.569255064862
+{'n_estimators': 30}
+{'n_estimators': 50}
+3
+0.532164664197
+{'n_estimators': 5}
+{'n_estimators': 15}
+5
+0.548551194977
+{'n_estimators': 100}
+{'n_estimators': 200}
+7
+0.532208317398
+{'n_estimators': 80}
+{'n_estimators': 30}
+10
+0.525498085901
+{'n_estimators': 80}
+{'n_estimators': 50}
+20
+0.493733146217
+{'n_estimators': 20}
+{'n_estimators': 100}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+horse_colic
+Liczba elementow: 368
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 232              | 0.630           |
++-------+------------------+-----------------+
+| 1     | 136              | 0.370           |
++-------+------------------+-----------------+
+None
+0.750407231629
+{'n_estimators': 80}
+{'n_estimators': 50}
+1
+0.769560536269
+{'n_estimators': 200}
+{'n_estimators': 100}
+2
+0.793775458881
+{'n_estimators': 200}
+{'n_estimators': 30}
+3
+0.783182505133
+{'n_estimators': 5}
+{'n_estimators': 100}
+5
+0.779813142209
+{'n_estimators': 80}
+{'n_estimators': 50}
+7
+0.799104859335
+{'n_estimators': 15}
+{'n_estimators': 200}
+10
+0.776238023015
+{'n_estimators': 200}
+{'n_estimators': 15}
+20
+0.740518038853
+{'n_estimators': 5}
+{'n_estimators': 200}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+ionosphere
+Liczba elementow: 351
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 225              | 0.641           |
++-------+------------------+-----------------+
+| 1     | 126              | 0.359           |
++-------+------------------+-----------------+
+None
+0.827228327228
+{'n_estimators': 10}
+{'n_estimators': 50}
+1
+0.877503974563
+{'n_estimators': 80}
+{'n_estimators': 15}
+2
+0.881337485768
+{'n_estimators': 80}
+{'n_estimators': 200}
+3
+0.885982749564
+{'n_estimators': 100}
+{'n_estimators': 30}
+5
+0.889661208938
+{'n_estimators': 200}
+{'n_estimators': 80}
+7
+0.858491107286
+{'n_estimators': 20}
+{'n_estimators': 5}
+10
+0.849826366778
+{'n_estimators': 50}
+{'n_estimators': 5}
+20
+0.834319494119
+{'n_estimators': 10}
+{'n_estimators': 100}
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+seeds
+Liczba elementow: 210
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 140              | 0.667           |
++-------+------------------+-----------------+
+| 1     | 70               | 0.333           |
++-------+------------------+-----------------+
+None
+0.871630993861
+{'n_estimators': 10}
+[]
+1
+0.882066968631
+{'n_estimators': 15}
+{'n_estimators': 50}
+2
+0.884519635403
+{'n_estimators': 200}
+{'n_estimators': 100}
+3
+0.888171353595
+{'n_estimators': 5}
+{'n_estimators': 10}
+5
+0.871630993861
+{'n_estimators': 15}
+[]
+7
+0.871630993861
+{'n_estimators': 10}
+[]
+10
+0.871630993861
+{'n_estimators': 5}
+[]
+20
+0.871630993861
+{'n_estimators': 30}
+[]
+-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------------
+vertebal
+Liczba elementow: 310
++-------+------------------+-----------------+
+| Klasa | Liczba wystapien | Procent calosci |
++=======+==================+=================+
+| 0     | 210              | 0.677           |
++-------+------------------+-----------------+
+| 1     | 100              | 0.323           |
++-------+------------------+-----------------+
+None
+0.696951208491
+{'n_estimators': 10}
+{'n_estimators': 50}
+1
+0.701314014944
+{'n_estimators': 10}
+{'n_estimators': 20}
+2
+0.68449732094
+{'n_estimators': 5}
+{'n_estimators': 50}
+3
+0.691585305553
+{'n_estimators': 200}
+{'n_estimators': 30}
+5
+0.70321984271
+{'n_estimators': 10}
+{'n_estimators': 30}
+7
+0.716291909948
+{'n_estimators': 200}
+{'n_estimators': 100}
+10
+0.703272379988
+{'n_estimators': 100}
+{'n_estimators': 200}
+20
+0.69418718751
+{'n_estimators': 20}
+{'n_estimators': 15}
+
+Process finished with exit code 0

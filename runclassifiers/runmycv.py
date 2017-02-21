@@ -1,4 +1,4 @@
-from classifiers.ensemble_rating import ensembel_rating
+from classifiers.clf_expert import ensembel_rating
 from simplefunctions import *
 from cross_val.cross_val import cross_val_pred2ict
 from sklearn.model_selection import StratifiedKFold

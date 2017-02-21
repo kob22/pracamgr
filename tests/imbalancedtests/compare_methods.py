@@ -29,8 +29,8 @@ sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa"
 
 tables = []
 for tab in range(5):
-    table = Tabular('c|ccccc')
-    table.add_row(('', "SMOTE", "ADASYN", "NCR", "SMOTEENN", "SMOTETomek"))
+    table = Tabular('c|cccccc')
+    table.add_row(('', "Bag", "SMOTE", "ADASYN", "NCR", "SMOTEENN", "SMOTETomek"))
     table.add_hline()
     tables.append(table)
 random_st = 5
@@ -40,7 +40,7 @@ methods = [SMOTE(random_state=random_st), ADASYN(random_state=random_st),
            NeighbourhoodCleaningRule(random_state=random_st), SMOTEENN(random_state=random_st),
            SMOTETomek(random_state=random_st)]
 names_m = ["SMOTE", "ADASYN", "NCR", "SMOTEENN", "SMOTETomek"]
-iterations = 2
+iterations = 10
 random_st = 5
 
 for data in dataset:
@@ -63,6 +63,20 @@ for data in dataset:
     else:
         folds = 3
     skf = StratifiedKFold(n_splits=folds, random_state=random_st)
+    scoresclf = []
+    for iteration in range(iterations):
+        clf_ = clone(clf1)
+        testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
+        scoresclf.append(accsespf1g(testpredict, testtarget))
+
+    avgscoresclf = avgaccsespf1g(scoresclf)
+    to_decimal = print_to_latex_two_decimal(avgscoresclf)
+
+    for i, score in enumerate(to_decimal):
+        rows[i].append(score)
+    print("Bez bilansowania")
+    print(str(clf1))
+    print_scores(testpredict, testtarget)
 
     for method, name in zip(methods, names_m):
 
@@ -86,7 +100,7 @@ for data in dataset:
                 targets_re.append(db.target[test_index])
             # obliczanie wyniku ze sprawdzianu krzyzowego
             scores.append(accsespf1g(predict_re, targets_re))
-            print(name)
+            print("Metoda %s" % name)
             print(str(clf1))
             print_scores(predict_re, targets_re)
 

@@ -8,7 +8,7 @@ from sklearn.externals.joblib import Parallel, delayed
 import simplefunctions
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import BaggingClassifier
-from classifiers.ensemble_rating import ensembel_rating
+from classifiers.clf_expert import ensembel_rating
 from cross_val.cross_val import cross_val_pred2ict
 from classifiers.stacking import StackingClassifier
 from sklearn.linear_model import LogisticRegression

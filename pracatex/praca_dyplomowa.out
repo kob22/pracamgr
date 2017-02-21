@@ -1,0 +1,68 @@
+\BOOKMARK [0][-]{chapter*.2}{Wstep}{}% 1
+\BOOKMARK [0][-]{chapter*.3}{Zakres i cel pracy}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Wstep teoretyczny}{}% 3
+\BOOKMARK [1][-]{section.1.1}{Klasyfikacja danych}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Wybrane algorytmy klasyfikacji danych}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.2.1}{Drzewo decyzyjne}{section.1.2}% 6
+\BOOKMARK [2][-]{subsection.1.2.2}{Naiwny klasyfikator bayesowski}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.3}{Klasyfikator k najblizszych sasiad\363w \(kNN\)}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.4}{Las losowy}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.5}{Maszyna wektor\363w nosnych}{section.1.2}% 10
+\BOOKMARK [2][-]{subsection.1.2.6}{Zesp\363\233 klasyfikator\363w}{section.1.2}% 11
+\BOOKMARK [1][-]{section.1.3}{Meta-metody}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.3.1}{Bagging}{section.1.3}% 13
+\BOOKMARK [2][-]{subsection.1.3.2}{Boosting}{section.1.3}% 14
+\BOOKMARK [2][-]{subsection.1.3.3}{Stacking}{section.1.3}% 15
+\BOOKMARK [1][-]{section.1.4}{Wstepne przetwarzanie danych}{chapter.1}% 16
+\BOOKMARK [2][-]{subsection.1.4.1}{Brakujace wartosci atrybut\363w}{section.1.4}% 17
+\BOOKMARK [2][-]{subsection.1.4.2}{Transformacja danych}{section.1.4}% 18
+\BOOKMARK [2][-]{subsection.1.4.3}{Dane kategoryczne}{section.1.4}% 19
+\BOOKMARK [2][-]{subsection.1.4.4}{Redukcja ilosci atrybut\363w}{section.1.4}% 20
+\BOOKMARK [1][-]{section.1.5}{Ocena poprawnosci klasyfikacji}{chapter.1}% 21
+\BOOKMARK [2][-]{subsection.1.5.1}{Miary jakosci klasyfikacji danych}{section.1.5}% 22
+\BOOKMARK [2][-]{subsection.1.5.2}{Nadmierne dopasowanie i wariancja klasyfikatora}{section.1.5}% 23
+\BOOKMARK [2][-]{subsection.1.5.3}{Metody pomiaru jakosci klasyfikacji danych}{section.1.5}% 24
+\BOOKMARK [0][-]{chapter.2}{Klasyfikacja danych niezr\363wnowazonych}{}% 25
+\BOOKMARK [1][-]{section.2.1}{Dane niezr\363wnowazone}{chapter.2}% 26
+\BOOKMARK [1][-]{section.2.2}{R\363wnowazenie rozk\233adu klas w zbiorze danych}{chapter.2}% 27
+\BOOKMARK [2][-]{subsection.2.2.1}{Metody undersampling}{section.2.2}% 28
+\BOOKMARK [2][-]{subsection.2.2.2}{Metody oversampling}{section.2.2}% 29
+\BOOKMARK [2][-]{subsection.2.2.3}{Metody hybrydowe}{section.2.2}% 30
+\BOOKMARK [0][-]{chapter.3}{Przeprowadzone badania}{}% 31
+\BOOKMARK [1][-]{section.3.1}{Opis platformy i w jaki spos\363b realizacji badan}{chapter.3}% 32
+\BOOKMARK [2][-]{subsection.3.1.1}{Jezyk python}{section.3.1}% 33
+\BOOKMARK [2][-]{subsection.3.1.2}{Biblioteka scikit-learn}{section.3.1}% 34
+\BOOKMARK [2][-]{subsection.3.1.3}{Biblioteka imbalanced-learn}{section.3.1}% 35
+\BOOKMARK [2][-]{subsection.3.1.4}{Pozosta\233e uzyte biblioteki}{section.3.1}% 36
+\BOOKMARK [2][-]{subsection.3.1.5}{opisac co zaimplementowane?}{section.3.1}% 37
+\BOOKMARK [1][-]{section.3.2}{Opis danych uzytych w badaniach}{chapter.3}% 38
+\BOOKMARK [1][-]{section.3.3}{Spos\363b mierzenia w sprawdzianie krzyzowym}{chapter.3}% 39
+\BOOKMARK [1][-]{section.3.4}{Ocena klasyfikatora w sprawdzianie krzyzowym k-krotnym.}{chapter.3}% 40
+\BOOKMARK [2][-]{subsection.3.4.1}{Test sposob\363w oceny klasyfikatora}{section.3.4}% 41
+\BOOKMARK [1][-]{section.3.5}{Balansowanie niezr\363wnowazonych zbior\363w ze sprawdzianem krzyzowym}{chapter.3}% 42
+\BOOKMARK [0][-]{chapter.4}{Meta-metody}{}% 43
+\BOOKMARK [1][-]{section.4.1}{Bagging}{chapter.4}% 44
+\BOOKMARK [2][-]{subsection.4.1.1}{Bagging z naiwnym klasyfikatorem bayesowskim}{section.4.1}% 45
+\BOOKMARK [2][-]{subsection.4.1.2}{Bagging drzewa decyzyjne}{section.4.1}% 46
+\BOOKMARK [2][-]{subsection.4.1.3}{Bagging z klasyfikatorem kNN}{section.4.1}% 47
+\BOOKMARK [1][-]{section.4.2}{Boosting}{chapter.4}% 48
+\BOOKMARK [2][-]{subsection.4.2.1}{AdaBoost z naiwnym klasyfikatorem Bayesa}{section.4.2}% 49
+\BOOKMARK [2][-]{subsection.4.2.2}{AdaBoost z drzewem decyzyjnym}{section.4.2}% 50
+\BOOKMARK [2][-]{subsection.4.2.3}{Stacking}{section.4.2}% 51
+\BOOKMARK [2][-]{subsection.4.2.4}{Por\363wnanie meta-metod}{section.4.2}% 52
+\BOOKMARK [1][-]{section.4.3}{Poprawa klasyfikacji danych mniejszosciowych}{chapter.4}% 53
+\BOOKMARK [2][-]{subsection.4.3.1}{Oversampling metoda SMOTE}{section.4.3}% 54
+\BOOKMARK [2][-]{subsection.4.3.2}{Oversampling metoda ADASYN}{section.4.3}% 55
+\BOOKMARK [2][-]{subsection.4.3.3}{Undersampling NCR}{section.4.3}% 56
+\BOOKMARK [2][-]{subsection.4.3.4}{Oversampling SMOTE i undersampling metoda ENN}{section.4.3}% 57
+\BOOKMARK [2][-]{subsection.4.3.5}{Oversampling SMOTE i undersampling metoda Tomek links}{section.4.3}% 58
+\BOOKMARK [2][-]{subsection.4.3.6}{Por\363wnanie metod}{section.4.3}% 59
+\BOOKMARK [0][-]{chapter.5}{Propozycja klasyfikator\363w}{}% 60
+\BOOKMARK [1][-]{section.5.1}{Klasyfikator ekspercki}{chapter.5}% 61
+\BOOKMARK [2][-]{subsection.5.1.1}{Testy}{section.5.1}% 62
+\BOOKMARK [1][-]{section.5.2}{Meta-klasyfikator}{chapter.5}% 63
+\BOOKMARK [2][-]{subsection.5.2.1}{Testy}{section.5.2}% 64
+\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 65
+\BOOKMARK [0][-]{chapter*.113}{Bibliografia}{}% 66
+\BOOKMARK [1][-]{chapter*.114}{Spis rysunk\363w}{chapter*.113}% 67
+\BOOKMARK [1][-]{chapter*.115}{Spis tabel}{chapter*.113}% 68
