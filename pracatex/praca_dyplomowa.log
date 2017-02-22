@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.24)  21 FEB 2017 23:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.24)  22 FEB 2017 22:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1060,22 +1060,22 @@ Package caption Info: subfigure package is loaded.
 (./praca_dyplomowa.aux)
 \openout1 = `praca_dyplomowa.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1106,7 +1106,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box43
-Package hyperref Info: Link coloring OFF on input line 61.
+Package hyperref Info: Link coloring OFF on input line 69.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1116,9 +1116,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count153
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
+LaTeX Info: Redefining \ref on input line 69.
+LaTeX Info: Redefining \pageref on input line 69.
+LaTeX Info: Redefining \nameref on input line 69.
 
 (./praca_dyplomowa.out) (./praca_dyplomowa.out)
 \@outlinefile=\write4
@@ -1162,71 +1162,88 @@ ABD: EveryShipout initializing macros
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Option `pageanchor' set `false' on input line 62.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 62.
+Package hyperref Info: Option `pageanchor' set `false' on input line 70.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 70.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 <PWHead.png, id=280, 2015.53pt x 320.19624pt>
 File: PWHead.png Graphic file (type png)
  <use PWHead.png>
-Package pdftex.def Info: PWHead.png used on input line 62.
+Package pdftex.def Info: PWHead.png used on input line 70.
 (pdftex.def)             Requested size: 455.24408pt x 72.31953pt.
 
 <mgrhead.png, id=282, 1392.20125pt x 303.1325pt>
 File: mgrhead.png Graphic file (type png)
  <use mgrhead.png>
-Package pdftex.def Info: mgrhead.png used on input line 62.
+Package pdftex.def Info: mgrhead.png used on input line 70.
 (pdftex.def)             Requested size: 455.24408pt x 99.12282pt.
-LaTeX Font Info:    Try loading font information for OML+plm on input line 62.
+LaTeX Font Info:    Try loading font information for OML+plm on input line 70.
 
 (/usr/share/texlive/texmf-dist/tex/latex/polski/omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMS+plsy on input line 62.
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 70.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/polski/omsplsy.fd
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMX+plex on input line 62.
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 70.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/polski/omxplex.fd
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 62.
+(Font)              <12> on input line 70.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 62.
+(Font)              <8> on input line 70.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 62.
-LaTeX Font Info:    Try loading font information for U+msa on input line 62.
+(Font)              <6> on input line 70.
+LaTeX Font Info:    Try loading font information for U+msa on input line 70.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 62.
+LaTeX Font Info:    Try loading font information for U+msb on input line 70.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./streszczenie.tex) [1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./PWHead.png> <./mgrhead.p
-ng (PNG copy)>] [2
+ng (PNG copy)>]
+[2
+
+] (./karta_informacyjna.tex) [3] [4
+
+] (./streszczeniepl.tex [1]) [2
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 62.
- (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+(./streszczenieen.tex
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+[1]) [2
+
+] (./oswiadczenie.tex) [3] [4
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 70.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 62.
-[3
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
+ [5
 
-] [4
+] [6
 
-] (./praca_dyplomowa.toc [1
+]
+(./praca_dyplomowa.toc [1
 
 
 ])
@@ -1234,7 +1251,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 \openout5 = `praca_dyplomowa.toc'.
 
  [2]
-Package hyperref Info: Option `pageanchor' set `true' on input line 62.
+Package hyperref Info: Option `pageanchor' set `true' on input line 70.
  (./wstep.tex
 Underfull \vbox (badness 6396) has occurred while \output is active []
 
@@ -1242,18 +1259,26 @@ Underfull \vbox (badness 6396) has occurred while \output is active []
 
 
 ])
-(./cel_pracy.tex [2]) (./klasyfikacja.tex
+(./cel_pracy.tex [2]
+Overfull \hbox (0.24603pt too wide) in paragraph at lines 7--7
+[]\T1/cmr/m/n/12 W roz-dziale czwar-tym opi-sano prze-pro-wa-dzone ba-da-nia na
+ meta-metodach. Prze-
+ []
+
+
+Underfull \vbox (badness 1895) has occurred while \output is active []
+
+ [3
+
+])
+(./klasyfikacja.tex
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 1.
 
 
-LaTeX Warning: Marginpar on page 3 moved.
+LaTeX Warning: Marginpar on page 4 moved.
 
-[3
-
-] [4
-
-]
+[4]
 Rozdzia\l  1.
 
 LaTeX Warning: Marginpar on page 5 moved.
@@ -1261,7 +1286,9 @@ LaTeX Warning: Marginpar on page 5 moved.
 
 LaTeX Warning: Marginpar on page 5 moved.
 
-[5] [6] <./images/drzewo.jpg, id=419, 733.74126pt x 571.13374pt>
+[5
+
+] [6] <./images/drzewo.jpg, id=447, 733.74126pt x 571.13374pt>
 File: ./images/drzewo.jpg Graphic file (type jpg)
 
 <use ./images/drzewo.jpg>
@@ -1270,7 +1297,7 @@ Package pdftex.def Info: ./images/drzewo.jpg used on input line 79.
 LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <10.95> on input line 80.
  [7 <./images/drzewo.jpg>]
-<./images/knn.png, id=430, 349.305pt x 310.15875pt>
+<./images/knn.png, id=456, 349.305pt x 310.15875pt>
 File: ./images/knn.png Graphic file (type png)
  <use ./images/knn.png>
 Package pdftex.def Info: ./images/knn.png used on input line 103.
@@ -1284,7 +1311,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--106
 Underfull \vbox (badness 3088) has occurred while \output is active []
 
  [8]
-<./images/svm.png, id=439, 379.4175pt x 276.03125pt>
+<./images/svm.png, id=464, 379.4175pt x 276.03125pt>
 File: ./images/svm.png Graphic file (type png)
  <use ./images/svm.png>
 Package pdftex.def Info: ./images/svm.png used on input line 126.
@@ -1295,45 +1322,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--129
  []
 
 [9 <./images/knn.png (PNG copy)>] [10 <./images/svm.png>] [11]
-Overfull \hbox (2.14876pt too wide) in paragraph at lines 164--165
+Overfull \hbox (2.14876pt too wide) in paragraph at lines 163--164
 \T1/cmr/m/n/12 skla-sy-fi-ko-wa-nym zmniej-sza si¦ wag¦, na-to-miast bª¦d-nie s
 kla-sy-fi-ko-wa-nym zwi¦k-
  []
 
-[12] [13] [14] [15] [16]
+[12]
+Underfull \vbox (badness 1057) has occurred while \output is active []
+
+ [13]
+[14] [15] [16]
 Underfull \vbox (badness 2035) has occurred while \output is active []
 
  [17]
 [18]
-Overfull \hbox (8.01338pt too wide) in paragraph at lines 305--307
+Overfull \hbox (8.01338pt too wide) in paragraph at lines 304--306
 \T1/cmr/m/n/12 Pre-cy-zja wy-ra-»ana jest jako sto-su-nek praw-dzi-wie po-zy-ty
 w-nych przy-pad-ków do wszyst-
  []
 
-[19] <./images/roc.png, id=523, 505.89pt x 361.35pt>
+[19] <./images/roc.png, id=547, 505.89pt x 361.35pt>
 File: ./images/roc.png Graphic file (type png)
  <use ./images/roc.png>
-Package pdftex.def Info: ./images/roc.png used on input line 326.
+Package pdftex.def Info: ./images/roc.png used on input line 325.
 (pdftex.def)             Requested size: 256.07741pt x 182.91313pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[20] <./images/biasvariance.png, id=533, 300.12125pt x 301.125pt>
+[20] <./images/biasvariance.png, id=557, 300.12125pt x 301.125pt>
 File: ./images/biasvariance.png Graphic file (type png)
 
 <use ./images/biasvariance.png>
-Package pdftex.def Info: ./images/biasvariance.png used on input line 344.
+Package pdftex.def Info: ./images/biasvariance.png used on input line 343.
 (pdftex.def)             Requested size: 213.39568pt x 214.11728pt.
  [21 <./images/roc.png>] [22 <./images/biasvariance.png>]
 Underfull \vbox (badness 2005) has occurred while \output is active []
 
  [23]
-<./images/crossvalidation.jpg, id=555, 433.62pt x 185.69376pt>
+<./images/crossvalidation.jpg, id=580, 433.62pt x 185.69376pt>
 File: ./images/crossvalidation.jpg Graphic file (type jpg)
 
 <use ./images/crossvalidation.jpg>
-Package pdftex.def Info: ./images/crossvalidation.jpg used on input line 375.
+Package pdftex.def Info: ./images/crossvalidation.jpg used on input line 374.
 (pdftex.def)             Requested size: 256.07741pt x 109.66887pt.
 
 
@@ -1386,7 +1417,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [32]
 LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <5> on input line 114.
- [33] [34] [35] <./images/wsk.png, id=661, 504.4446pt x 648.2619pt>
+ [33] [34] [35] <./images/wsk.png, id=686, 504.4446pt x 648.2619pt>
 File: ./images/wsk.png Graphic file (type png)
 
 <use ./images/wsk.png>
@@ -1396,7 +1427,7 @@ Package pdftex.def Info: ./images/wsk.png used on input line 169.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [36]
-<./images/stdwsk.png, id=666, 517.4532pt x 648.2619pt>
+<./images/stdwsk.png, id=691, 517.4532pt x 648.2619pt>
 File: ./images/stdwsk.png Graphic file (type png)
 
 <use ./images/stdwsk.png>
@@ -1406,7 +1437,7 @@ Package pdftex.def Info: ./images/stdwsk.png used on input line 176.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [37 <./images/wsk.png>] [38 <./images/stdwsk.png>]
-<./images/miara-F1.png, id=683, 519.74174pt x 415.5525pt>
+<./images/miara-F1.png, id=707, 519.74174pt x 415.5525pt>
 File: ./images/miara-F1.png Graphic file (type png)
 
 <use ./images/miara-F1.png>
@@ -1416,14 +1447,14 @@ Package pdftex.def Info: ./images/miara-F1.png used on input line 194.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [39]
-<./images/miara-G-mean.png, id=690, 514.3215pt x 415.5525pt>
+<./images/miara-G-mean.png, id=714, 514.3215pt x 415.5525pt>
 File: ./images/miara-G-mean.png Graphic file (type png)
 
 <use ./images/miara-G-mean.png>
 Package pdftex.def Info: ./images/miara-G-mean.png used on input line 208.
 (pdftex.def)             Requested size: 426.79135pt x 344.8324pt.
  [40 <./images/miara-F1.png>] [41 <./images/miara-G-mean.png>] <./images/CV_ROC
-.png, id=705, 323.7696pt x 507.3354pt>
+.png, id=731, 323.7696pt x 507.3354pt>
 File: ./images/CV_ROC.png Graphic file (type png)
 
 <use ./images/CV_ROC.png>
@@ -1444,7 +1475,7 @@ Overfull \hbox (0.23242pt too wide) in paragraph at lines 252--252
 []\T1/cmr/bx/n/17.28 Balansowanie nie-zrów-no-wa-»o-nych zbio-rów ze spraw-
  []
 
-<./images/oversampling.png, id=721, 490.08093pt x 275.52937pt>
+<./images/oversampling.png, id=745, 490.08093pt x 275.52937pt>
 File: ./images/oversampling.png Graphic file (type png)
 
 <use ./images/oversampling.png>
@@ -1663,42 +1694,42 @@ Overfull \hbox (69.87047pt too wide) in paragraph at lines 2536--2570
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [83]
-Underfull \vbox (badness 3460) has occurred while \output is active []
-
- [84])
-(./projekt-klasyfikatora.tex
+[84]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [85]
-[86]
+ [85])
+(./projekt-klasyfikatora.tex [86]
 Rozdzia\l  5.
-<./images/klas_ekspercki.png, id=993, 517.935pt x 377.41pt>
+[87
+
+] <./images/klas_ekspercki.png, id=1028, 517.935pt x 377.41pt>
 File: ./images/klas_ekspercki.png Graphic file (type png)
 
 <use ./images/klas_ekspercki.png>
-Package pdftex.def Info: ./images/klas_ekspercki.png used on input line 7.
+Package pdftex.def Info: ./images/klas_ekspercki.png used on input line 15.
 (pdftex.def)             Requested size: 426.79135pt x 311.01004pt.
+ [88 <./images/klas_ekspercki.png (PNG copy)>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [89]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[87
-
-] <./images/metaklas.png, id=1001, 952.55875pt x 611.28375pt>
+ [90]
+<./images/metaklas.png, id=1052, 952.55875pt x 611.28375pt>
 File: ./images/metaklas.png Graphic file (type png)
 
 <use ./images/metaklas.png>
-Package pdftex.def Info: ./images/metaklas.png used on input line 25.
+Package pdftex.def Info: ./images/metaklas.png used on input line 163.
 (pdftex.def)             Requested size: 426.79135pt x 273.89056pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [88 <./images/klas_ekspercki.png (PNG copy)>]) (./podsumowanie.tex [89 <./imag
-es/metaklas.png (PNG copy)>] [90
-
-]
+ [91])
+(./podsumowanie.tex [92 <./images/metaklas.png (PNG copy)>]
 Rozdzia\l  6.
-) (./bibliografia.tex [91] [92
+) (./bibliografia.tex [93
+
+] [94
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
@@ -1710,7 +1741,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 []\T1/cmr/m/n/12 S. Ra-schka. Mlxtend (ma-chine le-ar-ning exten-sions),
  []
 
-[93] [94
+[95] [96
 
 ] (./praca_dyplomowa.lof
 Overfull \hbox (10.98291pt too wide) in paragraph at lines 16--16
@@ -1724,17 +1755,17 @@ Overfull \hbox (3.61053pt too wide) in paragraph at lines 16--16
 letowy pro- 
  []
 
-[95])
+[97])
 \tf@lof=\write6
 \openout6 = `praca_dyplomowa.lof'.
 
- [96] (./praca_dyplomowa.lot
+ [98] (./praca_dyplomowa.lot
 Overfull \hbox (4.75041pt too wide) in paragraph at lines 12--12
  \T1/cmr/m/n/12 TEST"to wy-niki otrzy-mane na pod-sta-wie zbioru wa-li-da-cyj-n
 ego. Ostat- 
  []
 
-[97
+[99
 
 ]
 Overfull \hbox (23.29283pt too wide) in paragraph at lines 23--23
@@ -1749,25 +1780,25 @@ res \OT4/cmr/m/n/12 = 0\OML/plm/m/it/12 :\OT4/cmr/m/n/12 9$ \T1/cmr/m/n/12 oraz
  $\OML/plm/m/it/12 max[]samples \OT4/cmr/m/n/12 = 
  []
 
-[98])
+[100])
 \tf@lot=\write7
 \openout7 = `praca_dyplomowa.lot'.
 
-) [99]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
+) [101]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
  (./praca_dyplomowa.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
 Package rerunfilecheck Info: File `praca_dyplomowa.out' has not changed.
-(rerunfilecheck)             Checksum: 6EC34844A280D244642BBE4AA2DDE34F;5119.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
+(rerunfilecheck)             Checksum: FFFA04D44BFB5021E8F68D0193FA6BD9;5145.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 93.
  ) 
 Here is how much of TeX's memory you used:
- 20513 strings out of 494918
- 368931 string characters out of 6180101
- 545419 words of memory out of 5000000
- 22999 multiletter control sequences out of 15000+600000
+ 20522 strings out of 494918
+ 369025 string characters out of 6180101
+ 540321 words of memory out of 5000000
+ 22995 multiletter control sequences out of 15000+600000
  40541 words of font info for 82 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  64i,18n,92p,3316b,730s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1798,10 +1829,10 @@ pl/plr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/pl/plsy8.pfb></usr/share/texlive/texmf-dist/font
 s/type1/urw/helvetic/uhvr8a.pfb>
-Output written on praca_dyplomowa.pdf (105 pages, 1426077 bytes).
+Output written on praca_dyplomowa.pdf (115 pages, 1441650 bytes).
 PDF statistics:
- 1983 PDF objects out of 2073 (max. 8388607)
- 1179 compressed objects within 12 object streams
- 320 named destinations out of 1000 (max. 500000)
+ 2038 PDF objects out of 2073 (max. 8388607)
+ 1221 compressed objects within 13 object streams
+ 325 named destinations out of 1000 (max. 500000)
  637 words of extra memory for PDF output out of 10000 (max. 10000000)
 

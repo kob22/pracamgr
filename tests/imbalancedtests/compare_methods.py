@@ -110,10 +110,10 @@ for data in dataset:
         for i, score in enumerate(to_decimal):
             rows[i].append(score)
     for table, row in zip(tables, rows):
-        max_v = max(row[2:])
+        max_v = max(row[1:])
         new_row = []
-        new_row.extend(row[:2])
-        for item in row[2:]:
+        new_row.extend(row[:1])
+        for item in row[1:]:
             if item == max_v and item > 0.01:
                 new_row.append(bold(max_v))
             else:

@@ -15,7 +15,7 @@ def _parallel_fit_estimator(estimator, X, y):
 
 # klasyfikator ekspercki z funkcja wybierajaca najlepszy klasyfikator na podstawie sprawdzianu krzyzowego
 # funkcja porownujaca klasyfikatory moze byc: precision_tp_fp, g_meantpfp, f1tpfps
-class ensembel_rating_cv(BaseEstimator, ClassifierMixin, TransformerMixin):
+class clf_expertCV(BaseEstimator, ClassifierMixin, TransformerMixin):
     # inicjalizacja
     # n_folds - liczba fold w CV
     # function_compare - funkcja porownujaca klasyfikatory

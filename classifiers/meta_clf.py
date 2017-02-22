@@ -8,11 +8,13 @@ from sklearn.externals.joblib import Parallel, delayed
 import simplefunctions
 from sklearn.ensemble import AdaBoostClassifier
 from sklearn.ensemble import BaggingClassifier
-from classifiers.clf_expert import ensembel_rating
+from classifiers.clf_expert import clf_expert
 from cross_val.cross_val import cross_val_pred2ict
 from classifiers.stacking import StackingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
+
+from imblearn.over_sampling import SMOTE, ADASYN
 
 
 def _parallel_fit_estimator(estimator, X, y):
@@ -47,6 +49,11 @@ class meta_classifier(BaseEstimator, ClassifierMixin, TransformerMixin):
         self.clfs_ensemble = []
         self.estimators_bag = estimators_bag
         self.estimators_ada = estimators_ada
+        self.random_st = 5
+        self.methods = [SMOTE(random_state=self.random_st),
+                        ADASYN(random_state=self.random_st)]
+        self.methoda = [0, 1]
+        self.name_met = ["ADASYN", "NCR"]
 
     def fit(self, X, y):
         if isinstance(y, np.ndarray) and len(y.shape) > 1 and y.shape[1] > 1:
@@ -90,21 +97,20 @@ class meta_classifier(BaseEstimator, ClassifierMixin, TransformerMixin):
                 matrixes1.append(simplefunctions.confusion_matrix(tar, pred))
             for matrix in matrixes1:
                 matrixes2.append(np.array([[matrix[1, 1], matrix[1, 0]], [matrix[0, 1], matrix[0, 0]]]))
-            g_mean = simplefunctions.precision_tp_fp(matrixes1)
+            fun_cmp = getattr(simplefunctions, self.function_compare)(matrixes1)
 
-            if g_mean > self.max_g[0]:
+            if fun_cmp > self.max_g[0]:
                 self.clf_id[1] = self.clf_id[0]
                 self.clf_id[0] = idx
                 self.max_g[1] = self.max_g[0]
-                self.max_g[0] = g_mean
-            elif g_mean > self.max_g[1]:
+                self.max_g[0] = fun_cmp
+            elif fun_cmp > self.max_g[1]:
                 self.clf_id[1] = idx
-                self.max_g[1] = g_mean
+                self.max_g[1] = fun_cmp
 
-        self.clfs_ensemble.append(ensembel_rating(self.estimators))
-        for clf in self.clf_id:
-            self.clfs_ensemble.append(self.clfs[clf])
-
+        self.clfs_ensemble.append(clf_expert(self.estimators))
+        for clfid in self.clf_id:
+            self.clfs_ensemble.append(self.clfs[clfid])
         self.ensemble_ = Parallel(n_jobs=self.n_jobs)(
             delayed(_parallel_fit_estimator)(clone(clf), X, y)
             for clf in self.clfs_ensemble)

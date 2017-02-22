@@ -7,10 +7,11 @@ from cross_val.cross_val import cross_val_pred2ict
 from simplefunctions import *
 from pylatex import Tabular, Document, Section
 from pylatex.utils import bold
-from classifiers.clf_expert import ensembel_rating
-from classifiers.clf_expertCV import ensembel_rating_cv
-
+from classifiers.meta_clf import meta_classifier
+from classifiers.clf_expert import clf_expert
 import os
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import BaggingClassifier
 
 path = os.path.dirname(os.path.abspath(__file__))
 dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME3', 'ecoli', 'bupa',
@@ -20,31 +21,31 @@ dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
-iterations = 10
-
 tables = []
-for tab in range(4):
-    table = Tabular('c|cccccc')
+for tab in range(5):
+    table = Tabular('c|ccccccc')
     table.add_hline()
-    table.add_row(('', "CLFE", "CLFE CV", "CLFE F1", "CLFE F1 CV", "CLFE G", "CLFE G CV"))
+    table.add_row(('', "BKNN", "BTREE", "BNB", "ATREE", "ANB", "ESR", "META"))
     table.add_hline()
     tables.append(table)
 
 clf1 = KNeighborsClassifier()
-clf2 = tree.DecisionTreeClassifier(max_depth=20)
+clf2 = tree.DecisionTreeClassifier()
 clf3 = GaussianNB()
+iterations = 10
+prec_clf1 = clf_expert(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)])
+m_clf = meta_classifier(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3), ],
+                        estimators_ada=[tree.DecisionTreeClassifier(max_depth=3), GaussianNB()],
+                        estimators_bag=[tree.DecisionTreeClassifier(), GaussianNB(), KNeighborsClassifier()],
+                        function_compare='g_meantpfp')
 
-prec_clf1 = ensembel_rating(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)])
-prec_clf2 = ensembel_rating_cv(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)])
+clfs = [BaggingClassifier(KNeighborsClassifier(), n_estimators=100, max_samples=0.9),
+        BaggingClassifier(tree.DecisionTreeClassifier(max_depth=3), n_estimators=100, max_samples=0.9),
+        BaggingClassifier(GaussianNB(), n_estimators=100, max_samples=0.9)]
+clfs.extend([AdaBoostClassifier(tree.DecisionTreeClassifier(max_depth=3), n_estimators=100),
+             AdaBoostClassifier(GaussianNB(), n_estimators=100)])
 
-f1_clf1 = ensembel_rating(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)], function_compare='f1tpfp')
-f1_clf2 = ensembel_rating_cv(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)], function_compare='f1tpfp')
-
-g_mean_clf1 = ensembel_rating(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)], function_compare='g_meantpfp')
-g_mean_clf2 = ensembel_rating_cv(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)],
-                                 function_compare='g_meantpfp')
-
-clfs = [prec_clf1, prec_clf2, f1_clf1, f1_clf2, g_mean_clf1, g_mean_clf2]
+clfs.extend([prec_clf1, m_clf])
 
 for data in dataset:
     db = getattr(importdata, 'load_' + data)()
@@ -90,7 +91,7 @@ for data in dataset:
 
         table.add_row(new_row)
 
-doc = Document("test_expert_clf")
+doc = Document("test_meta_clf")
 for i, (tab, sec) in enumerate(zip(tables, sections)):
     section = Section(sec)
     section.append(tab)

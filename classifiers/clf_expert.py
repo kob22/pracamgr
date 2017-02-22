@@ -16,7 +16,7 @@ def _parallel_fit_estimator(estimator, X, y):
 
 # klasyfikator ekspercki
 # funkcja porownujaca klasyfikatory moze byc: precision_tp_fp, g_meantpfp, f1tpfp
-class ensembel_rating(BaseEstimator, ClassifierMixin, TransformerMixin):
+class clf_expert(BaseEstimator, ClassifierMixin, TransformerMixin):
     # inicjalizacja
 
     # function_compare - funkcja porownujaca klasyfikatory
