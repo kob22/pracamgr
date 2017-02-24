@@ -29,40 +29,39 @@
 \BOOKMARK [2][-]{subsection.2.2.2}{Metody oversampling}{section.2.2}% 29
 \BOOKMARK [2][-]{subsection.2.2.3}{Metody hybrydowe}{section.2.2}% 30
 \BOOKMARK [0][-]{chapter.3}{Przeprowadzone badania}{}% 31
-\BOOKMARK [1][-]{section.3.1}{Opis platformy i w jaki spos\363b realizacji badan}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.1}{Opis platformy i spos\363b realizacji badan}{chapter.3}% 32
 \BOOKMARK [2][-]{subsection.3.1.1}{Jezyk python}{section.3.1}% 33
 \BOOKMARK [2][-]{subsection.3.1.2}{Biblioteka scikit-learn}{section.3.1}% 34
 \BOOKMARK [2][-]{subsection.3.1.3}{Biblioteka imbalanced-learn}{section.3.1}% 35
 \BOOKMARK [2][-]{subsection.3.1.4}{Pozosta\233e uzyte biblioteki}{section.3.1}% 36
 \BOOKMARK [2][-]{subsection.3.1.5}{opisac co zaimplementowane?}{section.3.1}% 37
 \BOOKMARK [1][-]{section.3.2}{Opis danych uzytych w badaniach}{chapter.3}% 38
-\BOOKMARK [1][-]{section.3.3}{Spos\363b mierzenia w sprawdzianie krzyzowym}{chapter.3}% 39
-\BOOKMARK [1][-]{section.3.4}{Ocena klasyfikatora w sprawdzianie krzyzowym k-krotnym.}{chapter.3}% 40
-\BOOKMARK [2][-]{subsection.3.4.1}{Test sposob\363w oceny klasyfikatora}{section.3.4}% 41
-\BOOKMARK [1][-]{section.3.5}{Balansowanie niezr\363wnowazonych zbior\363w ze sprawdzianem krzyzowym}{chapter.3}% 42
-\BOOKMARK [0][-]{chapter.4}{Meta-metody}{}% 43
-\BOOKMARK [1][-]{section.4.1}{Bagging}{chapter.4}% 44
-\BOOKMARK [2][-]{subsection.4.1.1}{Bagging z naiwnym klasyfikatorem bayesowskim}{section.4.1}% 45
-\BOOKMARK [2][-]{subsection.4.1.2}{Bagging drzewa decyzyjne}{section.4.1}% 46
-\BOOKMARK [2][-]{subsection.4.1.3}{Bagging z klasyfikatorem kNN}{section.4.1}% 47
-\BOOKMARK [1][-]{section.4.2}{Boosting}{chapter.4}% 48
-\BOOKMARK [2][-]{subsection.4.2.1}{AdaBoost z naiwnym klasyfikatorem Bayesa}{section.4.2}% 49
-\BOOKMARK [2][-]{subsection.4.2.2}{AdaBoost z drzewem decyzyjnym}{section.4.2}% 50
-\BOOKMARK [2][-]{subsection.4.2.3}{Stacking}{section.4.2}% 51
-\BOOKMARK [2][-]{subsection.4.2.4}{Por\363wnanie meta-metod}{section.4.2}% 52
-\BOOKMARK [1][-]{section.4.3}{Poprawa klasyfikacji danych mniejszosciowych}{chapter.4}% 53
-\BOOKMARK [2][-]{subsection.4.3.1}{Oversampling metoda SMOTE}{section.4.3}% 54
-\BOOKMARK [2][-]{subsection.4.3.2}{Oversampling metoda ADASYN}{section.4.3}% 55
-\BOOKMARK [2][-]{subsection.4.3.3}{Undersampling NCR}{section.4.3}% 56
-\BOOKMARK [2][-]{subsection.4.3.4}{Oversampling SMOTE i undersampling metoda ENN}{section.4.3}% 57
-\BOOKMARK [2][-]{subsection.4.3.5}{Oversampling SMOTE i undersampling metoda Tomek links}{section.4.3}% 58
-\BOOKMARK [2][-]{subsection.4.3.6}{Por\363wnanie metod}{section.4.3}% 59
-\BOOKMARK [0][-]{chapter.5}{Propozycja klasyfikator\363w}{}% 60
-\BOOKMARK [1][-]{section.5.1}{Klasyfikator ekspercki}{chapter.5}% 61
-\BOOKMARK [2][-]{subsection.5.1.1}{Test klasyfikatora eksperckiego}{section.5.1}% 62
-\BOOKMARK [1][-]{section.5.2}{Meta-klasyfikator}{chapter.5}% 63
-\BOOKMARK [2][-]{subsection.5.2.1}{Testy}{section.5.2}% 64
-\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 65
-\BOOKMARK [0][-]{chapter*.116}{Bibliografia}{}% 66
-\BOOKMARK [1][-]{chapter*.117}{Spis rysunk\363w}{chapter*.116}% 67
-\BOOKMARK [1][-]{chapter*.118}{Spis tabel}{chapter*.116}% 68
+\BOOKMARK [1][-]{section.3.3}{Ocena klasyfikatora w sprawdzianie krzyzowym k-krotnym.}{chapter.3}% 39
+\BOOKMARK [2][-]{subsection.3.3.1}{Test sposob\363w oceny klasyfikatora}{section.3.3}% 40
+\BOOKMARK [1][-]{section.3.4}{R\363wnowazenie liczebnosci klas w danych w klasyfikacji ze sprawdzianem krzyzowym}{chapter.3}% 41
+\BOOKMARK [0][-]{chapter.4}{Meta-metody}{}% 42
+\BOOKMARK [1][-]{section.4.1}{Bagging}{chapter.4}% 43
+\BOOKMARK [2][-]{subsection.4.1.1}{Bagging z naiwnym klasyfikatorem bayesowskim}{section.4.1}% 44
+\BOOKMARK [2][-]{subsection.4.1.2}{Bagging drzewa decyzyjne}{section.4.1}% 45
+\BOOKMARK [2][-]{subsection.4.1.3}{Bagging z klasyfikatorem kNN}{section.4.1}% 46
+\BOOKMARK [1][-]{section.4.2}{Boosting}{chapter.4}% 47
+\BOOKMARK [2][-]{subsection.4.2.1}{AdaBoost z naiwnym klasyfikatorem Bayesa}{section.4.2}% 48
+\BOOKMARK [2][-]{subsection.4.2.2}{AdaBoost z drzewem decyzyjnym}{section.4.2}% 49
+\BOOKMARK [2][-]{subsection.4.2.3}{Stacking}{section.4.2}% 50
+\BOOKMARK [2][-]{subsection.4.2.4}{Por\363wnanie meta-metod}{section.4.2}% 51
+\BOOKMARK [1][-]{section.4.3}{Poprawa klasyfikacji danych mniejszosciowych}{chapter.4}% 52
+\BOOKMARK [2][-]{subsection.4.3.1}{Oversampling metoda SMOTE}{section.4.3}% 53
+\BOOKMARK [2][-]{subsection.4.3.2}{Oversampling metoda ADASYN}{section.4.3}% 54
+\BOOKMARK [2][-]{subsection.4.3.3}{Undersampling NCR}{section.4.3}% 55
+\BOOKMARK [2][-]{subsection.4.3.4}{Oversampling SMOTE i undersampling metoda ENN}{section.4.3}% 56
+\BOOKMARK [2][-]{subsection.4.3.5}{Oversampling SMOTE i undersampling metoda Tomek links}{section.4.3}% 57
+\BOOKMARK [2][-]{subsection.4.3.6}{Por\363wnanie metod}{section.4.3}% 58
+\BOOKMARK [0][-]{chapter.5}{Propozycja klasyfikator\363w}{}% 59
+\BOOKMARK [1][-]{section.5.1}{Klasyfikator ekspercki}{chapter.5}% 60
+\BOOKMARK [2][-]{subsection.5.1.1}{Test klasyfikatora eksperckiego}{section.5.1}% 61
+\BOOKMARK [1][-]{section.5.2}{Meta-klasyfikator}{chapter.5}% 62
+\BOOKMARK [2][-]{subsection.5.2.1}{Testy}{section.5.2}% 63
+\BOOKMARK [0][-]{chapter.6}{Podsumowanie}{}% 64
+\BOOKMARK [0][-]{chapter*.110}{Bibliografia}{}% 65
+\BOOKMARK [1][-]{chapter*.111}{Spis rysunk\363w}{chapter*.110}% 66
+\BOOKMARK [1][-]{chapter*.112}{Spis tabel}{chapter*.110}% 67

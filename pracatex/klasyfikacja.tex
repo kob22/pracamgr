@@ -1,11 +1,11 @@
-\todo{usunac pojedyncze znaki na koncu zdania, wykonac skrypt}
-\todo{poprawic znaki cytatu, nie dodaje spacji po}
 \chapter{Wstęp teoretyczny}
 \section{Klasyfikacja danych}
-\todo{może coś pisać o uczeniu maszynowym i że klasyfikacja moze byc nadzorowana i nie?} 
-\todo{zbadac rysunki i tabele, czasami pokazuja się zbyt daleko od ich własciwiego położenia}
-\todo{właściwa numeracja stron, lewy prawy, rozdziały od nieparzystych}
+\todo{usunac pojedyncze znaki na koncu zdania, wykonac skrypt}
+\todo{poprawic znaki cytatu, nie dodaje spacji po}
 
+
+\todo{napisac o tym, że niektóre zbiory są multiklasowe, natomiast dane sprowadzone są do 2 klas} 
+\todo{napisac o podejsci one vs all}
 Klasyfikacja jest to proces przyporządkowania danych do jednej z predefiniowanych klas na podstawie atrybutów tych danych. Algorytm klasyfikacji na podstawie analizy danych trenujących, zawierających atrybuty oraz klasę, tworzy model klasyfikacyjny. Stworzony model klasyfikacyjny wykorzystywany jest do predykcji klasy (kategorii) nowych danych bez określonej klasy. Celem algorytmu budującego model, jest  odnalezienie wzorców, w jaki sposób atrybuty obiektu wpływają na przynależność do danej klasy, tak, aby wiedza na temat analizowanych danych była możliwie ogólna oraz niezależna od próby.
 
 Klasyfikacja danych jest procesem dwuetapowym:
@@ -305,7 +305,7 @@ Wyróżnia się także współczynnik FPR (ang. \textit{false positive rate}), j
 Istotnym wskaźnikiem jest także precyzja (ang. \textit{precision}). Określa ona jaka część przykładów uznanych za pozytywne przez klasyfikator została poprawnie oznaczona. Precyzja wyrażana jest jako stosunek prawdziwie pozytywnych przypadków do wszystkich przykładów uznanych za pozytywne. W medycynie, pokazuje procentowo ile osób uznanych za chorych, jest rzeczywiście chora.
 \[precision = \frac{TP}{TP + FP}\]\\
 Wskaźnik dokładności oraz error rate nie sprawdzają się w przypadku, gdy dane są niezrównoważone. Klasyfikator może osiągnąć wysoką dokładność np. 90\% przy niskiej wykrywalności klasy mniejszościowej (baza $balance scale$ zawiera 92\% próbek klasy 0 oraz 8\% klasy 1, większość klasyfikatorów osiąga dokładność na poziomie 92\% przy zerowej wykrywalności klasy 1).
-\todo{opis mierzenia w przypadku danych niezrównoważonych, o tych danych jest kolejny rozdział, czy ok?}
+
 Dlatego oceniając klasyfikator pracujący na niezrównoważonych danych, należy obliczyć osobno współczynniki precyzji, czułości oraz specyficzności dla każdej kategorii danych. Jak wspomniano wcześniej, bardzo często polepszenie jakości klasyfikacji klasy mniejszościowej połączona jest z pogorszeniem rozpoznawalności klasy większościowej. Mając współczynnik czułości oraz specyficzności ciężko zdecydować, który klasyfikator jest lepszy. Kubat i Matwin zaproponowali połączenie obu tych współczynników, w postaci średniej geometrycznej czułości oraz specyficzności \cite{KubatMatwin}. 
 \[G-mean = \sqrt{Sensitivity*Specificity}\]
 Klasyfikator z wyższym G-mean, zapewnia lepszą rozpoznawalność obu klas, jednocześnie zachowując, aby dokładność w rozpoznawaniu obu klas była zbilansowana. Współczynnik ten jest niezależny od rozkładu klas w danych \cite{Garcia}.
@@ -381,9 +381,6 @@ Jest to specjalny przypadek sprawdzianu krzyżowego k-krotnego. Podzbiory tworzo
 
 
 
-
-\todo{napisac o tym, że niektóre zbiory są multiklasowe, natomiast dane sprowadzone są do 2 klas} 
-\todo{napisac o podejsci one vs all}
 
 
 

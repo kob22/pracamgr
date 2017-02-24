@@ -40,7 +40,7 @@ stacking = StackingCVClassifier(
     classifiers=[KNeighborsClassifier(), tree.DecisionTreeClassifier(max_depth=3), GaussianNB()],
     meta_classifier=meta)
 
-iterations = 10
+iterations = 2
 random_st = 5
 clfs = [clf1, clf2, stacking]
 for data in dataset:
@@ -48,20 +48,20 @@ for data in dataset:
     print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
     print('Zbior danych: %s' % data)
     importdata.print_info(db.target)
-    length_data = len(data)
+    length_data = len(db.data)
 
     rows = []
     for i in range(5):
         rows.append([data])
 
     if length_data > 1000:
-        folds = 10
+        folds = 30
     elif length_data > 700:
-        folds = 7
+        folds = 30
     elif length_data > 500:
-        folds = 5
+        folds = 30
     else:
-        folds = 3
+        folds = 30
     skf = StratifiedKFold(n_splits=folds, random_state=random_st)
 
     for clf in clfs:
@@ -81,7 +81,7 @@ for data in dataset:
         print_scores(testpredict, testtarget)
 
         # NCR
-        ncr_ = NeighbourhoodCleaningRule(random_state=random_st)
+        ncr_ = NeighbourhoodCleaningRule(random_state=random_st, n_neighbors=3)
 
         scores = []
 
