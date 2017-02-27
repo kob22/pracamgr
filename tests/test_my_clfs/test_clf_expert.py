@@ -21,7 +21,7 @@ dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
 iterations = 10
-
+folds = 10
 tables = []
 for tab in range(5):
     table = Tabular('c|ccccccc')
@@ -55,15 +55,6 @@ for data in dataset:
     for i in range(5):
         rows.append([data])
 
-    length_data = len(data)
-    if length_data > 1000:
-        folds = 10
-    elif length_data > 700:
-        folds = 7
-    elif length_data > 500:
-        folds = 5
-    else:
-        folds = 3
 
     for clf in clfs:
         scores = []

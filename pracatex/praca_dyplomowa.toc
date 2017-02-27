@@ -26,12 +26,12 @@
 \contentsline {subsubsection}{Dane nominalne}{16}{section*.19}
 \contentsline {subsection}{\numberline {1.4.4}Redukcja ilo\IeC {\'s}ci atrybut\IeC {\'o}w}{17}{subsection.1.4.4}
 \contentsline {subsubsection}{Sekwencyjna selekcja post\IeC {\k e}puj\IeC {\k a}ca oraz sekwencyjna selekcja wsteczna}{17}{section*.21}
-\contentsline {subsubsection}{Analiza g\IeC {\l }\IeC {\'o}wnych sk\IeC {\l }adowych}{17}{section*.22}
+\contentsline {subsubsection}{Analiza g\IeC {\l }\IeC {\'o}wnych sk\IeC {\l }adowych}{18}{section*.22}
 \contentsline {section}{\numberline {1.5}Ocena poprawno\IeC {\'s}ci klasyfikacji}{18}{section.1.5}
 \contentsline {subsection}{\numberline {1.5.1}Miary jako\IeC {\'s}ci klasyfikacji danych}{18}{subsection.1.5.1}
 \contentsline {subsubsection}{Krzywa ROC}{20}{section*.24}
-\contentsline {subsection}{\numberline {1.5.2}Nadmierne dopasowanie i wariancja klasyfikatora}{20}{subsection.1.5.2}
-\contentsline {subsection}{\numberline {1.5.3}Metody pomiaru jako\IeC {\'s}ci klasyfikacji danych}{22}{subsection.1.5.3}
+\contentsline {subsection}{\numberline {1.5.2}Nadmierne dopasowanie i wariancja klasyfikatora}{21}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.3}Metody pomiaru jako\IeC {\'s}ci klasyfikacji danych}{23}{subsection.1.5.3}
 \contentsline {subsubsection}{Metoda z jednym zbiorem}{23}{section*.27}
 \contentsline {subsubsection}{Metoda z wydzielonym zbiorem testowym (ang. \textit {the holdout method})}{23}{section*.28}
 \contentsline {subsubsection}{Sprawdzian krzy\IeC {\.z}owy z p przyk\IeC {\l }adami (ang. \textit {leave-p-out cross-validation})}{23}{section*.29}
@@ -47,25 +47,24 @@
 \contentsline {chapter}{\numberline {3}Przeprowadzone badania}{29}{chapter.3}
 \contentsline {section}{\numberline {3.1}Opis platformy i spos\IeC {\'o}b realizacji bada\IeC {\'n}}{29}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}J\IeC {\k e}zyk python}{29}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Biblioteka scikit-learn}{29}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.2}Biblioteka scikit-learn}{30}{subsection.3.1.2}
 \contentsline {subsection}{\numberline {3.1.3}Biblioteka imbalanced-learn}{30}{subsection.3.1.3}
 \contentsline {subsection}{\numberline {3.1.4}Pozosta\IeC {\l }e u\IeC {\.z}yte biblioteki}{30}{subsection.3.1.4}
-\contentsline {subsubsection}{Mlxtend}{30}{section*.37}
-\contentsline {subsubsection}{Numpy}{30}{section*.38}
-\contentsline {subsubsection}{Maptolib}{30}{section*.39}
-\contentsline {subsubsection}{Texttable}{30}{section*.40}
-\contentsline {subsubsection}{Pylatex}{30}{section*.41}
-\contentsline {subsection}{\numberline {3.1.5}opisac co zaimplementowane?}{30}{subsection.3.1.5}
-\contentsline {section}{\numberline {3.2}Opis danych u\IeC {\.z}ytych w badaniach}{30}{section.3.2}
-\contentsline {subsubsection}{Analiza klas mniejszo\IeC {\'s}ciowych}{32}{section*.44}
+\contentsline {subsubsection}{Mlxtend}{30}{section*.34}
+\contentsline {subsubsection}{Numpy}{30}{section*.35}
+\contentsline {subsubsection}{Maptolib}{31}{section*.36}
+\contentsline {subsubsection}{Texttable}{31}{section*.37}
+\contentsline {subsubsection}{Pylatex}{31}{section*.38}
+\contentsline {section}{\numberline {3.2}Opis danych u\IeC {\.z}ytych w badaniach}{31}{section.3.2}
+\contentsline {subsubsection}{Analiza klas mniejszo\IeC {\'s}ciowych}{32}{section*.40}
 \contentsline {section}{\numberline {3.3}Ocena klasyfikatora w sprawdzianie krzy\IeC {\.z}owym k-krotnym.}{34}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Test sposob\IeC {\'o}w oceny klasyfikatora}{34}{subsection.3.3.1}
-\contentsline {subsubsection}{Dok\IeC {\l }adno\IeC {\'s}\IeC {\'c} oraz b\IeC {\l }\IeC {\k a}d klasyfikatora}{35}{section*.46}
-\contentsline {subsubsection}{Czu\IeC {\l }o\IeC {\'s}\IeC {\'c}, specyficzno\IeC {\'s}\IeC {\'c}, FPR oraz precyzja}{35}{section*.47}
-\contentsline {subsubsection}{Miara $F_1$}{38}{section*.50}
-\contentsline {subsubsection}{Miara G-mean}{40}{section*.52}
-\contentsline {subsubsection}{Krzywa ROC i miara AUC}{41}{section*.54}
-\contentsline {subsubsection}{Podsumowanie}{43}{section*.56}
+\contentsline {subsubsection}{Dok\IeC {\l }adno\IeC {\'s}\IeC {\'c} oraz b\IeC {\l }\IeC {\k a}d klasyfikatora}{35}{section*.42}
+\contentsline {subsubsection}{Czu\IeC {\l }o\IeC {\'s}\IeC {\'c}, specyficzno\IeC {\'s}\IeC {\'c}, FPR oraz precyzja}{35}{section*.43}
+\contentsline {subsubsection}{Miara $F_1$}{38}{section*.46}
+\contentsline {subsubsection}{Miara G-mean}{40}{section*.48}
+\contentsline {subsubsection}{Krzywa ROC i miara AUC}{41}{section*.50}
+\contentsline {subsubsection}{Podsumowanie}{43}{section*.52}
 \contentsline {section}{\numberline {3.4}R\IeC {\'o}wnowa\IeC {\.z}enie liczebno\IeC {\'s}ci klas w danych w klasyfikacji ze sprawdzianem krzy\IeC {\.z}owym}{44}{section.3.4}
 \contentsline {chapter}{\numberline {4}Meta-metody}{49}{chapter.4}
 \contentsline {section}{\numberline {4.1}Bagging}{49}{section.4.1}
@@ -84,12 +83,13 @@
 \contentsline {subsection}{\numberline {4.3.4}Oversampling SMOTE i undersampling metod\IeC {\k a} ENN}{81}{subsection.4.3.4}
 \contentsline {subsection}{\numberline {4.3.5}Oversampling SMOTE i undersampling metod\IeC {\k a} Tomek links}{82}{subsection.4.3.5}
 \contentsline {subsection}{\numberline {4.3.6}Por\IeC {\'o}wnanie metod}{84}{subsection.4.3.6}
-\contentsline {chapter}{\numberline {5}Propozycja klasyfikator\IeC {\'o}w}{87}{chapter.5}
-\contentsline {section}{\numberline {5.1}Klasyfikator ekspercki}{87}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Test klasyfikatora eksperckiego}{88}{subsection.5.1.1}
-\contentsline {section}{\numberline {5.2}Meta-klasyfikator}{91}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Testy}{92}{subsection.5.2.1}
-\contentsline {chapter}{\numberline {6}Podsumowanie}{93}{chapter.6}
-\contentsline {chapter}{Bibliografia}{95}{chapter*.110}
-\contentsline {section}{Spis rysunk\IeC {\'o}w}{98}{chapter*.111}
-\contentsline {section}{Spis tabel}{101}{chapter*.112}
+\contentsline {section}{\numberline {4.4}Wnioski z bada\IeC {\'n}}{87}{section.4.4}
+\contentsline {chapter}{\numberline {5}Propozycja klasyfikator\IeC {\'o}w}{89}{chapter.5}
+\contentsline {section}{\numberline {5.1}Klasyfikator ekspercki}{89}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Test klasyfikatora eksperckiego}{90}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Meta-klasyfikator}{93}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Testy}{94}{subsection.5.2.1}
+\contentsline {chapter}{\numberline {6}Podsumowanie}{99}{chapter.6}
+\contentsline {chapter}{Bibliografia}{101}{chapter*.108}
+\contentsline {section}{Spis rysunk\IeC {\'o}w}{104}{chapter*.109}
+\contentsline {section}{Spis tabel}{107}{chapter*.110}

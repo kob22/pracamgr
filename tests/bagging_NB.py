@@ -14,12 +14,14 @@ path = os.path.dirname(os.path.abspath(__file__))
 dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME3', 'ecoli', 'bupa',
            'horse_colic',
            'german', 'breast_cancer', 'cmc', 'hepatitis', 'haberman', 'transfusion',
-           'car', 'glass', 'abalone16_29',, 'heart_cleveland', 'balance_scale', 'postoperative']
+           'car', 'glass', 'abalone16_29', 'solar_flare', 'heart_cleveland', 'balance_scale', 'postoperative']
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
-samples = [0.72]
-features = [0.68]
+samples = [0.68]
+features = [0.72]
+iterations = 10
+folds = 10
 for feat in features:
     for samp in samples:
         tables = []
@@ -49,26 +51,19 @@ for feat in features:
             for i in range(5):
                 rows.append([data])
 
-            length_data = len(data)
-            if length_data > 1000:
-                folds = 10
-            elif length_data > 700:
-                folds = 7
-            elif length_data > 500:
-                folds = 5
-            else:
-                folds = 3
-
             for clf in clfs:
-                clf_ = clone(clf)
-                testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
-                scores = print_to_latex_accsespf1g(testpredict, testtarget)
-
-                for i, score in enumerate(scores):
+                scores = []
+                for iteration in range(iterations):
+                    clf_ = clone(clf)
+                    testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
+                    scores.append(accsespf1g(testpredict, testtarget))
+                    print(str(clf))
+                    print_scores(testpredict, testtarget)
+                avgscores = avgaccsespf1g(scores)
+                to_decimal = print_to_latex_two_decimal(avgscores)
+                for i, score in enumerate(to_decimal):
                     rows[i].append(score)
-                print("----------")
-                print(str(clf))
-                print_scores(testpredict, testtarget)
+
             for table, row in zip(tables, rows):
                 print(row)
                 max_v = max(row[1:])

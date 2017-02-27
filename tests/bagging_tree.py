@@ -4,7 +4,7 @@ from sklearn.ensemble import BaggingClassifier
 from sklearn.base import clone
 from cross_val.cross_val import cross_val_pred2ict
 from simplefunctions import *
-from pylatex import Tabular, Document, Section
+from pylatex import LongTable, Document, Section
 from pylatex.utils import bold
 from pylatex.basic import TextColor
 from pylatex import MultiRow
@@ -12,14 +12,20 @@ from pylatex import MultiRow
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
-dataset = ['breast_cancer', 'cmc', 'hepatitis', 'haberman', 'glass', 'abalone16_29',
-           'heart_cleveland', 'postoperative']
+dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME3', 'ecoli', 'bupa',
+           'horse_colic',
+           'german', 'breast_cancer', 'cmc', 'hepatitis', 'haberman', 'transfusion',
+           'car', 'glass', 'abalone16_29', 'solar_flare', 'heart_cleveland', 'balance_scale', 'postoperative']
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
 tables = []
+iterations = 10
+samp = 0.8
+feat = 0.9
+folds = 10
 for tab in range(5):
-    table = Tabular('c|c|ccccccc')
+    table = LongTable('c|c|ccccccc')
     table.add_hline()
     table.add_row(('Glebokosc drzewa', 'Liczba est.', "-", "3", "5", "7", "10", "15", "20"))
     table.add_hline()
@@ -38,7 +44,9 @@ clfs.append(temp_clf)
 for estimator in estimators:
     temp2_clf = []
     for depth in depths:
-        temp2_clf.append(BaggingClassifier(tree.DecisionTreeClassifier(max_depth=depth), n_estimators=estimator))
+        temp2_clf.append(
+            BaggingClassifier(tree.DecisionTreeClassifier(max_depth=depth), n_estimators=estimator, max_samples=samp,
+                              max_features=feat))
     clfs.append(temp2_clf)
 
 for data in dataset:
@@ -47,15 +55,6 @@ for data in dataset:
     print('Zbior danych: %s' % data)
     importdata.print_info(db.target)
 
-    length_data = len(data)
-    if length_data > 1000:
-        folds = 10
-    elif length_data > 700:
-        folds = 7
-    elif length_data > 500:
-        folds = 5
-    else:
-        folds = 3
 
     for id, (clfs_, name) in enumerate(zip(clfs, estimators_name)):
         rows = []
@@ -66,15 +65,19 @@ for data in dataset:
         for i in range(5):
             rows.append([col, name])
         for clf in clfs_:
-            clf_ = clone(clf)
-            testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
-            scores = print_to_latex_accsespf1g(testpredict, testtarget)
-
-            for i, score in enumerate(scores):
+            scores = []
+            for iteration in range(iterations):
+                clf_ = clone(clf)
+                testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
+                scores.append(accsespf1g(testpredict, testtarget))
+                print(str(clf))
+                print_scores(testpredict, testtarget)
+            avgscores = avgaccsespf1g(scores)
+            to_decimal = print_to_latex_two_decimal(avgscores)
+            for i, score in enumerate(to_decimal):
                 rows[i].append(score)
-            print("----------")
-            print(str(clf))
-            print_scores(testpredict, testtarget)
+
+
         for table, row in zip(tables, rows):
 
             max_v = max(row[2:])
@@ -91,7 +94,7 @@ for data in dataset:
             else:
                 table.add_hline(start=2)
 
-doc = Document("bagging_tree_2")
+doc = Document("bagging_tree_%s%s" % (feat, samp))
 for i, tab, in enumerate(tables):
     section = Section(sections[i])
     section.append(tab)

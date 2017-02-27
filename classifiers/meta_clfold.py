@@ -13,10 +13,9 @@ from cross_val.cross_val import cross_val_pred2ict
 from classifiers.stacking import StackingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
-from imblearn.under_sampling import NeighbourhoodCleaningRule
+
 from imblearn.over_sampling import SMOTE, ADASYN
-from imblearn.combine import SMOTEENN, SMOTETomek
-from sklearn.model_selection import StratifiedKFold
+
 
 def _parallel_fit_estimator(estimator, X, y):
     """Private function used to fit an estimator within a job."""
@@ -35,23 +34,26 @@ class meta_classifier(BaseEstimator, ClassifierMixin, TransformerMixin):
         self.estimators = estimators
         self.named_estimators = dict(estimators)
         self.n_jobs = n_jobs
+        self.experts = [-1, -1]
+        self.max_rating = [-1, -1]
         self.groups = []
         self.g_mean = [-1, -1]
         self.function_compare = function_compare
         self.clfs = []
+        self.clfs_ensemble = []
         self.n_folds = n_folds
-        self.max_g = [-1, -1,-1]
-        self.clf_id = [-1, -1, -1]
+        self.max_g = [-1, -1]
+        self.clf_id = [-1, -1]
         self.n_estimators = n_estimators
         self.meta_clf_ = MLPClassifier(solver='lbfgs', random_state=1)
         self.clfs_ensemble = []
         self.estimators_bag = estimators_bag
         self.estimators_ada = estimators_ada
         self.random_st = 5
-        self.methods = [SMOTE(k_neighbors=3,random_state=self.random_st),NeighbourhoodCleaningRule(n_neighbors=3, random_state=self.random_st)]
-        self.methoda = [0,1]
+        self.methods = [SMOTE(random_state=self.random_st),
+                        ADASYN(random_state=self.random_st)]
+        self.methoda = [0, 1]
         self.name_met = ["ADASYN", "NCR"]
-        self.ensemble_ = []
 
     def fit(self, X, y):
         if isinstance(y, np.ndarray) and len(y.shape) > 1 and y.shape[1] > 1:
@@ -78,42 +80,13 @@ class meta_classifier(BaseEstimator, ClassifierMixin, TransformerMixin):
 
         self.clfs.append(StackingClassifier(classifiers=self.estimators_,
                                             meta_classifier=LogisticRegression()))
-        self.clfs.append(clf_expert(self.estimators))
+
         # ocena klasyfikatorow
         for clf in self.clfs:
             testpredict, testtarget = cross_val_pred2ict(clf, X, y, cv=self.n_folds,
                                                          n_jobs=1)
             cv_predictions.append((testpredict))
             targets.append(testtarget)
-
-
-        skf = StratifiedKFold(n_splits=2, random_state=self.random_st)
-        for clf in self.clfs:
-            for method, name in zip(self.methoda, self.name_met):
-                metodaa = SMOTE(k_neighbors=3,random_state=self.random_st)
-                metodaj = NeighbourhoodCleaningRule(n_neighbors=3,random_state=self.random_st)
-
-
-                predict_re = []
-                targets_re = []
-                for train_index, test_index in skf.split(X, y):
-
-                    if method == 0:
-                        data_re, tar_re = metodaa.fit_sample(np.asarray(X[train_index]), np.asarray(y[train_index]))
-                    else:
-                        data_re, tar_re = metodaj.fit_sample(np.asarray(X[train_index]), np.asarray(y[train_index]))
-
-                    clf_ = clone(clf)
-
-                        # trenowanie
-                    clf_.fit(data_re, tar_re)
-
-                        # testowanie
-                    predict_re.append(clf_.predict(X[test_index]))
-                    targets_re.append(y[test_index])
-                cv_predictions.append((predict_re))
-                targets.append(targets_re)
-
 
         # wylanianie 2 najlepszych ekspertow
         for idx, (prediction, target) in enumerate(zip(cv_predictions, targets)):
@@ -132,37 +105,17 @@ class meta_classifier(BaseEstimator, ClassifierMixin, TransformerMixin):
                 self.max_g[1] = self.max_g[0]
                 self.max_g[0] = fun_cmp
             elif fun_cmp > self.max_g[1]:
-                self.clf_id[2] = self.clf_id[1]
                 self.clf_id[1] = idx
-                self.max_g[2] = self.max_g[1]
-                self.max_g[0] = fun_cmp
-            elif fun_cmp > self.max_g[2]:
-                self.clf_id[2] = idx
-                self.max_g[2] = fun_cmp
-        print(self.clfs)
-        print(self.clf_id)
-        for clf_id in self.clf_id:
-            if clf_id > len(self.estimators_ada) + len(self.estimators_bag):
-                print("JESTEM!!!")
-                if clf_id % 2 == 0:
-                    print("ADASYN!!!")
-                    met = self.methods[0]
-                    data_re, tar_re = met.fit_sample(X, y)
-                    clf_ = clone(self.clfs[(clf_id-7)/2])
-                    self.ensemble_.append(clf_.fit(data_re, tar_re))
-                else:
-                    print("NCR")
-                    met = self.methods[1]
-                    data_re, tar_re = met.fit_sample(X, y)
-                    clf_ = clone(self.clfs[(clf_id-7)/2])
-                    self.ensemble_.append(clf_.fit(data_re, tar_re))
-            else:
-                print("BEEEZ")
-                clf_ = clone(self.clfs[clf_id])
-                self.ensemble_.append(clf_.fit(X,y))
+                self.max_g[1] = fun_cmp
+
+        self.clfs_ensemble.append(clf_expert(self.estimators))
+        for clfid in self.clf_id:
+            self.clfs_ensemble.append(self.clfs[clfid])
+        self.ensemble_ = Parallel(n_jobs=self.n_jobs)(
+            delayed(_parallel_fit_estimator)(clone(clf), X, y)
+            for clf in self.clfs_ensemble)
 
         meta_features = self._predict_meta_features(X)
-        print(meta_features)
         self.meta_clf_.fit(meta_features, y)
 
     def predict(self, X):

@@ -7,7 +7,7 @@ from cross_val.cross_val import cross_val_pred2ict
 from simplefunctions import *
 from pylatex import Tabular, Document, Section
 from pylatex.utils import bold
-from classifiers.meta_clf import meta_classifier
+from classifiers.meta_clfold import meta_classifier
 from classifiers.clf_expert import clf_expert
 import os
 from sklearn.ensemble import AdaBoostClassifier
@@ -33,11 +33,11 @@ clf1 = KNeighborsClassifier()
 clf2 = tree.DecisionTreeClassifier()
 clf3 = GaussianNB()
 iterations = 10
-folds = 10
 prec_clf1 = clf_expert(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)])
-m_clf = meta_classifier(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)],
+m_clf = meta_classifier(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3), ],
                         estimators_ada=[tree.DecisionTreeClassifier(max_depth=3), GaussianNB()],
-                        estimators_bag=[tree.DecisionTreeClassifier(), GaussianNB(), KNeighborsClassifier()], function_compare='g_meantpfp' )
+                        estimators_bag=[tree.DecisionTreeClassifier(), GaussianNB(), KNeighborsClassifier()],
+                        function_compare='g_meantpfp')
 
 clfs = [BaggingClassifier(KNeighborsClassifier(), n_estimators=100, max_samples=0.9),
         BaggingClassifier(tree.DecisionTreeClassifier(max_depth=3), n_estimators=100, max_samples=0.9),
@@ -56,11 +56,20 @@ for data in dataset:
     for i in range(5):
         rows.append([data])
 
+    length_data = len(data)
+    if length_data > 1000:
+        folds = 10
+    elif length_data > 700:
+        folds = 7
+    elif length_data > 500:
+        folds = 5
+    else:
+        folds = 3
+
     for clf in clfs:
         scores = []
         for iteration in range(iterations):
             clf_ = clone(clf)
-
             testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
             scores.append(accsespf1g(testpredict, testtarget))
             print(str(clf))
