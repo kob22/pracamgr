@@ -1,9 +1,9 @@
 \chapter{Przeprowadzone badania}
 
 \section{Opis platformy i~sposób realizacji badań}
-Wszystkie badania i~testy zostały napisane z wykorzystaniem języka python oraz biblioteki scikit-learn, w~której znajdują się implementacje użytych algorytmów klasyfikacji. Każdy test został przeprowadzony dla wszystkich zbiorów danych (rozdział \ref{opisdanychroz}), które zostały zaimportowane z plików. Po przetworzeniu danych, jeżeli wymagał tego algorytm, dane były poddawane procesowi standaryzacji. Następnie budowany był klasyfikator, który był oceniany z wykorzystaniem równomiernego sprawdzianu krzyżowego, dla $k=10$. W kolejnym kroku oceniano klasyfikator z wykorzystaniem opisanych miar. Budowa klasyfikatora wraz z oceną były powtarzane 10 razy, a~następnie wyniki zostały uśrednione. Końcowe wyniki były zapisywane do plików \textit{.pdf} oraz \textit{.tex}. Kod napisanych funkcji oraz testów został umieszczony na płycie CD. Do ich uruchomienia potrzebne są opisane w~dalszej części pracy biblioteki. Nazwy wykorzystanych skryptów zostały wymienione dla każdego opisanego badania. Każdy test stanowi niezależną część i~może być uruchamiany pojedynczo. Ponadto, na potrzeby przeprowadzonych testów, napisano:
+Wszystkie badania i~testy zostały napisane z~wykorzystaniem języka python oraz biblioteki scikit-learn, w~której znajdują się implementacje użytych algorytmów klasyfikacji. Każdy test został przeprowadzony dla wszystkich zbiorów danych (rozdział \ref{opisdanychroz}), które zostały zaimportowane z~plików. Po przetworzeniu danych, jeżeli wymagał tego algorytm, dane były poddawane procesowi standaryzacji. Następnie budowany był klasyfikator, który był oceniany z~wykorzystaniem równomiernego sprawdzianu krzyżowego, dla $k=10$. W kolejnym kroku oceniano klasyfikator z~wykorzystaniem opisanych miar. Budowa klasyfikatora wraz z~oceną były powtarzane 10 razy, a~następnie wyniki zostały uśrednione. Końcowe wyniki były zapisywane do plików \textit{.pdf} oraz \textit{.tex}. Kod napisanych funkcji oraz testów został umieszczony na płycie CD. Do ich uruchomienia potrzebne są opisane w~dalszej części pracy biblioteki. Nazwy wykorzystanych skryptów zostały wymienione dla każdego opisanego badania. Każdy test stanowi niezależną część i~może być uruchamiany pojedynczo. Ponadto, na potrzeby przeprowadzonych testów, napisano:
 \begin{itemize}
-	\item funkcje wczytujące dane z plików oraz wstępnie przetwarzające dane,
+	\item funkcje wczytujące dane z~plików oraz wstępnie przetwarzające dane,
 	\item sprawdzian krzyżowy,
 	\item miary oceniające klasyfikator,
 	\item funkcje prezentujące wyniki oraz zapisujące w~postaci tabel do plików,
@@ -12,17 +12,17 @@ Wszystkie badania i~testy zostały napisane z wykorzystaniem języka python oraz
 \end{itemize}
 
 \subsection{Język python}
-Język python to język programowania interpretowany, wysokiego poziomu, z dużą ilością dostępnych bibliotek. Python\cite{python} posiada dynamiczne zarządzanie typami oraz automatyczne zarządzanie pamięcią. Wspiera kilka paradygmatów programowania, takich jak: obiektowy, imperatywny, funkcyjny i~proceduralny. Został zaprojektowany z troską o czytelność kodu oraz o składnię pozwalającą napisać program z mniejszą ilością kodu niż w~językach C++ lub Java. Implementacja języka python dostępna jest na wiele systemów operacyjnych. Często wykorzystywany jest jako język skryptowy. Python jest projektem typu Open Source. \par
-W pracy wykorzystano język python w~wersji 2.7.11. Język ten wybrano ze względu na łatwość pisania w~nim kodu, szybką możliwość nauki oraz szeroki wachlarz dostępnych bibliotek. Ważnym argumentem w~wyborze były gotowe biblioteki z klasyfikatorami oraz do pracy z klasyfikacją danych. Dostępność bibliotek wizualizacyjnych dla tego języka, pozwoliła na przedstawienie wyników testów w~formie graficznej. Napisane testy można w~łatwy sposób rozbudować, zmodyfikować lub dodać nowe elementy.    
+Język python to język programowania interpretowany, wysokiego poziomu, z~dużą ilością dostępnych bibliotek. Python\cite{python} posiada dynamiczne zarządzanie typami oraz automatyczne zarządzanie pamięcią. Wspiera kilka paradygmatów programowania, takich jak: obiektowy, imperatywny, funkcyjny i~proceduralny. Został zaprojektowany z~troską o~czytelność kodu oraz o~składnię pozwalającą napisać program z~mniejszą ilością kodu niż w~językach C++ lub Java. Implementacja języka python dostępna jest na wiele systemów operacyjnych. Często wykorzystywany jest jako język skryptowy. Python jest projektem typu Open Source. \par
+W pracy wykorzystano język python w~wersji 2.7.11. Język ten wybrano ze względu na łatwość pisania w~nim kodu, szybką możliwość nauki oraz szeroki wachlarz dostępnych bibliotek. Ważnym argumentem w~wyborze były gotowe biblioteki z~klasyfikatorami oraz do pracy z~klasyfikacją danych. Dostępność bibliotek wizualizacyjnych dla tego języka, pozwoliła na przedstawienie wyników testów w~formie graficznej. Napisane testy można w~łatwy sposób rozbudować, zmodyfikować lub dodać nowe elementy.    
 
 \subsection{Biblioteka scikit-learn}
 Scikit-learn\cite{scikit} to proste i~wydajne narzędzie do analizy i~eksploracji danych. Jest to biblioteka uczenia maszynowego dla języka python. Rozpowszechnianie jej oparte jest na licencji BSD. W Scikt-learn zaimplementowane są (lub napisany jest kod obsługujący) różne algorytmy klasyfikacji, regresji, analizy skupień takie jak: maszyna wektorów nośnych, algorytmy najbliższego sąsiada, naiwny Bayes, drzewa decyzyjne, sieć neuronowa, zespoły klasyfikatorów. Z wykorzystaniem tej biblioteki można przygotować oraz przetworzyć odpowiednio dane. Możliwe jest także ocenianie oraz wizualizacja wyników. \par
-W testach użyto biblioteki scikit-learn w~wersji 0.18.1. Wykorzystano z niej algorytmy klasyfikacji oraz wstępnego przetwarzania danych.
+W testach użyto biblioteki scikit-learn w~wersji 0.18.1. Wykorzystano z~niej algorytmy klasyfikacji oraz wstępnego przetwarzania danych.
 \subsection{Biblioteka imbalanced-learn}
-Biblioteka imbalanced-learn\cite{imlearn} zawiera zestaw narzędzi do wstępnego przetwarzania danych niezrównoważonych. Posiada ona zaimplementowane różne metody under- oraz over-sampling do równoważenia zbiorów danych. W pracy wykorzystano metody z biblioteki w~wersji 0.2.1. 
+Biblioteka imbalanced-learn\cite{imlearn} zawiera zestaw narzędzi do wstępnego przetwarzania danych niezrównoważonych. Posiada ona zaimplementowane różne metody under- oraz over-sampling do równoważenia zbiorów danych. W pracy wykorzystano metody z~biblioteki w~wersji 0.2.1. 
 \subsection{Pozostałe użyte biblioteki}
 \subsubsection{Mlxtend}
-Mlxtend (machine learning extensions)\cite{mlxtend} jest to biblioteka zawierająca różne narzędzia do pracy z danymi. W badaniach wykorzystano z niej algorytm Stacking.
+Mlxtend (machine learning extensions)\cite{mlxtend} jest to biblioteka zawierająca różne narzędzia do pracy z~danymi. W badaniach wykorzystano z~niej algorytm Stacking.
 \subsubsection{Numpy}
 Numpy to pakiet umożliwiający obliczenia naukowe. Szczególnym elementem jest możliwość wykonywania obliczeń na tablicach N-wymiarowych. 
 \subsubsection{Maptolib}
@@ -34,7 +34,7 @@ Pylatex to biblioteka pythona służąca do tworzenia i~kompilacji plików LaTeX
 
 \section{Opis danych użytych w~badaniach}
 \label{opisdanychroz}
-Do przeprowadzenia badań użyto 26 różnych prawdziwych zbiorów danych (tabela \ref{danebadania}) pochodzących z repozytorium serwisu ,,The UCI Machine Learning Repository'' \cite{uci}. Dane wybrano ze względu na różnorodność typów danych, ilości rekordów, atrybutów oraz zróżnicowanie rozkładu klas. Większość z danych była używana w~publikacjach podobnych tematycznie\cite{hyper}\cite{StefImbalanced}. \par
+Do przeprowadzenia badań użyto 26 różnych prawdziwych zbiorów danych (tabela \ref{danebadania}) pochodzących z~repozytorium serwisu ,,The UCI Machine Learning Repository'' \cite{uci}. Dane wybrano ze względu na różnorodność typów danych, ilości rekordów, atrybutów oraz zróżnicowanie rozkładu klas. Większość z~danych była używana w~publikacjach podobnych tematycznie\cite{hyper}\cite{StefImbalanced}. \par
 \begin{table}[H]
 	\tiny
 	\begin{center}
@@ -71,18 +71,18 @@ Do przeprowadzenia badań użyto 26 różnych prawdziwych zbiorów danych (tabel
 				yeastME3&1484&8&1321/163&10.98&8.1\\%
 				\hline%
 			\end{tabular}}
-			\caption{Dane użyte w~badaniach wraz z charakterystyką.}
+			\caption{Dane użyte w~badaniach wraz z~charakterystyką.}
 			\label{danebadania}
 		\end{center}
 	\end{table}
-Wszystkie dane zostały zapisane w~skrypcie, w~folderze \textit{praca/data/files}, a~opis szczegółowy danych znajduje się w~folderze \textit{praca/data/files/data\_descrytpions}. Funkcje do importu danych znajdują się w~pliku \textit{praca/data/import\_data.py}. Do ogólnego importu danych z pliku, służy funkcja \textit{importfile}, zaś wczytywanie danych użytych w~projekcie odbywa się poprzez funkcje zaczynające się od \textit{load\_}. Import danych z pliku odbywa się z wykorzystaniem funkcji \textit{genfromtext} oraz \textit{load\_txt} z pakietu \textit{numpy}. Atrybuty posiadające dane kategoryczne zapisane w~postaci łańcuchów znaków, zostały zamienione na dane numeryczne. Cechy nominalne zostały zakodowane metodą \textit{one hot encoding}. Dla danych zawierających więcej niż dwie klasy, klasa z najmniejszą liczebnością została wybrana jako klasa mniejszościowa, pozostałe klasy utworzyły klasę większościową. We wszystkich zbiorach danych, kategorie reprezentowane są w~systemie binarnym. Pięć zbiorów danych posiadało brakujące wartości. Zostały one zastąpione wartościami środkowymi zbioru (medianą).
+Wszystkie dane zostały zapisane w~skrypcie, w~folderze \textit{praca/data/files}, a~opis szczegółowy danych znajduje się w~folderze \textit{praca/data/files/data\_descrytpions}. Funkcje do importu danych znajdują się w~pliku \textit{praca/data/import\_data.py}. Do ogólnego importu danych z~pliku, służy funkcja \textit{importfile}, zaś wczytywanie danych użytych w~projekcie odbywa się poprzez funkcje zaczynające się od \textit{load\_}. Import danych z~pliku odbywa się z~wykorzystaniem funkcji \textit{genfromtext} oraz \textit{load\_txt} z~pakietu \textit{numpy}. Atrybuty posiadające dane kategoryczne zapisane w~postaci łańcuchów znaków, zostały zamienione na dane numeryczne. Cechy nominalne zostały zakodowane metodą \textit{one hot encoding}. Dla danych zawierających więcej niż dwie klasy, klasa z~najmniejszą liczebnością została wybrana jako klasa mniejszościowa, pozostałe klasy utworzyły klasę większościową. We wszystkich zbiorach danych, kategorie reprezentowane są w~systemie binarnym. Pięć zbiorów danych posiadało brakujące wartości. Zostały one zastąpione wartościami środkowymi zbioru (medianą).
 
 \subsubsection{Analiza klas mniejszościowych}
-Dane użyte w~badaniach poddano analizie sąsiedztwa, w~celu określenia przynależności przykładów z klasy mniejszościowej do jednej z czterech grup. Analizę wykonano z wykorzystaniem algorytmu $k$ najbliższych sąsiadów, dla $k = 5$. Do pomiaru odległości wykorzystano miarę Czebyszewa. Skrypt analizujący dane znajduje się w~pliku \textit{analyze\_db.py}. Przykłady klasyfikowano do grup w~zależności od liczby sąsiadów\cite{przykladyklas}:
+Dane użyte w~badaniach poddano analizie sąsiedztwa, w~celu określenia przynależności przykładów z~klasy mniejszościowej do jednej z~czterech grup. Analizę wykonano z~wykorzystaniem algorytmu $k$ najbliższych sąsiadów, dla $k = 5$. Do pomiaru odległości wykorzystano miarę Czebyszewa. Skrypt analizujący dane znajduje się w~pliku \textit{analyze\_db.py}. Przykłady klasyfikowano do grup w~zależności od liczby sąsiadów\cite{przykladyklas}:
 \begin{itemize}
-	\item safe - jeżeli w~sąsiedztwie znajdowało się przynajmniej 4 przykłady z tej samej klasy,
-	\item border - jeżeli liczba przykładów z obu klas była podobna, tj. dla 2-3 przykłady z tej samej klasy,
-	\item rare - jeżeli w~sąsiedztwie był tylko jeden przykład z tej klasy,
+	\item safe - jeżeli w~sąsiedztwie znajdowało się przynajmniej 4 przykłady z~tej samej klasy,
+	\item border - jeżeli liczba przykładów z~obu klas była podobna, tj. dla 2-3 przykłady z~tej samej klasy,
+	\item rare - jeżeli w~sąsiedztwie był tylko jeden przykład z~tej klasy,
 	\item outlier - jeżeli wszyscy sąsiedzi należeli do innej klasy.
 \end{itemize}
 Wyniki analizy przedstawiono w~tabeli \ref{dane_analiza_grupy}. Zbiory danych zostały posortowane od ,,najłatwiejszych'' do ,,najtrudniejszych'' w~klasyfikacji.
@@ -121,14 +121,14 @@ Wyniki analizy przedstawiono w~tabeli \ref{dane_analiza_grupy}. Zbiory danych zo
 				balance\_scale&0.0&22.45&30.61&46.94\\%
 				postoperative&0.0&33.33&8.33&58.33\\%
 			\end{tabular}}
-			\caption[Analiza przynależności przykładów ze zbiorów danych]{Analiza przynależności przykładów z klasy mniejszościowej do grup. Dane posortowano w~kolejności od najłatwiejszych w~klasyfikacji do najtrudniejszych.}
+			\caption[Analiza przynależności przykładów ze zbiorów danych]{Analiza przynależności przykładów z~klasy mniejszościowej do grup. Dane posortowano w~kolejności od najłatwiejszych w~klasyfikacji do najtrudniejszych.}
 			\label{dane_analiza_grupy}
 		\end{center}
 	\end{table}
 \section{Ocena klasyfikatora w~sprawdzianie krzyżowym k-krotnym.}
-W większości publikacji naukowych dotyczących klasyfikacji, ocena klasyfikatora mierzona jest z wykorzystaniem sprawdzianu krzyżowego (zwykle dla $k=10$) oraz przedstawionych wcześniej miar. Jednakże, w~tych publikacjach nie został opisany sposób obliczania współczynników dla sprawdzianu krzyżowego. Wykorzystanie różnych sposobów obliczania prowadzi do różnych wyników. Niektóre metody są mniej lub bardziej obciążone błędem. Różnice w~wynikach, wynikające z przyjętej metody obliczeniowej, są szczególnie widoczne w~sprawdzianie krzyżowym z losowym rozkładem danych oraz w~klasyfikacji danych niezrównoważonych. Są dwie główne możliwości obliczania współczynników:
+W większości publikacji naukowych dotyczących klasyfikacji, ocena klasyfikatora mierzona jest z~wykorzystaniem sprawdzianu krzyżowego (zwykle dla $k=10$) oraz przedstawionych wcześniej miar. Jednakże, w~tych publikacjach nie został opisany sposób obliczania współczynników dla sprawdzianu krzyżowego. Wykorzystanie różnych sposobów obliczania prowadzi do różnych wyników. Niektóre metody są mniej lub bardziej obciążone błędem. Różnice w~wynikach, wynikające z~przyjętej metody obliczeniowej, są szczególnie widoczne w~sprawdzianie krzyżowym z~losowym rozkładem danych oraz w~klasyfikacji danych niezrównoważonych. Są dwie główne możliwości obliczania współczynników:
 \begin{itemize}
-	\item obliczanie wartości współczynników dla każdej k-iteracji (klasyfikatora), a~następnie obliczenie średniej z tych iteracji,
+	\item obliczanie wartości współczynników dla każdej k-iteracji (klasyfikatora), a~następnie obliczenie średniej z~tych iteracji,
 	\item stworzenie jednej wspólnej macierzy pomyłek dla każdej k-iteracji, a~następnie obliczenie wskaźników.
 \end{itemize}
 W przypadku drugiego sposobu, poszczególne elementy macierzy pomyłek będą wynosić odpowiednio:
@@ -137,11 +137,11 @@ W przypadku drugiego sposobu, poszczególne elementy macierzy pomyłek będą wy
 \[TN := \sum_{i=1}^{k} TN^{(i)}\]
 \[FN := \sum_{i=1}^{k} FN^{(i)}\]
 \subsection{Test sposobów oceny klasyfikatora}
-W celu wyboru najlepszego sposobu oceny klasyfikatora, z najmniejszym błędem oraz wariancją, wykonano pięć porównujących testów dla różnych metod obliczania miar. Wszystkie testy miały takie same założenia oraz sposób wykonania. Testy wykonano na wygenerowanych losowo danych dla różnej liczby przykładów pozytywnych (od 1\% do 10\%). Jakość klasyfikacji była oceniana dla równomiernego sprawdzianu krzyżowego oraz dla losowego. Symulacje odbyły się w~następujący sposób:
+W celu wyboru najlepszego sposobu oceny klasyfikatora, z~najmniejszym błędem oraz wariancją, wykonano pięć porównujących testów dla różnych metod obliczania miar. Wszystkie testy miały takie same założenia oraz sposób wykonania. Testy wykonano na wygenerowanych losowo danych dla różnej liczby przykładów pozytywnych (od 1\% do 10\%). Jakość klasyfikacji była oceniana dla równomiernego sprawdzianu krzyżowego oraz dla losowego. Symulacje odbyły się w~następujący sposób:
 
 \begin{enumerate}
-	\item Wygeneruj zbiór 1500 losowych próbek z 2 atrybutami, 2 klasami o rozkładzie 4:1.
-	\item Wykonaj niezrównoważenie zbioru z ratio 0.1.
+	\item Wygeneruj zbiór 1500 losowych próbek z~2 atrybutami, 2 klasami o~rozkładzie 4:1.
+	\item Wykonaj niezrównoważenie zbioru z~ratio 0.1.
 	\item Wybierz m=[1..10]*10 przykładów klasy mniejszościowej oraz 1000-m przykładów klasy dominującej.
 	\begin{enumerate}
 		\item  Wykonaj N iteracji:
@@ -154,13 +154,13 @@ W celu wyboru najlepszego sposobu oceny klasyfikatora, z najmniejszym błędem o
 	\end{enumerate}
 	\item Przedstaw wyniki odchylenia standardowego oraz średnie wartości współczynników dla różnego rozkładu klas.
 \end{enumerate}
-Wykonanie testu N-krotnie (najkorzystniej n>100000) pozwala na obliczenie ,,prawdziwych'' wartości miar oceny klasyfikacji. Powtórzenie sprawdzianu krzyżowego wielokrotnie pozwala na ocenę błędu oraz wariancji miar dla każdej metodyki. Przeprowadzenie testu dla danych zawierających tylko 1\% obserwacji klasy mniejszościowej (przypadek ekstremalny, w~zbiorze danych znajduje się wtedy tylko 10 takich przykładów) oznacza, że w~niektórych iteracjach sprawdzianu krzyżowego nie będzie przykładów poprawnie sklasyfikowanych z tej klasy. Brak dobrze sklasyfikowanych przykładów klasy mniejszościowej może mieć także miejsce w~losowym sprawdzianie krzyżowym. Wynika to z braku równomiernego rozkładu obu klas. 
+Wykonanie testu N-krotnie (najkorzystniej n>100000) pozwala na obliczenie ,,prawdziwych'' wartości miar oceny klasyfikacji. Powtórzenie sprawdzianu krzyżowego wielokrotnie pozwala na ocenę błędu oraz wariancji miar dla każdej metodyki. Przeprowadzenie testu dla danych zawierających tylko 1\% obserwacji klasy mniejszościowej (przypadek ekstremalny, w~zbiorze danych znajduje się wtedy tylko 10 takich przykładów) oznacza, że w~niektórych iteracjach sprawdzianu krzyżowego nie będzie przykładów poprawnie sklasyfikowanych z~tej klasy. Brak dobrze sklasyfikowanych przykładów klasy mniejszościowej może mieć także miejsce w~losowym sprawdzianie krzyżowym. Wynika to z~braku równomiernego rozkładu obu klas. 
 \subsubsection{Dokładność oraz błąd klasyfikatora}
-Dokładność klasyfikacji oraz błąd klasyfikatora, korzystając z metody pierwszej, będzie wynosić:
+Dokładność klasyfikacji oraz błąd klasyfikatora, korzystając z~metody pierwszej, będzie wynosić:
 \[accuracy_{avg} := \frac{1}{k} \sum_{i=1}^{k} accuracy^{(i)}\]
 a błąd klasyfikatora:
 \[error\ rate_{avg} = 1 - accuracy_{avg}\]
-Obliczając drugim sposobem, korzysta się z podstawowego wzoru z wykorzystaniem wspólnej macierzy pomyłek. \par
+Obliczając drugim sposobem, korzysta się z~podstawowego wzoru z~wykorzystaniem wspólnej macierzy pomyłek. \par
 W przypadku dokładności oraz błędu klasyfikatora, niezależnie od przyjętej metodyki otrzymane wartości będą takie same, nieobciążone błędem.
 \subsubsection{Czułość, specyficzność, FPR oraz precyzja}
 Czułość, specyficzność, FPR oraz precyzja w~metodzie pierwszej oblicza się według wzorów:
@@ -168,8 +168,8 @@ Czułość, specyficzność, FPR oraz precyzja w~metodzie pierwszej oblicza się
 \[Specificity_{avg},\ TNR_{avg} := \sum_{i=1}^{k} TNR_{avg}^{(i)}\]
 \[FPR_{avg} := \sum_{i=1}^{k} FPR_{avg}^{(i)}\]
 \[Precision_{avg} := \sum_{i=1}^{k} Precision_{avg}^{(i)}\]
-W drugim sposobie korzysta się z wspólnej macierzy pomyłek oraz z podstawowych wzorów. \par
-Testy wyżej wymienionych współczynników zostały przeprowadzone z wykorzystaniem skryptu \textit{test\_wsk.py}. Zauważono, że w~przypadku równomiernego sprawdzianu krzyżowego, różnica w~wynikach jest bardzo mała, poniżej 0.5\%. Obie metody obarczone są małym błędem i~wariancją. Natomiast w~przypadku sprawdzianu krzyżowego z rozkładem losowym, metoda druga okazała się lepsza. Obliczona czułość oraz precyzja sposobem drugim, uzyskały wyniki z mniejszym błędem, bliższe wartości ,,prawdziwej''. Natomiast specyficzność w~obu metodach wyszła taka sama, ze względu na dużą liczbę przykładów z tej klasy. Sprawdzono, że w~momencie odwrócenia liczebności klas, specyficzność posiada taką samą charakterystykę jak czułość. Różnice w~wynikach obu sposobów zmniejszają się wraz ze wzrostem przykładów klasy większościowej. Zazwyczaj przy 10\% zawartości danych klasy zdominowanej w~zbiorze, wyniki są takie same.
+W drugim sposobie korzysta się z~wspólnej macierzy pomyłek oraz z~podstawowych wzorów. \par
+Testy wyżej wymienionych współczynników zostały przeprowadzone z~wykorzystaniem skryptu \textit{test\_wsk.py}. Zauważono, że w~przypadku równomiernego sprawdzianu krzyżowego, różnica w~wynikach jest bardzo mała, poniżej 0.5\%. Obie metody obarczone są małym błędem i~wariancją. Natomiast w~przypadku sprawdzianu krzyżowego z~rozkładem losowym, metoda druga okazała się lepsza. Obliczona czułość oraz precyzja sposobem drugim, uzyskały wyniki z~mniejszym błędem, bliższe wartości ,,prawdziwej''. Natomiast specyficzność w~obu metodach wyszła taka sama, ze względu na dużą liczbę przykładów z~tej klasy. Sprawdzono, że w~momencie odwrócenia liczebności klas, specyficzność posiada taką samą charakterystykę jak czułość. Różnice w~wynikach obu sposobów zmniejszają się wraz ze wzrostem przykładów klasy większościowej. Zazwyczaj przy 10\% zawartości danych klasy zdominowanej w~zbiorze, wyniki są takie same.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{./images/wsk.png}
@@ -187,7 +187,7 @@ Testy wyżej wymienionych współczynników zostały przeprowadzone z wykorzysta
 \subsubsection{Miara $F_1$}
 W niniejszej pracy oraz w~wielu publikacjach, miara F-measure obliczana jest dla $\beta=1$, dlatego testy przeprowadzono tylko dla tej wartości. Miarę F można obliczyć na trzy różne sposoby. Pierwszy polega na obliczeniu F dla każdego k klasyfikatora, a~następnie uśrednienie wyników:
 \[F_{avg} := \frac{1}{k} \sum_{i=1}^{k} F_1^{(i)}\]
-Drugi sposób, to obliczenie średniej czułości i~precyzji, a~następnie miary F z podstawowego wzoru:
+Drugi sposób, to obliczenie średniej czułości i~precyzji, a~następnie miary F z~podstawowego wzoru:
 \[Pre_{avg} := \frac{1}{k} \sum_{i=1}^{k} Pre^{(i)}\]
 \[Re_{avg} := \frac{1}{k} \sum_{i=1}^{k} Re^{(i)}\]
 \[F_{pre, re} = 2 * \frac{Pre_{avg}*Re_{avg}}{Pre_{avg}+Re_{avg}} \]
@@ -202,9 +202,9 @@ Skrypt testujący powyższe trzy sposoby znajduje się w~pliku \textit{test\_f1.
 	\label{fig:wykresf1}
 \end{figure}
 \subsubsection{Miara G-mean}
-Miara G-mean obliczona może zostać również na trzy różne sposoby. Pierwszy z nich to średnia z wszystkich klasyfikatorów:
+Miara G-mean obliczona może zostać również na trzy różne sposoby. Pierwszy z~nich to średnia z~wszystkich klasyfikatorów:
 \[G-mean_{avg} := \frac{1}{k} \sum_{i=1}^{k} G-mean^{(i)} \]
-W drugim sposobie należy najpierw obliczyć średnią wartość czułości oraz specyficzności, a~końcowy wynik G-mean oblicza się z głównego wzoru:
+W drugim sposobie należy najpierw obliczyć średnią wartość czułości oraz specyficzności, a~końcowy wynik G-mean oblicza się z~głównego wzoru:
 \[G-mean_{Se, Sp} = \sqrt{Sensitivity_{avg}*Specificity_{avg}} \]
 W ostatniej metodzie obliczania G-mean, za czułość oraz specyficzność wstawia się właściwie wzory, a~wartość oblicza się na podstawie zsumowanej macierzy pomyłek.
 \[G-mean_{tp, fp, fn} = \sqrt{\frac{TP}{TP + FN}*\frac{TN}{TN + FP}} \]
@@ -215,25 +215,25 @@ Skrypt testujący powyższe wzory znajduje się w pliku \textit{test\_g\_mean.p
 	\caption[Odchylenie standardowe oraz średnia miar G-mean dla sprawdzianu krzyżowego]{Wykres odchylenia standardowego miar G-mean oraz średniej miar G-mean w~zależności, od wielkości klasy mniejszościowej, dla równomiernego oraz losowego sprawdzianu krzyżowego (k=10).}
 	\label{fig:wykresgmean}
 \end{figure}
-Natomiast w~zwykłym sprawdzianie krzyżowym, pomiarem najmniej obarczonym błędem był $G-mean_{tp, fp, fn}$. Z wykorzystaniem tego wzoru, dla różnej zawartości klasy mniejszościowej w~zbiorze danych otrzymano wyniki różniące się jedynie o kilka procent pomiędzy sobą, podczas gdy wyniki pozostałych metod różniły się aż o 15\%-30\%. Jednocześnie ta metoda dawała najmniejszy błąd odchylenia standardowego. Zauważono także, że w~przypadku zawartości minimum 6\% klasy mniejszościowej w~danych, otrzymywane wyniki różnią się nieznacznie (poniżej 1\%).
+Natomiast w~zwykłym sprawdzianie krzyżowym, pomiarem najmniej obarczonym błędem był $G-mean_{tp, fp, fn}$. Z wykorzystaniem tego wzoru, dla różnej zawartości klasy mniejszościowej w~zbiorze danych otrzymano wyniki różniące się jedynie o~kilka procent pomiędzy sobą, podczas gdy wyniki pozostałych metod różniły się aż o~15\%-30\%. Jednocześnie ta metoda dawała najmniejszy błąd odchylenia standardowego. Zauważono także, że w~przypadku zawartości minimum 6\% klasy mniejszościowej w~danych, otrzymywane wyniki różnią się nieznacznie (poniżej 1\%).
 
 \subsubsection{Krzywa ROC i~miara AUC}
 Wartość AUC w~sprawdzianie krzyżowym można obliczyć na dwa sposoby. W pierwszej metodzie konstruuje się krzywą ROC oraz oblicza się AUC dla każdego k klasyfikatora. Następnie oblicza się $AUC_{AVG}$ poprzez obliczenie średniej:
 \[AUC_{AVG} := \frac{1}{k} \sum_{i=1}^{k} AUC^{(i)} \]
-W przypadku sprawdzianu krzyżowego z losowym rozkładem klas, może okazać się, że nie sklasyfikowano żadnego przykładu pozytywnego. Wtedy skonstruowanie krzywej ROC oraz obliczenie AUC będzie niemożliwe. W takich przypadkach podczas obliczania $AUC_{AVG}$ można pominąć taki wynik. \par
-Drugim sposobem jest połączenie prawdopodobieństwa przykładów testowych z każdej iteracji. Z połączonych obserwacji konstruuje się jedną krzywą ROC i~oblicza $AUC_{merge}$. Korzystając z tego sposobu zakłada się, że klasyfikator ma dobrze skalibrowane określanie prawdopodobieństwa.  Test obu metod zostały przeprowadzone z użyciem skryptu \textit{test\_roc.py} i~danych \textit{transfusion}. Wygenerowane krzywe (wykres \ref{fig:cv_roc}) ROC k klasyfikatorów różnią się od siebie kształtem oraz powierzchnią AUC. 
+W przypadku sprawdzianu krzyżowego z~losowym rozkładem klas, może okazać się, że nie sklasyfikowano żadnego przykładu pozytywnego. Wtedy skonstruowanie krzywej ROC oraz obliczenie AUC będzie niemożliwe. W takich przypadkach podczas obliczania $AUC_{AVG}$ można pominąć taki wynik. \par
+Drugim sposobem jest połączenie prawdopodobieństwa przykładów testowych z~każdej iteracji. Z połączonych obserwacji konstruuje się jedną krzywą ROC i~oblicza $AUC_{merge}$. Korzystając z~tego sposobu zakłada się, że klasyfikator ma dobrze skalibrowane określanie prawdopodobieństwa.  Test obu metod zostały przeprowadzone z~użyciem skryptu \textit{test\_roc.py} i~danych \textit{transfusion}. Wygenerowane krzywe (wykres \ref{fig:cv_roc}) ROC k klasyfikatorów różnią się od siebie kształtem oraz powierzchnią AUC. 
 \begin{figure}[H]
 	\centering
 	\includegraphics{./images/CV_ROC.png}
-	\caption[Wykres krzywej ROC dla różnego sprawdzianu krzyżowego]{Wykresy krzywych ROC dla klasyfikatorów ze sprawdzianu krzyżowego równomiernego i~normalnego wraz z obliczoną średnią $ROC_{AVG}$ oraz $ROC_{merge}$.}
+	\caption[Wykres krzywej ROC dla różnego sprawdzianu krzyżowego]{Wykresy krzywych ROC dla klasyfikatorów ze sprawdzianu krzyżowego równomiernego i~normalnego wraz z~obliczoną średnią $ROC_{AVG}$ oraz $ROC_{merge}$.}
 	\label{fig:cv_roc}
 \end{figure}
 \par
-W obu sprawdzianach krzyżowych obliczona średnia $ROC_{AVG}$ oraz $AUC_{AVG}$ znajdują się pomiędzy wartościami otrzymanymi z klasyfikatorów cząstkowych (fold). Natomiast w~sprawdzianie krzyżowym równomiernym wykres $ROC_{merge}$ przez większość przebiegu znajduje się poniżej części składowych, a~obliczona wartość $AUC_{merge}$ jest niższa od AUC każdego klasyfikatora.
+W obu sprawdzianach krzyżowych obliczona średnia $ROC_{AVG}$ oraz $AUC_{AVG}$ znajdują się pomiędzy wartościami otrzymanymi z~klasyfikatorów cząstkowych (fold). Natomiast w~sprawdzianie krzyżowym równomiernym wykres $ROC_{merge}$ przez większość przebiegu znajduje się poniżej części składowych, a~obliczona wartość $AUC_{merge}$ jest niższa od AUC każdego klasyfikatora.
 
 
 \subsubsection{Podsumowanie}
-Analizując przeprowadzone testy, najlepsze wyniki osiągnęły miary obliczone metodami opartymi na zsumowanej macierzy pomyłek oraz na łączeniu wyników testów z każdej iteracji sprawdzianu krzyżowego. Obliczone w~ten sposób współczynniki miały najbardziej stabilne wyniki, najmniejszy błąd oraz wariancję. Poniżej przedstawiono tabelę \ref{przykladoblwsp} z obliczonymi w~różny sposób współczynnikami. Mimo równomiernego rozkładu klas, klasyfikator w~części numer 2 nie rozpoznał ani jednego przykładu pozytywnego. W efekcie czułość oraz precyzja musiały zostać ustawione na 0, skutkiem czego miara G-mean oraz F1 dla tej części wynoszą 0. Pochodną tego zdarzenia jest zaniżenie wszystkich wartości średnich miar (oznaczonych w~tabeli jako AVG). W dalszej części pracy, wszystkie miary w~sprawdzianie krzyżowym będą obliczane na podstawie wspólnej macierzy pomyłek. 
+Analizując przeprowadzone testy, najlepsze wyniki osiągnęły miary obliczone metodami opartymi na zsumowanej macierzy pomyłek oraz na łączeniu wyników testów z~każdej iteracji sprawdzianu krzyżowego. Obliczone w~ten sposób współczynniki miały najbardziej stabilne wyniki, najmniejszy błąd oraz wariancję. Poniżej przedstawiono tabelę \ref{przykladoblwsp} z~obliczonymi w~różny sposób współczynnikami. Mimo równomiernego rozkładu klas, klasyfikator w~części numer 2 nie rozpoznał ani jednego przykładu pozytywnego. W efekcie czułość oraz precyzja musiały zostać ustawione na 0, skutkiem czego miara G-mean oraz F1 dla tej części wynoszą 0. Pochodną tego zdarzenia jest zaniżenie wszystkich wartości średnich miar (oznaczonych w~tabeli jako AVG). W dalszej części pracy, wszystkie miary w~sprawdzianie krzyżowym będą obliczane na podstawie wspólnej macierzy pomyłek. 
 \begin{table}[H]
 	
 	\begin{center}
@@ -260,14 +260,14 @@ Analizując przeprowadzone testy, najlepsze wyniki osiągnęły miary obliczone 
 
 \section{Równoważenie liczebności klas w~danych w~klasyfikacji ze sprawdzianem krzyżowym}
 \label{rozdzialbalansowanie}
-Równoważenie liczebności klas w~zbiorze danych wykonuje się w~celu poprawy klasyfikacji klasy mniejszościowej. Istnieją różne techniki balansowania zbiorów (opisanych w~rozdziale \ref{rozdzialopissamplingu}). Są to między innymi usuwanie przykładów z klasy większościowej oraz dodawanie nowych obserwacji z klasy mniejszościowej. Oceniając klasyfikator z wykorzystaniem sprawdzianu krzyżowego, bilansowanie zbiorów można wykonać przed sprawdzianem krzyżowym oraz w~trakcie trwania sprawdzianu, każdorazowo po stworzeniu zbioru uczącego. W przypadku generowania nowych obserwacji (oversampling), metoda pierwsza może prowadzić do nadmiernego dopasowania. Sprawdzian krzyżowy k-krotny, dzieli główny zbiór danych na $k$ części i~buduje klasyfikator w~oparciu $k-1$ części. Następnie testuje go w~oparciu o część numer $k$. Może wystąpić przypadek, w~którym ocena klasyfikatora będzie odbywała się w~oparciu o sztuczne przykłady, które były wygenerowane na podstawie danych tworzących zbiór uczący. Takie zdarzenie wypacza cel wykonywania sprawdzianu krzyżowego, który polega na wykonywaniu uczenia i~testowania na różnych danych. Wykonanie bilansowania przed sprawdzianem krzyżowym może prowadzić do nadmiernego dopasowania klasyfikatora oraz do zawyżenia oceny. 
+Równoważenie liczebności klas w~zbiorze danych wykonuje się w~celu poprawy klasyfikacji klasy mniejszościowej. Istnieją różne techniki balansowania zbiorów (opisanych w~rozdziale \ref{rozdzialopissamplingu}). Są to między innymi usuwanie przykładów z~klasy większościowej oraz dodawanie nowych obserwacji z~klasy mniejszościowej. Oceniając klasyfikator z~wykorzystaniem sprawdzianu krzyżowego, bilansowanie zbiorów można wykonać przed sprawdzianem krzyżowym oraz w~trakcie trwania sprawdzianu, każdorazowo po stworzeniu zbioru uczącego. W przypadku generowania nowych obserwacji (oversampling), metoda pierwsza może prowadzić do nadmiernego dopasowania. Sprawdzian krzyżowy k-krotny, dzieli główny zbiór danych na $k$ części i~buduje klasyfikator w~oparciu $k-1$ części. Następnie testuje go w~oparciu o~część numer $k$. Może wystąpić przypadek, w~którym ocena klasyfikatora będzie odbywała się w~oparciu o~sztuczne przykłady, które były wygenerowane na podstawie danych tworzących zbiór uczący. Takie zdarzenie wypacza cel wykonywania sprawdzianu krzyżowego, który polega na wykonywaniu uczenia i~testowania na różnych danych. Wykonanie bilansowania przed sprawdzianem krzyżowym może prowadzić do nadmiernego dopasowania klasyfikatora oraz do zawyżenia oceny. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{./images/oversampling.png}
-	\caption[Sprawdzian krzyżowy z oversamplingiem]{Przykład sprawdzianu krzyżowego z wykonanym oversamplingiem przed sprawdzianem. Sztucznie wygenerowane dane (niebiesko-fioletowy prostokąt) zostały użyte jako zbiór testowy.}
+	\caption[Sprawdzian krzyżowy z~oversamplingiem]{Przykład sprawdzianu krzyżowego z~wykonanym oversamplingiem przed sprawdzianem. Sztucznie wygenerowane dane (niebiesko-fioletowy prostokąt) zostały użyte jako zbiór testowy.}
 	\label{fig:oversampling_wrong}
 \end{figure}
-Celem testu było sprawdzenie, którą metodą można otrzymać bardziej wiarygodne wyniki. Aby sprawdzić obie metody, każdy początkowy zbiór danych został podzielony na zbiór testowy (zawierający 80\% wszystkich przykładów) oraz na zbiór walidacyjny (20\%). Wykonano zbilansowany podział danych, tj. każdy zbiór zawierał proporcjonalnie taką samą liczbę obserwacji obu klas. Zbiór walidacyjny został wydzielony w~celu poddania dodatkowej ocenie każdego $k$ klasyfikatora. Mając dodatkowy zbiór walidacyjny, który jest nieznany zbudowanemu modelowi, można sprawdzić, w~jakim stopniu poprawnie generalizuje on dane uczące oraz porównać otrzymane wyniki z wynikami sprawdzianu krzyżowego. W kolejnym etapie, dla pierwszego sposobu wygenerowano nowe sztuczne próbki klasy mniejszościowej algorytmem oversampling SMOTE dla całego zbioru danych przed podziałem, a~następnie poddano ocenie klasyfikator z wykorzystaniem sprawdzianu krzyżowego oraz dodatkowego zbioru walidacyjnego w~każdej iteracji. Natomiast w~drugim sposobie, dodatkowe sztuczne próbki generowane były w~trakcie sprawdzianu krzyżowego tylko dla $k$ zbioru uczącego dopiero po utworzeniu $k$ zbioru treningowego i~$k$ zbioru testowego. W efekcie żaden zbiór testowy nie zawierał sztucznych przykładów. Dodatkowa walidacja odbywała się tak samo jak w~pierwszym sposobie. Badanie wykonano na prawdziwych danych (opisanych w~tej pracy), z wykorzystaniem klasyfikatorów: drzewa decyzyjnego, kNN, naiwnego klasyfikatora Bayesa oraz SVM. Przedstawiony poniżej test znajduje się w~pliku \textit{cross\_val\_oversampling.py}. Ze względu na dużą objętość wyników, w~pracy przedstawiono tylko dane dla drzewa decyzyjnego. \par
+Celem testu było sprawdzenie, którą metodą można otrzymać bardziej wiarygodne wyniki. Aby sprawdzić obie metody, każdy początkowy zbiór danych został podzielony na zbiór testowy (zawierający 80\% wszystkich przykładów) oraz na zbiór walidacyjny (20\%). Wykonano zbilansowany podział danych, tj. każdy zbiór zawierał proporcjonalnie taką samą liczbę obserwacji obu klas. Zbiór walidacyjny został wydzielony w~celu poddania dodatkowej ocenie każdego $k$ klasyfikatora. Mając dodatkowy zbiór walidacyjny, który jest nieznany zbudowanemu modelowi, można sprawdzić, w~jakim stopniu poprawnie generalizuje on dane uczące oraz porównać otrzymane wyniki z~wynikami sprawdzianu krzyżowego. W kolejnym etapie, dla pierwszego sposobu wygenerowano nowe sztuczne próbki klasy mniejszościowej algorytmem oversampling SMOTE dla całego zbioru danych przed podziałem, a~następnie poddano ocenie klasyfikator z~wykorzystaniem sprawdzianu krzyżowego oraz dodatkowego zbioru walidacyjnego w~każdej iteracji. Natomiast w~drugim sposobie, dodatkowe sztuczne próbki generowane były w~trakcie sprawdzianu krzyżowego tylko dla $k$ zbioru uczącego dopiero po utworzeniu $k$ zbioru treningowego i~$k$ zbioru testowego. W efekcie żaden zbiór testowy nie zawierał sztucznych przykładów. Dodatkowa walidacja odbywała się tak samo jak w~pierwszym sposobie. Badanie wykonano na prawdziwych danych (opisanych w~tej pracy), z~wykorzystaniem klasyfikatorów: drzewa decyzyjnego, kNN, naiwnego klasyfikatora Bayesa oraz SVM. Przedstawiony poniżej test znajduje się w~pliku \textit{cross\_val\_oversampling.py}. Ze względu na dużą objętość wyników, w~pracy przedstawiono tylko dane dla drzewa decyzyjnego. \par
 Analizując otrzymane wyniki (tabela \ref{CVoversampling1} i~\ref{CVoversampling2}) zauważono bardzo dobre wyniki klasyfikatora dla danych poddanych oversamplingowi przed sprawdzianem krzyżowym.
 \begin{table}[h]
 	\tiny
@@ -309,12 +309,12 @@ Analizując otrzymane wyniki (tabela \ref{CVoversampling1} i~\ref{CVoversampling
 				yeastME3&0.96&0.96&0.96&0.96&0.66&0.65&0.79&0.81&0.17\\%
 				\hline%
 			\end{tabular}}%
-			\caption[Wyniki sprawdzianu krzyżowego z metodą SMOTE, metoda pierwsza]{Wyniki sprawdzianu krzyżowego (metoda pierwsza) drzewa decyzyjnego z oversampling SMOTE. Dane w~kolumnach ,,Decision Tree TEST'' to wyniki otrzymane na podstawie zbioru walidacyjnego. Ostatnia kolumna zawiera różnicę  miar G ze sprawdzianu krzyżowego i~zbioru walidacyjnego $G-G_T$ (im bliżej zera tym lepiej).}
+			\caption[Wyniki sprawdzianu krzyżowego z~metodą SMOTE, metoda pierwsza]{Wyniki sprawdzianu krzyżowego (metoda pierwsza) drzewa decyzyjnego z~oversampling SMOTE. Dane w~kolumnach ,,Decision Tree TEST'' to wyniki otrzymane na podstawie zbioru walidacyjnego. Ostatnia kolumna zawiera różnicę  miar G ze sprawdzianu krzyżowego i~zbioru walidacyjnego $G-G_T$ (im bliżej zera tym lepiej).}
 			\label{CVoversampling1}
 		\end{center}
 	\end{table}
-Niestety, badając klasyfikator nieznanym dla niego zbiorem walidacyjnym, otrzymane rezultaty były zdecydowanie gorsze. Porównując otrzymane wyniki ze sprawdzianu krzyżowego oraz z nieznanego klasyfikatorowi zbioru walidacyjnyjego, spostrzeżono znaczne zawyżanie wyników (dla miary G-mean wyniki jest średnio wyższy o 0.20, tak samo w~stosunku do miary G-mean z metody drugiej). Świadczy to o nadmiernym dopasowaniu klasyfikatora do danych i~o zawyżaniu wyników jakości klasyfikacji przez tę metodę. W drugiej metodzie, wyniki pomiarów pomiędzy sprawdzianem krzyżowym oraz zbiorem walidacyjnym nie różnią się tak bardzo. Dla miary G-mean, w~większości baz, otrzymany wyniki z sprawdzianu krzyżowego jest nieznacznie niższy od wyniku ze zbioru walidacyjnego. \par
-Wnioskiem wynikającym z powyższego badania jest konieczność stosowania oversamplingu danych w~trakcie sprawdzianu krzyżowego, tak aby zbiór testowy nie zawierał sztucznie wygenerowanych próbek. Ocena klasyfikacji tą metodą, daje najbardziej wiarygodne wyniki.
+Niestety, badając klasyfikator nieznanym dla niego zbiorem walidacyjnym, otrzymane rezultaty były zdecydowanie gorsze. Porównując otrzymane wyniki ze sprawdzianu krzyżowego oraz z~nieznanego klasyfikatorowi zbioru walidacyjnyjego, spostrzeżono znaczne zawyżanie wyników (dla miary G-mean wyniki jest średnio wyższy o~0.20, tak samo w~stosunku do miary G-mean z~metody drugiej). Świadczy to o~nadmiernym dopasowaniu klasyfikatora do danych i~o zawyżaniu wyników jakości klasyfikacji przez tę metodę. W drugiej metodzie, wyniki pomiarów pomiędzy sprawdzianem krzyżowym oraz zbiorem walidacyjnym nie różnią się tak bardzo. Dla miary G-mean, w~większości baz, otrzymany wyniki z~sprawdzianu krzyżowego jest nieznacznie niższy od wyniku ze zbioru walidacyjnego. \par
+Wnioskiem wynikającym z~powyższego badania jest konieczność stosowania oversamplingu danych w~trakcie sprawdzianu krzyżowego, tak aby zbiór testowy nie zawierał sztucznie wygenerowanych próbek. Ocena klasyfikacji tą metodą, daje najbardziej wiarygodne wyniki.
 
 
 
@@ -358,7 +358,7 @@ Wnioskiem wynikającym z powyższego badania jest konieczność stosowania overs
 			yeastME3&0.81&0.77&0.88&0.89&0.68&0.68&0.81&0.82&0.07\\%
 			\hline%
 		\end{tabular}}%
-			\caption[Wyniki sprawdzianu krzyżowego z metodą SMOTE, metoda druga]{Wyniki sprawdzianu krzyżowego (metoda druga) drzewa decyzyjnego z oversampling SMOTE. Dane w~kolumnach ,,Decision Tree TEST'' to wyniki otrzymane na podstawie zbioru walidacyjnego. Ostatnia kolumna zawiera różnicę  miar G ze sprawdzianu krzyżowego i~zbioru walidacyjnego $G-G_T$ (im bliżej zera tym lepiej).}
+			\caption[Wyniki sprawdzianu krzyżowego z~metodą SMOTE, metoda druga]{Wyniki sprawdzianu krzyżowego (metoda druga) drzewa decyzyjnego z~oversampling SMOTE. Dane w~kolumnach ,,Decision Tree TEST'' to wyniki otrzymane na podstawie zbioru walidacyjnego. Ostatnia kolumna zawiera różnicę  miar G ze sprawdzianu krzyżowego i~zbioru walidacyjnego $G-G_T$ (im bliżej zera tym lepiej).}
 			\label{CVoversampling2}
 	\end{center}
 \end{table}
