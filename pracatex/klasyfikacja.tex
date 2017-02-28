@@ -1,11 +1,5 @@
 \chapter{Wstęp teoretyczny}
 \section{Klasyfikacja danych}
-\todo{usunac pojedyncze znaki na koncu zdania, wykonac skrypt}
-\todo{poprawic znaki cytatu, nie dodaje spacji po}
-
-\todo{oplata za dyplom}
-\todo{bilbiografia}
-
 Klasyfikacja jest to proces przyporządkowania danych do jednej z predefiniowanych klas na podstawie atrybutów tych danych. Algorytm klasyfikacji na podstawie analizy danych trenujących, zawierających atrybuty oraz klasę, tworzy model klasyfikacyjny. Stworzony model klasyfikacyjny wykorzystywany jest do predykcji klasy (kategorii) nowych danych bez określonej klasy. Celem algorytmu budującego model, jest  odnalezienie wzorców, w jaki sposób atrybuty obiektu wpływają na przynależność do danej klasy, tak, aby wiedza na temat analizowanych danych była możliwie ogólna oraz niezależna od próby.
 
 Klasyfikacja danych jest procesem dwuetapowym:
@@ -50,7 +44,7 @@ Do reprezentacji danych uczących, testowych oraz do klasyfikacji najczęściej 
 		pochmurnie & 23 & 17 & przelotne & umiarkowany & nie & tak \\
 		\hline
 	\end{tabular}}
-	\caption{Przykład danych treningowych składających się z 5 atrybutów oraz klasy decyzyjnej. W ostatniej kolumnie znajduje się wynik klasyfikacji. W pięciu przypadkach, klasyfikator poprawnie wskazał klasę.}
+	\caption[Przykła danych treningowych]{Przykład danych treningowych składających się z 5 atrybutów oraz klasy decyzyjnej. W ostatniej kolumnie znajduje się wynik klasyfikacji. W pięciu przypadkach, klasyfikator poprawnie wskazał klasę.}
 	\label{system_informacyjny}
 \end{center}
 \end{table}
@@ -77,7 +71,7 @@ Stosuje się różne kryterium stopu:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{./images/drzewo.jpg}
-	\caption{Drzewo decyzyjne z maksymalną głębokością równą 3. Drzewo zbudowane dla danych \textit{iris-data}, zawiera trzy klasy (gatunki) setosa, versicolor i virginica oraz cztery atrybuty długość i szerokość kwiatu peta i sepal. Podział został dokonany ze współczynnikiem gini.}
+	\caption[Rysunek przykładowego drzewa decyzyjnego]{Drzewo decyzyjne z maksymalną głębokością równą 3. Drzewo zbudowane dla danych \textit{iris-data}, zawiera trzy klasy (gatunki) setosa, versicolor i virginica oraz cztery atrybuty długość i szerokość kwiatu peta i sepal. Podział został dokonany ze współczynnikiem gini.}
 	\label{fig:drzewodec}
 \end{figure}
 Jako kryterium podziału można zastosować np. wskaźnik Giniego lub entropię. Często zdarza się, że zbudowane drzewa są zbyt duże i tworzy się nadmierne dopasowanie do danych. Wówczas należy ograniczyć wysokość drzewa.
@@ -101,12 +95,11 @@ Klasyfikacja nowego obiektu $x$ odbywa się poprzez znalezienie $k$ najbliższyc
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{./images/knn.png}
-	\caption{Przykład klasyfikatora kNN. Klasyfikator ma przewidzieć klasę dla czerwonego punktu. Dla k=3 wyszukuje trzech najbliższych sąsiadów, w tym przypadku nadałby klasę fioletową, natomiast dla k=6 wyszukuje sześciu najbliższych sąsiadów i punktowi nadałby klasę zieloną.}
+	\caption[Przykład klasyfikatora kNN]{Przykład klasyfikatora kNN. Klasyfikator ma przewidzieć klasę dla czerwonego punktu. Dla k=3 wyszukuje trzech najbliższych sąsiadów, w tym przypadku nadałby klasę fioletową, natomiast dla k=6 wyszukuje sześciu najbliższych sąsiadów i punktowi nadałby klasę zieloną.}
 	\label{fig:klasknn}
 \end{figure}
 Dobranie idealnej wartości parametru $k$ ma bardzo duże znaczenie w jakości klasyfikacji. Dobrze dobrane $k$ powinno być na tyle duże, aby minimalizować prawdopodobieństwo błędnych klasyfikacji, ale jednocześnie małe, aby $k$ najbliższych sąsiadów było rzeczywiście bliskimi sąsiadami testowanej obserwacji \cite{Bishop}. 
 \subsection{Las losowy}
-\todo{Jest to jeden z elementów bagging, może wspomnieć, albo dać w innym miejscu?}
 Las losowy (ang. \textit{random forest}) lub losowe drzewa decyzyjne \cite{randomFc} to klasyfikator złożony z drzew decyzyjnych. Algorytm trenujący działa według następującego schematu:
 \begin{enumerate}
 	\item Wylosuj metodą boostrap (losowanie ze zwracaniem) $n$ elementów ze zbioru danych.
@@ -124,7 +117,7 @@ Maszyna wektorów nośnych, SVM (ang. \textit{support vector machine}) jest to n
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{./images/svm.png}
-	\caption{Przykład klasyfikatora SVM z maksymalnym marginesem oddzielającym dwie klasy.}
+	\caption[Przykład klasyfikatora SVM]{Przykład klasyfikatora SVM z maksymalnym marginesem oddzielającym dwie klasy.}
 	\label{fig:klassvm}
 \end{figure}
 Istnieje modyfikacja podstawowego algorytmu, dla przypadku, gdy nie istnieje hiperpłaszczyzna oddzielająca dwie klasy. Jest to maszyna wektorów nośnych o miękkim marginesie. Bierze ona pod uwagę możliwość występowania zaszumionych danych. Klasyfikator w procesie uczenia, szuka możliwie najlepszej hiperpłaszczyzny oddzielającej obie klasy. Stopień błędnej klasyfikacji mierzony jest poprzez zmienną rozluźniającą (ang. \textit{slack variable}). Zmienną tą można traktować jako karę, dla danych znajdujących się po złej stronie granicy. Można ją kontrolować poprzez parametr C, który decyduje o szerokości rozdzielającego marginesu. Duża wartość parametru C oznacza wysokie kary za błędną klasyfikację. \par
@@ -146,7 +139,7 @@ W celu poprawy jakości klasyfikacji, można zastosować zespół klasyfikatoró
 \subsection{Bagging}
 Metoda bagging \cite{baggingc}, znana także jako bootstrap aggregating to zespół klasyfikatorów, meta-algorytm pozwalający zmniejszyć wariancję oraz uniknąć nadmiernego dopasowania. Metoda ta została zaproponowana w 1994 przez Leo Breiman’a w celu podniesienia jakości klasyfikacji poprzez połączenie wielu klasyfikatorów tego samego typu, uczących się na losowym zbiorze danych. Jest to połączenie wielu klasyfikatorów opartych o ten sam algorytm, ale trenowanych na różnych zbiorach danych. Zbiór uczący dla każdego klasyfikatora tworzy się poprzez losowanie ze zwracaniem z głównego zbioru danych. Losowanie wykonuje się z rozkładem jednostajnym. Nowo tworzony zbiór może być mniejszy lub takiej samej wielkości. Jeżeli zbiór danych jest duży i wygenerowany zbiór ma taką samą wielkość, można spodziewać się $1-\frac{1}{e}$ (około 63,2\%) unikalnych próbek. Takie losowanie nosi nazwę próby bootstrap. Zazwyczaj łączy się wyniki wielu modeli tego samego typu. Mając zbiór uczący $D$ o rozmiarze $n$, algorytm wygląda następująco:
 \begin{enumerate}
-	\item Wygeneruj $m$ nowych zbiorów treningowych $D_i$, o rozmiarze $n'$, poprzez losowanie ze zwracaniem ze zbioru $D$,
+	\item Wygeneruj $m$ nowych zbiorów treningowych $D_i$, o rozmiarze $n$, poprzez losowanie ze zwracaniem ze zbioru $D$,
 	\item Trenuj $m$ klasyfikatorów w oparciu o wygenerowane zbiory treningowe $D_i$.	
 \end{enumerate}
 Nowa próbka klasyfikowana jest przez wszystkie modele, a ostateczna klasa nadawana jest poprzez głosowanie większościowe.
@@ -158,7 +151,7 @@ Metoda boosting \cite{boostingc} to zbiór klasyfikatorów, meta-algorytm, w kt�
 	\item Każdemu przykładowi ze zbioru początkowego przypisywana jest taka sama waga początkowa, zazwyczaj $\frac{1}{n}$.
 	\item Budowany jest nowy klasyfikator $m$ w oparciu o zbiór z wagami.
 	\item Zbudowany klasyfikator dołączany jest do klasyfikatorów $M$ z wagą odpowiadającą jego dokładności.
-	\item W zbiorze trenującym następuje aktualizacja wag. Przykładom poprawnie sklasyfikowanym zmniejsza się wagę, natomiast  błędnie sklasyfikowanym zwiększa się.
+	\item W zbiorze trenującym następuje aktualizacja wag. Przykładom poprawnie sklasyfikowanym zmniejsza się wagę, natomiast błędnie sklasyfikowanym zwiększa się.
 	\item Punkt 2-4 powtarzany jest do momentu osiągnięcia liczby estymatorów $m$ lub do osiągnięcia zakładanego błędu. 
 \end{enumerate}
 Takie podejście nazywane jest boosting by weighting, w procesie uczenia bierze udział cały zbiór. Istnieje także boosting by sampling, w którym zbiór jest ograniczony do $n$ elementów, a zamiast wag, używa się prawdopodobieństwa. Zwiększając prawdopodobieństwo przykładów źle sklasyfikowanych, zwiększa się szansę na wylosowanie, a w konsekwencji na poprawną klasyfikację przez model. W klasyfikacji końcowej udział biorą wszystkie klasyfikatory, a ostateczna klasa nadawana jest poprzez głosowanie ważone.\par
@@ -232,7 +225,7 @@ Atrybut klasa:
 				3 & Kobieta & Polska & Średni & 19 & klasa 2 \\
 				4 & Kobieta & Niemcy & Niski & 37 & klasa 1 \\
 			\end{tabular}}
-			\caption{Przykład z kategorycznymi danymi.}
+			\caption{Przykład danych z kategorycznymi atrybutami.}
 			\label{danekategoryczne}
 		\end{center}
 \end{table}
@@ -250,18 +243,18 @@ Dla takich danych, należy stworzyć dodatkowe atrybuty o wartościach binarnych
 				3 & 0 & 1& 1 & 0 & 1 & 19 & 1 \\
 				4 & 0 & 1& 0 & 1 & 0 & 37 & 0 \\
 			\end{tabular}}
-			\caption{Przykład z kategorycznymi danymi po odpowiednim kodowaniu.}
+			\caption[Przykład danych z atrybutami kategorycznymi]{Przykład danych z atrybutami kategorycznymi danymi po odpowiednim kodowaniu.}
 			\label{danekategoryczne2}
 		\end{center}
 	\end{table}
-\subsection{Redukcja ilości atrybutów}
+\subsection{Redukcja liczby atrybutów}
 Jednym ze sposobów uniknięcia nadmiernego dopasowania klasyfikatora do danych lub zmniejszenia jego złożoności jest redukcja atrybutów. Zdarza się, że niektóre atrybuty mają znikomy wpływ na kategorię przykładu, a mogą stanowić szum klasyfikacyjny. Atrybuty mniej ważne usuwa się, a zostawia się tylko te z największą ilością informacji, mających największy wpływ na klasyfikację. Usunięcie bezużytecznych atrybutów może zwiększyć skuteczność klasyfikacji. Kolejną możliwością jest redukcja wymiarów, czyli poszukiwanie wzorców danych, tak aby kilka atrybutów zgrupować w jeden. Poniżej przedstawiono kilka różnych algorytmów.
 \subsubsection{Sekwencyjna selekcja postępująca oraz sekwencyjna selekcja wsteczna}
-Sekwencyjna selekcja postępująca (ang. \textit{sequential forward selection} (SFS)), algorytm zaczyna działanie od pustego zbioru atrybutów. W kolejnych iteracjach dodaje atrybut, który maksymalizuje wybraną funkcję (najczęściej jest to dokładność klasyfikacji). Innymi słowy, dodaje te atrybuty, które najbardziej podnoszą jakość klasyfikacji. Algorytm działa do momentu osiągnięcia zakładanej ilości atrybutów lub do pogorszenia skuteczności klasyfikacji. Algorytm ten posiada wadę, gdyż raz dodana cecha nie może już zostać usunięta. Może zdarzyć się taka sytuacja, że dodany już atrybut powoduje obniżenie jakości po dodaniu nowego atrybutu. Rozwiązaniem tego problemu jest algorytm SFFS (ang. \textit{sequential floating forward selection}), który po dodaniu nowej cechy usuwa inny atrybut jeśli zwiększy to wartość funkcji. \par
-Sekwencyjna selekcja wsteczna (ang. \textit{sequential backward selection} (SBS)), algorytm usuwa kolejne atrybuty powodujące najmniejszy spadek w jakości klasyfikatora (mające najmniejszy wpływ), do momentu osiągnięcia pożądanej ilości atrybutów. Istnieje także rozszerzenie tego algorytmu w postaci SFBS (ang. \textit{sequential floating backward selection})). W tym algorytmie, po usunięciu atrybutu, w kolejnym kroku sprawdza się, czy usunięte wcześniej już atrybuty po ponownym dodaniu nie podniosą wartości wybranej funkcji. \par
+Sekwencyjna selekcja postępująca (ang. \textit{sequential forward selection} (SFS)), algorytm zaczyna działanie od pustego zbioru atrybutów. W kolejnych iteracjach dodaje atrybut, który maksymalizuje wybraną funkcję (najczęściej jest to dokładność klasyfikacji). Innymi słowy, dodaje te atrybuty, które najbardziej podnoszą jakość klasyfikacji. Algorytm działa do momentu osiągnięcia zakładanej liczby atrybutów lub do pogorszenia skuteczności klasyfikacji. Algorytm ten posiada wadę, gdyż raz dodana cecha nie może już zostać usunięta. Może zdarzyć się taka sytuacja, że dodany już atrybut powoduje obniżenie jakości po dodaniu nowego atrybutu. Rozwiązaniem tego problemu jest algorytm SFFS (ang. \textit{sequential floating forward selection}), który po dodaniu nowej cechy usuwa inny atrybut jeśli zwiększy to wartość funkcji. \par
+Sekwencyjna selekcja wsteczna (ang. \textit{sequential backward selection} (SBS)), algorytm usuwa kolejne atrybuty powodujące najmniejszy spadek w jakości klasyfikatora (mające najmniejszy wpływ), do momentu osiągnięcia pożądanej liczby atrybutów. Istnieje także rozszerzenie tego algorytmu w postaci SFBS (ang. \textit{sequential floating backward selection})). W tym algorytmie, po usunięciu atrybutu, w kolejnym kroku sprawdza się, czy usunięte wcześniej już atrybuty po ponownym dodaniu nie podniosą wartości wybranej funkcji. \par
 Przedstawione algorytmy są algorytmami zachłannymi i bardzo czasochłonnymi. W pesymistycznym przypadku, klasyfikator może być budowany $\frac{p(p+1)}{2}$ razy.
 \subsubsection{Analiza głównych składowych}
-Analiza głównych składowych PCA (ang. \textit{principal component analysis}) jest to nienadzorowana liniowa transformacja, używana między innymi do redukcji wymiarów danych. Bardzo często stosuje się ją w statystyce oraz analizie danych. PCA identyfikuje wzorce w danych pomiędzy atrybutami. Algorytm szuka maksymalnych kierunków wariancji wielowymiarowych danych i następnie rzutuje je w nowej podprzestrzeni z mniejszą lub taką samą ilością atrybutów. 
+Analiza głównych składowych PCA (ang. \textit{principal component analysis}) jest to nienadzorowana liniowa transformacja, używana między innymi do redukcji wymiarów danych. Bardzo często stosuje się ją w statystyce oraz analizie danych. PCA identyfikuje wzorce w danych pomiędzy atrybutami. Algorytm szuka maksymalnych kierunków wariancji wielowymiarowych danych i następnie rzutuje je w nowej podprzestrzeni z mniejszą lub taką samą liczbą atrybutów. 
 
 \section{Ocena poprawności klasyfikacji}
 \subsection{Miary jakości klasyfikacji danych} \label{miary}
@@ -320,10 +313,10 @@ W celu porównania klasyfikatorów można obliczyć pole powierzchni poniżej kr
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\textwidth]{./images/roc.png}
-	\caption{Przykład krzywej ROC, dla naiwnego klasyfikatora bayesowskiego oraz dla regresji logistycznej dla danych $abalone041629$.}
+	\caption[Przykład krzywej ROC]{Przykład krzywej ROC, dla naiwnego klasyfikatora bayesowskiego oraz dla regresji logistycznej dla danych $abalone041629$.}
 	\label{fig:krzywa_roc}
 \end{figure}
-
+\newpage
 \subsection{Nadmierne dopasowanie i wariancja klasyfikatora}
 Jeżeli model uzyskuje zdecydowanie lepsze wyniki na danych treningowych niż na danych testowych, świadczy to o nadmiernym dopasowaniu (ang. \textit{overfitting}) klasyfikatora do danych uczących. Nadmierne dopasowanie występuje wtedy, gdy model zamiast dobrze generalizować prawdziwe dane, dopasowuje się za bardzo do danych treningowych. Powodem tego zjawiska jest zazwyczaj zbyt duża liczba parametrów (zbyt duża złożoność) modelu w stosunku do rozmiaru danych uczących. Klasyfikator może mieć wysoką skuteczność dla danych treningowych, jednak dla nowych danych będzie generował gorsze wyniki. Rozwiązaniem tego problemu może być:
 \begin{itemize}
@@ -335,13 +328,15 @@ Jeżeli model uzyskuje zdecydowanie lepsze wyniki na danych treningowych niż na
 
 Klasyfikator z nadmiernym dopasowaniem posiada wysoką wariancję. Wariancja mierzy zmienność przewidywań modelu dla określonego zbioru testowego z wykorzystaniem różnych zbiorów uczących (lub podzbiorów). Wysoka wariancja świadczy o dużej zmienności przewidywań klas dla różnych danych treningowych i jest to niepożądane zjawisko. Mała wariancja to mało zmian, w miarę stabilne przewidywanie klas dla tych samych próbek. Model z wysoką wariancją wrażliwy jest na losowość i szum danych. \par
 Klasyfikator może być także niedouczony, niedopasowany dostatecznie (ang. \textit{underfitting}), co oznacza, że model nie jest zbyt skomplikowany, aby znaleźć odpowiednie wzorce danych. W wyniku czego, osiąga słabe wyniki. Miarą towarzyszącą niedopasowaniu jest obciążenie (ang. \textit{bias}). Klasyfikator testuje się na próbce danych, wielokrotnie budując model na tym samym zbiorze danych uczących. Następnie mierzy się jak bardzo przewidywania klasyfikatora różnią się od prawdziwych klas. Wysokie obciążenie oznacza niedotrenowanie oraz małą skuteczność klasyfikacji. Niskie obciążenie oznacza bardzo dobre przewidywania klas. Obciążenie to błąd systematyczny. \par
+
+Idealny klasyfikator odnajduje wzorce w danych treningowych oraz dobrze je generalizuje, tak aby skutecznie klasyfikować nie widziane wcześniej próbki. Celem w klasyfikacji nadzorowanej, jest zbudowanie klasyfikatora z małym obciążeniem oraz niską wariancją. Niestety, zazwyczaj nie można osiągnąć obu celi. Modele parametryczne i liniowe często mają niskie obciążenie, a wysoką wariancję. Natomiast modele nieparametryczne i nieliniowe zazwyczaj mają duże obciążenie, ale niską wariancję. Obciążenie i wariancja są ze sobą połączone, zmniejszając jeden błąd, zwiększa się drugi. Tą zależność nazywa się przetargiem obciążenia i wariancji (ang. \textit{bias-variance trade-off}).
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\textwidth]{./images/biasvariance.png}
-	\caption{Obciążenie i wariancja na przykładzie tarczy strzeleckiej. Klasyfikator poprawnie przewiduje klasy jeśli niebieskie kropki trafiają w środek tarczy.}
+	\caption[Rysunek wariancji i obciążenia]{Obciążenie i wariancja na przykładzie tarczy strzeleckiej. Klasyfikator poprawnie przewiduje klasy jeśli niebieskie kropki trafiają w środek tarczy.}
 	\label{fig:biasvariance}
 \end{figure}
-Idealny klasyfikator odnajduje wzorce w danych treningowych oraz dobrze je generalizuje, tak aby skutecznie klasyfikować nie widziane wcześniej próbki. Celem w klasyfikacji nadzorowanej, jest zbudowanie klasyfikatora z małym obciążeniem oraz niską wariancją. Niestety, zazwyczaj nie można osiągnąć obu celi. Modele parametryczne i liniowe często mają niskie obciążenie, a wysoką wariancję. Natomiast modele nieparametryczne i nieliniowe zazwyczaj mają duże obciążenie, ale niską wariancję. Obciążenie i wariancja są ze sobą połączone, zmniejszając jeden błąd, zwiększa się drugi. Tą zależność nazywa się przetargiem obciążenia i wariancji (ang. \textit{bias-variance trade-off}). Zmieniając parametry klasyfikatorów można wpływać na balans pomiędzy tymi błędami:
+Zmieniając parametry klasyfikatorów można wpływać na balans pomiędzy tymi błędami:
 \begin{itemize}
 	\item w algorytmie kNN, który często ma małe obciążenie i wysoką wariancję, zwiększając liczbę sąsiadów $k$, można zmniejszyć wariancję, ale równocześnie zwiększyć błąd obciążenia,
 	\item w klasyfikatorze SVM, zwiększając karę, parametr C można zwiększyć obciążenie, a zmniejszyć wariancję.

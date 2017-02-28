@@ -13,12 +13,12 @@ W procesie klasyfikacji właściwej, nowe próbki klasyfikowane są najpierw prz
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.3\textwidth]{./images/klas_ekspercki.png}
-	\caption{Schemat klasyfikatora eksperckiego. $KLS_1..KLS_i$ to klasyfikatory składowe.}
+	\caption[Schemat klasyfikatora eksperckiego]{Schemat klasyfikatora eksperckiego. $KLS_1..KLS_i$ to klasyfikatory składowe.}
 	\label{fig:klasyfikator_ekspercki}
 \end{figure}
 Podstawowa wersja klasyfikatora znajduje się w pliku $classifiers/clf\_expert.py$, a wersja ze sprawdzianem krzyżowym w pliku $classifiers/clf\_expertCV.py$. Obsługa klasyfikatora odbywa się w takim sam sposób jak klasyfikatorów z biblioteki $scikit-learn$.
 \subsection{Test klasyfikatora eksperckiego}
-Test klasyfikatora eksperckiego przeprowadzono tak samo jak poprzednie. Został on powtórzony 10 razy, a wyniki zostały uśrednione. Test znajduje się w pliku $test\_my\_clfs/test\_clf\_expert.py$. Klasyfikator ekspercki został zbudowany z naiwnego klasyfikatora Bayesa, klasyfikatora kNN oraz drzewa decyzyjnego z maksymalną głębokością 3. Test przeprowadzono dla różnych funkcji wyłaniających ekspertów. CLFE to podstawowa wersja klasyfikatora, eksperci klasowi wyłaniani są na podstawie najlepszej precyzji. W CLFE F1 eksperci wyłaniani są na podstawie miary F-1 klas. Natomiast w CLFE G wyłonienie ekspertów odbywa się na podstawie miary G-mean. Skrót CV, oznacza wersję ze sprawdzianem krzyżowym. Wyniki zostały porównane do drzewa decyzyjnego (TREE) z maksymalną głębokością równą 3. Dokładność klasyfikacji (tabela \ref{ekspertacc}) oraz czułość klasy większościowej (tabela \ref{ekspertsens}) wzrosła dla większości zbiorów danych. Dla pozostałych zbiorów, wyniki były takie same jak drzewa decyzyjnego lub minimalnie niższe. Natomiast specyficzność klasy mniejszościowej (tabela \ref{ekspertspec}) oraz miara G-mean (tabela \ref{ekspertgmean}) wzrosły lub utrzymały taką samą wartości jak drzewa decyzyjne w 21 zbiorach na 22. W wykrywaniu klasy mniejszościowej najlepsze okazały się klasyfikatory oparty o miarę F1 i G-mean. Pomiędzy wersją klasyfikatora ze sprawdzianem krzyżowym oraz bez, nie zauważono dużej różnicy w wynikach w większości zbiorów.
+Test klasyfikatora eksperckiego przeprowadzono tak samo jak poprzednie. Został on powtórzony 10 razy, a wyniki zostały uśrednione. Test znajduje się w pliku $test\_my\_clfs/test\_clf\_expert.py$. Klasyfikator ekspercki został zbudowany z naiwnego klasyfikatora Bayesa, klasyfikatora kNN oraz drzewa decyzyjnego z maksymalną głębokością 3. Test przeprowadzono dla różnych funkcji wyłaniających ekspertów. CLFE to podstawowa wersja klasyfikatora, eksperci klasowi wyłaniani są na podstawie najlepszej precyzji. W CLFE F1 eksperci wyłaniani są na podstawie miary F-1 klas. Natomiast w CLFE G wyłonienie ekspertów odbywa się na podstawie miary G-mean. Skrót CV, oznacza wersję ze sprawdzianem krzyżowym. Wyniki zostały porównane do drzewa decyzyjnego (TREE) z maksymalną głębokością równą 3. Dokładność klasyfikacji (tabela \ref{ekspertacc}) oraz czułość klasy większościowej (tabela \ref{ekspertsens}) wzrosła dla większości zbiorów danych. Dla pozostałych zbiorów, wyniki były takie same jak drzewa decyzyjnego lub minimalnie niższe. Natomiast specyficzność klasy mniejszościowej (tabela \ref{ekspertspec}) oraz miara G-mean (tabela \ref{ekspertgmean}) wzrosły lub utrzymały taką samą wartości jak drzewa decyzyjne w 21 zbiorach na 22. W wykrywaniu klasy mniejszościowej najlepsze okazały się klasyfikatory oparte o miarę F1 i G-mean. Pomiędzy wersją klasyfikatora ze sprawdzianem krzyżowym oraz bez, nie zauważono dużej różnicy w wynikach w większości zbiorów.
 	\begin{table}[H]
 		\tiny
 		\begin{center}
@@ -156,17 +156,17 @@ Test klasyfikatora eksperckiego przeprowadzono tak samo jak poprzednie. Został 
 					\end{center}
 				\end{table}	
 \section{Meta-klasyfikator}
-Algorytm klasyfikacji danych wybiera się w zależności od charakterystyki i rodzaju danych. Budowany meta-klasyfikator miał osiągać dobre wyniki dla różnych zbiorów danych. Architektura zbudowanego meta-klasyfikatora jest bardzo złożona. Została przedstawiona na rysunku \ref{fig:metaklasmoj}. W pierwszej warstwie składa się on z klasyfikatora eksperckiego oraz z kilku klasyfikatorów bagging, boosting oraz stacking. Tworząc meta-klasyfikator należy wybrać z jakich klasyfikatorów utworzone będą klasyfikatory bagging, boosting, stacking oraz klasyfikator ekspercki. Można wybrać kilka klasyfikatorów do utworzenia kilku klasyfikatorów bagging oraz boosting. Klasyfikatorami składowymi mogą być różne algorytmy klasyfikacji lub takie same algorytmy ale innymi ustawieniami. Klasyfikator ekspercki oraz stacking tworzone są z tych samych klasyfikatorów składowych. W kolejnym kroku oceniany jest każdy model klasyfikacyjny poprzez sprawdzian krzyżowy dla niemodyfikowanego zbioru danych, dla zmodyfikowanego metodą NCR oraz dla zmodyfikowanego metodą SMOTE. Każda instancja klasyfikatora jest najpierw kopiowana, a następnie uczona na kolejnym zbiorze danych. Do końcowej klasyfikacji wybierane są trzy najlepsze klasyfikatory ze zbiorami danych, dla których osiągnęły najlepszy wynik. Kryterium wyboru najlepszych klasyfikatorów stanowi miara G-mean. W ostatnim etapie wybrane klasyfikatory trenowane są na pełnym zbiorze danych, a następnie klasyfikują ten zbiór danych, tworząc meta-dane stanowiące zbiór uczący dla końcowego meta-klasyfikatora - sieci neuronowej wielowarstwowej. Ostateczną klasę klasyfikowanemu przykładowi nadaje sieć neuronowa. Kod klasyfikatora znajduje się w pliku $classifiers/meta\_clf.py$.
+Algorytm klasyfikacji danych wybiera się w zależności od charakterystyki i rodzaju danych. Budowany meta-klasyfikator miał osiągać dobre wyniki dla różnych zbiorów danych. Architektura zbudowanego meta-klasyfikatora jest bardzo złożona. Została przedstawiona na rysunku \ref{fig:metaklasmoj}. W pierwszej warstwie składa się on z klasyfikatora eksperckiego oraz z kilku klasyfikatorów bagging, boosting oraz stacking. Tworząc meta-klasyfikator należy wybrać z jakich klasyfikatorów utworzone będą klasyfikatory bagging, boosting, stacking oraz klasyfikator ekspercki. Można wybrać kilka klasyfikatorów do utworzenia kilku klasyfikatorów bagging oraz boosting. Klasyfikatorami składowymi mogą być różne algorytmy klasyfikacji lub takie same algorytmy, ale z innymi ustawieniami. Klasyfikator ekspercki oraz stacking tworzone są z tych samych klasyfikatorów składowych. 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\textwidth]{./images/metaklas.png}
-	\caption{Projekt meta-klasyfikatora}
+	\includegraphics[width=0.8\textwidth]{./images/metaklas.png}
+	\caption{Projekt meta-klasyfikatora.}
 	\label{fig:metaklasmoj}
-\end{figure}
+\end{figure}W kolejnym kroku oceniany jest każdy model klasyfikacyjny poprzez sprawdzian krzyżowy dla niemodyfikowanego zbioru danych, dla zmodyfikowanego metodą NCR oraz dla zmodyfikowanego metodą SMOTE. Każda instancja klasyfikatora jest najpierw kopiowana, a następnie uczona na kolejnym zbiorze danych. Do końcowej klasyfikacji wybierane są trzy najlepsze klasyfikatory ze zbiorami danych, dla których osiągnęły najlepszy wynik. Kryterium wyboru najlepszych klasyfikatorów stanowi miara G-mean. W ostatnim etapie wybrane klasyfikatory trenowane są na pełnym zbiorze danych, a następnie klasyfikują ten zbiór danych, tworząc meta-dane stanowiące zbiór uczący dla końcowego meta-klasyfikatora - sieci neuronowej wielowarstwowej. Ostateczną klasę klasyfikowanemu przykładowi nadaje sieć neuronowa. Kod klasyfikatora znajduje się w pliku $classifiers/meta\_clf.py$.
+
 \subsection{Testy}
-Do stworzenia testowego meta-klasyfikatora wybrano klasyfikator kNN, drzewo decyzyjne z maksymalną głębokością 3 oraz naiwny klasyfikator Bayesa. Z tych trzech klasyfikatorów utworzono klasyfikator ekspercki, stacking oraz trzy modele klasyfikacyjne bagging. Utworzono również dwa modele AdaBoost z drzewa decyzyjnego z maksymalną głębokością 3 oraz z naiwnego klasyfikatora Bayesa (klasyfikator kNN nie wspiera wag). Każdy utworzony klasyfikator składowy został przetestowany dla zbioru danych bez modyfikacji, dla zbioru zmodyfikowanego metodą NCR oraz dla zbioru zmodyfikowanego metodą SMOTE. Przy takiej konstrukcji, może wystąpić przypadek wyboru np. trzech modeli (kopii) tego samego klasyfikatora bagging zbudowanych dla różnych zbiorów danych. Przeprowadzony test znajduje się w pliku $test\_my\_clfs/test\_meta\_clf.py$. Otrzymane wyniki porównano do meta-metod oraz klasyfikatora eksperckiego, czyli klasyfikatorów wchodzących w skład meta-klasyfikatora. W tabeli \ref{metamyacc} przedstawiono dokładność, a w tabeli \ref{metamysens} czułość klasy większościowej meta-klasyfikatora. Nie udało uzyskać się najlepszego wyniku dla każdego zbioru, ale otrzymane wyniki zdecydowanie plasują się w czołówce. Jednocześnie udało się uniknąć i utrzymać wysoką jakość klasyfikacji dla wszystkich baz (np. klasyfikator bagging NKB, mimo wysokich wyników, dla $yeastME3$ uzyskał tylko 26\% dokładności). Jeżeli chodzi o rozpoznawalność klasy mniejszościowej (tabela specyficzności \ref{metamyacc}) oraz miarę G-mean (tabela \ref{metamygmean}) to otrzymane wyniki są powyżej średniej. Również tutaj udało uniknąć się bardzo niskich wyników jakie zdarzały się pojedynczym klasyfikatorom np. klasyfikator bagging kNN miał bardzo niską rozpoznawalność klasy mniejszościowej w bazie $german$, $breast\; cancer$, $hepatitis$, $glass$, $heart\; cleveland$. Natomiast meta-klasyfikator uzyskał wyniki plasujące go w czołówce dla wszystkich zbiorów danych. \par
-Stworzony projekt meta-klasyfikatora stanowi interesującą propozycję uniwersalnego klasyfikatora. Skuteczność meta-klasyfikatora można poprawić poprzez zastosowanie bardziej różnorodnych algorytmów klasyfikacyjnych (np. można dodatkowo zastosować sieć neuronową) lub bardziej zaawansowanych metod równoważenia zbiorów danych.
-\begin{table}[H]
+Do stworzenia testowego meta-klasyfikatora wybrano klasyfikator kNN, drzewo decyzyjne z maksymalną głębokością 3 oraz naiwny klasyfikator Bayesa. Z tych trzech klasyfikatorów utworzono klasyfikator ekspercki, stacking oraz trzy modele klasyfikacyjne bagging. Utworzono również dwa modele AdaBoost z drzewa decyzyjnego z maksymalną głębokością 3 oraz z naiwnego klasyfikatora Bayesa (klasyfikator kNN nie wspiera wag). Każdy utworzony klasyfikator składowy został przetestowany dla zbioru danych bez modyfikacji, dla zbioru zmodyfikowanego metodą NCR oraz dla zbioru zmodyfikowanego metodą SMOTE. Dla takiej konstrukcji może wystąpić przypadek wyboru np. trzech modeli (kopii) tego samego klasyfikatora bagging, zbudowanych dla różnych zbiorów danych. Przeprowadzony test znajduje się w pliku $test\_my\_clfs/test\_meta\_clf.py$. Otrzymane wyniki porównano do meta-metod oraz klasyfikatora eksperckiego, czyli klasyfikatorów wchodzących w skład meta-klasyfikatora. W tabeli \ref{metamyacc} przedstawiono dokładność, a w tabeli \ref{metamysens} czułość klasy większościowej meta-klasyfikatora.
+\begin{table}[h]
 	\tiny
 	\begin{center}
 		\resizebox{\textwidth}{!}{%
@@ -200,43 +200,47 @@ Stworzony projekt meta-klasyfikatora stanowi interesującą propozycję uniwers
 			\label{metamyacc}
 		\end{center}
 	\end{table}
+	\begin{table}[h]
+		\tiny
+		\begin{center}
+			\resizebox{\textwidth}{!}{%
+				\begin{tabular}{c|ccccccc}%
+					Zbiór danych&\specialcell{Bag\\kNN}&\specialcell{Bag\\TREE}&\specialcell{Bag\\NKB}&\specialcell{Ada\\TREE}&\specialcell{Ada\\NKB}&CLFE&\specialcell{META}\\%
+					\hline
+					seeds&\textbf{0.79}&0.74&0.74&0.74&0.73&0.73&0.73\\%
+					new\_thyroid&\textbf{1.0}&0.98&0.98&0.98&0.97&0.98&0.99\\%
+					vehicle&0.95&0.92&0.62&\textbf{0.98}&0.91&0.96&0.97\\%
+					ionosphere&\textbf{0.99}&0.92&0.88&0.88&0.96&0.86&0.87\\%
+					vertebal&0.71&0.72&\textbf{0.73}&0.71&0.67&0.63&0.72\\%
+					yeastME3&\textbf{0.98}&0.97&0.17&0.97&0.87&0.78&0.97\\%
+					ecoli&0.87&0.84&0.83&\textbf{0.91}&0.37&0.78&0.8\\%
+					bupa&\textbf{0.81}&0.76&0.38&0.74&0.74&0.57&0.59\\%
+					horse\_colic&0.8&\textbf{0.91}&0.79&0.88&0.81&0.81&0.83\\%
+					german&0.87&\textbf{0.92}&0.75&0.83&0.76&0.76&0.84\\%
+					breast\_cancer&0.88&\textbf{0.92}&0.84&0.75&0.41&0.8&0.7\\%
+					cmc&0.91&\textbf{0.93}&0.7&0.84&0.74&0.79&0.85\\%
+					hepatitis&\textbf{0.89}&0.8&0.65&0.87&0.81&0.59&0.87\\%
+					haberman&0.65&0.54&\textbf{0.89}&0.77&0.45&0.39&0.62\\%
+					transfusion&0.86&0.91&\textbf{0.92}&0.75&0.68&0.76&0.67\\%
+					car&\textbf{0.99}&0.98&0.89&\textbf{0.99}&0.97&0.88&0.98\\%
+					glass&0.88&0.81&0.59&0.85&\textbf{0.94}&0.48&0.85\\%
+					abalone16\_29&0.99&\textbf{1.0}&0.68&0.96&0.63&0.95&0.94\\%
+					solar\_flare&\textbf{0.99}&\textbf{0.99}&0.66&0.97&0.59&0.97&0.97\\%
+					heart\_cleveland&\textbf{1.0}&0.99&0.86&0.97&0.85&0.93&0.89\\%
+					balance\_scale&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&0.94&\textbf{1.0}&0.88&0.92\\%
+					postoperative&0.82&0.88&0.8&0.71&\textbf{0.94}&0.68&0.83\\%
+				\end{tabular}}
+				\caption{Czułość klasy większościowej meta-klasyfikatora.}
+				\label{metamysens}
+			\end{center}
+		\end{table}
+Nie udało uzyskać się najlepszego wyniku dla każdego zbioru, ale otrzymane wyniki zdecydowanie plasują się w czołówce. Jednocześnie udało się uniknąć i utrzymać wysoką jakość klasyfikacji dla wszystkich baz (np. klasyfikator bagging NKB, mimo wysokich wyników, dla $yeastME3$ uzyskał tylko 26\% dokładności). Jeżeli chodzi o rozpoznawalność klasy mniejszościowej (tabela specyficzności \ref{metamyspec}) oraz miarę G-mean (tabela \ref{metamygmean}), to otrzymane wyniki są powyżej średniej. Również tutaj udało uniknąć się bardzo niskich wyników, jakie zdarzały się pojedynczym klasyfikatorom, np. klasyfikator bagging kNN miał bardzo niską rozpoznawalność klasy mniejszościowej w bazie $german$, $breast\; cancer$, $hepatitis$, $glass$, $heart\; cleveland$. Natomiast meta-klasyfikator uzyskał wyniki plasujące go w czołówce dla wszystkich zbiorów danych. \par
+Stworzony projekt meta-klasyfikatora stanowi interesującą propozycję uniwersalnego klasyfikatora. Skuteczność meta-klasyfikatora można poprawić poprzez zastosowanie bardziej różnorodnych algorytmów klasyfikacyjnych (np. można dodatkowo zastosować sieć neuronową) lub bardziej zaawansowanych metod równoważenia zbiorów danych.
+
 	
-\begin{table}[H]
-	\tiny
-	\begin{center}
-		\resizebox{\textwidth}{!}{%
-			\begin{tabular}{c|ccccccc}%
-				Zbiór danych&\specialcell{Bag\\kNN}&\specialcell{Bag\\TREE}&\specialcell{Bag\\NKB}&\specialcell{Ada\\TREE}&\specialcell{Ada\\NKB}&CLFE&\specialcell{META}\\%
-				\hline
-				seeds&\textbf{0.79}&0.74&0.74&0.74&0.73&0.73&0.73\\%
-				new\_thyroid&\textbf{1.0}&0.98&0.98&0.98&0.97&0.98&0.99\\%
-				vehicle&0.95&0.92&0.62&\textbf{0.98}&0.91&0.96&0.97\\%
-				ionosphere&\textbf{0.99}&0.92&0.88&0.88&0.96&0.86&0.87\\%
-				vertebal&0.71&0.72&\textbf{0.73}&0.71&0.67&0.63&0.72\\%
-				yeastME3&\textbf{0.98}&0.97&0.17&0.97&0.87&0.78&0.97\\%
-				ecoli&0.87&0.84&0.83&\textbf{0.91}&0.37&0.78&0.8\\%
-				bupa&\textbf{0.81}&0.76&0.38&0.74&0.74&0.57&0.59\\%
-				horse\_colic&0.8&\textbf{0.91}&0.79&0.88&0.81&0.81&0.83\\%
-				german&0.87&\textbf{0.92}&0.75&0.83&0.76&0.76&0.84\\%
-				breast\_cancer&0.88&\textbf{0.92}&0.84&0.75&0.41&0.8&0.7\\%
-				cmc&0.91&\textbf{0.93}&0.7&0.84&0.74&0.79&0.85\\%
-				hepatitis&\textbf{0.89}&0.8&0.65&0.87&0.81&0.59&0.87\\%
-				haberman&0.65&0.54&\textbf{0.89}&0.77&0.45&0.39&0.62\\%
-				transfusion&0.86&0.91&\textbf{0.92}&0.75&0.68&0.76&0.67\\%
-				car&\textbf{0.99}&0.98&0.89&\textbf{0.99}&0.97&0.88&0.98\\%
-				glass&0.88&0.81&0.59&0.85&\textbf{0.94}&0.48&0.85\\%
-				abalone16\_29&0.99&\textbf{1.0}&0.68&0.96&0.63&0.95&0.94\\%
-				solar\_flare&\textbf{0.99}&\textbf{0.99}&0.66&0.97&0.59&0.97&0.97\\%
-				heart\_cleveland&\textbf{1.0}&0.99&0.86&0.97&0.85&0.93&0.89\\%
-				balance\_scale&\textbf{1.0}&\textbf{1.0}&\textbf{1.0}&0.94&\textbf{1.0}&0.88&0.92\\%
-				postoperative&0.82&0.88&0.8&0.71&\textbf{0.94}&0.68&0.83\\%
-			\end{tabular}}
-			\caption{Czułość klasy większościowej meta-klasyfikatora.}
-			\label{metamysens}
-		\end{center}
-	\end{table}
+
 	
-\begin{table}[H]
+\begin{table}[h]
 	\tiny
 	\begin{center}
 		\resizebox{\textwidth}{!}{%
@@ -271,7 +275,7 @@ Stworzony projekt meta-klasyfikatora stanowi interesującą propozycję uniwers
 		\end{center}
 	\end{table}
 	
-\begin{table}[H]
+\begin{table}[h]
 	\tiny
 	\begin{center}
 		\resizebox{\textwidth}{!}{%
