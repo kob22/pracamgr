@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.24)  28 FEB 2017 01:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.1.24)  28 FEB 2017 02:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1386,6 +1386,12 @@ naj-lep-szych usta-wie«
  []
 
 [48]
+Underfull \hbox (badness 3386) in paragraph at lines 122--157
+[]\T1/cmr/m/n/12 Zbudowany meta-klasyfikator bag-ging z pa-ra-me-trami \T1/cmr/
+m/it/12 max_features=0.72
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [49]
@@ -1549,10 +1555,10 @@ Package rerunfilecheck Info: File `praca_dyplomowa.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 95.
  ) 
 Here is how much of TeX's memory you used:
- 20379 strings out of 494918
- 365774 string characters out of 6180101
+ 20383 strings out of 494918
+ 365824 string characters out of 6180101
  525453 words of memory out of 5000000
- 22858 multiletter control sequences out of 15000+600000
+ 22862 multiletter control sequences out of 15000+600000
  41230 words of font info for 83 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  64i,18n,92p,1838b,720s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1585,7 +1591,7 @@ sr/share/texlive/texmf-dist/fonts/type1/public/pl/plr17.pfb></usr/share/texlive
 /type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/p
 l/plsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
 
-Output written on praca_dyplomowa.pdf (111 pages, 1443849 bytes).
+Output written on praca_dyplomowa.pdf (111 pages, 1443986 bytes).
 PDF statistics:
  2019 PDF objects out of 2073 (max. 8388607)
  1196 compressed objects within 12 object streams

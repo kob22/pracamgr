@@ -1,6 +1,6 @@
 \select@language {polish}
 \contentsline {chapter}{Wst\IeC {\k e}p}{1}{chapter*.2}
-\contentsline {chapter}{Zakres i cel pracy}{3}{chapter*.3}
+\contentsline {chapter}{Zakres i~cel pracy}{3}{chapter*.3}
 \contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p teoretyczny}{5}{chapter.1}
 \contentsline {section}{\numberline {1.1}Klasyfikacja danych}{5}{section.1.1}
 \contentsline {section}{\numberline {1.2}Wybrane algorytmy klasyfikacji danych}{6}{section.1.2}
@@ -30,7 +30,7 @@
 \contentsline {section}{\numberline {1.5}Ocena poprawno\IeC {\'s}ci klasyfikacji}{17}{section.1.5}
 \contentsline {subsection}{\numberline {1.5.1}Miary jako\IeC {\'s}ci klasyfikacji danych}{17}{subsection.1.5.1}
 \contentsline {subsubsection}{Krzywa ROC}{20}{section*.19}
-\contentsline {subsection}{\numberline {1.5.2}Nadmierne dopasowanie i wariancja klasyfikatora}{21}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {1.5.2}Nadmierne dopasowanie i~wariancja klasyfikatora}{21}{subsection.1.5.2}
 \contentsline {subsection}{\numberline {1.5.3}Metody pomiaru jako\IeC {\'s}ci klasyfikacji danych}{22}{subsection.1.5.3}
 \contentsline {subsubsection}{Metoda z jednym zbiorem}{23}{section*.22}
 \contentsline {subsubsection}{Metoda z wydzielonym zbiorem testowym (ang. \textit {the holdout method})}{23}{section*.23}
@@ -40,12 +40,12 @@
 \contentsline {subsubsection}{R\IeC {\'o}wnomierny sprawdzian krzy\IeC {\.z}owy k-krotny (ang. \textit {Stratified k-fold cross-validation})}{24}{section*.28}
 \contentsline {chapter}{\numberline {2}Klasyfikacja danych niezr\IeC {\'o}wnowa\IeC {\.z}onych}{25}{chapter.2}
 \contentsline {section}{\numberline {2.1}Dane niezr\IeC {\'o}wnowa\IeC {\.z}one}{25}{section.2.1}
-\contentsline {section}{\numberline {2.2}R\IeC {\'o}wnowa\IeC {\.z}enie rozk\IeC {\l }adu klas w zbiorze danych}{26}{section.2.2}
+\contentsline {section}{\numberline {2.2}R\IeC {\'o}wnowa\IeC {\.z}enie rozk\IeC {\l }adu klas w~zbiorze danych}{26}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Metody undersampling}{26}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Metody oversampling}{27}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Metody hybrydowe}{27}{subsection.2.2.3}
 \contentsline {chapter}{\numberline {3}Przeprowadzone badania}{29}{chapter.3}
-\contentsline {section}{\numberline {3.1}Opis platformy i spos\IeC {\'o}b realizacji bada\IeC {\'n}}{29}{section.3.1}
+\contentsline {section}{\numberline {3.1}Opis platformy i~spos\IeC {\'o}b realizacji bada\IeC {\'n}}{29}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}J\IeC {\k e}zyk python}{29}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {3.1.2}Biblioteka scikit-learn}{30}{subsection.3.1.2}
 \contentsline {subsection}{\numberline {3.1.3}Biblioteka imbalanced-learn}{30}{subsection.3.1.3}
@@ -55,17 +55,17 @@
 \contentsline {subsubsection}{Maptolib}{31}{section*.31}
 \contentsline {subsubsection}{Texttable}{31}{section*.32}
 \contentsline {subsubsection}{Pylatex}{31}{section*.33}
-\contentsline {section}{\numberline {3.2}Opis danych u\IeC {\.z}ytych w badaniach}{31}{section.3.2}
+\contentsline {section}{\numberline {3.2}Opis danych u\IeC {\.z}ytych w~badaniach}{31}{section.3.2}
 \contentsline {subsubsection}{Analiza klas mniejszo\IeC {\'s}ciowych}{32}{section*.35}
-\contentsline {section}{\numberline {3.3}Ocena klasyfikatora w sprawdzianie krzy\IeC {\.z}owym k-krotnym.}{33}{section.3.3}
+\contentsline {section}{\numberline {3.3}Ocena klasyfikatora w~sprawdzianie krzy\IeC {\.z}owym k-krotnym.}{33}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Test sposob\IeC {\'o}w oceny klasyfikatora}{34}{subsection.3.3.1}
 \contentsline {subsubsection}{Dok\IeC {\l }adno\IeC {\'s}\IeC {\'c} oraz b\IeC {\l }\IeC {\k a}d klasyfikatora}{35}{section*.37}
 \contentsline {subsubsection}{Czu\IeC {\l }o\IeC {\'s}\IeC {\'c}, specyficzno\IeC {\'s}\IeC {\'c}, FPR oraz precyzja}{35}{section*.38}
 \contentsline {subsubsection}{Miara $F_1$}{38}{section*.41}
 \contentsline {subsubsection}{Miara G-mean}{39}{section*.43}
-\contentsline {subsubsection}{Krzywa ROC i miara AUC}{40}{section*.45}
+\contentsline {subsubsection}{Krzywa ROC i~miara AUC}{40}{section*.45}
 \contentsline {subsubsection}{Podsumowanie}{42}{section*.47}
-\contentsline {section}{\numberline {3.4}R\IeC {\'o}wnowa\IeC {\.z}enie liczebno\IeC {\'s}ci klas w danych w klasyfikacji ze sprawdzianem krzy\IeC {\.z}owym}{42}{section.3.4}
+\contentsline {section}{\numberline {3.4}R\IeC {\'o}wnowa\IeC {\.z}enie liczebno\IeC {\'s}ci klas w~danych w~klasyfikacji ze sprawdzianem krzy\IeC {\.z}owym}{42}{section.3.4}
 \contentsline {chapter}{\numberline {4}Meta-metody}{47}{chapter.4}
 \contentsline {section}{\numberline {4.1}Bagging}{47}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Bagging z naiwnym klasyfikatorem bayesowskim}{47}{subsection.4.1.1}
@@ -80,8 +80,8 @@
 \contentsline {subsection}{\numberline {4.3.1}Oversampling metod\IeC {\k a} SMOTE}{70}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Oversampling metod\IeC {\k a} ADASYN}{72}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}Undersampling NCR}{73}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Oversampling SMOTE i undersampling metod\IeC {\k a} ENN}{74}{subsection.4.3.4}
-\contentsline {subsection}{\numberline {4.3.5}Oversampling SMOTE i undersampling metod\IeC {\k a} Tomek links}{76}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.4}Oversampling SMOTE i~undersampling metod\IeC {\k a} ENN}{74}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Oversampling SMOTE i~undersampling metod\IeC {\k a} Tomek links}{76}{subsection.4.3.5}
 \contentsline {subsection}{\numberline {4.3.6}Por\IeC {\'o}wnanie metod}{77}{subsection.4.3.6}
 \contentsline {section}{\numberline {4.4}Wnioski z bada\IeC {\'n}}{80}{section.4.4}
 \contentsline {chapter}{\numberline {5}Propozycja klasyfikator\IeC {\'o}w}{81}{chapter.5}
