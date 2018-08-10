@@ -30,6 +30,8 @@ for tab in range(5):
     table.add_hline()
     tables.append(table)
 estimators = 50
+
+folds = 10
 clf1 = KNeighborsClassifier()
 clf2 = tree.DecisionTreeClassifier()
 clf3 = GaussianNB()
@@ -50,15 +52,6 @@ for data in dataset:
     for i in range(5):
         rows.append([data])
 
-    length_data = len(data)
-    if length_data > 1000:
-        folds = 10
-    elif length_data > 700:
-        folds = 7
-    elif length_data > 500:
-        folds = 5
-    else:
-        folds = 3
 
     for clf in clfs:
         clf_ = clone(clf)

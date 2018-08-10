@@ -1,0 +1,1656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a9c3e561-8c74-4756-863c-f88ac98e99cd" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/praca.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/praca.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check_matrix.ods" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classifiers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/classifiers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classifiers/clf_expert.py" beforeDir="false" afterPath="$PROJECT_DIR$/classifiers/clf_expert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classifiers/clf_expertCV.py" beforeDir="false" afterPath="$PROJECT_DIR$/classifiers/clf_expertCV.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classifiers/ensemble_rating2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classifiers/meta_clf.py" beforeDir="false" afterPath="$PROJECT_DIR$/classifiers/meta_clf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classifiers/meta_clfold.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classifiers/stacking.py" beforeDir="false" afterPath="$PROJECT_DIR$/classifiers/stacking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classifiers/stackingcv.py" beforeDir="false" afterPath="$PROJECT_DIR$/classifiers/stackingcv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cross_val/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cross_val/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cross_val/cross_val.py" beforeDir="false" afterPath="$PROJECT_DIR$/cross_val/cross_val.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/abalone.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/abalone.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/balance-scale.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/balance-scale.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/bupa.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/bupa.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/car.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/car.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/cmc.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/cmc.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/abalone.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/abalone.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/balance-scale.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/balance-scale.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/breast-cancer.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/breast-cancer.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/bupa.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/bupa.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/car.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/car.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/cmc.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/cmc.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/ecoli.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/ecoli.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/german.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/german.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/glass.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/glass.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/haberman.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/haberman.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/heart-cleveland.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/heart-cleveland.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/hepatitis.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/hepatitis.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/horse-colic.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/horse-colic.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/ionosphere.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/ionosphere.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/new-thyroid.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/new-thyroid.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/postoperative.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/postoperative.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/seeds.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/seeds.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/solar-flare.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/solar-flare.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/tic.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/tic.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/transfusion.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/transfusion.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/vehicle.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/vehicle.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/vertebal.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/vertebal.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/data_descryption/yeast.desc" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/data_descryption/yeast.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/ecoli.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/ecoli.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/german.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/german.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/glass.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/glass.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/haberman.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/haberman.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/ionosphere.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/ionosphere.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/missing/breast-cancer.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/missing/breast-cancer.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/missing/heart-cleveland.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/missing/heart-cleveland.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/missing/hepatitis.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/missing/hepatitis.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/missing/horse-colic.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/missing/horse-colic.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/missing/postoperative.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/missing/postoperative.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/new-thyroid.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/new-thyroid.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/seeds.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/seeds.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/solar-flare.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/solar-flare.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/tic.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/tic.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/transfusion.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/transfusion.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/vehicle.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/vehicle.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/vertebal.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/vertebal.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/files/yeast.data" beforeDir="false" afterPath="$PROJECT_DIR$/data/files/yeast.data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/importdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/importdata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/do.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/imbalanced/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/imbalanced/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imbalanced/smoteentree_overfitting.py" beforeDir="false" afterPath="$PROJECT_DIR$/imbalanced/smoteentree_overfitting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imbalanced/smotentree.py" beforeDir="false" afterPath="$PROJECT_DIR$/imbalanced/smotentree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iris.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maintest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/PWHead.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/PWHead.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/badania.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/badania.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/bibliografia.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/bibliografia.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/cel_pracy.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/cel_pracy.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/daneniezrownowaznone.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/daneniezrownowaznone.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/CV_ROC.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/CV_ROC.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/biasvariance.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/biasvariance.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/crossvalidation.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/crossvalidation.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/drzewo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/drzewo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/klas_ekspercki.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/klas_ekspercki.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/knn.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/knn.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/metaklas.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/metaklas.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/miara-F1.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/miara-F1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/miara-G-mean.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/miara-G-mean.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/oversampling.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/oversampling.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/roc.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/roc.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/stdwsk.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/stdwsk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/stdwsk2.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/stdwsk2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/svm.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/svm.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/wsk.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/wsk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/images/wsk2.png" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/images/wsk2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/klasyfikacja.log" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/klasyfikacja.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/klasyfikacja.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/klasyfikacja.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/meta-metody.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/meta-metody.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/meta-metody.texold" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/meta-metody.texold" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/pakiety.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/pakiety.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/podsumowanie.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/podsumowanie.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/praca_dyplomowa.aux" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/praca_dyplomowa.aux" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/praca_dyplomowa.lof" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/praca_dyplomowa.lof" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/praca_dyplomowa.log" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/praca_dyplomowa.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/praca_dyplomowa.lot" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/praca_dyplomowa.lot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/praca_dyplomowa.out" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/praca_dyplomowa.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/praca_dyplomowa.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/praca_dyplomowa.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/praca_dyplomowa.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/praca_dyplomowa.synctex.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/praca_dyplomowa.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/praca_dyplomowa.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/praca_dyplomowa.toc" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/praca_dyplomowa.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/praca_dyplomowa_tabele.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/praca_dyplomowa_tabele.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/prmag2017.sty" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/prmag2017.sty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/projekt-klasyfikatora.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/projekt-klasyfikatora.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/streszczenie.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/streszczenie.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/texput.log" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/texput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/todo.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/todo.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/ustawienia.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/ustawienia.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/uuu.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/uuu.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pracatex/wstep.tex" beforeDir="false" afterPath="$PROJECT_DIR$/pracatex/wstep.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roc.png" beforeDir="false" afterPath="$PROJECT_DIR$/roc.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roc.py" beforeDir="false" afterPath="$PROJECT_DIR$/roc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/adaboost.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/adaboost.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/bagging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/majorityvoting.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/majorityvoting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/randomforest.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/randomforest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/runknn.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/runknn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/runmy.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/runmy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/runmycv.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/runmycv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/runnaivebayes.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/runnaivebayes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/runstacking.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/runstacking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/runstackingcv.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/runstackingcv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/svm.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/svm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runclassifiers/tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/runclassifiers/tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simplefunctions.py" beforeDir="false" afterPath="$PROJECT_DIR$/simplefunctions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcredit.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testmds.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/adaboost_NB.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/adaboost_NB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/adaboost_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/adaboost_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/adaboost_tree2.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/adaboost_tree2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/analyse_db2.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/analyse_db2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/analyze_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/analyze_db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bagging_NB.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bagging_NB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bagging_knn.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bagging_knn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bagging_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bagging_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bagging_tree2.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bagging_tree2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/bagging_tree_cmp.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bagging_tree_cmp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/compare_alg.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/compare_alg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/cross_val_oversampling.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/cross_val_oversampling.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/cross_val_oversampling_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/cross_val_oversampling_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/gridsearch/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/gridsearch/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/gridsearch/adaboost_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/gridsearch/adaboost_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/gridsearch/bagging_NB.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/gridsearch/bagging_NB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/gridsearch/bagging_knn.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/gridsearch/bagging_knn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/gridsearch/bagging_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/gridsearch/bagging_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/gridsearch/svm.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/gridsearch/svm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/NCR.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/NCR.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/SMOTETomek.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/SMOTETomek.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/adasyn.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/adasyn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/compare_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/compare_methods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/smote.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/smote.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/smoteenn.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/smoteenn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/compare_methods.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/compare_methods.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/oversampling SMOTE.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/oversampling SMOTE.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/oversampling SMOTE2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/oversampling SMOTE2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/oversampling_ADASYN.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/oversampling_ADASYN.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/overundersampling_SMOTETomek.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/overundersampling_SMOTETomek.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/randomunderover.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/randomunderover.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/underoverSMOTEEN.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/underoverSMOTEEN.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/undersampling_NCR.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/undersampling_NCR.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/compare_methods.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/compare_methods.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/oversampling SMOTE.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/oversampling SMOTE.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/oversampling SMOTE2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/oversampling SMOTE2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/oversampling_ADASYN.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/oversampling_ADASYN.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/overundersampling_SMOTETomek.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/overundersampling_SMOTETomek.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/randomunderover.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/randomunderover.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/randomunderover2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/randomunderover2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/randomunderover3.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/randomunderover3.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/underoverSMOTEEN.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/underoverSMOTEEN.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/undersampling_NCR.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_tex/undersampling_NCR.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/meta-cmp.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/meta-cmp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/preprocessing tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/preprocessing tests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/preprocessing tests/multirow.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/preprocessing tests/multirow.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/preprocessing tests/tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/preprocessing tests/tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/print_info_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/print_info_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/stacking_cmp.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/stacking_cmp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_bagging.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_bagging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_f1.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_f1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_g_mean.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_g_mean.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/test_clf_expert.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/test_clf_expert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/test_ensembe_with_voting.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/test_ensembe_with_voting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/test_meta_clf.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/test_meta_clf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/test_meta_clfold.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_pdf/test_ensemble_rating.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_pdf/test_ensemble_rating.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_pdf/test_ensemble_rating_withvoting.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_pdf/test_ensemble_rating_withvoting.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_pdf/test_expert_clfgit.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_pdf/test_expert_clfgit.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_pdf/test_meta_clf.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_pdf/test_meta_clf.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_ensemble_rating.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_ensemble_rating.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_ensemble_rating_withtvoting.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_ensemble_rating_withtvoting.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_ensemble_rating_withvoting.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_ensemble_rating_withvoting.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_expert_clf.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_expert_clf.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_meta_clfgit.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_meta_clfgit.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_roc.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_roc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_wsk.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_wsk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/final/Meta CMP4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/final/Meta CMP4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/final/Meta CMP4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/final/Meta CMP4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Doc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Doc.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Meta CMP.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Meta CMP.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Meta CMP2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Meta CMP2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Meta CMP3.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Meta CMP3.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Meta CMP4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Meta CMP4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking 2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking 2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking 3.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking 3.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking 4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking 4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking 5.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking 5.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking 6.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking 6.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/Stacking2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree10.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree10.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree100.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree100.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree20.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree20.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree200.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree200.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree5.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree5.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree50.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_tree50.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee10.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee10.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee100.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee100.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee20.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee20.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee200.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee200.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee5.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee5.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee50.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/ada_boost_treee50.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/adaboost_NB.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/adaboost_NB.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/adaboost_tree.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/adaboost_tree.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/adaboost_treeold.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/adaboost_treeold.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/analiza danych.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/analiza danych.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/analiza_danych.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/analiza_danych.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.6.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.6.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.8.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.8.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.40.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.41.0.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.41.0.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.6.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.6.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.8.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.8.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.60.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.61.0.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.61.0.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.680.72.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.680.72.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.6.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.6.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.8.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.8.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.70.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.71.0.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.71.0.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.6.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.6.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.8.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.8.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.80.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.81.0.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.81.0.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.6.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.6.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.8.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.8.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.90.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.91.0.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB0.91.0.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.6.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.6.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.8.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.8.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.00.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.01.0.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_NB1.01.0.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_knn.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_knn.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_knn2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_knn2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree100.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree100.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree100.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree100.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree100.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree100.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree1000.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree1000.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree1000.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree1000.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree1000.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree1000.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree300.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree300.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree300.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree300.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree300.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree300.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree50.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree50.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree50.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree50.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree50.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree50.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree500.4.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree500.4.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree500.7.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree500.7.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree500.9.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree500.9.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_22.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_22.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_2222.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_2222.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_2reszta.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_2reszta.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_2seeds.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_2seeds.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_2vehicle.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_tree_2vehicle.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_treefold.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/bagging_treefold.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/daneinfo.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/daneinfo.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/myclf.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/myclf.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/stacking.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/stacking.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/stacking2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/stacking2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/test_CV_oversampling.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/test_CV_oversampling.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/test_cv_oversampling.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/test_cv_oversampling.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/test_cv_oversampling2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/test_cv_oversampling2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/test_cv_oversamplingtest1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_pdf/test_cv_oversamplingtest1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Doc.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Doc.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Meta CMP.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Meta CMP.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Meta CMP2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Meta CMP2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Meta CMP3.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Meta CMP3.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Meta CMP4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Meta CMP4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking 2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking 2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking 3.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking 3.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking 4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking 4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking 5.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking 5.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking 6.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking 6.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree10.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree10.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree100.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree100.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree20.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree20.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree200.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree200.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree5.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree5.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree50.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree50.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee10.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee10.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee100.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee100.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee20.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee20.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee200.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee200.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee5.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee5.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee50.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_treee50.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/adaboost_NB.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/adaboost_NB.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/adaboost_tree.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/adaboost_tree.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/adaboost_tree_2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/adaboost_tree_2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/analiza danych.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/analiza danych.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/analiza_danych.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/analiza_danych.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.6.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.6.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.8.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.8.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.40.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.41.0.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.41.0.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.6.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.6.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.6.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.6.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.8.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.8.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.60.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.61.0.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.61.0.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.680.72.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.680.72.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.6.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.6.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.8.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.8.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.70.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.71.0.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.71.0.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.8.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.8.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.6.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.6.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.8.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.8.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.80.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.81.0.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.81.0.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.6.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.6.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.8.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.8.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.90.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.91.0.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.91.0.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.0.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.0.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.6.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.6.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.8.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.8.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.00.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.01.0.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB1.01.0.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_knn.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_knn.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree100.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree100.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree100.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree100.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree100.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree100.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree1000.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree1000.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree1000.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree1000.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree1000.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree1000.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree300.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree300.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree300.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree300.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree300.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree300.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree50.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree50.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree50.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree50.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree50.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree50.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree500.4.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree500.4.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree500.7.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree500.7.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree500.9.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree500.9.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree_2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree_2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree_22.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_tree_22.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/daneinfo.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/daneinfo.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/knnnustawienia" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/knnnustawienia" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/myclf.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/myclf.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/stacking.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/stacking.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/stacking2.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/stacking2.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/test_CV_oversampling.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/test_CV_oversampling.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/pliki_tex/test_cv_oversampling.tex" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/pliki_tex/test_cv_oversampling.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/adaboost.log" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/adaboost.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/bagging" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/bagging" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/bagging.log" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/bagging.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/bagging_NB_grid" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/bagging_NB_grid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/f1Stratified_K-fold,_k=10.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/f1Stratified_K-fold,_k=10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/f1Unstratified_K-fold,_k=10.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/f1Unstratified_K-fold,_k=10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/gmeanStratified_K-fold,_k=10.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/gmeanStratified_K-fold,_k=10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/gmeanUnstratified_K-fold,_k=10.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/gmeanUnstratified_K-fold,_k=10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/miara-F1.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/miara-F1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/miara-G-mean.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/miara-G-mean.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/stdf1Stratified_K-fold,_k=10.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/stdf1Stratified_K-fold,_k=10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/stdf1Unstratified_K-fold,_k=10.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/stdf1Unstratified_K-fold,_k=10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/stdgmeanStratified_K-fold,_k=10.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/stdgmeanStratified_K-fold,_k=10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/stdgmeanUnstratified_K-fold,_k=10.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/stdgmeanUnstratified_K-fold,_k=10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/stdwsk.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/stdwsk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/wsk.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/wyniki/wykresy_zdjecia/wsk.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo.txt" beforeDir="false" />
+    </list>
+    <ignored path="praca.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/praca$usun.coverage" NAME="usun Coverage Results" MODIFIED="1487596929236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf" />
+    <SUITE FILE_PATH="coverage/praca$smoteentree_overfitting.coverage" NAME="smoteentree_overfitting Coverage Results" MODIFIED="1485886209059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/imbalanced" />
+    <SUITE FILE_PATH="coverage/praca$adaboost_tree__1_.coverage" NAME="adaboost_tree (1) Coverage Results" MODIFIED="1488313623363" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$test_f1.coverage" NAME="test_f1 Coverage Results" MODIFIED="1486728568357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$test_meta_clf.coverage" NAME="test_meta_clf Coverage Results" MODIFIED="1488316701172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/test_my_clfs" />
+    <SUITE FILE_PATH="coverage/praca$tree.coverage" NAME="tree Coverage Results" MODIFIED="1487101022608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/gridsearch" />
+    <SUITE FILE_PATH="coverage/praca$test_meta_clfcopy.coverage" NAME="test_meta_clfcopy Coverage Results" MODIFIED="1487965918839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/test_my_clfs" />
+    <SUITE FILE_PATH="coverage/praca$bagging_tree.coverage" NAME="bagging_tree Coverage Results" MODIFIED="1488311534948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/gridsearch" />
+    <SUITE FILE_PATH="coverage/praca$main.coverage" NAME="main Coverage Results" MODIFIED="1472649287411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/praca$bagging_knn.coverage" NAME="bagging_knn Coverage Results" MODIFIED="1488311429311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/gridsearch" />
+    <SUITE FILE_PATH="coverage/praca$treetest.coverage" NAME="treetest Coverage Results" MODIFIED="1479737223120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classifiers" />
+    <SUITE FILE_PATH="coverage/praca$test_bagging.coverage" NAME="test_bagging Coverage Results" MODIFIED="1486545811763" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$runnaivebayes.coverage" NAME="runnaivebayes Coverage Results" MODIFIED="1485359902823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/runclassifiers" />
+    <SUITE FILE_PATH="coverage/praca$adaboost_tree2.coverage" NAME="adaboost_tree2 Coverage Results" MODIFIED="1487457615455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$smote.coverage" NAME="smote Coverage Results" MODIFIED="1488315255428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/imbalancedtests" />
+    <SUITE FILE_PATH="coverage/praca$bagging_knn__1_.coverage" NAME="bagging_knn (1) Coverage Results" MODIFIED="1488313393194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$bagging_tree2.coverage" NAME="bagging_tree2 Coverage Results" MODIFIED="1487442366531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$meta_clfcopy.coverage" NAME="meta_clfcopy Coverage Results" MODIFIED="1487949063049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classifiers" />
+    <SUITE FILE_PATH="coverage/praca$random.coverage" NAME="random Coverage Results" MODIFIED="1487597174158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/imbalancedtests" />
+    <SUITE FILE_PATH="coverage/praca$compare_alg.coverage" NAME="compare_alg Coverage Results" MODIFIED="1488315069063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$meta_cmp.coverage" NAME="meta-cmp Coverage Results" MODIFIED="1487592532601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$myclassifier.coverage" NAME="myclassifier Coverage Results" MODIFIED="1487070285156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classifiers" />
+    <SUITE FILE_PATH="coverage/praca$test_g_mean.coverage" NAME="test_g_mean Coverage Results" MODIFIED="1486728566187" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$analyse_db.coverage" NAME="analyse_db Coverage Results" MODIFIED="1487362642750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$bagging_NB__1_.coverage" NAME="bagging_NB (1) Coverage Results" MODIFIED="1487164359129" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/gridsearch" />
+    <SUITE FILE_PATH="coverage/praca$compare_methods.coverage" NAME="compare_methods Coverage Results" MODIFIED="1487755005411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/imbalancedtests" />
+    <SUITE FILE_PATH="coverage/praca$roc.coverage" NAME="roc Coverage Results" MODIFIED="1485865844936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/praca$analyse_db2.coverage" NAME="analyse_db2 Coverage Results" MODIFIED="1487339395898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$cross_val.coverage" NAME="cross_val Coverage Results" MODIFIED="1473082900728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/cross_val" />
+    <SUITE FILE_PATH="coverage/praca$ranking.coverage" NAME="ranking Coverage Results" MODIFIED="1485860203890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/usr/local/lib/python2.7/dist-packages/sklearn/metrics" />
+    <SUITE FILE_PATH="coverage/praca$testmds.coverage" NAME="testmds Coverage Results" MODIFIED="1487172251056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/praca$meta_clfcopycopy.coverage" NAME="meta_clfcopycopy Coverage Results" MODIFIED="1488033065999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classifiers" />
+    <SUITE FILE_PATH="coverage/praca$test_wsk.coverage" NAME="test_wsk Coverage Results" MODIFIED="1486728563592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$test_ensembe_with_voting.coverage" NAME="test_ensembe_with_voting Coverage Results" MODIFIED="1487261409235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/test_ensemble_rating" />
+    <SUITE FILE_PATH="coverage/praca$ensemble_rating.coverage" NAME="ensemble_rating Coverage Results" MODIFIED="1487075913901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classifiers" />
+    <SUITE FILE_PATH="coverage/praca$cross_val_oversampling.coverage" NAME="cross_val_oversampling Coverage Results" MODIFIED="1488310677926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$stacking_cmp.coverage" NAME="stacking_cmp Coverage Results" MODIFIED="1488313703316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$adaboost_tree.coverage" NAME="adaboost_tree Coverage Results" MODIFIED="1488311489685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/gridsearch" />
+    <SUITE FILE_PATH="coverage/praca$tree__1_.coverage" NAME="tree (1) Coverage Results" MODIFIED="1485890035102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/preprocessing tests" />
+    <SUITE FILE_PATH="coverage/praca$test_clf_expert.coverage" NAME="test_clf_expert Coverage Results" MODIFIED="1488316705246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/test_my_clfs" />
+    <SUITE FILE_PATH="coverage/praca$test_meta_clf__1_.coverage" NAME="test_meta_clf (1) Coverage Results" MODIFIED="1487947301153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/test_my_clfs" />
+    <SUITE FILE_PATH="coverage/praca$smoteentree.coverage" NAME="smoteentree Coverage Results" MODIFIED="1485432798631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/imbalanced" />
+    <SUITE FILE_PATH="coverage/praca$print_info_data.coverage" NAME="print_info_data Coverage Results" MODIFIED="1486218374197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/praca$testcredit.coverage" NAME="testcredit Coverage Results" MODIFIED="1468755494720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/praca$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1487118813627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/praca$dotests.coverage" NAME="dotests Coverage Results" MODIFIED="1485366200132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/praca$test_meta_clfcopycopy.coverage" NAME="test_meta_clfcopycopy Coverage Results" MODIFIED="1488212856924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/test_my_clfs" />
+    <SUITE FILE_PATH="coverage/praca$testy.coverage" NAME="testy Coverage Results" MODIFIED="1485455769801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/praca$Doctests_in_simplefunctions.coverage" NAME="Doctests in simplefunctions Coverage Results" MODIFIED="1486321973814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/praca$SMOTETomek.coverage" NAME="SMOTETomek Coverage Results" MODIFIED="1487616466312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/imbalancedtests" />
+    <SUITE FILE_PATH="coverage/praca$adaboost_NB.coverage" NAME="adaboost_NB Coverage Results" MODIFIED="1488313491099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$bagging_NB.coverage" NAME="bagging_NB Coverage Results" MODIFIED="1488311192337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$test_myclf.coverage" NAME="test_myclf Coverage Results" MODIFIED="1487083790080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$hard_space.coverage" NAME="hard_space Coverage Results" MODIFIED="1488280192831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pracatex" />
+    <SUITE FILE_PATH="coverage/praca$cross_val_oversampling_test.coverage" NAME="cross_val_oversampling_test Coverage Results" MODIFIED="1486597867247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$adasyn.coverage" NAME="adasyn Coverage Results" MODIFIED="1488315307853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/imbalancedtests" />
+    <SUITE FILE_PATH="coverage/praca$runmy.coverage" NAME="runmy Coverage Results" MODIFIED="1487075756753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/runclassifiers" />
+    <SUITE FILE_PATH="coverage/praca$maintest.coverage" NAME="maintest Coverage Results" MODIFIED="1487444112231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/praca$importdata.coverage" NAME="importdata Coverage Results" MODIFIED="1486650388749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
+    <SUITE FILE_PATH="coverage/praca$meta_clf.coverage" NAME="meta_clf Coverage Results" MODIFIED="1487768765732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/classifiers" />
+    <SUITE FILE_PATH="coverage/praca$test_roc.coverage" NAME="test_roc Coverage Results" MODIFIED="1486684355669" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/praca$NCR.coverage" NAME="NCR Coverage Results" MODIFIED="1488315347935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/imbalancedtests" />
+    <SUITE FILE_PATH="coverage/praca$tree__2_.coverage" NAME="tree (2) Coverage Results" MODIFIED="1486250253834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/imbalancedtests" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="praca" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="206">
+      <file leaf-file-name="test_meta_clf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/test_my_clfs/test_meta_clf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="900">
+              <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_clf_expert.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/test_my_clfs/test_clf_expert.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="22" selection-start-line="22" selection-end-line="26" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_ensembe_with_voting.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/test_my_clfs/test_ensembe_with_voting.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="roc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/roc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="26" column="18" selection-end-line="58" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compare_alg.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/compare_alg.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="meta-cmp.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/meta-cmp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ada_boost_tree5.tex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree5.tex">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="hard_space.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pracatex/hard_space.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="12" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simplefunctions.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/simplefunctions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>new</find>
+      <find>border</find>
+      <find>’</find>
+      <find>\hline%</find>
+      <find>runtreegrid</find>
+      <find>spec</find>
+      <find>len</find>
+      <find>german</find>
+      <find>seb</find>
+      <find>sens</find>
+      <find>miara</find>
+      <find>klasa</find>
+      <find>float(&quot;{0:.2f}&quot;.format(</find>
+      <find>forma</find>
+      <find>random</find>
+      <find>ADASYN</find>
+      <find>range</find>
+      <find>skf</find>
+      <find>zbio</find>
+      <find>sel_idx</find>
+      <find>nc</find>
+      <find>adasyn</find>
+      <find>zbior</find>
+      <find>self.clfs_ensemble</find>
+      <find>experts</find>
+      <find>max_rating</find>
+      <find>zbi</find>
+      <find>folds</find>
+      <find>print_to_latex_sespf1g</find>
+      <find>print</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>3\n</replace>
+      <replace />
+      <replace>0</replace>
+      <replace>1</replace>
+      <replace>4</replace>
+      <replace>B</replace>
+      <replace>(os.path.join(path,</replace>
+      <replace>&quot;),</replace>
+      <replace>matrices0</replace>
+      <replace>^1,</replace>
+      <replace>matrices1</replace>
+      <replace>,2\n</replace>
+      <replace>SVC()</replace>
+      <replace>g</replace>
+      <replace>spec</replace>
+      <replace>prec</replace>
+      <replace>X_train</replace>
+      <replace>row_temp.append(row_temp[2]-row_temp[6])</replace>
+      <replace>fontsize=17</replace>
+      <replace>(0.5, -0.25)</replace>
+      <replace>(0.5, -0.10)</replace>
+      <replace>ax2</replace>
+      <replace>max_rating</replace>
+      <replace>self.max_rating</replace>
+      <replace>max_samples=samp, max_features = feat</replace>
+      <replace>n_estimators=30</replace>
+      <replace>'</replace>
+      <replace>NCR</replace>
+      <replace>print_to_latex_accsespf1g</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/tests/bagging_tree2.py" />
+        <option value="$PROJECT_DIR$/tests/gridsearch/bagging_knnn.py" />
+        <option value="$PROJECT_DIR$/maintest.py" />
+        <option value="$PROJECT_DIR$/tests/adaboost_tree2.py" />
+        <option value="$PROJECT_DIR$/tests/wyniki/pliki_tex/myclf.tex" />
+        <option value="$PROJECT_DIR$/tests/wyniki/pliki_tex/adaboost_tree.tex" />
+        <option value="$PROJECT_DIR$/tests/wyniki/pliki_tex/Stacking.tex" />
+        <option value="$PROJECT_DIR$/tests/imbalancedtests/random.py" />
+        <option value="$PROJECT_DIR$/tests/imbalancedtests/wyniki/pliki_pdf/usun.py" />
+        <option value="$PROJECT_DIR$/tests/imbalancedtests/smoteeen.py" />
+        <option value="$PROJECT_DIR$/tests/imbalancedtests/comapre_methods.py" />
+        <option value="$PROJECT_DIR$/classifiers/ensemble_rating.py" />
+        <option value="$PROJECT_DIR$/classifiers/ensemble_ratingcv.py" />
+        <option value="$PROJECT_DIR$/tests/test_ensemble_rating/test_meta_clf.py" />
+        <option value="$PROJECT_DIR$/classifiers/clf_expertCV.py" />
+        <option value="$PROJECT_DIR$/classifiers/clf_expert.py" />
+        <option value="$PROJECT_DIR$/tests/test_ensemble_rating/test_clf_expert.py" />
+        <option value="$PROJECT_DIR$/log.py" />
+        <option value="/usr/local/lib/python2.7/dist-packages/imblearn/under_sampling/neighbourhood_cleaning_rule.py" />
+        <option value="$PROJECT_DIR$/tests/test_my_clfs/test_meta_clfcopy.py" />
+        <option value="$PROJECT_DIR$/classifiers/meta_clfcopy.py" />
+        <option value="$PROJECT_DIR$/classifiers/meta_clfcopycopy.py" />
+        <option value="$PROJECT_DIR$/tests/test_my_clfs/test_meta_clfcopycopy.py" />
+        <option value="$PROJECT_DIR$/tests/analyze_db.py" />
+        <option value="$PROJECT_DIR$/tests/test_f1.py" />
+        <option value="$PROJECT_DIR$/tests/cross_val_oversampling.py" />
+        <option value="$PROJECT_DIR$/simplefunctions.py" />
+        <option value="$PROJECT_DIR$/tests/gridsearch/bagging_NB.py" />
+        <option value="$PROJECT_DIR$/tests/gridsearch/bagging_knn.py" />
+        <option value="$PROJECT_DIR$/tests/gridsearch/adaboost_tree.py" />
+        <option value="$PROJECT_DIR$/tests/gridsearch/bagging_tree.py" />
+        <option value="$PROJECT_DIR$/tests/bagging_tree.py" />
+        <option value="$PROJECT_DIR$/tests/bagging_knn.py" />
+        <option value="$PROJECT_DIR$/tests/adaboost_NB.py" />
+        <option value="$PROJECT_DIR$/tests/bagging_NB.py" />
+        <option value="$PROJECT_DIR$/tests/adaboost_tree.py" />
+        <option value="$PROJECT_DIR$/tests/stacking_cmp.py" />
+        <option value="$PROJECT_DIR$/tests/compare_alg.py" />
+        <option value="$PROJECT_DIR$/tests/meta-cmp.py" />
+        <option value="$PROJECT_DIR$/tests/imbalancedtests/smote.py" />
+        <option value="$PROJECT_DIR$/tests/imbalancedtests/adasyn.py" />
+        <option value="$PROJECT_DIR$/tests/imbalancedtests/smoteenn.py" />
+        <option value="$PROJECT_DIR$/tests/imbalancedtests/NCR.py" />
+        <option value="$PROJECT_DIR$/tests/imbalancedtests/SMOTETomek.py" />
+        <option value="$PROJECT_DIR$/tests/imbalancedtests/compare_methods.py" />
+        <option value="$PROJECT_DIR$/classifiers/meta_clf.py" />
+        <option value="$PROJECT_DIR$/tests/test_my_clfs/test_clf_expert.py" />
+        <option value="$PROJECT_DIR$/tests/test_my_clfs/test_meta_clf.py" />
+        <option value="$PROJECT_DIR$/tests/test_my_clfs/test_ensembe_with_voting.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/pracatex/hard_space.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1855" />
+    <option name="height" value="1176" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="praca" type="b2602c69:ProjectViewProjectNode" />
+              <item name="praca" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="praca" type="b2602c69:ProjectViewProjectNode" />
+              <item name="praca" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/kob22/PycharmProjects/praca/classifiers/ensemble_ratingcv.py" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="praca" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="praca" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/wyniki/final" />
+      <recent name="$PROJECT_DIR$/tests/test_ensemble_rating" />
+      <recent name="$PROJECT_DIR$/tests" />
+      <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$/tests/gridsearch" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/test_my_clfs" />
+      <recent name="$PROJECT_DIR$/classifiers" />
+      <recent name="$PROJECT_DIR$/tests/imbalancedtests" />
+      <recent name="$PROJECT_DIR$/tests/wyniki/pliki_tex" />
+      <recent name="$PROJECT_DIR$/pracatex/images" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.test_clf_expert">
+    <configuration name="NCR" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="praca" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/imbalancedtests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/imbalancedtests/NCR.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="adasyn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="praca" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/imbalancedtests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/imbalancedtests/adasyn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="smote" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="praca" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/imbalancedtests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/imbalancedtests/smote.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="test_clf_expert" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="praca" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/test_my_clfs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_my_clfs/test_clf_expert.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="test_meta_clf" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="praca" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/test_my_clfs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test_my_clfs/test_meta_clf.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="praca" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <list>
+      <item itemvalue="Python.smote" />
+      <item itemvalue="Python.adasyn" />
+      <item itemvalue="Python.NCR" />
+      <item itemvalue="Python.test_meta_clf" />
+      <item itemvalue="Python.test_clf_expert" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test_clf_expert" />
+        <item itemvalue="Python.test_meta_clf" />
+        <item itemvalue="Python.NCR" />
+        <item itemvalue="Python.adasyn" />
+        <item itemvalue="Python.smote" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9c3e561-8c74-4756-863c-f88ac98e99cd" name="Default" comment="" />
+      <created>1468191512474</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1468191512474</updated>
+    </task>
+    <task id="LOCAL-00001" summary="initial">
+      <created>1473428201833</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1473428201833</updated>
+    </task>
+    <task id="LOCAL-00002" summary="initial">
+      <created>1473428261507</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1473428261507</updated>
+    </task>
+    <task id="LOCAL-00003" summary="several changes">
+      <created>1485200632812</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1485200632812</updated>
+    </task>
+    <task id="LOCAL-00004" summary="several changes">
+      <created>1485201004147</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1485201004147</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add import data">
+      <created>1485300221620</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1485300221620</updated>
+    </task>
+    <task id="LOCAL-00006" summary="imputing missing values">
+      <created>1485342503271</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1485342503271</updated>
+    </task>
+    <task id="LOCAL-00007" summary="corrected errors">
+      <created>1485444229525</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1485444229525</updated>
+    </task>
+    <task id="LOCAL-00008" summary="imbalanced data test">
+      <created>1485473488080</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1485473488080</updated>
+    </task>
+    <task id="LOCAL-00009" summary="praca">
+      <created>1485553553877</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1485553553877</updated>
+    </task>
+    <task id="LOCAL-00010" summary="praca">
+      <created>1485615710758</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1485615710758</updated>
+    </task>
+    <task id="LOCAL-00011" summary="praca">
+      <created>1485725178598</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1485725178598</updated>
+    </task>
+    <task id="LOCAL-00012" summary="praca">
+      <created>1485807222376</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1485807222376</updated>
+    </task>
+    <task id="LOCAL-00013" summary="praca">
+      <created>1485871715092</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1485871715092</updated>
+    </task>
+    <task id="LOCAL-00014" summary="praca">
+      <created>1485903373823</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1485903373823</updated>
+    </task>
+    <task id="LOCAL-00015" summary="praca">
+      <created>1485903430756</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1485903430756</updated>
+    </task>
+    <task id="LOCAL-00016" summary="praca">
+      <created>1485936570153</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1485936570153</updated>
+    </task>
+    <task id="LOCAL-00017" summary="praca">
+      <created>1486159044855</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1486159044855</updated>
+    </task>
+    <task id="LOCAL-00018" summary="praca">
+      <created>1486251290070</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1486251290070</updated>
+    </task>
+    <task id="LOCAL-00019" summary="praca">
+      <created>1486325503873</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1486325503873</updated>
+    </task>
+    <task id="LOCAL-00020" summary="praca">
+      <created>1486423939210</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1486423939210</updated>
+    </task>
+    <task id="LOCAL-00021" summary="poprawki">
+      <created>1486466831079</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1486466831079</updated>
+    </task>
+    <task id="LOCAL-00022" summary="poprawki">
+      <created>1486466983485</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1486466983485</updated>
+    </task>
+    <task id="LOCAL-00023" summary="praca">
+      <created>1486501810715</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1486501810715</updated>
+    </task>
+    <task id="LOCAL-00024" summary="praca">
+      <created>1486601352528</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1486601352528</updated>
+    </task>
+    <task id="LOCAL-00025" summary="praca">
+      <created>1487118542110</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1487118542110</updated>
+    </task>
+    <task id="LOCAL-00026" summary="praca">
+      <created>1487203881632</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1487203881632</updated>
+    </task>
+    <task id="LOCAL-00027" summary="praca">
+      <created>1487329948205</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1487329948205</updated>
+    </task>
+    <task id="LOCAL-00028" summary="praca">
+      <created>1487346816757</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1487346816757</updated>
+    </task>
+    <task id="LOCAL-00029" summary="praca">
+      <created>1487458282013</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1487458282013</updated>
+    </task>
+    <task id="LOCAL-00030" summary="praca">
+      <created>1487631805636</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1487631805636</updated>
+    </task>
+    <task id="LOCAL-00031" summary="praca">
+      <created>1487717261396</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1487717261396</updated>
+    </task>
+    <task id="LOCAL-00032" summary="praca">
+      <created>1487799044931</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1487799044931</updated>
+    </task>
+    <task id="LOCAL-00033" summary="praca">
+      <created>1487952041255</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1487952041255</updated>
+    </task>
+    <task id="LOCAL-00034" summary="praca">
+      <created>1488233421437</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1488233421437</updated>
+    </task>
+    <task id="LOCAL-00035" summary="praca">
+      <created>1488243645673</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1488243645673</updated>
+    </task>
+    <task id="LOCAL-00036" summary="praca">
+      <created>1488244252082</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1488244252082</updated>
+    </task>
+    <task id="LOCAL-00037" summary="praca">
+      <created>1488281541010</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1488281541010</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="Doctests_in_simplefunctions - 2017.01.25 at 23h 47m 57s.xml">
+      <configuration name="Doctests in simplefunctions" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Doctests_in_simplefunctions - 2017.02.05 at 20h 12m 54s.xml">
+      <configuration name="Doctests in simplefunctions" configurationId="tests" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="24" width="1855" height="1176" extended-state="0" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49272236" weight="0.328792" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5018868" side_tool="true" weight="0.35967302" />
+      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" x="2107" y="508" width="1855" height="601" id="Run" order="2" sideWeight="0.5041459" side_tool="true" weight="0.32857144" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49585405" visible="true" weight="0.32843137" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49806523" weight="0.32795697" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2830293" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="SciView" order="1" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.48922056" weight="0.39809525" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49595687" weight="0.328792" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32991913" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" x="2107" y="508" width="1855" height="601" id="Run" order="2" sideWeight="0.5061995" side_tool="true" visible="true" weight="0.37003058" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2652291" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49272236" weight="0.328792" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32925585" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49595687" weight="0.328792" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32991913" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5018868" side_tool="true" weight="0.35967302" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49380055" weight="0.39872843" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32858595" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial" />
+    <MESSAGE value="several changes" />
+    <MESSAGE value="add import data" />
+    <MESSAGE value="imputing missing values" />
+    <MESSAGE value="corrected errors" />
+    <MESSAGE value="imbalanced data test" />
+    <MESSAGE value="poprawki" />
+    <MESSAGE value="praca" />
+    <option name="LAST_COMMIT_MESSAGE" value="praca" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/tests/bagging_tree2.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_my_clfs/test_meta_clfcopy.py" />
+    <entry file="file://$PROJECT_DIR$/classifiers/meta_clfcopy.py" />
+    <entry file="file://$PROJECT_DIR$/tests/test_my_clfs/wyniki/pliki_tex/test_meta_clf.tex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="136" selection-start-line="136" selection-end-line="157" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/importdata.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_wsk.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3525" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_roc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-480" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_g_mean.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1140" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_f1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/analyze_db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/cross_val_oversampling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="48" column="19" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/gridsearch/svm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/gridsearch/bagging_NB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/gridsearch/bagging_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="72" lean-forward="true" selection-start-line="8" selection-start-column="72" selection-end-line="8" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/gridsearch/adaboost_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/wyniki/pliki_tex/bagging_NB0.720.68.tex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="37" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/gridsearch/bagging_knn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/bagging_knn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="72" column="24" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/bagging_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="107" column="40" lean-forward="true" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/adaboost_NB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="68" column="15" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/adaboost_tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/stacking_cmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="89" column="23" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/imbalancedtests/smote.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="46" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/imbalancedtests/adasyn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="47" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/imbalancedtests/NCR.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="110" lean-forward="true" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/imbalancedtests/smoteenn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="42" selection-start-line="42" selection-end-line="46" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/imbalancedtests/SMOTETomek.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="42" selection-start-line="42" selection-end-line="46" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/imbalancedtests/compare_methods.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="63" column="41" selection-start-line="63" selection-start-column="41" selection-end-line="63" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/bagging_NB.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="25" selection-start-line="25" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifiers/ensemble_rating2.py" />
+    <entry file="file://$PROJECT_DIR$/classifiers/meta_clf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="131" column="37" selection-start-line="131" selection-start-column="37" selection-end-line="131" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifiers/clf_expert.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classifiers/clf_expertCV.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_my_clfs/test_meta_clf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_my_clfs/test_clf_expert.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="22" selection-start-line="22" selection-end-line="26" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_my_clfs/test_ensembe_with_voting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testy.py" />
+    <entry file="file://$PROJECT_DIR$/testmds.py" />
+    <entry file="file://$PROJECT_DIR$/testcredit.py" />
+    <entry file="file://$PROJECT_DIR$/test2.py" />
+    <entry file="file://$PROJECT_DIR$/roc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maintest.py" />
+    <entry file="file://$PROJECT_DIR$/log.py" />
+    <entry file="file://$PROJECT_DIR$/dotests.py" />
+    <entry file="file://$PROJECT_DIR$/do.txt" />
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="26" column="18" selection-end-line="58" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/compare_alg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/meta-cmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/wyniki/pliki_tex/ada_boost_tree5.tex">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pracatex/hard_space.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="12" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simplefunctions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

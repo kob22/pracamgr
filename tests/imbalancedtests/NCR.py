@@ -40,7 +40,12 @@ stacking = StackingCVClassifier(
     classifiers=[KNeighborsClassifier(), tree.DecisionTreeClassifier(max_depth=3), GaussianNB()],
     meta_classifier=meta)
 
-iterations = 2
+
+# liczba powtorzen klasyfikacji
+iterations = 10
+
+# liczba fold w sprawdzianie krzyzowym
+folds = 10
 random_st = 5
 clfs = [clf1, clf2, stacking]
 for data in dataset:
@@ -54,14 +59,7 @@ for data in dataset:
     for i in range(5):
         rows.append([data])
 
-    if length_data > 1000:
-        folds = 30
-    elif length_data > 700:
-        folds = 30
-    elif length_data > 500:
-        folds = 30
-    else:
-        folds = 30
+
     skf = StratifiedKFold(n_splits=folds, random_state=random_st)
 
     for clf in clfs:
@@ -110,6 +108,7 @@ for data in dataset:
 
         for i, score in enumerate(to_decimal):
             rows[i].append(score)
+
     for table, row in zip(tables, rows):
         max_v = max(row[1:])
         new_row = []

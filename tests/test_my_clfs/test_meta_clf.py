@@ -32,7 +32,11 @@ for tab in range(5):
 clf1 = KNeighborsClassifier()
 clf2 = tree.DecisionTreeClassifier()
 clf3 = GaussianNB()
+
+# liczba powtorzen klasyfikacji
 iterations = 10
+
+# wielkosc sprawdzianu krzyzowego
 folds = 10
 prec_clf1 = clf_expert(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)])
 m_clf = meta_classifier(estimators=[('KNN', clf1), ('TREE', clf2), ('NB', clf3)],
@@ -56,16 +60,18 @@ for data in dataset:
     for i in range(5):
         rows.append([data])
 
+    # ocena klasyfikatorow
     for clf in clfs:
         scores = []
         for iteration in range(iterations):
             clf_ = clone(clf)
 
+            # sprawdzian krzyzowy
             testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
             scores.append(accsespf1g(testpredict, testtarget))
             print(str(clf))
             print_scores(testpredict, testtarget)
-
+        # usrednienie wynikow
         avgscores = avgaccsespf1g(scores)
         to_decimal = print_to_latex_two_decimal(avgscores)
 
@@ -81,7 +87,7 @@ for data in dataset:
                 new_row.append(item)
 
         table.add_row(new_row)
-
+# zapis do plikow
 doc = Document("test_meta_clf")
 for i, (tab, sec) in enumerate(zip(tables, sections)):
     section = Section(sec)

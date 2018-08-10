@@ -2,11 +2,19 @@ from sklearn import tree
 
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import BaggingClassifier
-
+from data import importdata
 import numpy as np
 
-
-def runtreegrid(data, target):
+dataset = ['abalone16_29', 'balance_scale', 'breast_cancer', 'car', 'cmc',
+           'ecoli', 'glass', 'haberman', 'heart_cleveland', 'hepatitis',
+           'new_thyroid', 'postoperative', 'solar_flare', 'transfusion', 'vehicle',
+           'yeastME3', 'bupa', 'german', 'horse_colic', 'ionosphere', 'seeds', 'vertebal']
+folds = 10
+for data in dataset:
+    db = getattr(importdata, 'load_' + data)()
+    print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+    print('Zbior danych: %s' % data)
+    importdata.print_info(db.target)
     max_depth = [None, 3, 5, 7, 10, 20]
     n_estimators = [5, 10, 15, 20, 50, 100]
     for estimator in n_estimators:
@@ -25,7 +33,7 @@ def runtreegrid(data, target):
                 folds = 3
             grid_search = GridSearchCV(clf, scoring='f1', cv=folds, param_grid=param_grid)
 
-            grid_search.fit(data, target)
+            grid_search.fit(db.data, db.target)
             results = grid_search.cv_results_
             best_parameters2 = []
 

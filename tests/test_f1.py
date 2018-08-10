@@ -30,7 +30,7 @@ clf = tree.DecisionTreeClassifier()
 folds = [StratifiedKFold(n_splits=10, random_state=5), KFold(n_splits=10, random_state=5)]
 name_folds = ['Stratified CV, k=10', 'Unstratified CV, k=10']
 
-# wyres
+# wykres
 fig1 = plt.figure(facecolor='white', figsize=(7.532, 6))
 plt.rc('font', **{'family': 'sans-serif', 'sans-serif': ['Helvetica'], 'size': 10})
 plt.rc('legend', fontsize=10)

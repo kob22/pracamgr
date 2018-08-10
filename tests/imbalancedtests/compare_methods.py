@@ -40,7 +40,12 @@ methods = [SMOTE(random_state=random_st), ADASYN(random_state=random_st),
            NeighbourhoodCleaningRule(random_state=random_st), SMOTEENN(random_state=random_st),
            SMOTETomek(random_state=random_st)]
 names_m = ["SMOTE", "ADASYN", "NCR", "SMOTEENN", "SMOTETomek"]
+
+# liczba powtorzen klasyfikacji
 iterations = 10
+
+# liczba fold w sprawdzianie krzyzowym
+folds = 10
 random_st = 5
 
 for data in dataset:
@@ -54,15 +59,9 @@ for data in dataset:
     for i in range(5):
         rows.append([data])
 
-    if length_data > 1000:
-        folds = 10
-    elif length_data > 700:
-        folds = 7
-    elif length_data > 500:
-        folds = 5
-    else:
-        folds = 3
     skf = StratifiedKFold(n_splits=folds, random_state=random_st)
+
+    # obliczenie bez rownowazenia zbiorow
     scoresclf = []
     for iteration in range(iterations):
         clf_ = clone(clf1)

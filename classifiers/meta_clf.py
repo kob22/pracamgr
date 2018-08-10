@@ -24,7 +24,7 @@ def _parallel_fit_estimator(estimator, X, y):
     return estimator
 
 
-# klasyfikator ENSEBLE z funckja wybierajaca najlepszy klasyfikator na podstawie sprawdzianu krzyzowego
+# METAK LASYFIKATOR
 # funkcja porownujaca klasyfikatory moze byc: precision_tp_fp, g_meantpfp, f1tpfp
 class meta_classifier(BaseEstimator, ClassifierMixin, TransformerMixin):
     # inicjalizacja
@@ -88,6 +88,8 @@ class meta_classifier(BaseEstimator, ClassifierMixin, TransformerMixin):
 
 
         skf = StratifiedKFold(n_splits=2, random_state=self.random_st)
+
+        # trenowanie i ocenianie klasyfiktorow dla zbioru SMOTE i NCR
         for clf in self.clfs:
             for method, name in zip(self.methoda, self.name_met):
                 metodaa = SMOTE(k_neighbors=3,random_state=self.random_st)
@@ -139,30 +141,23 @@ class meta_classifier(BaseEstimator, ClassifierMixin, TransformerMixin):
             elif fun_cmp > self.max_g[2]:
                 self.clf_id[2] = idx
                 self.max_g[2] = fun_cmp
-        print(self.clfs)
-        print(self.clf_id)
         for clf_id in self.clf_id:
             if clf_id > len(self.estimators_ada) + len(self.estimators_bag):
-                print("JESTEM!!!")
                 if clf_id % 2 == 0:
-                    print("ADASYN!!!")
                     met = self.methods[0]
                     data_re, tar_re = met.fit_sample(X, y)
                     clf_ = clone(self.clfs[(clf_id-7)/2])
                     self.ensemble_.append(clf_.fit(data_re, tar_re))
                 else:
-                    print("NCR")
                     met = self.methods[1]
                     data_re, tar_re = met.fit_sample(X, y)
                     clf_ = clone(self.clfs[(clf_id-7)/2])
                     self.ensemble_.append(clf_.fit(data_re, tar_re))
             else:
-                print("BEEEZ")
                 clf_ = clone(self.clfs[clf_id])
                 self.ensemble_.append(clf_.fit(X,y))
 
         meta_features = self._predict_meta_features(X)
-        print(meta_features)
         self.meta_clf_.fit(meta_features, y)
 
     def predict(self, X):

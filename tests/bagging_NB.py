@@ -18,9 +18,15 @@ dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
+
+# ustawienia baggingu
 samples = [0.68]
 features = [0.72]
+
+# liczba powtorzen klasyfikacji
 iterations = 10
+
+# liczba fold w sprawdzianie krzyzowym
 folds = 10
 for feat in features:
     for samp in samples:
@@ -32,6 +38,7 @@ for feat in features:
             table.add_hline()
             tables.append(table)
 
+        # klasyfikatory
         clf1 = GaussianNB()
         clfs = [clf1,
                 BaggingClassifier(GaussianNB(), n_estimators=5, max_samples=samp, max_features=feat),
@@ -51,14 +58,18 @@ for feat in features:
             for i in range(5):
                 rows.append([data])
 
+            # obliczenia dla kazdego klasyfikatora
             for clf in clfs:
                 scores = []
+                #powtarzanie klasyfikacji
                 for iteration in range(iterations):
                     clf_ = clone(clf)
+                    # sprawdzian krzyzowy
                     testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
                     scores.append(accsespf1g(testpredict, testtarget))
                     print(str(clf))
                     print_scores(testpredict, testtarget)
+                # usrednanie wynikow
                 avgscores = avgaccsespf1g(scores)
                 to_decimal = print_to_latex_two_decimal(avgscores)
                 for i, score in enumerate(to_decimal):
@@ -75,7 +86,7 @@ for feat in features:
                     else:
                         new_row.append(item)
                 table.add_row(new_row)
-
+        # zapis do pliku
         doc = Document("bagging_NB%s%s" % (feat, samp))
         for i, tab, in enumerate(tables):
             section = Section(sections[i])

@@ -1,5 +1,5 @@
 from sklearn.naive_bayes import GaussianNB
-from sklearn.model_selection import GridSearchCV, cross_val_score
+from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import BaggingClassifier
 from data import importdata
 
@@ -9,7 +9,7 @@ dataset = ['abalone16_29', 'balance_scale', 'breast_cancer', 'car', 'cmc',
            'ecoli', 'glass', 'haberman', 'heart_cleveland', 'hepatitis',
            'new_thyroid', 'postoperative', 'solar_flare', 'transfusion', 'vehicle',
            'yeastME3', 'bupa', 'german', 'horse_colic', 'ionosphere', 'seeds', 'vertebal']
-
+folds = 10
 n_estimators = [5, 10, 15, 20, 50, 100, 200]
 for estimator in n_estimators:
     print("Liczba klasyfikatorow: %s" % estimator)
@@ -20,15 +20,7 @@ for estimator in n_estimators:
         importdata.print_info(db.target)
         param_grid = [{'max_features': [0.4, 0.6, 0.7, 0.8, 0.9, 1.0], 'max_samples': [0.4, 0.6, 0.7, 0.8, 0.9, 1.0]}]
         clf = BaggingClassifier(GaussianNB(), n_estimators=estimator)
-        length_data = len(data)
-        if length_data > 1000:
-            folds = 10
-        elif length_data > 700:
-            folds = 7
-        elif length_data > 500:
-            folds = 5
-        else:
-            folds = 3
+
         grid_search = GridSearchCV(clf, scoring='f1', cv=folds, param_grid=param_grid)
 
         grid_search.fit(db.data, db.target)

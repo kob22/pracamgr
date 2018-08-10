@@ -15,14 +15,18 @@ from simplefunctions import *
 from pylatex import Tabular, Document, Section
 import os
 
+# porownanie algorytmow
 path = os.path.dirname(os.path.abspath(__file__))
 dataset = ['abalone0_4', 'abalone041629', 'abalone16_29', 'balance_scale', 'breast_cancer', 'car', 'cmc',
           'ecoli', 'glass', 'haberman', 'heart_cleveland', 'hepatitis',
           'new_thyroid', 'postoperative', 'solar_flare', 'transfusion', 'vehicle', 'yeastME1',
            'yeastME2', 'yeastME3', 'bupa', 'german', 'horse_colic', 'ionosphere', 'seeds', 'vertebal']
 
-fold = 10
+# liczba powtorzen klasyfikacji
+iterations = 10
 
+# liczba fold w sprawdzianie krzyzowym
+folds = 10
 random_state = 5
 tables = []
 for tab in range(4):
@@ -49,26 +53,31 @@ for data in dataset:
     print('Klasa: %s' % data)
     importdata.print_info(db.target)
     rows = []
-    for i in range(4):
+    for i in range(5):
         rows.append([data])
 
+    # obliczenia dla kazdego klasyfikatora
     for clf in clfs:
-        clf_ = clone(clf)
-        testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=fold,
-                                                     n_jobs=-1)
-        scores = print_to_latex(testpredict, testtarget)
-
-        for i, score in enumerate(scores):
+        scores = []
+        # powtarzanie klasyfikacji
+        for iteration in range(iterations):
+            clf_ = clone(clf)
+            # sprawdzian krzyzowy
+            testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
+            scores.append(accsespf1g(testpredict, testtarget))
+            print(str(clf))
+            print_scores(testpredict, testtarget)
+        # usrednanie wynikow
+        avgscores = avgaccsespf1g(scores)
+        to_decimal = print_to_latex_two_decimal(avgscores)
+        for i, score in enumerate(to_decimal):
             rows[i].append(score)
-        print("----------")
-        print(str(clf))
-        print_scores(testpredict, testtarget)
     for table, row in zip(tables, rows):
         print(row)
         table.add_row(row)
         table.add_hline()
 
-doc = Document("Doc")
+doc = Document("porownanie-meta-metod")
 for i, tab, in enumerate(tables):
     section = Section(str(i))
     section.append(tab)

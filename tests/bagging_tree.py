@@ -12,6 +12,8 @@ from pylatex import MultiRow
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
+
+# zbiory danych
 dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME3', 'ecoli', 'bupa',
            'horse_colic',
            'german', 'breast_cancer', 'cmc', 'hepatitis', 'haberman', 'transfusion',
@@ -20,27 +22,36 @@ dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
 tables = []
+
+# liczba iteracji
 iterations = 10
+
+# ustawienia baggingu
 samp = 0.8
 feat = 0.9
+
+# liczbya fold w sprawdzianie krzyzowym
 folds = 10
+
+# glebokosc drzew
+depths = [None, 3, 5, 7, 10, 15, 20]
+estimators = [5, 10, 20, 50]
+estimators_name = ['-']
+estimators_name.extend(estimators)
+
 for tab in range(5):
     table = LongTable('c|c|ccccccc')
     table.add_hline()
     table.add_row(('Glebokosc drzewa', 'Liczba est.', "-", "3", "5", "7", "10", "15", "20"))
     table.add_hline()
     tables.append(table)
-depths = [None, 3, 5, 7, 10, 15, 20]
-estimators = [5, 10, 20, 50]
-estimators_name = ['-']
-estimators_name.extend(estimators)
-print(estimators_name)
 clfs = []
 temp_clf = []
 for depth in depths:
     temp_clf.append(tree.DecisionTreeClassifier(max_depth=depth))
 clfs.append(temp_clf)
 
+# tworzenie klasyfikatorow
 for estimator in estimators:
     temp2_clf = []
     for depth in depths:
@@ -55,7 +66,7 @@ for data in dataset:
     print('Zbior danych: %s' % data)
     importdata.print_info(db.target)
 
-
+    # obliczanie wynikow
     for id, (clfs_, name) in enumerate(zip(clfs, estimators_name)):
         rows = []
         if id == 0:
@@ -68,16 +79,18 @@ for data in dataset:
             scores = []
             for iteration in range(iterations):
                 clf_ = clone(clf)
+                # sprawdzian krzyzowy
                 testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
                 scores.append(accsespf1g(testpredict, testtarget))
                 print(str(clf))
                 print_scores(testpredict, testtarget)
+            # usrednianie wynikow
             avgscores = avgaccsespf1g(scores)
             to_decimal = print_to_latex_two_decimal(avgscores)
             for i, score in enumerate(to_decimal):
                 rows[i].append(score)
 
-
+        # zapis do tabeli
         for table, row in zip(tables, rows):
 
             max_v = max(row[2:])

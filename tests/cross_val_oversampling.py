@@ -24,6 +24,7 @@ clf4 = svm.SVC(kernel='rbf', probability=True)
 clfs_normal = [('Decision Tree', clf1), ('NB', clf2)]
 clfs_stand = [('kNN', clf3), ('SVM', clf4)]
 
+folds = 10
 
 # bez oversamplingu
 def cross_val_oversampling_before(data, target):
@@ -32,16 +33,6 @@ def cross_val_oversampling_before(data, target):
     stdsc = StandardScaler()
     datastdsc = stdsc.fit_transform(data)
 
-    # podzial CV w zaleznosci od ilosci probek
-    length_data = len(data)
-    if length_data > 1000:
-        folds = 10
-    elif length_data > 700:
-        folds = 7
-    elif length_data > 500:
-        folds = 5
-    else:
-        folds = 3
 
     rows_normal = []
     rows_stand = []
@@ -98,16 +89,6 @@ def cross_val_oversampling_wrong(data, target):
     stdsc = StandardScaler()
     datastdsc = stdsc.fit_transform(X_resampled)
     datastdsc_test = stdsc.transform(X_test)
-
-    length_data = len(data)
-    if length_data > 1000:
-        folds = 10
-    elif length_data > 700:
-        folds = 7
-    elif length_data > 500:
-        folds = 5
-    else:
-        folds = 3
 
     skf = StratifiedKFold(n_splits=folds, random_state=5)
     rows_normal = [[], []]
@@ -217,17 +198,7 @@ def cross_val_oversampling_correct(data, target):
     sm = SMOTE()
     X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.20, random_state=5, stratify=target)
 
-    # skalowanie dla SVM i kNN
-    # podzial CV w zaleznosci od ilosci probek
-    length_data = len(data)
-    if length_data > 1000:
-        folds = 10
-    elif length_data > 700:
-        folds = 7
-    elif length_data > 500:
-        folds = 5
-    else:
-        folds = 3
+
 
     skf = StratifiedKFold(n_splits=folds, random_state=5)
     rows_normal = [[], []]

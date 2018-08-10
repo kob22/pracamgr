@@ -1,21 +1,21 @@
 \select@language {polish}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Rysunek przyk\IeC {\l }adowego drzewa decyzyjnego}}{7}{figure.caption.5}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Przyk\IeC {\l }ad klasyfikatora kNN}}{9}{figure.caption.6}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Przyk\IeC {\l }ad klasyfikatora SVM}}{10}{figure.caption.7}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Przyk\IeC {\l }ad krzywej ROC}}{21}{figure.caption.20}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Rysunek wariancji i~obci\IeC {\k a}\IeC {\.z}enia}}{22}{figure.caption.21}
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Przyk\IeC {\l }ad sprawdzianu krzy\IeC {\.z}owego k-krotnego, $k=4$.\relax }}{24}{figure.caption.27}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Rysunek przyk\IeC {\l }adowego drzewa decyzyjnego}}{7}{figure.caption.7}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Przyk\IeC {\l }ad klasyfikatora kNN}}{9}{figure.caption.8}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Przyk\IeC {\l }ad klasyfikatora SVM}}{10}{figure.caption.9}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Przyk\IeC {\l }ad krzywej ROC}}{21}{figure.caption.22}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Rysunek wariancji i~obci\IeC {\k a}\IeC {\.z}enia}}{22}{figure.caption.23}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Przyk\IeC {\l }ad sprawdzianu krzy\IeC {\.z}owego k-krotnego, $k=4$.\relax }}{24}{figure.caption.29}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Wykresy miar dla sprawdzianu krzy\IeC {\.z}owego}}{36}{figure.caption.39}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Odchylenie standardowe miar dla sprawdzianu krzy\IeC {\.z}owego}}{37}{figure.caption.40}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Odchylenie standardowe oraz \IeC {\'s}rednia miar F1 dla sprawdzianu krzy\IeC {\.z}owego}}{39}{figure.caption.42}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Odchylenie standardowe oraz \IeC {\'s}rednia miar G-mean dla sprawdzianu krzy\IeC {\.z}owego}}{40}{figure.caption.44}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Wykres krzywej ROC dla r\IeC {\'o}\IeC {\.z}nego sprawdzianu krzy\IeC {\.z}owego}}{41}{figure.caption.46}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Sprawdzian krzy\IeC {\.z}owy z~oversamplingiem}}{43}{figure.caption.49}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Wykresy miar dla sprawdzianu krzy\IeC {\.z}owego}}{36}{figure.caption.41}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Odchylenie standardowe miar dla sprawdzianu krzy\IeC {\.z}owego}}{37}{figure.caption.42}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Odchylenie standardowe oraz \IeC {\'s}rednia miar F1 dla sprawdzianu krzy\IeC {\.z}owego}}{39}{figure.caption.44}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Odchylenie standardowe oraz \IeC {\'s}rednia miar G-mean dla sprawdzianu krzy\IeC {\.z}owego}}{40}{figure.caption.46}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Wykres krzywej ROC dla r\IeC {\'o}\IeC {\.z}nego sprawdzianu krzy\IeC {\.z}owego}}{41}{figure.caption.48}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Sprawdzian krzy\IeC {\.z}owy z~oversamplingiem}}{43}{figure.caption.51}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Schemat klasyfikatora eksperckiego}}{82}{figure.caption.92}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Projekt meta-klasyfikatora.\relax }}{85}{figure.caption.97}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Schemat klasyfikatora eksperckiego}}{82}{figure.caption.94}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Projekt meta-klasyfikatora.\relax }}{85}{figure.caption.99}
 \addvspace {10\p@ }

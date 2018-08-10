@@ -5,12 +5,15 @@ from pylatex import Tabular, Document, Section
 import os
 
 path = os.path.dirname(os.path.abspath(__file__))
+
+# zbior danych
 dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME3', 'yeastME1', 'ecoli', 'bupa',
            'horse_colic',
            'abalone0_4', 'german', 'breast_cancer', 'cmc', 'hepatitis', 'haberman', 'yeastME2', 'abalone041629',
            'transfusion',
            'car', 'glass', 'abalone16_29', 'solar_flare', 'heart_cleveland', 'balance_scale', 'postoperative']
 
+# tworzenie tabeli
 table = Tabular('c|cccc')
 table.add_row(('', "Safe [%]", "Borderline [%]", "Rare [%]", "Outlier [%]"))
 table.add_hline()

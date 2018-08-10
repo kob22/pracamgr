@@ -20,7 +20,10 @@ dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 random_state = 5
+# liczba powtorzen klasyfikacji
 iterations = 10
+
+# wielkosc sprawdzianu krzyzowego
 folds = 10
 tables = []
 for tab in range(5):
@@ -55,16 +58,17 @@ for data in dataset:
     for i in range(5):
         rows.append([data])
 
-
+    # ocena klasyfikatorow
     for clf in clfs:
         scores = []
         for iteration in range(iterations):
             clf_ = clone(clf)
+            # sprawdzian krzyzowy
             testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
             scores.append(accsespf1g(testpredict, testtarget))
             print(str(clf))
             print_scores(testpredict, testtarget)
-
+        # usrednianie wynikow
         avgscores = avgaccsespf1g(scores)
         to_decimal = print_to_latex_two_decimal(avgscores)
 
@@ -80,7 +84,7 @@ for data in dataset:
                 new_row.append(item)
 
         table.add_row(new_row)
-
+# zapis do pliku
 doc = Document("test_expert_clf")
 for i, (tab, sec) in enumerate(zip(tables, sections)):
     section = Section(sec)

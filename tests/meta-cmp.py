@@ -23,6 +23,13 @@ dataset = ['seeds', 'new_thyroid', 'vehicle', 'ionosphere', 'vertebal', 'yeastME
 
 sections = ["Accuracy", "Sensitivity", "Specificity", "F-1 klasa mniejszosciowa", 'G-mean']
 
+
+# porownanie meta-metod
+# liczba powtorzen klasyfikacji
+iterations = 10
+
+# liczba fold w sprawdzianie krzyzowym
+folds = 10
 random_state = 5
 tables = []
 for tab in range(5):
@@ -51,19 +58,10 @@ for data in dataset:
     for i in range(5):
         rows.append([data])
 
-    length_data = len(data)
-    if length_data > 1000:
-        folds = 10
-    elif length_data > 700:
-        folds = 7
-    elif length_data > 500:
-        folds = 5
-    else:
-        folds = 3
-
+    # klasyfikacja
     for clf in clfs:
         scores = []
-        for iteration in range(10):
+        for iteration in iterations:
             clf_ = clone(clf)
             testpredict, testtarget = cross_val_pred2ict(clf_, db.data, db.target, cv=folds, n_jobs=-1)
             scores.append(accsespf1g(testpredict, testtarget))
@@ -85,8 +83,8 @@ for data in dataset:
             else:
                 new_row.append(item)
         table.add_row(new_row)
-
-doc = Document("Meta CMP4")
+# zapis do pliku
+doc = Document("Meta CMP")
 for i, tab, in enumerate(tables):
     section = Section(sections[i])
     section.append(tab)
